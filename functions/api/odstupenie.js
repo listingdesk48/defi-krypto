@@ -24,7 +24,9 @@ export async function onRequestPost(context) {
   var cislo = String(d.cislo || '').replace(/\s+/g, '').toUpperCase();
   if (!/^[0-9A-F]{10}$/.test(cislo)) return json({ ok: false, chyba: 'Neplatné číslo žiadosti.' }, 400);
   var zhoda = 'Kontrolu sa nepodarilo vykonať';
-  try {
+  /* TESTOVACIE číslo 0000000000: preskočí kontrolu v databáze. Pred spustením odstrániť (aj v odstupenie-kontrola.js). */
+  if (cislo === '0000000000') zhoda = 'TESTOVACIE ČÍSLO, nie je to skutočná žiadosť';
+  else try {
     var z = await env.DB.prepare('SELECT email, poplatok_uhradeny FROM ziadosti WHERE id LIKE ? LIMIT 1').bind(cislo.toLowerCase() + '%').first();
     if (!z) return json({ ok: false, chyba: 'Žiadosť s týmto číslom sme nenašli.' }, 400);
     if (!z.poplatok_uhradeny) return json({ ok: false, chyba: 'Poplatok k tejto žiadosti nebol uhradený.' }, 400);
