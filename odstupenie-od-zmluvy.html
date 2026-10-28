@@ -452,7 +452,7 @@ function kruh(){var v=INFO,z=v.zostava,sp=v.dni+z,C=578.05,p=$('oKrP'),n=$('oKrN
 document.querySelectorAll('.d3 .s1-step').forEach(function(s){s.classList.remove('on')});$('d3Ft').style.display='none';$('d3Spat').style.visibility='hidden';
 $('oKrS').textContent=(z===1?'deň':(z>=2&&z<=4?'dni':'dní'))+' zostáva';
 $('oKrT').textContent=z*2>sp?'Váš inzerát má pred sebou ešte väčšinu zverejnenia':'Váš inzerát je ešte stále zverejnený';
-$('oKrX').textContent='Z '+sp+' dní zverejnenia '+(z>=2&&z<=4?'zostávajú':'zostáva')+' ešte '+z+'. Ak odstúpite, inzerát sa ihneď odstráni zo zoznamu a záujemcovia naň už nebudú môcť reagovať.';
+$('oKrX').textContent='Z '+sp+' dní zverejnenia '+(z>=2&&z<=4?'zostávajú':'zostáva')+' ešte '+z+'. ';var kb=document.createElement('strong');kb.style.cssText='color:#1d1d1f;font-weight:600';kb.textContent='Ak odstúpite, inzerát sa ihneď odstráni zo zoznamu a záujemcovia naň už nebudú môcť reagovať.';$('oKrX').appendChild(kb);
 p.style.transition='none';p.style.strokeDashoffset=C;n.textContent='0';$('oKruh').classList.add('on');
 var ciel=C*(1-z/sp),s0=null;requestAnimationFrame(function(){requestAnimationFrame(function(){p.style.transition='stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1)';p.style.strokeDashoffset=ciel})});
 function k(ts){if(!s0)s0=ts;var x=Math.min(1,(ts-s0)/1200),y=x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;n.textContent=Math.round(y*z);if(x<1)requestAnimationFrame(k)}requestAnimationFrame(k)}
