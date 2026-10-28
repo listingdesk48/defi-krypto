@@ -25,11 +25,13 @@ export async function onRequestPost(context) {
   if (!/^[0-9A-F]{10}$/.test(cislo)) return json({ ok: false, chyba: 'Neplatné číslo žiadosti.' }, 400);
   var zhoda = 'Kontrolu sa nepodarilo vykonať';
   /* TESTOVACIE číslo 0000000000: preskočí kontrolu v databáze. Pred spustením odstrániť (aj v odstupenie-kontrola.js). */
+  if (cislo === '0000000001') return json({ ok: false, chyba: 'Lehota na odstúpenie uplynula.' }, 400);
   if (cislo === '0000000000') zhoda = 'TESTOVACIE ČÍSLO, nie je to skutočná žiadosť';
   else try {
-    var z = await env.DB.prepare('SELECT email, poplatok_uhradeny FROM ziadosti WHERE id LIKE ? LIMIT 1').bind(cislo.toLowerCase() + '%').first();
+    var z = await env.DB.prepare('SELECT email, poplatok_uhradeny, poplatok_uhradeny_o, zverejnene_o FROM ziadosti WHERE id LIKE ? LIMIT 1').bind(cislo.toLowerCase() + '%').first();
     if (!z) return json({ ok: false, chyba: 'Žiadosť s týmto číslom sme nenašli.' }, 400);
     if (!z.poplatok_uhradeny) return json({ ok: false, chyba: 'Poplatok k tejto žiadosti nebol uhradený.' }, 400);
+    if (lehota(new Date(z.poplatok_uhradeny_o || z.zverejnene_o || Date.now()).getTime()).uplynula) return json({ ok: false, chyba: 'Lehota na odstúpenie uplynula.' }, 400);
     zhoda = String(z.email || '').toLowerCase() === email.toLowerCase() ? 'Číslo žiadosti a e-mail sa zhodujú, poplatok uhradený' : 'Poplatok uhradený, ale e-mail sa nezhoduje so žiadosťou';
   } catch (e) { console.log('odstupenie kontrola', String(e)); }
 
@@ -56,3 +58,9 @@ export async function onRequestPost(context) {
 
 function bPoly(v) { var G = [0x3b6a57b2, 0x26508e6d, 0x1ea119fa, 0x3d4233dd, 0x2a1462b3], c = 1; for (var i = 0; i < v.length; i++) { var b = c >>> 25; c = ((c & 0x1ffffff) << 5) ^ v[i]; for (var j = 0; j < 5; j++) if ((b >>> j) & 1) c ^= G[j]; } return c >>> 0; }
 function btcOk(a) { if (a.slice(0, 3) !== 'bc1' || a.length < 14 || a.length > 90) return false; var CH = 'qpzry9x8gf2tvdw0s3jn54khce6mua7l', d = [], i; for (i = 3; i < a.length; i++) { var x = CH.indexOf(a[i]); if (x < 0) return false; d.push(x); } if (d.length < 8) return false; var ver = d[0]; if (bPoly([3, 3, 0, 2, 3].concat(d)) !== (ver === 0 ? 1 : 0x2bc830a3)) return false; var pr = d.slice(1, d.length - 6), acc = 0, bits = 0, n = 0; for (i = 0; i < pr.length; i++) { acc = ((acc << 5) | pr[i]) & 0xfff; bits += 5; while (bits >= 8) { bits -= 8; n++; } } if (bits >= 5 || ((acc << (8 - bits)) & 255)) return false; if (ver > 16 || n < 2 || n > 40) return false; if (ver === 0 && n !== 20 && n !== 32) return false; return true; }
+
+/* Lehota na odstúpenie: 14 kalendárnych dní od uzavretia zmluvy. Zmluva vzniká úhradou poplatku (VOP čl. V ods. 4, čl. VIII ods. 1).
+   Posledný deň lehoty = deň úhrady + 14 dní (slovenský čas). */
+function denSk(ms) { var p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Bratislava', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date(ms)), m = {}; p.forEach(function (x) { m[x.type] = x.value; }); return Date.UTC(+m.year, +m.month - 1, +m.day); }
+function txtDen(utc) { var d = new Date(utc); return d.getUTCDate() + '. ' + (d.getUTCMonth() + 1) + '. ' + d.getUTCFullYear(); }
+function lehota(uhradeneMs) { var den = denSk(uhradeneMs), posledny = den + 14 * 86400000; return { uplynula: denSk(Date.now()) > posledny, uhradene: txtDen(den), do: txtDen(posledny) }; }
