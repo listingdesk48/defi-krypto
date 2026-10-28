@@ -8,7 +8,12 @@ export async function onRequestPost(context) {
   var cislo = String(d.cislo || '').replace(/\s+/g, '').toUpperCase();
   if (!/^[0-9A-F]{10}$/.test(cislo)) return json({ ok: false, chyba: 'Neplatné číslo žiadosti.' }, 400);
   /* TESTOVACIE číslo 0000000000: správa sa ako žiadosť s uhradeným poplatkom. Pred spustením odstrániť (aj v odstupenie.js). */
-  if (cislo === '0000000000') return json({ ok: true, stav: 'uhradeny' });
-  var z = await env.DB.prepare('SELECT poplatok_uhradeny FROM ziadosti WHERE id LIKE ? LIMIT 1').bind(cislo.toLowerCase() + '%').first();
-  return json({ ok: true, stav: !z ? 'nenajdena' : (z.poplatok_uhradeny ? 'uhradeny' : 'neuhradeny') });
+  if (cislo === '0000000000') return json({ ok: true, stav: 'uhradeny', dni: 3, zostava: 27 });
+  var z = await env.DB.prepare('SELECT poplatok_uhradeny, poplatok_uhradeny_o, zverejnene_o, zverejnene_do FROM ziadosti WHERE id LIKE ? LIMIT 1').bind(cislo.toLowerCase() + '%').first();
+  if (!z) return json({ ok: true, stav: 'nenajdena' });
+  if (!z.poplatok_uhradeny) return json({ ok: true, stav: 'neuhradeny' });
+  /* Koľko dní je inzerát zverejnený a koľko dní zverejnenia zostáva */
+  var DEN = 86400000, teraz = Date.now(), od = new Date(z.zverejnene_o || z.poplatok_uhradeny_o || teraz).getTime(), dok = z.zverejnene_do ? new Date(z.zverejnene_do).getTime() : NaN;
+  var dni = Math.max(1, Math.ceil((teraz - od) / DEN)), zostava = isNaN(dok) ? null : Math.max(0, Math.ceil((dok - teraz) / DEN));
+  return json({ ok: true, stav: 'uhradeny', dni: dni, zostava: zostava });
 }
