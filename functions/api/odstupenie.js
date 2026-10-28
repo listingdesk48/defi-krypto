@@ -42,21 +42,13 @@ export async function onRequestPost(context) {
 
   var kedy = datumSk(new Date());
 
-  /* Prepočet vrátenia podľa VOP čl. VIII ods. 5: zadávateľ platí len za dni skutočného zverejnenia, zvyšok sa vracia */
+  /* Prepočet vrátenia podľa VOP čl. IV ods. 5 a čl. VIII ods. 5 */
   var vr = null;
   try { if (zz && zz.platba_sat) vr = await vypocet(zz); } catch (e) { console.log('odstupenie vypocet', String(e)); }
-  var vrTxt = vr ? vr.text : '\n\nVRÁTENIE PLATBY\nÚdaje o platbe sa nepodarilo načítať, vrátenie treba prepočítať ručne.';
-  var vrHtml = vr ? vr.html : '<p><b>Vrátenie platby</b><br>Údaje o platbe sa nepodarilo načítať, vrátenie treba prepočítať ručne.</p>';
+  var m = emailMajitel({ kedy: kedy, cislo: cislo, zhoda: zhoda, meno: meno, priez: priez, email: email, tel: tel, btc: btc, vr: vr, lehotaDo: txtDen(denSk(Date.now()) + 14 * 86400000) });
 
   /* 1. Majiteľovi cez Cloudflare (zadarmo, mimo limitu Resend) */
-  var v1 = await posliMajitelovi(context, 'Odstúpenie od zmluvy · ' + meno + ' ' + priez,
-    'Odstúpenie od zmluvy\nPodané: ' + kedy + '\nČíslo žiadosti: ' + cislo + ' (' + zhoda + ')\nMeno: ' + meno + ' ' + priez + '\nE-mail: ' + email + '\nTelefón: ' + tel + '\nPoplatok za službu uhradený: ' + poplatok + (btc ? '\nBitcoinová adresa na vrátenie platby: ' + btc : '') + vrTxt,
-    '<p><b>Odstúpenie od zmluvy</b><br>Podané: ' + esc(kedy) + '</p>' +
-      '<p><b>Číslo žiadosti:</b> ' + esc(cislo) + '<br><b>Kontrola v databáze:</b> ' + esc(zhoda) + '</p>' +
-      '<p><b>Meno:</b> ' + esc(meno) + ' ' + esc(priez) + '<br>' +
-      '<b>E-mail:</b> ' + esc(email) + '<br>' +
-      '<b>Telefón:</b> ' + esc(tel) + '<br>' +
-      '<b>Poplatok za službu uhradený:</b> ' + esc(poplatok) + (btc ? '<br><b>Bitcoinová adresa na vrátenie platby:</b> ' + esc(btc) : '') + '</p>' + vrHtml, email);
+  var v1 = await posliMajitelovi(context, 'Odstúpenie od zmluvy · ' + meno + ' ' + priez, m.text, m.html, email);
   if (!v1.ok) return json({ ok: false, chyba: 'Odoslanie zlyhalo.' }, 502);
 
   /* Potvrdenie klientovi sa neposiela (rozhodnutie 13.10.2026, šetrenie limitu Resend). */
@@ -73,32 +65,62 @@ function txtDen(utc) { var d = new Date(utc); return d.getUTCDate() + '. ' + (d.
 function lehota(uhradeneMs) { var den = denSk(uhradeneMs), posledny = den + 14 * 86400000; return { uplynula: denSk(Date.now()) > posledny, uhradene: txtDen(den), do: txtDen(posledny) }; }
 
 /* ===== Prepočet vrátenia platby (VOP čl. IV ods. 5: vracia sa pomerný podiel z prijatého množstva BTC, kurz eura sa neberie do úvahy) ===== */
-function btcF(sat) { return (sat / 1e8).toFixed(8).replace('.', ',') + ' BTC'; }
 async function kurzTeraz() {
   try { var r = await fetch('https://mempool.space/api/v1/prices'); if (r.ok) { var c = await r.json(); if (c && c.EUR) return c.EUR; } } catch (e) {}
   try { var g = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur'); if (g.ok) { var j = await g.json(); return j.bitcoin.eur; } } catch (e) {}
   return null;
 }
 function eurF(n) { var p = (Math.round(n * 100) / 100).toFixed(2).split('.'); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ',' + p[1] + ' €'; }
+function dn(n) { return n + ' ' + (n === 1 ? 'deň' : (n >= 2 && n <= 4 ? 'dni' : 'dní')); }
+function zv(n) { return n === 1 ? 'zvyšný' : (n >= 2 && n <= 4 ? 'zvyšné' : 'zvyšných'); }
+function btcF(sat) { return (sat / 1e8).toFixed(8).replace('.', ',') + ' BTC'; }
 async function vypocet(z) {
-  var DEN = 86400000, sat = +z.platba_sat, eur = +z.platba_eur || 0, teraz = Date.now(), kurzU = eur ? eur / (sat / 1e8) : null, kurzT = await kurzTeraz();
+  var DEN = 86400000, sat = +z.platba_sat, eur = +z.platba_eur || 0, teraz = Date.now();
   var od = new Date(z.zverejnene_o || z.poplatok_uhradeny_o).getTime(), dok = new Date(z.zverejnene_do).getTime();
   var spolu = Math.max(1, Math.round((dok - od) / DEN)), dni = Math.min(spolu, Math.max(1, Math.ceil((teraz - od) / DEN))), zost = spolu - dni;
-  var satV = Math.floor(sat * zost / spolu);
-  var r = [
-    ['Uhradené', btcF(sat)],
-    ['Dátum úhrady', datumSk(new Date(z.poplatok_uhradeny_o || od))],
-    ['Transakcia', z.platba_txid || 'neznáma'],
-    ['Zverejnené', dni + ' z ' + spolu + ' dní'],
-    ['Na vrátenie pripadá', zost + ' z ' + spolu + ' dní'],
-    ['Vrátiť', btcF(satV)],
-    ['Len pre informáciu', ''],
-    ['Zaplatil v eurách', eur ? 'približne ' + eurF(eur) + ' (kurz pri úhrade ' + eurF(kurzU) + ' za 1 BTC)' : 'neznáme'],
-    ['Vracia sa v eurách', kurzT ? 'približne ' + eurF(satV / 1e8 * kurzT) + ' (dnešný kurz ' + eurF(kurzT) + ' za 1 BTC)' : 'dnešný kurz sa nepodarilo načítať']
-  ];
-  var pozn = 'Vracia sa pomerný podiel z prijatého množstva BTC (VOP čl. IV ods. 5 a čl. VIII ods. 5). Vrátiť do 14 dní od doručenia odstúpenia.';
-  return {
-    text: '\n\nVRÁTENIE PLATBY\n' + r.map(function (x) { return x[1] ? x[0] + ': ' + x[1] : '\n' + x[0].toUpperCase(); }).join('\n') + '\n' + pozn,
-    html: '<p><b>Vrátenie platby</b></p><table cellpadding="6" style="border-collapse:collapse;font-size:14px">' + r.map(function (x) { if (!x[1]) return '<tr><td colspan="2" style="padding-top:16px;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:.06em">' + esc(x[0]) + '</td></tr>'; return '<tr><td style="color:#666;border-bottom:1px solid #eee">' + esc(x[0]) + '</td><td style="border-bottom:1px solid #eee"><b>' + esc(x[1]) + '</b></td></tr>'; }).join('') + '</table><p style="color:#666;font-size:13px">' + esc(pozn) + '</p>'
-  };
+  var satV = Math.floor(sat * zost / spolu), kurzT = await kurzTeraz();
+  return { sat: sat, satV: satV, satP: sat - satV, eur: eur, kurzU: eur ? eur / (sat / 1e8) : null, kurzT: kurzT, spolu: spolu, dni: dni, zost: zost,
+    uhradene: datumSk(new Date(z.poplatok_uhradeny_o || od)), txid: z.platba_txid || 'neznáma' };
+}
+/* E-mail majiteľovi o odstúpení. Na vrátenie je rozhodujúca iba suma v BTC. */
+function emailMajitel(d) {
+  var v = d.vr, T = [], H = '';
+  var F = 'font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;';
+  function riad(a, b, silne) { return '<tr><td style="padding:9px 0;color:#6b6b70;border-bottom:1px solid #eee;vertical-align:top;width:48%">' + esc(a) + '</td><td style="padding:9px 0 9px 16px;border-bottom:1px solid #eee;text-align:right;overflow-wrap:anywhere;' + (silne ? 'font-weight:700;color:#1d1d1f' : 'color:#1d1d1f') + '">' + esc(b) + '</td></tr>'; }
+  function nad(t) { return '<p style="margin:28px 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#a89373;font-weight:700">' + esc(t) + '</p>'; }
+  H += '<div style="' + F + 'max-width:560px;color:#1d1d1f;font-size:15px;line-height:1.5">';
+  H += '<p style="margin:0;font-size:22px;font-weight:800">Odstúpenie od zmluvy</p><p style="margin:4px 0 0;color:#6b6b70">Podané ' + esc(d.kedy) + '</p>';
+  T.push('ODSTÚPENIE OD ZMLUVY', 'Podané ' + d.kedy, '');
+  if (v) {
+    H += '<div style="margin:22px 0 0;padding:22px 24px;border-radius:14px;background:#f6f1e7">' +
+      '<p style="margin:0;font-size:13px;color:#7a6a52;font-weight:700;letter-spacing:.04em;text-transform:uppercase">Vrátiť klientovi</p>' +
+      '<p style="margin:6px 0 0;font-size:30px;font-weight:800;letter-spacing:-.02em">' + esc(btcF(v.satV)) + '</p>' +
+      '<p style="margin:12px 0 0;color:#6b6b70;font-size:13px">na bitcoinovú adresu</p><p style="margin:2px 0 0;font-family:Menlo,Consolas,monospace;font-size:13px;word-break:break-all">' + esc(d.btc || 'neuvedená') + '</p>' +
+      '<p style="margin:12px 0 0;color:#6b6b70;font-size:13px">najneskôr do ' + esc(d.lehotaDo) + ' (14 dní od doručenia odstúpenia)</p></div>';
+    T.push('VRÁTIŤ KLIENTOVI: ' + btcF(v.satV), 'Na bitcoinovú adresu: ' + (d.btc || 'neuvedená'), 'Najneskôr do ' + d.lehotaDo + ' (14 dní od doručenia odstúpenia)', '');
+    H += nad('Výpočet') + '<table style="width:100%;border-collapse:collapse;font-size:14px">' +
+      riad('Klient zaplatil', btcF(v.sat), true) + riad('Dátum úhrady', v.uhradene) + riad('Transakcia', v.txid) +
+      riad('Inzerát bol zverejnený', v.dni + ' z ' + v.spolu + ' dní') + riad('Za ' + dn(v.dni) + ' zverejnenia ostáva nám', btcF(v.satP)) +
+      riad('Za ' + zv(v.zost) + ' ' + dn(v.zost) + ' sa vracia', btcF(v.satV), true) + '</table>' +
+      '<p style="margin:8px 0 0;color:#6b6b70;font-size:12px">Vracia sa pomerný podiel z prijatého množstva BTC podľa VOP čl. IV ods. 5 a čl. VIII ods. 5.</p>';
+    T.push('VÝPOČET', 'Klient zaplatil: ' + btcF(v.sat), 'Dátum úhrady: ' + v.uhradene, 'Transakcia: ' + v.txid, 'Inzerát bol zverejnený: ' + v.dni + ' z ' + v.spolu + ' dní',
+      'Za ' + dn(v.dni) + ' zverejnenia ostáva nám: ' + btcF(v.satP), 'Za ' + zv(v.zost) + ' ' + dn(v.zost) + ' sa vracia: ' + btcF(v.satV), '');
+  } else {
+    H += '<div style="margin:22px 0 0;padding:18px 22px;border-radius:14px;background:#fbeaea;color:#8a1f1f">Údaje o platbe sa nepodarilo načítať. Sumu na vrátenie treba prepočítať ručne.</div>';
+    T.push('Údaje o platbe sa nepodarilo načítať. Sumu na vrátenie treba prepočítať ručne.', '');
+  }
+  H += nad('Klient') + '<table style="width:100%;border-collapse:collapse;font-size:14px">' + riad('Číslo žiadosti', d.cislo, true) + riad('Kontrola v databáze', d.zhoda) +
+    riad('Meno', d.meno + ' ' + d.priez) + riad('E-mail', d.email) + riad('Telefón', d.tel) + '</table>';
+  T.push('KLIENT', 'Číslo žiadosti: ' + d.cislo + ' (' + d.zhoda + ')', 'Meno: ' + d.meno + ' ' + d.priez, 'E-mail: ' + d.email, 'Telefón: ' + d.tel, '');
+  if (v) {
+    H += nad('Len pre orientáciu') + '<div style="padding:14px 18px;border-radius:12px;background:#f6f7fa;font-size:13px;color:#6b6b70">' +
+      '<p style="margin:0">V eurách sa nič nevracia. Klientovi sa pošle presne suma v BTC uvedená hore.</p>' +
+      '<p style="margin:10px 0 0">Zaplatených ' + esc(btcF(v.sat)) + ' malo pri úhrade hodnotu približne ' + (v.eur ? esc(eurF(v.eur)) + ' (kurz ' + esc(eurF(v.kurzU)) + ' za 1 BTC)' : 'neznámu') + '.</p>' +
+      '<p style="margin:6px 0 0">Vracaných ' + esc(btcF(v.satV)) + ' má dnes hodnotu približne ' + (v.kurzT ? esc(eurF(v.satV / 1e8 * v.kurzT)) + ' (kurz ' + esc(eurF(v.kurzT)) + ' za 1 BTC)' : 'neznámu, kurz sa nepodarilo načítať') + '.</p></div>';
+    T.push('LEN PRE ORIENTÁCIU', 'V eurách sa nič nevracia. Klientovi sa pošle presne suma v BTC uvedená hore.',
+      'Zaplatených ' + btcF(v.sat) + ' malo pri úhrade hodnotu približne ' + (v.eur ? eurF(v.eur) + ' (kurz ' + eurF(v.kurzU) + ' za 1 BTC)' : 'neznámu') + '.',
+      'Vracaných ' + btcF(v.satV) + ' má dnes hodnotu približne ' + (v.kurzT ? eurF(v.satV / 1e8 * v.kurzT) + ' (kurz ' + eurF(v.kurzT) + ' za 1 BTC)' : 'neznámu') + '.');
+  }
+  H += '</div>';
+  return { text: T.join('\n'), html: H };
 }
