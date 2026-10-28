@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/api/*", "/uhradit-poplatok", "/uhradit-poplatok.html", "/ucet", "/ucet.html"],
+  "exclude": []
+}

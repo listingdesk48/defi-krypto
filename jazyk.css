@@ -1,0 +1,83 @@
+/* ═══ PREPÍNAČ KRAJÍN S VLAJKAMI (návrh 2) ═══ */
+.fl{display:inline-block;width:24px;height:18px;border-radius:4px;background-size:cover;background-position:center;flex:none}
+.jz{position:relative;display:flex;align-items:center}
+.jz-btn{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:6px 0;font:inherit;font-size:.92rem;font-weight:500;color:var(--text);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.jz-btn .jz-k{opacity:.7}
+.jz-btn:hover .jz-k,.jz.open .jz-k{opacity:1}
+.jz-panel{position:absolute;top:calc(100% + 12px);right:-10px;width:300px;background:#fff;border-radius:16px;padding:8px;box-shadow:var(--tien-2,0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11));opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s,transform .2s,visibility .2s;z-index:120}
+.jz.open .jz-panel{opacity:1;visibility:visible;transform:none}
+.jz-list{display:flex;flex-direction:column;gap:2px;overflow:auto;overscroll-behavior:contain}
+.jz-panel .jz-list{max-height:380px}
+.jz-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;text-decoration:none;color:var(--text);font-size:.9rem;font-weight:500;white-space:nowrap;min-width:0}
+.jz-item span{overflow:hidden;text-overflow:ellipsis}
+@media(hover:hover){.jz-item:hover{background:rgba(29,29,31,.05)}}
+.jz-item.je{font-weight:650}
+.jz-item.je::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc);margin-left:auto;flex:none}
+.jz-item.skry{display:none}
+.jz-hl{display:flex;align-items:center;gap:8px;background:rgba(29,29,31,.05);border-radius:10px;padding:0 12px;margin-bottom:6px;color:var(--text-faint)}
+.jz-hl svg{width:17px;height:17px;flex:none}
+.jz-hl input{border:0;outline:0;background:none;font:inherit;font-size:.92rem;color:var(--text);padding:11px 0;width:100%;-webkit-appearance:none;appearance:none}
+.jz-nic{display:none;margin:10px;font-size:.88rem;color:var(--text-faint)}
+@media(max-width:1040px){#mainNav .jz{display:none}}
+
+/* mobilné menu: riadok Jazyk */
+.nav-drawer{max-height:calc(100dvh - 64px);overflow:auto;overscroll-behavior:contain}
+.nav-drawer .dr-jz{display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;font:inherit;color:var(--text);cursor:pointer;padding:12px 14px;border-radius:12px;font-size:1rem;text-align:left;-webkit-tap-highlight-color:transparent}
+.nav-drawer .dr-jz-t{opacity:.7}
+.nav-drawer .dr-jz-v{margin-left:auto;display:flex;align-items:center;gap:8px;font-weight:500}
+
+/* okno s krajinami: na mobile cez celú obrazovku */
+.jz-okno{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(29,29,31,.32);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.jz-okno.open{opacity:1;visibility:visible}
+.jz-okno-in{background:#fff;border-radius:22px;width:min(560px,100%);max-height:min(640px,100%);display:flex;flex-direction:column;padding:22px;box-shadow:0 10px 34px rgba(24,33,66,.12),0 2px 8px rgba(24,33,66,.06)}
+.jz-okno-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.jz-okno-h b{font-size:1.25rem;font-weight:700;letter-spacing:-.02em}
+.jz-zavri{width:40px;height:40px;border:0;background:none;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text)}
+.jz-zavri:hover{background:rgba(29,29,31,.05)}
+.jz-zavri svg{width:22px;height:22px}
+.jz-hlw{display:flex;flex-direction:column;min-height:0}
+@media(max-width:1040px){
+ .jz-okno{padding:0;align-items:stretch}
+ .jz-okno-in{border-radius:0;max-height:none;height:100%;width:100%;padding:16px 16px 0}
+ .jz-okno .jz-list{padding-bottom:24px}
+ .jz-okno .jz-item{padding:12px 10px;font-size:1rem}
+}
+
+.jz-hl input:focus,.jz-hl input:focus-visible{outline:none!important;box-shadow:none!important;border:0!important;background:none!important}
+
+/* skratka má stále rovnakú šírku, aby vlajka neposkakovala */
+.jz-btn .jz-k{display:inline-block;width:26px;text-align:left}
+/* v mobilnom menu je vlajka vždy úplne vpravo, názov krajiny pred ňou */
+.nav-drawer .dr-jz-v .jz-cur-fl{order:2}
+.nav-drawer .dr-jz-v .jz-cur-nm{order:1}
+
+/* Vlajka je obyčajný obrázok, Safari ho tak kreslí čisto, bez čiarok v rohoch. */
+img.fl{display:block;width:24px;height:18px;border-radius:4px;object-fit:cover;background:none;clip-path:none;-webkit-clip-path:none;box-shadow:none;border:0}
+
+
+/* ═══ PÄTIČKA: všetky krajiny s vlajkami ═══ */
+.ft-krajiny{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px 18px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(29,29,31,.1)}
+.ft-kr-item{display:flex;align-items:center;gap:10px;min-width:0;color:inherit;text-decoration:none;font-size:.82rem;line-height:1.3;opacity:.8;transition:opacity .2s}
+.ft-kr-item:hover{opacity:1}
+.ft-kr-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ft-kr-fl{display:block;width:22px;height:16px;object-fit:cover;flex:none}
+@media(max-width:900px){.ft-krajiny{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.ft-krajiny{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 14px}}
+/* farby a čiary podľa tmavej pätičky */
+.ft .ft-krajiny{color:rgba(255,255,255,.6);border-top:0;margin-top:24px;padding-top:0;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ft .ft-kr-item{opacity:1;font-size:.8rem;color:rgba(255,255,255,.6)}
+.ft .ft-kr-item:hover{color:#fff}
+.ft .ft-kr-item span{white-space:normal;overflow:visible}
+/* PC: 5 stĺpcov, každý názov na jeden riadok */
+.ft .ft-krajiny{grid-template-columns:repeat(5,minmax(0,1fr))}
+.ft .ft-kr-item span{white-space:nowrap}
+@media(max-width:900px){.ft .ft-krajiny{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.ft .ft-krajiny{grid-template-columns:repeat(2,minmax(0,1fr))}.ft .ft-kr-item span{white-space:normal}}
+/* pätička: vlajky a písmo rovnaké ako v prepínači v hlavičke */
+.ft .ft-kr-fl{width:24px;height:18px;border-radius:4px;object-fit:cover}
+.ft .ft-kr-item{gap:10px;font-size:.9rem;font-weight:500}
+.ft .ft-krajiny{gap:14px 18px}
+/* pätička: menšie krajiny, rovnaký tvar vlajok ako v hlavičke, len zmenšený */
+.ft .ft-kr-fl{width:20px;height:15px;border-radius:3px}
+.ft .ft-kr-item{gap:8px;font-size:.78rem;font-weight:500}
+.ft .ft-krajiny{gap:11px 16px}

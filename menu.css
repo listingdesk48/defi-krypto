@@ -1,0 +1,101 @@
+/* ═══ HLAVIČKA: tmavé menu s fotkou (návrh 6 + fotka) ═══ */
+/* ═══ MENU NA PC ═══ */
+.mb{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px 0 14px;border:0;border-radius:100px;background:rgba(29,29,31,.06);color:var(--text);font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .25s,color .25s}
+.mb svg{width:18px;height:18px}.mb .mb-x{display:none}
+body.pm-open .mb .mb-o{display:none}body.pm-open .mb .mb-x{display:block}
+@media(hover:hover){.mb:hover{background:rgba(29,29,31,.1)}}
+.mb:active{background:rgba(29,29,31,.1)}
+@media(max-width:1040px){.mb{display:none}.pm,.pm-bg{display:none!important}}
+.pm-bg{position:fixed;inset:0;z-index:90;background:rgba(20,22,30,.18);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+body.pm-open .pm-bg{opacity:1;visibility:visible}
+body.pm-open #mainNav{transform:none!important}
+#mainNav{z-index:110}
+.pm{z-index:105}
+.pm a{text-decoration:none;color:var(--text)}
+.pm .pm-h{display:block;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);margin-bottom:12px}
+/* postupný nábeh položiek */
+.pm .pm-i{opacity:0;transform:translateY(10px);transition:opacity .4s cubic-bezier(.22,1,.36,1),transform .4s cubic-bezier(.22,1,.36,1)}
+body.pm-open .pm .pm-i{opacity:1;transform:none}
+/* mobil = návrh 4 */
+@media(max-width:1040px){.dr4 .dr4-c{display:flex;flex-direction:column}.dr4 .dr4-c a{font-size:1.3rem;font-weight:700;letter-spacing:-.02em;padding:9px 14px;opacity:1}}
+.nav-drawer .dr-h{display:block;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding:16px 14px 6px}
+
+
+.m6f{position:fixed;top:0;left:0;right:0;background:#1d1d1f;padding:100px 24px 48px;border-radius:0 0 28px 28px;box-shadow:var(--tien-2);transform:translateY(-100%);transition:transform .5s cubic-bezier(.22,1,.36,1);visibility:hidden}
+body.pm-open .m6f{transform:none;visibility:visible}
+.m6f-in{max-width:1032px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:stretch}
+.m6f-l{display:grid;grid-template-columns:auto auto auto;justify-content:space-between;gap:20px}
+.m6f-c{display:flex;flex-direction:column;align-items:flex-start}
+.m6f .pm-h{color:rgba(255,255,255,.45)}
+.m6f .pm-a{color:#fff;font-size:1.4rem;white-space:nowrap;font-weight:800;letter-spacing:-.035em;line-height:1.2;padding:5px 0;transition:opacity .2s,transform .4s cubic-bezier(.22,1,.36,1)}
+.m6f-l:hover .pm-a{opacity:.35}.m6f-l .pm-a:hover{opacity:1}
+.m6f .pm-a.is-current::after{content:"";display:inline-block;width:.22em;height:.22em;border-radius:50%;background:var(--acc);margin-left:.12em}
+.m6f-ph{position:relative;display:block;min-height:260px;border-radius:22px;overflow:hidden;box-shadow:var(--tien-1)}
+.m6f-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.m6f-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,0) 60%)}
+.m6f-btn{position:absolute;left:20px;bottom:20px;z-index:1;padding:13px 24px;border-radius:100px;background:#fff;color:#1d1d1f;font-weight:600;font-size:.95rem;transition:background-color .25s}
+@media(hover:hover){.m6f-ph:hover .m6f-btn{background:#ebedf2}}
+@media(max-width:1180px){.m6f-in{grid-template-columns:1fr 320px;gap:28px}.m6f .pm-a{font-size:1.3rem}}
+body.pm-open #mainNav{background:#1d1d1f!important}
+body.pm-open #mainNav .nav-logo>span:last-child,body.pm-open #mainNav .jz-btn{color:#fff}
+body.pm-open #mainNav .mb{background:rgba(255,255,255,.12);color:#fff}
+@media(hover:hover){body.pm-open #mainNav .mb:hover{background:rgba(255,255,255,.2)}}
+body.pm-open #mainNav .nav-sec{background:#fff;color:#1d1d1f;border-color:#fff}
+
+@media(max-width:1040px){
+.nav-drawer.dmv6{background:#1d1d1f!important;border-top-color:rgba(255,255,255,.08)!important}
+.dmv6 .dr4-c a{color:#fff!important;background:none!important}
+.dmv6 .dr4-c a.is-current::after{content:"";display:inline-block;width:.22em;height:.22em;border-radius:50%;background:var(--acc);margin-left:.12em}
+.dmv6 .dr-h{color:rgba(255,255,255,.45)}
+.dmv6 .dr-jz,.dmv6 .dr-ucet,.dmv6 .dr-odhlasit{color:#fff}
+.dmv6 .del{background:rgba(255,255,255,.12)!important}
+.dmv6 .dr-btn{background:#fff!important;color:#1d1d1f!important;border-color:#fff!important}
+#mainNav.menu-open{background:#1d1d1f!important}
+#mainNav.menu-open .nav-logo>span:last-child,#mainNav.menu-open .nav-burger{color:#fff}
+#mainNav.menu-open .nav-sec{background:#fff!important;color:#1d1d1f!important;border-color:#fff!important}
+}
+@media(max-width:1040px){
+.dmv6 a.dm5-ph{position:relative;display:block;height:170px;border-radius:18px;overflow:hidden;margin:6px 2px 4px;padding:0;box-shadow:var(--tien-1);opacity:1}
+.dm5-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dm5-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,0) 60%)}
+.dm5-ph .m5-btn{position:absolute;left:14px;bottom:14px;z-index:1;padding:11px 20px;border-radius:100px;background:#fff;color:#1d1d1f;font-weight:600;font-size:.92rem}
+}
+/* na PC sú v hlavičke len logo, vlajka, Prihlásiť sa a Menu */
+@media(min-width:1041px){#mainNav .nav-links{display:none!important}}
+
+/* tlačidlo Menu má stálu šírku, aby sa pri zmene na „Zavrieť“ nič v hlavičke neposunulo */
+.mb{width:112px;justify-content:center;padding:0 14px}
+
+/* ═══ RUŽOVÉ PODČIARKNUTIE (ako pôvodne v hlavičke) namiesto bodky ═══ */
+.m6f .m6f-c a.pm-a{position:relative}
+.m6f .m6f-c a.pm-a::after,.m6f .m6f-c a.pm-a.is-current::after{content:"";position:absolute;display:block;left:0;right:0;bottom:2px;width:auto;height:2px;margin:0;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.m6f .m6f-c a.pm-a:hover::after,.m6f .m6f-c a.pm-a.is-current::after{transform:scaleX(1)}
+@media(max-width:1040px){
+ .dmv6 .dr4-c a{position:relative;align-self:flex-start}
+ .dmv6 .dr4-c a::after,.dmv6 .dr4-c a.is-current::after{content:"";position:absolute;display:block;left:14px;right:14px;bottom:6px;width:auto;height:2px;margin:0;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+ .dmv6 .dr4-c a.is-current::after{transform:scaleX(1)}
+ .dmv6 .dr4-c a:active::after{transform:scaleX(1)}
+}
+/* PC menu: Odhlásiť sa dole pod čiarou, nenápadne, s ikonou dverí */
+.m6f .m6f-out{grid-column:1/-1;align-self:end;justify-self:start;display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);width:100%;color:rgba(255,255,255,.55);font-size:.95rem;font-weight:500;transition:color .2s}
+.m6f .m6f-out svg{width:18px;height:18px;flex:none}
+@media(hover:hover){.m6f .m6f-out:hover{color:#fff}}
+
+/* Hlavička: krajina vpravo pri Prihlásiť sa (návrh 1), na mobile len v menu */
+#mainNav .nav-inner{justify-content:space-between}
+.nr-jz{display:flex;align-items:center;margin-right:4px}
+@media(max-width:1040px){.nr-jz{display:none}}
+
+/* ═══ HODNOTENIE V MENU (návrh 1): pevný biely oválik 4,9 s hviezdičkami na fotke, nie je to odkaz ═══ */
+.mh{display:inline-flex;align-items:center;gap:10px;border-radius:100px;background:#fff;color:#1d1d1f;padding:9px 16px 9px 14px;box-shadow:var(--tien-3);white-space:nowrap;cursor:default}
+.mh b{font-size:1.15rem;font-weight:900;letter-spacing:-.03em;line-height:1}.mh-s{display:flex;gap:2px;line-height:0}.mh-s svg{width:14px;height:14px;fill:var(--acc)}
+.m6f-phw{position:relative;display:flex;min-height:260px}.m6f-phw .m6f-ph{flex:1}.m6f-phw .mh-ph{position:absolute;left:20px;top:20px;z-index:2}
+@media(max-width:1040px){.dmv6 a.dm5-ph,.dmv6 .dm5-phw{flex:none}.dm5-phw{position:relative;margin:6px 2px 4px}.dmv6 .dm5-phw a.dm5-ph{margin:0}.dm5-phw .mh-ph{position:absolute;left:14px;top:14px;z-index:2;padding:7px 13px 7px 11px}.dm5-phw .mh b{font-size:1.05rem}.dm5-phw .mh-s svg{width:13px;height:13px}}
+/* prihlásený: fotka v menu nie je, hodnotenie je ako tmavý oválik pod odkazmi (PC) a pod zoznamom (mobil) */
+.m6f .mh-row{grid-column:1/-1;justify-self:start;background:rgba(255,255,255,.1);color:#fff;box-shadow:none;margin-top:18px;padding:11px 18px 11px 16px}
+@media(max-width:1040px){.mh-roww{padding:10px 14px 4px}.mh-roww .mh{background:rgba(255,255,255,.1);color:#fff;box-shadow:none}}
+/* Krúžok s iniciálami: keď je tlačidlo účtu biele (otvorené menu), krúžok je čierny. V tmavom menu je krúžok biely. */
+body.pm-open #mainNav .nav-sec .inic,#mainNav.menu-open .nav-sec .inic{background:#1d1d1f!important;color:#fff!important}
+.dmv6 .dr-ucet .inic{background:#fff!important;color:#1d1d1f!important}
+/* Hodnotenie v menu vedie na Recenzie */
+.mh{cursor:pointer}

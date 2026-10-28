@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zephoris — značka so sloganom (s efektom)</title>
+<!--
+  ══════════════════════════════════════════════════════════════
+  ZEPHORIS — ZNAČKA SO SLOGANOM, VARIANTA S EFEKTOM
+  ══════════════════════════════════════════════════════════════
+  Presne ten istý nábeh, aký hrá po kliknutí na Aktívne inzeráty.
+
+  Poradie:
+    0,10 s  značka sa odkryje zľava doprava (0,8 s)
+    0,35 s  písmená názvu nabiehajú po jednom, každé o 0,06 s
+    0,90 s  slogan sa vynorí (0,5 s)
+    1,05 s  ružové čiarky sa roztiahnu na 38 px (0,55 s)
+    celé je dohrané asi za 1,6 s
+
+  Kliknutím kamkoľvek sa efekt prehrá znova.
+
+  Rešpektuje systémové nastavenie „obmedziť pohyb": ak ho má
+  návštevník zapnuté, zostava sa zobrazí rovno, bez animácie.
+
+  Statická verzia: zephoris-lockup.html
+  ══════════════════════════════════════════════════════════════
+-->
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 45%,#ffffff 0%,#fbfcfe 55%,#f5f7fc 100%);cursor:pointer}
+
+.zl{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;gap:22px}
+.zl-row{display:flex;align-items:center;gap:16px}
+.zl-badge{width:72px;height:72px;flex:none;border-radius:19px;overflow:hidden}
+.zl-badge svg{width:100%;height:100%;display:block}
+.zl-word{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#1d1d1f;display:flex}
+.zl-slogan{display:flex;align-items:center;justify-content:center;gap:13px}
+.zl-slogan i{display:block;height:1.5px;width:38px;flex:none;border-radius:99px;background:linear-gradient(90deg,#ec4899,#db2777)}
+.zl-slogan b{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.32em;text-indent:.32em;color:#1d1d1f;white-space:nowrap}
+
+/* ── nabeh ──────────────────────────────────────────────── */
+.zl.hraj .zl-badge{clip-path:inset(0 100% 0 0 round 19px);animation:zlWipe .8s cubic-bezier(.65,0,.35,1) .1s forwards}
+@keyframes zlWipe{to{clip-path:inset(0 0 0 0 round 19px)}}
+.zl.hraj .zl-word span{opacity:0;transform:translateY(14px);animation:zlLetter .4s ease forwards}
+@keyframes zlLetter{to{opacity:1;transform:none}}
+.zl.hraj .zl-slogan{opacity:0;animation:zlSlogan .5s ease .9s forwards}
+@keyframes zlSlogan{to{opacity:1}}
+.zl.hraj .zl-slogan i{width:0;animation:zlCiarka .55s cubic-bezier(.4,0,.2,1) 1.05s forwards}
+@keyframes zlCiarka{to{width:38px}}
+
+.zl-tip{position:fixed;left:0;right:0;bottom:26px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;font-size:11px;color:rgba(29,29,31,.32);user-select:none}
+
+@media (max-width:560px){
+  .zl{gap:18px}
+  .zl-row{gap:12px}
+  .zl-badge{width:56px;height:56px;border-radius:15px}
+  .zl.hraj .zl-badge{clip-path:inset(0 100% 0 0 round 15px)}
+  @keyframes zlWipe{to{clip-path:inset(0 0 0 0 round 15px)}}
+  .zl-word{font-size:23px}
+  .zl-slogan{gap:10px}
+  .zl-slogan i{width:26px}
+  @keyframes zlCiarka{to{width:26px}}
+  .zl-slogan b{font-size:9.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  .zl.hraj .zl-badge,.zl.hraj .zl-word span,.zl.hraj .zl-slogan,.zl.hraj .zl-slogan i{animation:none;opacity:1;transform:none;clip-path:none;width:auto}
+  .zl.hraj .zl-slogan i{width:38px}
+}
+</style>
+</head>
+<body>
+
+<div class="zl" id="zl">
+  <div class="zl-row">
+    <span class="zl-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="26" fill="#1d1d1f"/><path d="M 30.4 31.5 H 69.6 L 30.4 68.5 H 69.6" stroke="#ffffff" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+    <span class="zl-word" id="zlWord">Zephoris</span>
+  </div>
+  <div class="zl-slogan"><i></i><b>váš inzertný portál</b><i></i></div>
+</div>
+
+<p class="zl-tip">Kliknutím sa efekt prehrá znova</p>
+
+<script>
+(function(){
+  var zl = document.getElementById('zl');
+  var w  = document.getElementById('zlWord');
+  var text = w.textContent;
+  function prehraj(){
+    zl.classList.remove('hraj');
+    w.innerHTML = Array.prototype.map.call(text, function(ch, i){
+      return '<span style="animation-delay:' + (0.35 + i * 0.06) + 's">' + ch + '</span>';
+    }).join('');
+    void zl.offsetWidth;          /* vynúti reštart animácie */
+    zl.classList.add('hraj');
+  }
+  prehraj();
+  document.addEventListener('click', prehraj);
+})();
+</script>
+
+</body>
+</html>

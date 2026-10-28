@@ -1,0 +1,13 @@
+# Adresa defi-krypto.pages.dev sa nema objavit v Google ani v inych vyhladavacoch.
+# Hlavna adresa kvelto.com sa indexuje normalne.
+https://:project.pages.dev/*
+	X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+	X-Robots-Tag: noindex
+
+# Zoznam inzeratov nie je verejny: vyhladavace ho nemaju indexovat.
+/zoznam-k7r2q9mv.html
+	X-Robots-Tag: noindex, nofollow
+/zoznam-k7r2q9mv
+	X-Robots-Tag: noindex, nofollow

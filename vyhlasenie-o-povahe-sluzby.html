@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<script>/* Pamäť prihlásenia: hlavička sa hneď ukáže ako prihlásená, server to potom potvrdí (bez prebliknutia) */try{if(localStorage.getItem("kv-ja"))document.documentElement.classList.add("prihlaseny")}catch(e){}</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="color-scheme" content="light" />
+
+<title>Vyhlásenie o povahe služby</title>
+<meta name="description" content="Vyhlásenie o povahe našej služby a o postavení prevádzkovateľa." />
+<meta name="robots" content="noindex, nofollow" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sk_SK" />
+<meta property="og:url" content="https://kvelto.com/vyhlasenie-o-povahe-sluzby" />
+<meta property="og:title" content="Vyhlásenie o povahe služby" />
+<meta property="og:description" content="Vyhlásenie o povahe našej služby a o postavení prevádzkovateľa." />
+<meta property="og:image" content="https://kvelto.com/img/nahlad.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+<link rel="icon" href="logo/kvelto-favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="logo/kvelto-favicon.svg" sizes="any" />
+<link rel="apple-touch-icon" href="logo/kvelto-app-ikona-512.png" />
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="jazyk.css?v=13">
+<style>:root { color-scheme: light; --black: #1d1d1f; --blue: #0a84ff; --white: #ffffff; --acc-soft: #efe5d4; --acc: #c2ad8c; --acc-deep: #a89373; --acc-dark: #7a6a52; --acc-rail: #d9c8aa; --acc-rgb: 194,173,140; --acc-soft-rgb: 239,229,212; --grad-1: var(--acc-soft); --grad-2: var(--acc); --grad-3: var(--acc-deep); --grad-4: var(--acc-dark); --text: #1d1d1f; --text-muted: rgba(29, 29, 31, 0.6); --text-faint: rgba(29, 29, 31, 0.55); --sep: rgba(29, 29, 31, 0.22); --green: #0a7d3f; --green-bg: rgba(16, 160, 80, 0.12); --amber: #b8681a; --glass-bg: rgba(255, 255, 255, 0.55); --glass-bg-soft: rgba(255, 255, 255, 0.42); --glass-shadow: 0 10px 34px rgba(24, 33, 66, 0.12), 0 2px 8px rgba(24, 33, 66, 0.06); --page-bg: #f5f7fc; --grad-full: linear-gradient(95deg, var(--grad-1) 0%, var(--grad-2) 45%, var(--grad-3) 80%, var(--grad-4) 100%); --tb: 0px; }
+<style>
+.bg-blobs{display:none}.bg{background:linear-gradient(180deg,#f7f9fe 0%,#fff 100%)}
+.hero>.section-inner{margin:auto;width:100%}
+</style>
+<style>
+/* Hero: výrazná typografia (návrh 2) */
+.hero-title{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.05em;line-height:.98}
+.hero-title small{display:block;font-size:.4em;font-weight:600;letter-spacing:-.02em;color:var(--text-muted);margin-bottom:12px}
+.hero-grad{color:var(--text)}
+.hero-grad::after{content:"";display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--acc);margin-left:.1em}
+.lead{font-size:1.2rem;max-width:560px;line-height:1.6;margin-top:26px}
+.nav-links a{font-size:.92rem}
+@media(max-width:480px){.nav-cta{display:none}}
+/* Hlavička: návrh 1 (čistá biela na celú šírku, ružová linka pod aktívnou položkou) */
+.nav-logo-icon{width:36px;height:36px;border-radius:26%;box-shadow:none}
+.ft-zn-badge{box-shadow:none}
+#mainNav,#mainNav.scrolled{top:0;left:0;transform:none;width:100%;max-width:none;border-radius:0;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(29,29,31,.08);box-shadow:none}
+/* Hlavička: jemne sivá na celú šírku, bez tieňa a bez linky */
+#mainNav,#mainNav.scrolled{background:rgba(236,238,244,.94);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:none;border:none;border-bottom:none}
+.nav-inner{max-width:1080px;margin:0 auto;height:64px;padding:0 24px}
+.nav-links a{position:relative;padding:6px 0;opacity:.7}
+.nav-links a.is-current{opacity:1;font-weight:500}
+.nav-drawer a.is-current{font-weight:500}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a.is-current::after,.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:#1d1d1f;color:#fff;border-radius:12px}.nav-cta:hover{background:#000}
+.nav-burger{border-radius:10px}
+.nav-drawer{top:64px;left:0;transform:translateY(-8px);width:100%;max-width:none;border-radius:0 0 18px 18px;background:rgba(255,255,255,.97);border-top:1px solid rgba(29,29,31,.06)}
+.nav-drawer.open{transform:translateY(0)}
+.nav-drawer a.is-current{background:rgba(194,173,140,.08);color:var(--acc-dark)}
+
+/* Hlavička: prihlásenie a účet (návrh 10) */
+.nav-sec{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:12px;border:1.5px solid rgba(29,29,31,.22);color:var(--text);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;background:transparent}
+.nav-sec.je{border-color:var(--text)}
+.inic{width:24px;height:24px;border-radius:50%;background:#1d1d1f;color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.nav-sec .inic{margin-left:-8px}
+.nav-drawer .del{height:1px;background:rgba(29,29,31,.08);margin:6px 8px}
+.nav-drawer .dr-btn{justify-content:center;padding:13px;opacity:1;display:flex;align-items:center}
+.nav-drawer .dr-ucet{opacity:1;font-weight:600;display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-ucet small{margin-left:auto;font-weight:400;font-size:.86rem;color:var(--text-faint)}
+.nav-drawer .dr-odhlasit{display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-odhlasit svg{width:18px;height:18px;flex:none}
+.nav-drawer .nav-cta{color:#fff;background:#1d1d1f;display:flex}
+.nav-drawer .dr-btn{margin-top:6px}
+/* Kým nie je napojené prihlásenie, ukazuje sa stav „neprihlásený“. Po prihlásení dostane <html> triedu „prihlaseny“. */
+html.prihlaseny [data-von]{display:none!important}
+html:not(.prihlaseny) [data-dnu]{display:none!important}
+@media(max-width:1040px){#mainNav .nav-inner{padding:0 14px 0 20px}#mainNav .nav-right{gap:8px}#mainNav .nav-sec{padding:8px 14px;font-size:.84rem}}
+@media(max-width:480px){#mainNav .nav-inner>.nav-right>.nav-cta{display:none}}
+
+/* Hlavička: pri scrolovaní dole zmizne, pri scrolovaní hore sa objaví */
+#mainNav{transition:transform .38s cubic-bezier(.22,1,.36,1),box-shadow .35s ease,background-color .35s ease}
+#mainNav.skryta{transform:translateY(-110%)}
+#mainNav.menu-open{transform:none}
+
+</style>
+<style>/* ═══ PODMIENKY: spoločné odseky stránky (nadpis, tiene) ═══ */
+
+:root{
+--tien-1:0 4px 12px rgba(24,33,66,.10),0 20px 60px rgba(24,33,66,.28);
+--tien-2:0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11);
+--tien-3:0 1px 3px rgba(24,33,66,.05),0 3px 12px rgba(24,33,66,.06);
+}
+@media(max-width:820px){:root{
+--tien-1:0 3px 10px rgba(24,33,66,.10),0 14px 36px rgba(24,33,66,.26);
+--tien-2:0 1px 4px rgba(24,33,66,.05),0 6px 22px rgba(24,33,66,.10);
+}}
+.rc-sec{padding:150px 24px 110px}
+.rc-in{max-width:1080px;margin:0 auto}
+.rc-head{text-align:center;margin:0 auto 46px}
+.rc-head .section-title{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.025em;line-height:.98}
+.rc-bod{color:var(--acc)}
+.rc-lead{max-width:640px;margin:22px auto 0;font-size:1.03rem;line-height:1.75;color:var(--text-muted);text-wrap:pretty}
+.hv{display:inline-flex;gap:2px;line-height:0}
+.hv svg{width:15px;height:15px;fill:#e2e4ea}
+.hv svg.on{fill:#1d1d1f}
+.av{width:38px;height:38px;border-radius:50%;background:#f3f4f8;color:#1d1d1f;font-size:.78rem;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.ov{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--green);background:var(--green-bg);padding:4px 9px;border-radius:100px;white-space:nowrap}
+.ov svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.suma{display:inline-flex;align-items:center;font-size:.78rem;font-weight:700;color:#fff;background:var(--acc);padding:6px 11px;border-radius:100px;white-space:nowrap}
+.kat{display:inline-flex;font-size:.74rem;font-weight:600;color:var(--text-muted);background:#f3f4f8;padding:5px 10px;border-radius:100px;white-space:nowrap}
+.rc-note{margin-top:46px;text-align:center;font-size:.8rem;color:var(--text-faint)}
+@media(max-width:700px){.bn1{width:100%;flex-direction:column;gap:12px;padding:30px 24px;text-align:center}.bn1 p{max-width:none}}
+.rc-cta{text-align:center;margin-top:40px}
+.rc-cta .btn{background:#1d1d1f;color:#fff}
+.rc-cta .btn:hover{background:#000}
+@media(max-width:820px){.rc-sec{padding:112px 16px 72px}.rc-head{margin-bottom:30px;text-align:left}.rc-lead{margin-left:0;font-size:.98rem;line-height:1.65;margin-top:14px}.rc-cta .btn{width:100%}}
+
+
+@keyframes m1grow{from{transform:scaleX(0)}}
+
+
+</style>
+<style>/* Reprezentatívny príklad: celý text je v pätičke */
+.ft-rep{max-width:980px;margin:0 auto 24px;padding-bottom:24px;border-bottom:1px solid rgba(29,29,31,.1);font-size:.74rem;line-height:1.65;color:rgba(29,29,31,.55);text-align:justify;scroll-margin-top:90px}
+.ft-rep a{color:#1d1d1f;text-decoration:underline;text-underline-offset:3px}
+</style>
+<style>/* ═══ EFEKTY TLAČIDIEL: jemná zmena odtieňa. Čierne → svetlejšie čierne, biele → sivšie, s okrajom → jemne sivé. Rovnaké na celom webe. ═══ */
+.nav-cta,.btn-primary,#zkZnova,.pk-btn,.fq-btn,.nav-sec,.f10-tip button,.f10-x,#zkSigClear{transition:background-color .25s,color .25s,border-color .25s,box-shadow .25s}
+@media(hover:hover){
+.btn-primary:hover,.pk-btn-p:hover,.fq-btn:hover{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):hover{background:#ebedf2}
+#zkZnova:hover,.f10-x:hover,#zkSigClear:hover{background:#e4e6ec}
+.nav-sec:hover{background:rgba(29,29,31,.06)}
+}
+/* mobil: efekt pri ťuknutí */
+.btn-primary:active,.pk-btn-p:active,.fq-btn:active{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):active{background:#ebedf2}
+#zkZnova:active,.f10-x:active,#zkSigClear:active{background:#e4e6ec}
+.nav-sec:active{background:rgba(29,29,31,.06)}
+</style>
+<style>/* ═══ HLAVIČKA: Prihlásiť sa je čierne tlačidlo, Podať žiadosť je odkaz ako ostatné položky ═══ */
+#mainNav .nav-right>.nav-cta{margin-left:4px;margin-right:4px;background:transparent!important;color:var(--text)!important;border-radius:0;padding:6px 0;font-size:.92rem;font-weight:500;opacity:.7;position:relative;box-shadow:none}
+#mainNav .nav-right>.nav-cta::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+#mainNav .nav-right>.nav-cta:hover::after{transform:scaleX(1)}
+#mainNav .nav-sec{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+#mainNav .nav-sec .inic{background:#fff;color:#1d1d1f}
+@media(hover:hover){#mainNav .nav-sec:hover{background:#3a3a3c;border-color:#3a3a3c}}
+#mainNav .nav-sec:active{background:#3a3a3c;border-color:#3a3a3c}
+/* mobilné menu */
+.nav-drawer .nav-cta{background:transparent!important;color:var(--text)!important;justify-content:flex-start!important}
+.nav-drawer .dr-btn{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+@media(hover:hover){.nav-drawer .dr-btn:hover{background:#3a3a3c;border-color:#3a3a3c}}
+.nav-drawer .dr-btn:active{background:#3a3a3c;border-color:#3a3a3c}
+</style>
+<link rel="stylesheet" href="menu.css?v=12">
+<link rel="stylesheet" href="paticka.css?v=5">
+</head><body><div class="bg"></div><div class="grain"></div>
+<nav id="mainNav"><div class="nav-inner"><a href="index.html" class="nav-logo"><span class="nav-logo-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="26" fill="#ffffff"/><path d="M24 40 H72 L61 29 M76 60 H28 L39 71" stroke="#1d1d1f" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span></a><div class="nav-right"><ul class="nav-links"></ul><div class="nr-jz"><div class="jz"><button class="jz-btn" type="button" aria-label="Krajina"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-k jz-cur-k">SK</span></button><div class="jz-panel jz-hlw"><div class="jz-list"></div></div></div></div><a href="prihlasenie.html" class="nav-sec" data-von>Prihlásiť sa</a><a href="ucet.html" class="nav-sec je" data-dnu><span class="inic" id="navInic"></span><span id="navMeno"></span></a><button class="mb" id="pcBtn" type="button" aria-expanded="false" aria-controls="pcMenu"><svg class="mb-o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="mb-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg><span class="mb-t">Menu</span></button><button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div></div></nav>
+
+<div class="nav-drawer dr4 dmv6" id="navDrawer"><div class="dm5-phw" data-von><a href="index.html#ziadost" class="dm5-ph" data-von><img data-src="img/menu/tropicky-bazen-2880.jpg" data-srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-2880.jpg 2880w" sizes="100vw" alt="Bazén medzi palmami"><span class="m5-btn">Podať žiadosť</span></a><span class="mh mh-ph" aria-label="Hodnotenie 4,9 z 5"><b>4,9</b><span class="mh-s"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span></span></div><div class="dr4-c"><span class="dr-h">Služba</span><a href="index.html">Úvod</a><a href="index.html#ziadost" data-von>Podať žiadosť</a><a href="ako-to-funguje.html">Ako to funguje</a></div><div class="dr4-c"><span class="dr-h">O službe</span><a href="podmienky.html">Podmienky</a><a href="recenzie.html">Recenzie</a></div><div class="dr4-c"><span class="dr-h">Pomoc</span><a href="faq.html">Poradňa</a><a href="kontakt.html">Kontakt</a><a href="odstupenie-od-zmluvy.html">Odstúpenie od zmluvy</a></div><div class="mh-roww" data-dnu><span class="mh mh-row" aria-label="Hodnotenie 4,9 z 5"><b>4,9</b><span class="mh-s"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span></span></div><button class="dr-jz" type="button"><span class="dr-jz-t">Jazyk</span><span class="dr-jz-v"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-cur-nm">Slovensko</span></span></button><div class="del"></div><a href="prihlasenie.html" class="nav-sec dr-btn" data-von>Prihlásiť sa</a><a href="ucet.html" class="dr-ucet" data-dnu><span class="inic" id="drInic"></span>Môj účet<small id="drMeno"></small></a><a href="#" class="dr-odhlasit" data-dnu id="drOdhlasit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l-5-5 5-5M5 12h11"/></svg>Odhlásiť sa</a></div>
+<div class="pm m6f" id="pcMenu"><div class="m6f-in"><div class="m6f-l"><div class="m6f-c"><span class="pm-h pm-i">Služba</span><a href="index.html" class="pm-a pm-i">Úvod</a><a href="index.html#ziadost" class="pm-a pm-i" data-von>Podať žiadosť</a><a href="ako-to-funguje.html" class="pm-a pm-i">Ako to funguje</a></div><div class="m6f-c"><span class="pm-h pm-i">O službe</span><a href="podmienky.html" class="pm-a pm-i">Podmienky</a><a href="recenzie.html" class="pm-a pm-i">Recenzie</a></div><div class="m6f-c"><span class="pm-h pm-i">Pomoc</span><a href="faq.html" class="pm-a pm-i">Poradňa</a><a href="kontakt.html" class="pm-a pm-i">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pm-a pm-i">Odstúpenie od zmluvy</a></div><span class="mh mh-row pm-i" data-dnu aria-label="Hodnotenie 4,9 z 5"><b>4,9</b><span class="mh-s"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span></span><a href="#" class="m6f-out pm-i" data-dnu data-odhlasit><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l-5-5 5-5M5 12h11"/></svg>Odhlásiť sa</a></div><div class="m6f-phw pm-i" data-von><a href="index.html#ziadost" class="m6f-ph" data-von><img data-src="img/menu/tropicky-bazen-2880.jpg" data-srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-2880.jpg 2880w" sizes="340px" alt="Bazén medzi palmami"><span class="m6f-btn">Podať žiadosť</span></a><span class="mh mh-ph" aria-label="Hodnotenie 4,9 z 5"><b>4,9</b><span class="mh-s"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span></span></div></div></div>
+<div class="pm-bg"></div>
+
+<div class="jz-okno" id="jzOkno"><div class="jz-okno-in"><div class="jz-okno-h"><b>Vyberte krajinu</b><button class="jz-zavri" type="button" aria-label="Zavrieť"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div><div class="jz-hlw"><div class="jz-list"></div></div></div></div>
+<main>
+<style>/* ═══ OBCHODNÉ PODMIENKY: samostatná stránka ═══ */
+.op-sec{padding:150px 24px 110px}
+.op-card{max-width:860px;margin:0 auto;background:#fff;border-radius:28px;box-shadow:var(--tien-2);padding:52px 60px 56px}
+.op-obsah{margin:0 0 40px;padding:0 0 34px;border-bottom:1px solid rgba(29,29,31,.08)}
+.op-obsah b{display:block;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+.op-obsah ol{list-style:none;margin:0;padding:0;columns:2;column-gap:36px}
+.op-obsah li{break-inside:avoid;margin:0 0 9px;font-size:.92rem;line-height:1.45}
+.op-obsah a{color:var(--text);text-decoration:none;display:inline-flex;gap:8px}
+.op-obsah a i{font-style:normal;color:var(--acc);font-weight:700;min-width:34px}
+.op-obsah a:hover span{text-decoration:underline;text-underline-offset:3px}
+.op-cl{scroll-margin-top:100px}
+.op-cl+.op-cl{margin-top:38px}
+.op-cl h2{font-size:1.18rem;font-weight:800;letter-spacing:-.015em;line-height:1.35;margin:0 0 14px;color:var(--text)}
+.op-cl h2 small{display:block;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+.op-cl p{font-size:.97rem;line-height:1.72;color:rgba(29,29,31,.82);margin:0 0 12px;text-align:justify;}
+.op-cl p.op-pis{padding-left:26px}
+.op-cl p b{color:var(--text)}
+.op-cl a{color:var(--text);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:3px;text-decoration-thickness:1.5px}
+.op-pril{margin-top:44px;padding:30px 32px;border-radius:20px;background:#f5f6f9}
+.op-pril h2{margin-top:0}
+.op-pril p{text-align:left}
+@media(max-width:820px){
+.op-sec{padding:112px 16px 72px}
+.op-card{padding:30px 22px 34px;border-radius:24px}
+.op-obsah ol{columns:1}
+.op-obsah{margin-bottom:30px;padding-bottom:26px}
+.op-cl+.op-cl{margin-top:30px}
+.op-cl h2{font-size:1.08rem}
+.op-cl p{font-size:.95rem;line-height:1.68;text-align:left}
+.op-cl p.op-pis{padding-left:16px}
+.op-pril{padding:22px 18px;margin-top:34px}
+}
+</style>
+<section class="rc-sec op-sec" id="vyhlasenie"><div class="rc-in">
+<div class="section-head rc-head"><h1 class="section-title">Vyhlásenie o povahe služby<span class="rc-bod">.</span></h1><p class="rc-lead">Záväzné vymedzenie toho, čím tento webový portál je, čím nie je a aké činnosti prevádzkovateľ nevykonáva. Účinné od 1. 12. 2026.</p></div>
+<article class="op-card">
+<nav class="op-obsah" aria-label="Obsah"><b>Obsah</b><ol>
+<li><a href="#v-1"><i>I.</i><span>Predmet a záväznosť vyhlásenia</span></a></li>
+<li><a href="#v-2"><i>II.</i><span>Postavenie portálu v slovenskom právnom poriadku</span></a></li>
+<li><a href="#v-3"><i>III.</i><span>Služba, ktorú portál poskytuje</span></a></li>
+<li><a href="#v-4"><i>IV.</i><span>Čím prevádzkovateľ nie je</span></a></li>
+<li><a href="#v-5"><i>V.</i><span>Činnosti vylúčené z pôsobnosti prevádzkovateľa</span></a></li>
+<li><a href="#v-6"><i>VI.</i><span>Obsah inzerátov</span></a></li>
+<li><a href="#v-7"><i>VII.</i><span>Postavenie zadávateľa a záujemcu</span></a></li>
+<li><a href="#v-8"><i>VIII.</i><span>Osobné údaje</span></a></li>
+<li><a href="#v-9"><i>IX.</i><span>Obsah vkladaný používateľmi</span></a></li>
+<li><a href="#v-10"><i>X.</i><span>Teritoriálny rozsah činnosti</span></a></li>
+<li><a href="#v-11"><i>XI.</i><span>Zmeny a účinnosť</span></a></li>
+</ol></nav>
+
+<section class="op-cl" id="v-1"><h2><small>Článok I.</small>Predmet a záväznosť vyhlásenia</h2>
+<p>(1) Prevádzkovateľ týmto vyhlásením s účinkami voči sebe samému určuje, akú právnu povahu má tento webový portál (ďalej len „portál“), v akom rozsahu pôsobí a v akom postavení vystupuje voči používateľom.</p><p>(2) Vyhlásenie je neoddeliteľnou súčasťou všeobecných obchodných podmienok portálu (ďalej len „VOP“). Prevádzkovateľ je ním viazaný bez výnimky.</p>
+</section>
+
+<section class="op-cl" id="v-2"><h2><small>Článok II.</small>Postavenie portálu v slovenskom právnom poriadku</h2>
+<p>(1) Ustanovenia tohto článku sa uplatňujú na slovenskú jazykovú mutáciu portálu. Jazykové mutácie určené pre iné štáty obsahujú namiesto tohto článku ustanovenia, ktoré odkazujú na predpisy a orgány príslušného štátu.</p><p>(2) Prevádzkovateľ neponúka ani neposkytuje spotrebiteľské úvery, a preto nemá postavenie veriteľa v zmysle zákona č. 312/2025 Z. z. o spotrebiteľských úveroch.</p><p>(3) Zákon č. 186/2009 Z. z. o finančnom sprostredkovaní a finančnom poradenstve sa na činnosť prevádzkovateľa nevzťahuje, pretože nejde o finančné sprostredkovanie. Prevádzkovateľ najmä nikomu na mieru neodporúča finančné produkty, neporovnáva ich a nepodniká nič, čo by smerovalo k uzavretiu zmluvy o finančnej službe.</p><p>(4) Keďže prevádzkovateľ nevykonáva žiadnu činnosť, ktorá podlieha dohľadu nad finančným trhom, nepatrí ani medzi subjekty, nad ktorými sa takýto dohľad vykonáva.</p><p>(5) Príslušným orgánom dozoru nad ochranou spotrebiteľa je Inšpektorát Slovenskej obchodnej inšpekcie pre [KRAJ PODĽA SÍDLA], [ADRESA INŠPEKTORÁTU]. Úlohy koordinátora digitálnych služieb v zmysle nariadenia (EÚ) 2022/2065 vykonáva v Slovenskej republike Rada pre mediálne služby.</p>
+</section>
+
+<section class="op-cl" id="v-3"><h2><small>Článok III.</small>Služba, ktorú portál poskytuje</h2>
+<p>(1) Portál slúži ako inzertné médium. Prevádzkovateľ na ňom poskytuje jedinú službu: inzerát zadávateľa uverejní na dohodnutý čas a zaradí ho do zoznamu inzerátov, ktorý je prístupný za podmienok uvedených v ods. 4.</p><p>(2) Protiplnením za uverejnenie je odplata, ktorú zadávateľ prevádzkovateľovi uhradí jedenkrát a vopred, a to za presne vymedzený čas jedného mesiaca. Po jeho uplynutí sa zverejnenie automaticky neobnovuje a odplata sa opakovane neúčtuje.</p><p>(3) Odplata je výlučne cenou za uverejnenie inzerátu. Nemá povahu provízie a nezávisí od toho, či zadávateľ financovanie získa, či používatelia dohodu uzavrú, aká je jej výška ani aké sú jej podmienky.</p><p>(4) Zoznam inzerátov sa verejnosti nesprístupňuje. Prevádzkovateľ ho bezodplatne sprístupní každej osobe, ktorá oznámi svoje meno, priezvisko a adresu elektronickej pošty, zaslaním odkazu na túto adresu. Žiadateľov o prístup prevádzkovateľ nepreveruje, neschvaľuje ani medzi nimi nevyberá a každému z nich sprístupňuje rovnaký zoznam inzerátov. Osobám, ktoré si inzeráty prezerajú alebo na ne odpovedajú, sa používateľský účet nezriaďuje.</p>
+</section>
+
+<section class="op-cl" id="v-4"><h2><small>Článok IV.</small>Čím prevádzkovateľ nie je</h2>
+<p>(1) Prevádzkovateľ nevystupuje ako:</p><p class="op-pis">a) zmluvná strana dohôd, ktoré medzi sebou uzatvárajú používatelia portálu,</p><p class="op-pis">b) veriteľ alebo poskytovateľ spotrebiteľských úverov,</p><p class="op-pis">c) poskytovateľ platobných služieb alebo platobná inštitúcia,</p><p class="op-pis">d) finančný agent, finančný poradca ani finančný sprostredkovateľ.</p><p>(2) Medzi prevádzkovateľom a používateľmi nevzniká vzťah zastúpenia ani splnomocnenia. Inzerát uverejňuje vo vlastnom mene, v postavení prevádzkovateľa inzertného média, a nekoná v mene ani na účet žiadneho z používateľov.</p>
+</section>
+
+<section class="op-cl" id="v-5"><h2><small>Článok V.</small>Činnosti vylúčené z pôsobnosti prevádzkovateľa</h2>
+<p>(1) Prevádzkovateľ sa záväzne zdržiava všetkých činností uvedených v odsekoch 2 až 5 tohto článku.</p><p>(2) Vo vzťahu k financovaniu prevádzkovateľ:</p><p class="op-pis">a) zadávateľov sám nefinancuje a nikomu sa nezaväzuje poskytnúť peňažné prostriedky,</p><p class="op-pis">b) nevyhodnocuje úverovú spôsobilosť, výšku príjmov ani doterajšie plnenie záväzkov zadávateľov,</p><p class="op-pis">c) okrem jednotnej úrokovej sadzby a z nej vypočítanej mesačnej splátky a celkovej sumy podľa čl. VI ods. 2 nestanovuje, neuvádza ani nenavrhuje ročnú percentuálnu mieru nákladov ani iné podmienky, za ktorých by malo byť financovanie poskytnuté,</p><p class="op-pis">d) nesprostredkúva uzatváranie zmlúv a nečiní kroky, ktoré by k ich uzatvoreniu smerovali.</p><p>(3) Vo vzťahu k zobrazovaniu inzerátov prevádzkovateľ:</p><p class="op-pis">a) nepriraďuje zadávateľov k jednotlivým záujemcom a neodporúča žiadne konkrétne osoby,</p><p class="op-pis">b) nedoručuje používateľom výber inzerátov prispôsobený ich preferenciám, nastaveným filtrom ani predchádzajúcej aktivite,</p><p class="op-pis">c) neodvodzuje poradie inzerátov od ich kvality, bonity zadávateľa ani odhadovanej úspešnosti; o poradí rozhoduje výlučne dátum zverejnenia,</p><p class="op-pis">d) nezvýrazňuje žiadne inzeráty ako odporúčané na základe vlastného výberu,</p><p class="op-pis">e) nehodnotí používateľov a nezverejňuje o nich hodnotenia, recenzie ani bodové skóre.</p><p>(4) Vo vzťahu k peňažným prostriedkom a odplate prevádzkovateľ:</p><p class="op-pis">a) nepreberá, neuschováva ani nepresúva finančné prostriedky medzi používateľmi,</p><p class="op-pis">b) od záujemcov nepožaduje ani neprijíma žiadne plnenie ani iný prospech,</p><p class="op-pis">c) nedojednáva si odplatu, ktorej vznik alebo výška by boli naviazané na uzavretie, rozsah alebo podmienky dohody medzi používateľmi.</p><p>(5) Vo vzťahu ku komunikácii a totožnosti používateľov prevádzkovateľ:</p><p class="op-pis">a) nie je účastníkom komunikácie medzi používateľmi; jeho úloha sa obmedzuje na automatické doručenie úvodnej správy záujemcu na adresu elektronickej pošty zadávateľa bez jej posúdenia či úpravy, pričom do následnej komunikácie, ktorá prebieha mimo portálu, nemá prístup a nearchivuje ju,</p><p class="op-pis">b) nepreveruje identitu zadávateľov ani záujemcov.</p>
+</section>
+
+<section class="op-cl" id="v-6"><h2><small>Článok VI.</small>Obsah inzerátov</h2>
+<p>(1) Údaje v inzeráte sú obmedzené na účel financovania, požadovanú sumu najviac 250 000 €, krajinu, predpokladanú dobu financovania v trvaní aspoň 1 rok a najviac 25 rokov, úrokovú sadzbu, výšku mesačnej splátky, celkovú sumu a opis, ktorý pripojí zadávateľ. Iný údaj o cene financovania, napríklad ročná percentuálna miera nákladov, v inzeráte nie je.</p><p>(2) Úroková sadzba je pre všetky inzeráty jednotná a prevádzkovateľ ju určuje na 5 % ročne. Mesačnú splátku portál vypočíta zo sumy, z doby financovania a z tejto sadzby. Celkovú sumu vypočíta ako súčin mesačnej splátky a počtu mesiacov. Zadávateľ sa sám rozhodne, či inzerát s týmito údajmi podá. Nejde o ponuku prevádzkovateľa ani o jeho záväzok poskytnúť financovanie. Prevádzkovateľ tieto údaje nevyužíva na spájanie používateľov.</p><p>(3) Meno, priezvisko a kontaktné údaje zadávateľa sa v inzeráte nezobrazujú, a to ani potom, čo návštevník klikne alebo vykoná iný úkon. Odpoveď na inzerát možno poslať iba cez formulár pri inzeráte. Prevádzkovateľ ju zadávateľovi prepošle a ten sám rozhodne, či a ako odpovie.</p>
+</section>
+
+<section class="op-cl" id="v-7"><h2><small>Článok VII.</small>Postavenie zadávateľa a záujemcu</h2>
+<p>(1) Predmetom vzťahu medzi zadávateľom a prevádzkovateľom je výlučne inzercia. Uverejnením inzerátu zadávateľ nezískava nárok na peniaze a nemá ani istotu, že sa mu niekto ozve.</p><p>(2) Záujemca, teda ten, kto na inzerát odpovie, vystupuje sám za seba a zodpovedá za svoje konanie. Prevádzkovateľovi neplatí, účet sa mu nezakladá a prevádzkovateľ ho nepreveruje ani neschvaľuje.</p><p>(3) Tým, že záujemca vyplní a odošle formulár, neuzatvára s prevádzkovateľom zmluvu o finančnej službe ani žiadny iný odplatný právny vzťah. Na základe súhlasu, ktorý záujemca vo formulári udelil, prevádzkovateľ jeho správu a adresu elektronickej pošty iba odovzdá zadávateľovi.</p><p>(4) <b>Poučenie pre osoby, ktoré zvažujú požičiavanie peňazí.</b> Ak niekto opakovane a za účelom dosahovania zisku požičiava peniaze spotrebiteľom, ide o podnikanie, na ktoré je spravidla potrebné povolenie príslušného orgánu dohľadu nad finančným trhom. Výkon takejto činnosti bez povolenia môže viesť k uloženiu sankcie vo forme pokuty, k neplatnosti uzavretej zmluvy, prípadne k trestnej zodpovednosti. Posúdenie, či používateľ takéto povolenie potrebuje alebo ho má, ani kontrola plnenia jeho zákonných povinností nepatria do činnosti prevádzkovateľa, ktorý v tomto smere nenesie žiadnu zodpovednosť. Pred poskytnutím finančných prostriedkov sa odporúča právna konzultácia s advokátom. Platnosť povolenia Národnej banky Slovenska možno overiť v zozname dohliadaných subjektov na stránke subjekty.nbs.sk.</p>
+</section>
+
+<section class="op-cl" id="v-8"><h2><small>Článok VIII.</small>Osobné údaje</h2>
+<p>(1) Spracúvanie osobných údajov je obmedzené na údaje, ktoré si vyžaduje prevádzka inzerátu a fakturácia. Údaje ako rodné číslo, číslo dokladu totožnosti, výška príjmov, výpisy z účtu či informácie o exekúciách a dlhoch prevádzkovateľ nezbiera.</p><p>(2) Inzerovať môže iba fyzická osoba, ktorá nekoná v rámci podnikania. Dopyty podnikateľov a právnických osôb portál neuverejňuje. Meno a priezvisko zadávateľa prevádzkovateľ používa na fakturáciu a na priradenie inzerátu ku konkrétnej osobe, v inzeráte ich však nezobrazuje.</p><p>(3) Aby kontakty zadávateľov nemohli byť hromadne vyťažené, portál ich neodkrýva za žiadnych okolností, a to ani na základe kliknutia alebo iného úkonu návštevníka.</p><p>(4) Od osoby, ktorá požiada o prístup k zoznamu inzerátov, prevádzkovateľ spracúva meno, priezvisko a adresu elektronickej pošty, a to výlučne na zaslanie odkazu na zoznam inzerátov. Od záujemcu prevádzkovateľ spracúva meno alebo obchodné meno, adresu elektronickej pošty a text odpovede. Robí tak výlučne preto, aby odpoveď preposlal zadávateľovi, a to na základe súhlasu udeleného vo formulári. Záujemcovi nezakladá účet, jeho údaje nevyužíva na marketing a iným zadávateľom ich nesprístupňuje. Podrobnosti obsahuje dokument <a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a>.</p>
+</section>
+
+<section class="op-cl" id="v-9"><h2><small>Článok IX.</small>Obsah vkladaný používateľmi</h2>
+<p>(1) Za obsah inzerátov zodpovedajú používatelia, ktorí ho vytvorili. Prevádzkovateľ tento obsah iba uchováva v postavení poskytovateľa hostingovej služby podľa nariadenia Európskeho parlamentu a Rady (EÚ) 2022/2065 o jednotnom trhu s digitálnymi službami. Plošne ho kontrolovať preto nie je povinný.</p><p>(2) Na nezákonný obsah môže ktokoľvek upozorniť cez kontaktný formulár na stránke Kontakt. Prevádzkovateľ upozornenie bez zbytočného odkladu preverí a s výsledkom oboznámi toho, kto ho podal. Dotknutý používateľ sa od prevádzkovateľa dozvie dôvod, pre ktorý bol jeho inzerát odstránený alebo jeho zobrazovanie obmedzené.</p><p>(3) Kontaktný formulár na stránke Kontakt slúži aj ako kontaktné miesto pre používateľov a orgány verejnej moci.</p><p>(4) Prevádzkovateľ je oprávnený bez predchádzajúceho upozornenia odstrániť každý inzerát, ktorý je v rozpore s pravidlami portálu, so zákonom alebo s dobrými mravmi.</p>
+</section>
+
+<section class="op-cl" id="v-10"><h2><small>Článok X.</small>Teritoriálny rozsah činnosti</h2>
+<p>(1) Portál je prevádzkovaný zo Slovenskej republiky, jeho činnosť však nie je obmedzená na územie jediného štátu.</p><p>(2) Za štát, na ktorý prevádzkovateľ zameriava svoju činnosť, sa považuje len štát, pre ktorý prevádzkovateľ zriadil osobitnú jazykovú mutáciu portálu s cenami uvedenými v mene tohto štátu a s doplnkovým článkom tohto vyhlásenia, ktorý obsahuje odkazy na tamojšie právne predpisy a orgány. Prehľad takýchto štátov je zrejmý z ponuky jazykových mutácií portálu.</p><p>(3) Skutočnosť, že portál je z iného štátu technicky prístupný alebo že sa tam zobrazuje vo výsledkoch internetových vyhľadávačov, nezakladá zameranie činnosti prevádzkovateľa na tento štát. Pre taký štát prevádzkovateľ nezriaďuje jazykovú mutáciu, neuvádza ceny v jeho mene, neponúka v ňom svoje služby a nesmeruje doň reklamné kampane.</p>
+</section>
+
+<section class="op-cl" id="v-11"><h2><small>Článok XI.</small>Zmeny a účinnosť</h2>
+<p>(1) Toto vyhlásenie môže prevádzkovateľ zmeniť. Na inzeráty uverejnené pred účinnosťou zmeny sa zmena nevzťahuje. Platné znenie je trvalo prístupné na tejto stránke.</p><p>(2) Vyhlásenie je účinné od 1. 12. 2026.</p>
+</section>
+</article>
+</div></section>
+
+</main>
+<!-- ═══ PÄTIČKA ═══ -->
+<footer class="pt">
+  <div class="pt-w">
+    <div class="pt-g3 pt-zjav"><div class="pt-sk"><span class="pt-mh">Služba</span><a href="index.html" class="pt-ml">Úvod</a><a href="index.html#ziadost" class="pt-ml" data-von>Podať žiadosť</a><a href="ako-to-funguje.html" class="pt-ml">Ako to funguje</a></div><div class="pt-sk"><span class="pt-mh">O službe</span><a href="podmienky.html" class="pt-ml">Podmienky</a><a href="recenzie.html" class="pt-ml">Recenzie</a></div><div class="pt-sk"><span class="pt-mh">Pomoc</span><a href="faq.html" class="pt-ml">Poradňa</a><a href="kontakt.html" class="pt-ml">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pt-ml">Odstúpenie od zmluvy</a></div></div>
+    <div class="pt-sk pt-krb pt-zjav"><div class="pt-krh"><span class="pt-mh">Krajina</span></div><div class="ft-krajiny"></div></div>
+    <div class="pt-sk pt-rpb"><p class="pt-rep" id="upozornenie">Využívanie našej služby sa riadi všeobecnými obchodnými podmienkami. Obchodné podmienky tvoria spolu s Vyhlásením o povahe služby jeden celok. Zadávateľ je povinný oboznámiť sa s obchodnými podmienkami pred odoslaním objednávky. Odoslaním objednávky ich prijíma bez výhrad. Pre zmluvu je smerodajné znenie obchodných podmienok účinné v čase odoslania objednávky. Pre podrobné pochopenie našej služby si prosím dôkladne preštudujte obchodné podmienky a Vyhlásenie o povahe služby. Ak zmyslu našej služby plne nerozumiete, službu prosím nevyužívajte. Osobné údaje spracúvame podľa zákona č. 18/2018 Z. z. o ochrane osobných údajov a podľa nariadenia GDPR. Spracúvame výlučne údaje potrebné na uverejnenie inzerátu, na fakturáciu a na komunikáciu s používateľmi. Nevyžadujeme rodné číslo, kópiu dokladu totožnosti, bankové výpisy ani číslo bankového účtu. Meno, priezvisko ani kontakt zadávateľa sa v inzeráte nezobrazujú. Pri spracúvaní osobných údajov nedochádza k profilovaniu ani k automatizovanému rozhodovaniu. Podrobnosti nájdete v dokumente Ochrana osobných údajov. Naša služba funguje na princípe inzertného portálu. Nie sme veriteľ ani poskytovateľ spotrebiteľských úverov. Nevystupujeme ako finančný sprostredkovateľ, finančný agent, finančný poradca ani platobná inštitúcia. Nikomu nepožičiavame a do dohôd medzi používateľmi nevstupujeme. Úverovú spôsobilosť neposudzujeme a identitu používateľov nepreverujeme. Poskytujeme jedinú službu, a to uverejnenie inzerátu zadávateľa na jeden mesiac v zozname inzerátov. Cena 300 € je výlučne cenou za uverejnenie inzerátu a nezávisí od toho, či zadávateľ financovanie získa. Uverejnenie inzerátu nezaručuje, že sa zadávateľovi niekto ozve. Úroková sadzba 5 % ročne, mesačná splátka a celková suma uvedené v inzerátoch nie sú našou ponukou ani záväzkom poskytnúť financovanie. Inzerát môže podať iba fyzická osoba staršia ako 18 rokov, ktorá nekoná v rámci podnikania.</p></div>
+    <div class="pt-bot"><span>Copyright © 2026 Kvelto. Všetky práva vyhradené.</span><span class="pt-bl"><a href="obchodne-podmienky.html">Obchodné podmienky</a><a href="vyhlasenie-o-povahe-sluzby.html">Vyhlásenie o povahe služby</a><a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a><a href="inzercia.html">Pre záujemcov</a></span></div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="jazyk.js?v=16"></script>
+<script src="ucet.js?v=5"></script>
+
+<script>
+(function(){var n=document.getElementById('mainNav');if(!n)return;var last=window.scrollY,tick=false;
+function upd(){var y=window.scrollY;if(n.classList.contains('menu-open')){last=y;tick=false;return;}
+if(y<40){n.classList.remove('skryta');}else if(y>last+6){n.classList.add('skryta');}else if(y<last-6){n.classList.remove('skryta');}
+last=y;tick=false;}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});})();
+</script>
+<script src="menu.js?v=5"></script>
+<script src="paticka.js?v=1"></script>
+</body></html>
