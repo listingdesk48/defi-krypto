@@ -20,13 +20,15 @@ export async function onRequestPost(context) {
   if (meno.length < 2 || priez.length < 2 || !jeMail(email) || (poplatok !== 'Áno' && poplatok !== 'Nie') || d.suhlas !== true)
     return json({ ok: false, chyba: 'Chýbajú údaje.' }, 400);
 
-  /* Číslo žiadosti: povinné, 10 znakov 0-9 a A-F. Zhoda s databázou odstúpenie neblokuje, iba sa uvedie v e-maile majiteľovi. */
+  /* Číslo žiadosti: povinné, 10 znakov 0-9 a A-F. Žiadosť musí existovať a mať uhradený poplatok (bez úhrady zmluva nevznikla). Nezhoda e-mailu odstúpenie neblokuje, iba sa uvedie v e-maile majiteľovi. */
   var cislo = String(d.cislo || '').replace(/\s+/g, '').toUpperCase();
   if (!/^[0-9A-F]{10}$/.test(cislo)) return json({ ok: false, chyba: 'Neplatné číslo žiadosti.' }, 400);
   var zhoda = 'Kontrolu sa nepodarilo vykonať';
   try {
-    var z = await env.DB.prepare('SELECT email FROM ziadosti WHERE id LIKE ? LIMIT 1').bind(cislo.toLowerCase() + '%').first();
-    zhoda = !z ? 'Číslo žiadosti v databáze nie je' : (String(z.email || '').toLowerCase() === email.toLowerCase() ? 'Číslo žiadosti a e-mail sa zhodujú' : 'Číslo žiadosti existuje, ale e-mail sa nezhoduje');
+    var z = await env.DB.prepare('SELECT email, poplatok_uhradeny FROM ziadosti WHERE id LIKE ? LIMIT 1').bind(cislo.toLowerCase() + '%').first();
+    if (!z) return json({ ok: false, chyba: 'Žiadosť s týmto číslom sme nenašli.' }, 400);
+    if (!z.poplatok_uhradeny) return json({ ok: false, chyba: 'Poplatok k tejto žiadosti nebol uhradený.' }, 400);
+    zhoda = String(z.email || '').toLowerCase() === email.toLowerCase() ? 'Číslo žiadosti a e-mail sa zhodujú, poplatok uhradený' : 'Poplatok uhradený, ale e-mail sa nezhoduje so žiadosťou';
   } catch (e) { console.log('odstupenie kontrola', String(e)); }
 
   /* Bitcoinová adresa na vrátenie platby: povinná pri uhradenom poplatku, len bc1 s platným kontrolným súčtom */
