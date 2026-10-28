@@ -116,10 +116,15 @@ function emailMajitel(d) {
     H += nad('Len pre orientáciu') + '<div style="padding:14px 18px;border-radius:12px;background:#f6f7fa;font-size:13px;color:#6b6b70">' +
       '<p style="margin:0">V eurách sa nič nevracia. Klientovi sa pošle presne suma v BTC uvedená hore.</p>' +
       '<p style="margin:10px 0 0">Zaplatených ' + esc(btcF(v.sat)) + ' malo pri úhrade hodnotu približne ' + (v.eur ? esc(eurF(v.eur)) + ' (kurz ' + esc(eurF(v.kurzU)) + ' za 1 BTC)' : 'neznámu') + '.</p>' +
-      '<p style="margin:6px 0 0">Vracaných ' + esc(btcF(v.satV)) + ' má dnes hodnotu približne ' + (v.kurzT ? esc(eurF(v.satV / 1e8 * v.kurzT)) + ' (kurz ' + esc(eurF(v.kurzT)) + ' za 1 BTC)' : 'neznámu, kurz sa nepodarilo načítať') + '.</p></div>';
+      (v.kurzT ? '<div style="margin:12px 0 0;padding:12px 14px;border-radius:10px;background:#fff;border:1px solid #e6dcc8">' +
+        '<p style="margin:0 0 6px;font-size:12px;color:#7a6a52;font-weight:700">V dnešnom kurze ' + esc(eurF(v.kurzT)) + ' za 1 BTC</p>' +
+        '<table style="width:100%;border-collapse:collapse;font-size:14px;color:#1d1d1f">' +
+        '<tr><td style="padding:5px 0">Nám zostáva</td><td style="padding:5px 0;text-align:right;font-weight:800">' + esc(eurF(v.satP / 1e8 * v.kurzT)) + '</td></tr>' +
+        '<tr><td style="padding:5px 0">Vraciame</td><td style="padding:5px 0;text-align:right;font-weight:800">' + esc(eurF(v.satV / 1e8 * v.kurzT)) + '</td></tr></table></div>'
+        : '<p style="margin:6px 0 0">Dnešný kurz sa nepodarilo načítať.</p>') + '</div>';
     T.push('LEN PRE ORIENTÁCIU', 'V eurách sa nič nevracia. Klientovi sa pošle presne suma v BTC uvedená hore.',
       'Zaplatených ' + btcF(v.sat) + ' malo pri úhrade hodnotu približne ' + (v.eur ? eurF(v.eur) + ' (kurz ' + eurF(v.kurzU) + ' za 1 BTC)' : 'neznámu') + '.',
-      'Vracaných ' + btcF(v.satV) + ' má dnes hodnotu približne ' + (v.kurzT ? eurF(v.satV / 1e8 * v.kurzT) + ' (kurz ' + eurF(v.kurzT) + ' za 1 BTC)' : 'neznámu') + '.');
+      (v.kurzT ? 'V dnešnom kurze ' + eurF(v.kurzT) + ' za 1 BTC: Nám zostáva ' + eurF(v.satP / 1e8 * v.kurzT) + '. Vraciame ' + eurF(v.satV / 1e8 * v.kurzT) + '.' : 'Dnešný kurz sa nepodarilo načítať.'));
   }
   H += '</div>';
   return { text: T.join('\n'), html: H };
