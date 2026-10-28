@@ -74,8 +74,14 @@ function lehota(uhradeneMs) { var den = denSk(uhradeneMs), posledny = den + 14 *
 
 /* ===== Prepočet vrátenia platby (VOP čl. IV ods. 5: vracia sa pomerný podiel z prijatého množstva BTC, kurz eura sa neberie do úvahy) ===== */
 function btcF(sat) { return (sat / 1e8).toFixed(8).replace('.', ',') + ' BTC (' + String(Math.round(sat)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' sat)'; }
+async function kurzTeraz() {
+  try { var r = await fetch('https://mempool.space/api/v1/prices'); if (r.ok) { var c = await r.json(); if (c && c.EUR) return c.EUR; } } catch (e) {}
+  try { var g = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur'); if (g.ok) { var j = await g.json(); return j.bitcoin.eur; } } catch (e) {}
+  return null;
+}
+function eurF(n) { var p = (Math.round(n * 100) / 100).toFixed(2).split('.'); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ',' + p[1] + ' €'; }
 async function vypocet(z) {
-  var DEN = 86400000, sat = +z.platba_sat, teraz = Date.now();
+  var DEN = 86400000, sat = +z.platba_sat, eur = +z.platba_eur || 0, teraz = Date.now(), kurzU = eur ? eur / (sat / 1e8) : null, kurzT = await kurzTeraz();
   var od = new Date(z.zverejnene_o || z.poplatok_uhradeny_o).getTime(), dok = new Date(z.zverejnene_do).getTime();
   var spolu = Math.max(1, Math.round((dok - od) / DEN)), dni = Math.min(spolu, Math.max(1, Math.ceil((teraz - od) / DEN))), zost = spolu - dni;
   var satV = Math.floor(sat * zost / spolu);
@@ -85,11 +91,14 @@ async function vypocet(z) {
     ['Transakcia', z.platba_txid || 'neznáma'],
     ['Zverejnené', dni + ' z ' + spolu + ' dní'],
     ['Na vrátenie pripadá', zost + ' z ' + spolu + ' dní'],
-    ['Vrátiť', btcF(satV)]
+    ['Vrátiť', btcF(satV)],
+    ['Len pre informáciu', ''],
+    ['Zaplatil v eurách', eur ? 'približne ' + eurF(eur) + ' (kurz pri úhrade ' + eurF(kurzU) + ' za 1 BTC)' : 'neznáme'],
+    ['Vracia sa v eurách', kurzT ? 'približne ' + eurF(satV / 1e8 * kurzT) + ' (dnešný kurz ' + eurF(kurzT) + ' za 1 BTC)' : 'dnešný kurz sa nepodarilo načítať']
   ];
   var pozn = 'Vracia sa pomerný podiel z prijatého množstva BTC (VOP čl. IV ods. 5 a čl. VIII ods. 5). Vrátiť do 14 dní od doručenia odstúpenia.';
   return {
-    text: '\n\nVRÁTENIE PLATBY\n' + r.map(function (x) { return x[0] + ': ' + x[1]; }).join('\n') + '\n' + pozn,
-    html: '<p><b>Vrátenie platby</b></p><table cellpadding="6" style="border-collapse:collapse;font-size:14px">' + r.map(function (x) { return '<tr><td style="color:#666;border-bottom:1px solid #eee">' + esc(x[0]) + '</td><td style="border-bottom:1px solid #eee"><b>' + esc(x[1]) + '</b></td></tr>'; }).join('') + '</table><p style="color:#666;font-size:13px">' + esc(pozn) + '</p>'
+    text: '\n\nVRÁTENIE PLATBY\n' + r.map(function (x) { return x[1] ? x[0] + ': ' + x[1] : '\n' + x[0].toUpperCase(); }).join('\n') + '\n' + pozn,
+    html: '<p><b>Vrátenie platby</b></p><table cellpadding="6" style="border-collapse:collapse;font-size:14px">' + r.map(function (x) { if (!x[1]) return '<tr><td colspan="2" style="padding-top:16px;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:.06em">' + esc(x[0]) + '</td></tr>'; return '<tr><td style="color:#666;border-bottom:1px solid #eee">' + esc(x[0]) + '</td><td style="border-bottom:1px solid #eee"><b>' + esc(x[1]) + '</b></td></tr>'; }).join('') + '</table><p style="color:#666;font-size:13px">' + esc(pozn) + '</p>'
   };
 }
