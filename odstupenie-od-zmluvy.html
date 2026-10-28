@@ -365,7 +365,7 @@ textarea.s1-big{min-height:130px;resize:none;line-height:1.5;font-size:clamp(1.1
 <div class="s1-top"><div class="s1-bar"><i id="d3Bar"></i></div></div>
 <div class="s1-card"><button class="k-link s9-spat" id="d3Spat" type="button" style="visibility:hidden">Späť</button>
 <div class="s1-step on" data-s="1"><span class="s1-n">01</span><p class="s1-q">Aké je číslo Vašej žiadosti?<i class="pz">*</i></p><p class="s9-txt s9-pozn">Nájdete ho vo svojom účte a v e-maile o schválení žiadosti.</p><input class="s1-big" id="oCislo" type="text" placeholder="Napríklad 3F9A0C12BE" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="20"><p class="k-err" id="oe-cislo"></p></div>
-<div class="s1-step" id="oInfo"><p class="s1-q" id="oInfoT"></p><div class="o-os"><i id="oOs"></i><span class="o-dnes" id="oDnes">Dnes</span></div><div class="o-leg"><span><b id="oDni"></b> zverejnený</span><span id="oZostW"><b id="oZost"></b> zostáva</span></div><p class="s9-txt o-info-p" id="oInfoP"></p><div class="o-info-bt"><a href="index.html" class="k-btn">Nechať inzerát zverejnený</a><button type="button" class="o-lk" id="oPokr">Pokračovať v odstúpení</button></div><div class="o-rec" id="oRec"></div></div>
+<div class="s1-step" id="oInfo"><p class="s1-q" id="oInfoT"></p><div class="o-os"><i id="oOs"></i><span class="o-dnes" id="oDnes">Dnes</span></div><div class="o-leg"><span><b id="oDni"></b> zverejnený</span><span id="oZostW"><b id="oZost"></b> zostáva</span></div><p class="s9-txt o-info-p" id="oInfoP"></p><div class="o-info-bt"><a href="index.html" class="k-btn">Nechať inzerát zverejnený</a><button type="button" class="o-lk" id="oPokr">Pokračovať v odstúpení</button></div></div>
 <div class="s1-step" data-s="2"><span class="s1-n">02</span><p class="s1-q">Aké je Vaše meno?<i class="pz">*</i></p><p class="s9-txt s9-pozn">Uveďte prosím rovnaké meno a e-mail, aké ste zadali v žiadosti.</p><input class="s1-big" id="oMeno" type="text" placeholder="Meno" autocomplete="given-name"><p class="k-err" id="oe-meno"></p></div>
 <div class="s1-step" data-s="3"><span class="s1-n">03</span><p class="s1-q">Aké je Vaše priezvisko?<i class="pz">*</i></p><input class="s1-big" id="oPriez" type="text" placeholder="Priezvisko" autocomplete="family-name"><p class="k-err" id="oe-priez"></p></div>
 <div class="s1-step" data-s="4"><span class="s1-n">04</span><p class="s1-q">Aký je Váš e-mail?<i class="pz">*</i></p><p class="s9-txt s9-pozn">Uveďte prosím rovnaké meno a e-mail, aké ste zadali v žiadosti.</p><input class="s1-big" id="oMail" type="email" placeholder="meno@email.sk" autocomplete="email"><p class="k-err" id="oe-mail"></p></div>
@@ -377,7 +377,7 @@ textarea.s1-big{min-height:130px;resize:none;line-height:1.5;font-size:clamp(1.1
 <div class="k-ok" id="oPo"><div class="k-ok-ic"></div><b>Lehota na odstúpenie uplynula</b><p>Od zmluvy je možné odstúpiť do 14 dní od jej uzavretia. Zmluva vznikla úhradou poplatku.</p><div class="d3-sum o-po-sum"><div class="d3-r"><span>Poplatok uhradený</span><span class="o-v" id="oPoU"></span></div><div class="d3-r"><span>Posledný deň na odstúpenie</span><span class="o-v" id="oPoL"></span></div></div><a href="index.html" class="kt-btn">Späť na hlavnú stránku</a></div>
 <div class="k-ok" id="oNie"><div class="k-ok-ic"></div><b>Odstúpenie nie je potrebné</b><p>Keďže ste poplatok neuhradili, nemusíte nič robiť. Žiadosť sa po 5 dňoch od schválenia sama zruší.</p><a href="index.html" class="kt-btn">Späť na hlavnú stránku</a></div>
 <div class="k-ok" id="oOk"><div class="k-ok-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><b>Odstúpenie sme prijali</b><p>Vaše odstúpenie od zmluvy bude vybavené v zákonom stanovenej lehote a to najneskôr do 14 kalendárnych dní odo dňa jeho doručenia. O jeho vybavení budete informovaní na Váš e-mail.</p><a href="index.html" class="kt-btn">Späť na hlavnú stránku</a></div>
-<div class="s1-ft" id="d3Ft"><button class="k-btn" id="d3Btn" type="button">Pokračovať</button></div></div></div></div></section>
+<div class="s1-ft" id="d3Ft"><button class="k-btn" id="d3Btn" type="button">Pokračovať</button></div></div></div></div><iframe id="oRecF" title="Recenzie" src="about:blank" style="display:none;width:100%;border:0;margin-top:40px;height:600px" scrolling="no"></iframe></section>
 </main>
 <!-- ═══ PÄTIČKA ═══ -->
 <footer class="pt">
@@ -448,8 +448,8 @@ function nie(){document.querySelectorAll('.d3 .s1-step').forEach(function(s){s.c
 function plat(){return true}
 /* Slovenské tvary: 1 deň, 2 až 4 dni, 5 a viac dní */
 function dniT(n){return n+' '+(n===1?'deň':(n>=2&&n<=4?'dni':'dní'))}
-function info(v){document.querySelectorAll('.d3 .s1-step').forEach(function(s){s.classList.remove('on')});$('d3Ft').style.display='none';$('d3Spat').style.visibility='hidden';$('oInfoT').textContent='Váš inzerát je zverejnený '+dniT(v.dni);var spolu=v.zostava===null||v.zostava===undefined?30:v.dni+v.zostava,w=Math.max(3,Math.min(100,v.dni/spolu*100))+'%';$('oInfo').style.setProperty('--w',w);$('oDni').textContent=dniT(v.dni);$('oZost').textContent=v.zostava===null||v.zostava===undefined?'':dniT(v.zostava);$('oZostW').style.display=v.zostava===null||v.zostava===undefined?'none':'';var z=v.zostava;$('oInfoP').textContent=(z===null||z===undefined?'':'Do konca zverejnenia '+(z===1?'zostáva ešte ':(z>=2&&z<=4?'zostávajú ešte ':'zostáva ešte '))+dniT(z)+'. ')+'Záujemcovia môžu na Váš inzerát reagovať počas celej doby zverejnenia. ';var sb=document.createElement('strong');sb.style.cssText='color:#1d1d1f;font-weight:600';sb.textContent='Odporúčame dať mu viac času.';$('oInfoP').appendChild(sb);$('oInfo').classList.add('on')}
-$('oPokr').onclick=function(){$('oInfo').classList.remove('on');$('d3Ft').style.display='';st=2;ukaz()};
+function info(v){document.querySelectorAll('.d3 .s1-step').forEach(function(s){s.classList.remove('on')});$('d3Ft').style.display='none';$('d3Spat').style.visibility='hidden';$('oInfoT').textContent='Váš inzerát je zverejnený '+dniT(v.dni);var spolu=v.zostava===null||v.zostava===undefined?30:v.dni+v.zostava,w=Math.max(3,Math.min(100,v.dni/spolu*100))+'%';$('oInfo').style.setProperty('--w',w);$('oDni').textContent=dniT(v.dni);$('oZost').textContent=v.zostava===null||v.zostava===undefined?'':dniT(v.zostava);$('oZostW').style.display=v.zostava===null||v.zostava===undefined?'none':'';var z=v.zostava;$('oInfoP').textContent=(z===null||z===undefined?'':'Do konca zverejnenia '+(z===1?'zostáva ešte ':(z>=2&&z<=4?'zostávajú ešte ':'zostáva ešte '))+dniT(z)+'. ')+'Záujemcovia môžu na Váš inzerát reagovať počas celej doby zverejnenia. ';var sb=document.createElement('strong');sb.style.cssText='color:#1d1d1f;font-weight:600';sb.textContent='Odporúčame dať mu viac času.';$('oInfoP').appendChild(sb);$('oInfo').classList.add('on');var f=$('oRecF');if(f.src.indexOf('recenzie.html')<0)f.src='recenzie.html?vlozene';f.style.display='block'}
+$('oPokr').onclick=function(){$('oRecF').style.display='none';$('oInfo').classList.remove('on');$('d3Ft').style.display='';st=2;ukaz()};
 /* Overenie čísla žiadosti a úhrady poplatku v databáze (functions/api/odstupenie-kontrola.js) */
 function overCislo(c){var b=$('d3Btn');if(b.disabled)return;b.disabled=true;b.textContent='Overujem…';fetch('/api/odstupenie-kontrola',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cislo:c})}).then(function(r){return r.json()}).then(function(v){b.disabled=false;if(!v||!v.ok)throw 0;if(v.stav==='nenajdena'){ukaz();OD.chyba('cislo','Žiadosť s týmto číslom sme nenašli. Skontrolujte ho prosím.');return}if(v.stav==='neuhradeny'){nie();return}if(v.stav==='po_lehote'){poLehote(v);return}info(v)}).catch(function(){b.disabled=false;ukaz();OD.chyba('cislo','Overenie sa nepodarilo. Skúste to prosím o chvíľu znova.')})}
 $('oBtc').addEventListener('input',function(){$('oe-btc').classList.remove('show')});
@@ -498,16 +498,6 @@ window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimation
 @media(max-width:820px){.k-ok{padding:28px 4px}.k-ok b{font-size:1.35rem}}
 </style>
 <style id="o-info">
-.o-rec{margin:44px -56px -44px;padding:30px 0 36px;border-top:1px solid rgba(29,29,31,.07);overflow:hidden}
-.o-rec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:0 56px;margin-bottom:16px}
-.o-rec-h b{font-size:1.1rem;font-weight:700}.o-rec-h span{font-size:.88rem;color:var(--text-muted,rgba(29,29,31,.6))}
-.o-rec-l{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 56px 14px;scrollbar-width:none}.o-rec-l::-webkit-scrollbar{display:none}
-.o-rk{flex:0 0 280px;scroll-snap-align:start;background:#fff;border-radius:20px;padding:20px;box-shadow:var(--tien-2,0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11));display:flex;flex-direction:column;gap:12px}
-.o-rk .hv{display:flex;gap:2px}.o-rk .hv svg{width:15px;height:15px;fill:#e4e1da}.o-rk .hv svg.on{fill:var(--acc,#c2ad8c)}
-.o-rk p{margin:0;font-size:.92rem;line-height:1.6;color:#1d1d1f;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
-.o-rk .kto{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:.85rem}.o-rk .ini{width:34px;height:34px;border-radius:50%;background:var(--acc-soft,#efe5d4);color:#7a6a52;font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex:none}
-.o-rk .kto b{display:block;font-weight:600}.o-rk .kto span{color:var(--text-muted,rgba(29,29,31,.6))}
-@media(max-width:820px){.o-rec{margin:36px -22px -26px}.o-rec-h,.o-rec-l{padding-left:22px;padding-right:22px}.o-rk{flex-basis:250px}}
 
 .o-os{position:relative;margin:50px 0 14px;height:12px;border-radius:12px;background:var(--acc-soft,#efe5d4)}
 .o-os i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:12px;background:#1d1d1f}
@@ -522,15 +512,7 @@ window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimation
 @media(max-width:820px){.o-info-bt{flex-direction:column;gap:18px}.o-info-bt .k-btn{width:100%;padding:14px 16px;white-space:nowrap}.o-lk{margin-left:0}}
 .o-po-sum .o-v{font-weight:600;color:#1d1d1f}.o-po-sum{max-width:460px;margin:26px auto 0!important;text-align:left}.k-ok.show .o-po-sum{animation:okZdola .6s cubic-bezier(.2,.8,.3,1) .7s both}
 </style>
-<script src="recenzie-data.js?v=1"></script>
 <script>
-/* Recenzie pod časovou osou: berú sa zo spoločného súboru recenzie-data.js */
-(function(){var R=window.RECENZIE||[],box=document.getElementById('oRec');if(!box||!R.length){if(box)box.style.display='none';return}
-var ST='<svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>';
-function e(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
-var h='<div class="o-rec-h"><b>Recenzie našich klientov</b><span>'+R.length+' recenzií</span></div><div class="o-rec-l">';
-R.forEach(function(r){var hv='';for(var i=1;i<=5;i++)hv+=ST.replace('<svg','<svg class="'+(i<=r.h?'on':'')+'"');
-h+='<div class="o-rk"><div class="hv">'+hv+'</div><p>'+e(r.text)+'</p><div class="kto"><span class="ini">'+e(r.ini)+'</span><div><b>'+e(r.meno)+'</b><span>'+e(r.mesto)+(r.datum?' · '+e(r.datum):'')+'</span></div></div></div>'});
-box.innerHTML=h+'</div>'})();
 </script>
+<script>window.addEventListener('message',function(e){if(e.data&&e.data.rcVyska){var f=document.getElementById('oRecF');if(f&&e.source===f.contentWindow)f.style.height=e.data.rcVyska+'px'}});</script>
 </body></html>
