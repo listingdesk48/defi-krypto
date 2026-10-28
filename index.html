@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="color-scheme" content="light" />
+
+<title>Kvelto</title>
+<meta name="description" content="Úver až do výšky 300 000 €. Žiadosť vybavíte online za pár minút. Výsledok sa dozviete najneskôr do 24 hodín." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+<link rel="icon" href="logo/kvelto-favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="logo/kvelto-favicon.svg" sizes="any" />
+<link rel="apple-touch-icon" href="logo/kvelto-app-ikona-512.png" />
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="jazyk.css?v=13">
+<style>:root { color-scheme: light; --black: #1d1d1f; --blue: #0a84ff; --white: #ffffff; --acc-soft: #f9a0d0; --acc: #ec4899; --acc-deep: #db2777; --acc-dark: #be185d; --acc-rail: #f76eb8; --acc-rgb: 236,72,153; --acc-soft-rgb: 249,160,208; --grad-1: var(--acc-soft); --grad-2: var(--acc); --grad-3: var(--acc-deep); --grad-4: var(--acc-dark); --text: #1d1d1f; --text-muted: rgba(29, 29, 31, 0.6); --text-faint: rgba(29, 29, 31, 0.55); --sep: rgba(29, 29, 31, 0.22); --green: #0a7d3f; --green-bg: rgba(16, 160, 80, 0.12); --amber: #b8681a; --glass-bg: rgba(255, 255, 255, 0.55); --glass-bg-soft: rgba(255, 255, 255, 0.42); --glass-shadow: 0 10px 34px rgba(24, 33, 66, 0.12), 0 2px 8px rgba(24, 33, 66, 0.06); --page-bg: #f5f7fc; --grad-full: linear-gradient(95deg, var(--grad-1) 0%, var(--grad-2) 45%, var(--grad-3) 80%, var(--grad-4) 100%); --tb: 0px; }
+
+.bg-blobs{display:none}.bg{background:linear-gradient(180deg,#f7f9fe 0%,#fff 100%)}
+.hero{position:relative;padding-top:120px;padding-bottom:70px;min-height:100svh;display:flex;flex-direction:column}
+.hero>.section-inner{margin:auto;width:100%}
+.ft-zn{border-bottom:none;margin-bottom:0;padding-bottom:6px}.ft-bottom-cisty{justify-content:center}
+
+.hero{min-height:0;padding-bottom:0;padding-top:110px}
+.fotopas{width:100%;max-width:1040px;margin:44px auto 0;height:460px;border-radius:32px;background:url(video/hero-poster.jpg) center 60%/cover;box-shadow:0 30px 70px rgba(24,33,66,.2);position:relative}
+.tile3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1040px;margin:-96px auto 0;padding:0 44px;align-items:start;position:relative;z-index:1}
+.t{padding:24px 22px;border-radius:22px;background:rgba(255,255,255,.82);border:.5px solid rgba(255,255,255,.9);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:var(--glass-shadow)}
+.t-ic{width:38px;height:38px;border-radius:12px;background:#1d1d1f;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px}.t-ic svg{width:18px;height:18px}
+.t b{display:block;font-size:1rem;letter-spacing:-.01em}.t p{margin-top:6px;font-size:.86rem;line-height:1.58;color:var(--text-muted)}
+.wrap3{padding-bottom:90px;position:relative;z-index:2}
+@media(max-width:820px){.fotopas{height:300px;border-radius:22px;margin:32px auto 0}.tile3{grid-template-columns:1fr;margin-top:-60px;padding:0 24px;gap:10px}.t{padding:20px 18px}.hero{padding-top:104px}.wrap3{padding-bottom:60px;min-height:0}}
+
+.tile3 .v-item{border-top:none;padding:0;border-radius:22px;background:#fff;border:.5px solid rgba(255,255,255,.9);box-shadow:0 18px 46px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.08)}
+.tile3 .v-head{gap:12px;padding:18px 18px}
+.tile3 .v-ic{width:36px;height:36px;flex:none;border-radius:12px;background:#1d1d1f;color:#fff;display:flex;align-items:center;justify-content:center}.tile3 .v-ic svg{width:17px;height:17px}
+.tile3 .v-title{font-size:.95rem}.tile3 .v-item.open .v-title{color:var(--text)}.tile3 .v-chevron{width:18px;height:18px}.tile3 .v-item.open .v-chevron{color:var(--text)}
+.tile3 .v-text{padding:0 18px 18px;font-size:.88rem}
+
+
+/* Hlavička bez skla: len logo a odkazy, žiadne pozadie ani tieň. */
+#mainNav, #mainNav.scrolled{background:transparent;border:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.nav-inner{padding:0 8px}
+/* B: video na spodku s tmavým prechodom, položky ako čistý text bez rámov */
+.fotopas{position:relative;overflow:hidden;background:#0b0b14}
+.fotopas video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+/* Jemný tmavý závoj cez celé video + silnejší prechod dole pod textami. */
+.fotopas::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.4) 40%,rgba(0,0,0,.28) 100%)}
+/* Každá položka má vlastnú čiaru. Keď sa otvorí, zdvihne sa len jej čiara, ostatné ostanú dole. */
+.tile3{position:absolute;left:28px;right:28px;bottom:14px;margin:0;padding:0;gap:0 28px;z-index:1;grid-template-columns:repeat(3,1fr);align-items:end}
+.tile3 .v-item{background:transparent;border:none;border-top:1px solid rgba(255,255,255,.35);box-shadow:none;border-radius:0;position:static}
+.tile3 .v-head{padding:16px 4px}
+.tile3 .v-ic{display:none}
+.tile3 .v-title{color:#fff;font-size:1rem}.tile3 .v-item.open .v-title{color:#fff}.tile3 .v-chevron{color:rgba(255,255,255,.7)}.tile3 .v-item.open .v-chevron{color:#fff}
+.tile3 .v-text{color:rgba(255,255,255,.88);padding:0 4px 14px;font-size:.9rem}
+.hero{padding-bottom:90px}
+/* Mobil: položky pod sebou na tmavom spodku videa. */
+@media(max-width:820px){
+  .fotopas{height:auto;min-height:460px;padding:200px 18px 10px;display:flex;flex-direction:column;justify-content:flex-end}
+  .tile3{width:100%}
+  .fotopas::after{background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.4) 40%,rgba(0,0,0,.28) 100%)}
+  .tile3{position:relative;left:auto;right:auto;bottom:auto;z-index:1;display:block;margin:0;padding:0}
+  .tile3 .v-item{display:block;width:100%;border-top:1px solid rgba(255,255,255,.22)}
+  .tile3 .v-head{padding:14px 2px}
+  .tile3 .v-text{padding:0 2px 14px}
+}
+
+/* ══════════ ŽIADOSŤ O ÚVER (druhý banner pod hero) ══════════ */
+#ziadost { padding-top: 10px; padding-bottom: 110px; scroll-margin-top: 20px; }
+.zk { max-width: 880px; margin: 0 auto; }
+/* Kroky hore */
+.zk .stepper { max-width: 820px; margin-bottom: 22px; flex-wrap: nowrap; }
+.zk .sp-line { width: clamp(10px, 4vw, 44px); }
+.zk .sp-dot { padding: 8px 10px; }
+.zk .sp-dot { cursor: default; }
+.zk .sp-dot:hover { background: none; }
+.zk .sp-dot.on .sp-n { background: #1d1d1f; color: #fff; }
+.zk .sp-dot.done { cursor: pointer; }
+.zk .sp-dot.done:hover { background: rgba(255,255,255,.6); }
+.zk .sp-dot.done .sp-n svg { width: 13px; height: 13px; }
+/* Karta */
+.zk-card { padding: 34px 34px 30px; border-radius: 30px; background: rgba(255,255,255,.72); border: .5px solid rgba(255,255,255,.85); -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%); box-shadow: 0 26px 64px rgba(24,33,66,.2), 0 4px 12px rgba(24,33,66,.07); }
+@media (max-width: 640px) { .zk-card { padding: 24px 18px 22px; border-radius: 24px; } }
+.zk .pane-x { max-width: 720px; }
+/* Polia */
+.zk .fld { margin-top: 22px; }
+.zk .fld-t { display: block; font-size: .95rem; font-weight: 700; letter-spacing: -.01em; color: var(--text); }
+.zk .fld-t i { font-style: normal; color: var(--acc); margin-left: 3px; }
+.zk .fld-h { margin: 4px 0 10px; font-size: .88rem; line-height: 1.6; color: var(--text-muted); }
+.zk .fld-t + input, .zk .fld-t + select, .zk .fld-t + .two, .zk .fld-t + .three { margin-top: 10px; }
+.zk input[type=date], .zk input[type=number] { width: 100%; font-family: inherit; font-size: .95rem; color: var(--text); padding: 13px 15px; border-radius: 14px; border: .5px solid rgba(29,29,31,.12); background-color: rgba(255,255,255,.88); transition: border-color .2s, box-shadow .2s; }
+.zk input[type=date] { -webkit-appearance: none; appearance: none; min-height: 48px; }
+.zk input::placeholder { color: rgba(29,29,31,.35); }
+.zk .three { display: grid; grid-template-columns: 1.6fr 1fr .8fr; gap: 12px; }
+@media (max-width: 560px) { .zk .three { grid-template-columns: 1fr; } }
+.zk .eur { position: relative; }
+.zk .eur input { padding-left: 34px; }
+.zk .eur::before { content: "€"; position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: .95rem; color: var(--text-faint); }
+/* Kalkulačka */
+.zk-kalk { margin-top: 24px; padding: 24px 26px 18px; border-radius: 22px; background: rgba(255,255,255,.8); border: .5px solid rgba(255,255,255,.9); box-shadow: 0 8px 26px rgba(24,33,66,.07); }
+.zk-kalk .qf-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.zk-kalk .qf-row b { font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em; }
+.zk-kalk .qf-row strong { font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; color: var(--text); }
+.zk-kalk .rng2 { margin-top: 26px; }
+.zk-vys { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .zk-vys { grid-template-columns: 1fr; } }
+.zk-vys .box { padding: 20px 18px; border-radius: 20px; text-align: center; background: rgba(29,29,31,.04); border: .5px solid rgba(29,29,31,.06); }
+.zk-vys .box span { display: block; font-size: .84rem; font-weight: 600; color: var(--text-muted); }
+.zk-vys .box strong { display: block; margin-top: 6px; font-size: 2rem; font-weight: 800; letter-spacing: -.035em; color: var(--text); }
+.zk-vys .box small { display: block; margin-top: 4px; font-size: .8rem; color: var(--text-faint); }
+/* Súhrn na kroku 5 */
+.zk-sum { margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); border-radius: 16px; background: rgba(29,29,31,.045); overflow: hidden; }
+.zk-sum div { padding: 14px 18px; }
+.zk-sum div + div { border-left: 1px solid rgba(29,29,31,.08); }
+.zk-sum span { display: block; font-size: .78rem; font-weight: 600; color: var(--text-muted); }
+.zk-sum b { display: block; margin-top: 3px; font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; }
+@media (max-width: 560px) { .zk-sum { grid-template-columns: 1fr; } .zk-sum div + div { border-left: none; border-top: 1px solid rgba(29,29,31,.08); } }
+/* Súhlasy */
+.zk .suhlas { margin-top: 10px; display: flex; gap: 12px; align-items: flex-start; padding: 15px 16px; border-radius: 16px; background: rgba(255,255,255,.7); border: .5px solid rgba(29,29,31,.1); font-size: .9rem; line-height: 1.6; color: var(--text-muted); cursor: pointer; }
+.zk .suhlas input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: #1d1d1f; cursor: pointer; }
+.zk .suhlas.err { border-color: #ef4444 !important; }
+/* Podpis */
+.zk-sig { position: relative; margin-top: 10px; height: 220px; border-radius: 16px; background: #fff; border: .5px solid rgba(29,29,31,.12); overflow: hidden; touch-action: none; }
+.zk-sig canvas { display: block; width: 100%; height: 100%; cursor: crosshair; }
+.zk-sig .sig-line { position: absolute; left: 6%; right: 6%; bottom: 46px; height: 1px; background: rgba(29,29,31,.18); pointer-events: none; }
+.zk-sig .sig-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--text-faint); font-size: .95rem; pointer-events: none; transition: opacity .2s; }
+.zk-sig .sig-ph svg { width: 28px; height: 28px; }
+.zk-sig.ma .sig-ph { opacity: 0; }
+.zk-sig.err { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,.12); }
+.zk-sig-pod { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 8px; font-size: .84rem; color: var(--text-faint); }
+.zk-sig-pod button { border: none; background: none; font-family: inherit; font-size: .86rem; font-weight: 600; color: var(--text); cursor: pointer; padding: 4px 0; text-decoration: underline; text-underline-offset: 3px; }
+/* Tlačidlá a poznámka */
+.zk .nav-btns { margin-top: 28px; }
+.zk .nav-btns .btn-primary { flex: 1; }
+.zk .nav-btns .btn-secondary { flex: none; }
+@media (max-width: 480px) { .zk .nav-btns { flex-direction: column-reverse; } .zk .nav-btns .btn { width: 100%; } }
+.zk-pozn { margin-top: 16px; text-align: center; font-size: .82rem; line-height: 1.6; color: var(--text-faint); }
+.zk-pozn a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+/* Hotovo */
+.zk-ok { text-align: center; padding: 26px 0 10px; }
+.zk-ok .ok-ic { width: 92px; height: 92px; margin: 0 auto 22px; border-radius: 50%; background: var(--green-bg); color: var(--green); display: flex; align-items: center; justify-content: center; }
+.zk-ok .ok-ic svg { width: 40px; height: 40px; }
+.zk-ok h3 { font-size: 1.6rem; font-weight: 800; letter-spacing: -.03em; }
+.zk-ok p { max-width: 560px; margin: 12px auto 0; font-size: 1rem; line-height: 1.7; color: var(--text-muted); }
+.zk-ok .btn { margin-top: 26px; }
+/* Reprezentatívny príklad */
+.zk-rep { max-width: 880px; margin: 30px auto 0; padding: 0 6px; font-size: .78rem; line-height: 1.7; color: var(--text-faint); text-align: justify; }
+.zk-rep a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.zk .err-msg { margin-top: 6px; }
+
+</style>
+<style>/* Hero: výrazná typografia (návrh 2) */
+.hero-title{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.05em;line-height:.98}
+.hero-title small{display:block;font-size:.4em;font-weight:600;letter-spacing:-.02em;color:var(--text-muted);margin-bottom:12px}
+.hero-grad{color:var(--text)}
+.hero-grad::after{content:"";display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--acc);margin-left:.1em}
+.lead{font-size:1.2rem;max-width:560px;line-height:1.6;margin-top:26px}
+.nav-links a{font-size:.92rem}
+@media(max-width:480px){.nav-cta{display:none}}
+/* Hlavička: návrh 1 (čistá biela na celú šírku, ružová linka pod aktívnou položkou) */
+.nav-logo-icon{width:36px;height:36px;border-radius:26%;box-shadow:none}
+.ft-zn-badge{box-shadow:none}
+#mainNav,#mainNav.scrolled{top:0;left:0;transform:none;width:100%;max-width:none;border-radius:0;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(29,29,31,.08);box-shadow:none}
+/* Hlavička: jemne sivá na celú šírku, bez tieňa a bez linky */
+#mainNav,#mainNav.scrolled{background:rgba(236,238,244,.94);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:none;border:none;border-bottom:none}
+.nav-inner{max-width:1080px;margin:0 auto;height:64px;padding:0 24px}
+.nav-links a{position:relative;padding:6px 0;opacity:.7}
+.nav-links a.is-current{opacity:1;font-weight:500}
+.nav-drawer a.is-current{font-weight:500}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a.is-current::after,.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:#1d1d1f;color:#fff;border-radius:12px}.nav-cta:hover{background:#000}
+.nav-burger{border-radius:10px}
+.nav-drawer{top:64px;left:0;transform:translateY(-8px);width:100%;max-width:none;border-radius:0 0 18px 18px;background:rgba(255,255,255,.97);border-top:1px solid rgba(29,29,31,.06)}
+.nav-drawer.open{transform:translateY(0)}
+.nav-drawer a.is-current{background:rgba(236,72,153,.08);color:var(--acc-dark)}
+</style><style>/* Hlavička: prihlásenie a účet (návrh 10) */
+.nav-sec{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:12px;border:1.5px solid rgba(29,29,31,.22);color:var(--text);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;background:transparent}
+.nav-sec.je{border-color:var(--text)}
+.inic{width:24px;height:24px;border-radius:50%;background:#1d1d1f;color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.nav-sec .inic{margin-left:-8px}
+.nav-drawer .del{height:1px;background:rgba(29,29,31,.08);margin:6px 8px}
+.nav-drawer .dr-btn{justify-content:center;padding:13px;opacity:1;display:flex;align-items:center}
+.nav-drawer .dr-ucet{opacity:1;font-weight:600;display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-ucet small{margin-left:auto;font-weight:400;font-size:.86rem;color:var(--text-faint)}
+.nav-drawer .dr-odhlasit{display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-odhlasit svg{width:18px;height:18px;flex:none}
+.nav-drawer .nav-cta{color:#fff;background:#1d1d1f;display:flex}
+.nav-drawer .dr-btn{margin-top:6px}
+/* Kým nie je napojené prihlásenie, ukazuje sa stav „neprihlásený“. Po prihlásení dostane <body> triedu „prihlaseny“. */
+body.prihlaseny [data-von]{display:none!important}
+body:not(.prihlaseny) [data-dnu]{display:none!important}
+@media(max-width:1040px){#mainNav .nav-inner{padding:0 14px 0 20px}#mainNav .nav-right{gap:8px}#mainNav .nav-sec{padding:8px 14px;font-size:.84rem}}
+@media(max-width:480px){#mainNav .nav-inner>.nav-right>.nav-cta{display:none}}
+</style><style>/* Hlavička: pri scrolovaní dole zmizne, pri scrolovaní hore sa objaví */
+#mainNav{transition:transform .38s cubic-bezier(.22,1,.36,1),box-shadow .35s ease,background-color .35s ease}
+#mainNav.skryta{transform:translateY(-110%)}
+#mainNav.menu-open{transform:none}
+</style>
+<style>/* Karta s videom: obyčajný, o niečo výraznejší tieň */
+.fotopas{box-shadow:0 8px 20px rgba(0,0,0,.12),0 36px 80px rgba(24,33,66,.32)}
+.hero{padding-bottom:110px}
+</style>
+<style>/* Formulár: návrh 2 (Tmavý pás okolo, biela karta v ňom) */
+/* Ukazovateľ krokov hore v karte */
+.zk-prog{display:flex;gap:6px;margin-bottom:26px}
+.zk-prog i{flex:1;height:4px;border-radius:4px;background:var(--pg-off,rgba(29,29,31,.12));transition:background .3s}
+.zk-prog i.on{background:var(--pg-on,#1d1d1f)}
+
+#ziadost{background:#0f0f11;padding:70px 24px 90px;margin-top:10px}
+.zk{--pg-off:#e6e8ef;--pg-on:#1d1d1f}
+.zk-card{background:#fff;border:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+
+.zk input[type=text],.zk input[type=email],.zk input[type=tel],.zk input[type=password],.zk input[type=date],.zk input[type=number],.zk select{background-color:#f2f3f7;border:1.5px solid transparent;border-radius:14px}
+.zk input[type=password]{width:100%;font-family:inherit;font-size:.95rem;color:var(--text);padding:13px 15px;border-radius:14px;transition:border-color .2s,box-shadow .2s}
+.zk .heslo-wrap{position:relative}
+.zk .heslo-wrap input{padding-right:96px}
+.zk .heslo-oko{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;font:inherit;font-size:.82rem;font-weight:600;color:var(--text-faint);padding:8px 10px;border-radius:10px;cursor:pointer}
+.zk .heslo-oko:hover{color:var(--text)}
+.zk input:focus,.zk select:focus{background-color:#fff;border-color:rgba(29,29,31,.14);box-shadow:none;outline:none}
+
+.zk-kalk{background:#f4f5f9;border:none;box-shadow:none}
+.zk-vys .box{background:#f4f5f9;border:none}
+.zk-vys .box:first-child{background:#1d1d1f}
+.zk-vys .box:first-child span,.zk-vys .box:first-child small{color:rgba(255,255,255,.65)}
+.zk-vys .box:first-child strong{color:#fff}
+.zk-sum{background:#f4f5f9}
+.zk .suhlas{background:#f4f5f9;border:1.5px solid transparent}
+.zk-sig{border:1.5px solid rgba(29,29,31,.14)}
+.zk-rep{color:rgba(255,255,255,.45)}
+.zk-rep a{color:#fff}
+</style>
+<style>/* Formulár: bez ukazovateľa krokov, kratšie tlačidlo Ďalej */
+.zk-prog{display:none!important}
+.zk .nav-btns{justify-content:flex-end}
+.zk .nav-btns .btn-primary{flex:none;min-width:150px}
+.zk .pane[data-pane="1"] .nav-btns{justify-content:flex-end}
+@media(max-width:480px){.zk .nav-btns .btn-primary{min-width:0}}
+</style>
+<style>/* Výsledky kalkulačky: obe sivé, splátka ružovým číslom */
+.zk-vys .box:first-child{background:#f4f5f9}.zk-vys .box:first-child span,.zk-vys .box:first-child small{color:var(--text-muted)}.zk-vys .box:first-child strong{color:var(--acc)}
+</style>
+<style>/* Safari: video nesmie presvitať cez zaoblené rohy karty */
+.fotopas{isolation:isolate;transform:translateZ(0)}
+.fotopas video{border-radius:inherit;-webkit-mask-image:-webkit-radial-gradient(#fff,#000);transform:translateZ(0)}
+.zk-card{isolation:isolate;transform:translateZ(0)}
+</style>
+<style>/* Tieň karty nesmie dopadať na text pod ňou */
+.zk-card{box-shadow:none}
+</style>
+<style>/* Výsledky: tri boxy (splátka, náklady, RPMN), súhrn so 4 údajmi */
+/* (RPMN box vypnutý, výpočet ostal v kóde) */
+</style>
+<style>/* Kalkulačka: výber sumy a doby aj zo zoznamu (rozbaľovací zoznam vpravo od názvu) */
+.zk-kalk .qf-row{align-items:center}
+.zk .zk-sel{width:auto;flex:none;padding:9px 40px 9px 14px;font-size:1.05rem;font-weight:600;letter-spacing:0;color:var(--text);background-color:#fff;border:1.5px solid rgba(29,29,31,.16);border-radius:12px;text-align:left}
+.zk .zk-sel:focus,.zk .zk-sel:focus-visible{border-color:rgba(29,29,31,.16);box-shadow:none;outline:none}
+.zk .zk-sel option{font-weight:400;font-size:1rem;letter-spacing:0}
+@media(max-width:480px){.zk-kalk .qf-row b{white-space:nowrap}.zk .zk-sel{width:auto;max-width:185px;font-size:.98rem;padding:8px 32px 8px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+</style>
+<style>/* Lišta so zvolenými číslami hore v karte (kroky 2 až 5) */
+.zk-top{display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:26px;border-radius:16px;background:#f4f5f9;overflow:hidden}
+.zk-top[hidden]{display:none}
+.zk-top div{padding:14px 18px}
+.zk-top div+div{border-left:1px solid rgba(29,29,31,.08)}
+.zk-top span{display:block;font-size:.76rem;font-weight:600;color:var(--text-muted)}
+.zk-top b{display:block;margin-top:3px;font-size:1.1rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.zk-top div:nth-child(1) b,.zk-top div:nth-child(3) b{color:var(--acc)}
+@media(max-width:640px){.zk-top{grid-template-columns:1fr 1fr}.zk-top div{padding:12px 14px}.zk-top div+div{border-left:none}.zk-top div:nth-child(even){border-left:1px solid rgba(29,29,31,.08)}.zk-top div:nth-child(n+3){border-top:1px solid rgba(29,29,31,.08)}}
+</style>
+<style>/* Kontrola údajov (krok 5): bloky pod sebou, zelená fajka pri každom údaji */
+.zk-suhrn{display:grid;grid-template-columns:1fr;gap:14px}
+.zs-blok{padding:16px 18px 8px;border-radius:16px;background:#f4f5f9}
+.zs-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(29,29,31,.08)}
+.zs-h b{font-size:.98rem;font-weight:800;letter-spacing:-.01em}
+.zs-h button{border:none;background:none;padding:0;font:inherit;font-size:.84rem;font-weight:600;color:var(--text);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.zs-r{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:.9rem}
+.zs-r::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:var(--green-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a7d3f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/11px no-repeat}
+.zs-r span{color:var(--text-muted);flex:none}
+.zs-r b{font-weight:700;text-align:right;margin-left:auto}
+@media(max-width:640px){.zs-r{flex-wrap:wrap;row-gap:2px}.zs-r span{flex:1}.zs-r b{flex-basis:100%;margin:0;padding-left:28px;text-align:left}}
+</style>
+<style>/* Hero: druhý odkaz len ako text, ružové podčiarknutie ako v hlavičke */
+.hero-actions .btn-secondary{background:none;border:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding-left:8px;padding-right:8px;border-radius:0;overflow:visible}
+.hero-actions .btn-secondary::after{content:"";position:absolute;left:8px;right:8px;bottom:9px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.hero-actions .btn-secondary:hover{background:none}
+.hero-actions .btn-secondary:hover::after{transform:scaleX(1)}
+/* Tlačidlo Naspäť vo formulári: rovnaký štýl ako Vypočítať splátku (bez pozadia, ružová čiarka pri prejdení myšou) */
+.zk .nav-btns .btn-secondary{position:relative;background:none;border:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding-left:8px;padding-right:8px;border-radius:0;overflow:visible}
+.zk .nav-btns .btn-secondary::after{content:"";position:absolute;left:8px;right:8px;bottom:9px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.zk .nav-btns .btn-secondary:hover{background:none}
+.zk .nav-btns .btn-secondary:hover::after{transform:scaleX(1)}
+</style>
+<style>/* Chyby vo formulári: ružová akcentu webu namiesto červenej */
+.zk .err{border-color:var(--acc)!important;box-shadow:none!important}
+.zk .suhlas.err{border-color:var(--acc)!important}
+.zk-sig.err{border-color:var(--acc);box-shadow:none}
+.zk .err-msg{color:var(--acc-deep)}
+</style>
+<style>/* Účel úveru: pri Iné sa ukáže pole na dopísanie */
+.zk #zkUcel{margin-top:10px}
+.zk #zkUcel[hidden]{display:none}
+</style>
+<style>/* Krajina pobytu pod adresou */
+.zk #zkKrajina{margin-top:12px}
+</style>
+<style>/* Číselné pole bez šípok hore a dole */
+.zk input[type=number]::-webkit-inner-spin-button,.zk input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.zk input[type=number]{-moz-appearance:textfield;appearance:textfield}
+</style>
+<style>/* Telefón: predvoľba s vlajkou + číslo */
+.zk-tel{display:flex;gap:10px;margin-top:10px}
+.zk-tel select{width:auto;flex:none;padding-right:36px;font-variant-emoji:emoji}
+.zk-tel input{flex:1;min-width:0;margin-top:0!important}
+.zk .fld-t + .zk-tel{margin-top:10px}
+.zk .fld-t + .eur{margin-top:10px}
+</style>
+<style>/* Vymazať podpis: malé tlačidlo namiesto podčiarknutého textu */
+.zk-sig-pod button{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:100px;background:#f2f3f7;color:var(--text-muted);font-size:.84rem;font-weight:500;text-decoration:none;transition:background .15s,color .15s}
+.zk-sig-pod button:hover{background:#f2f3f7;color:var(--text-muted)}
+.zk-sig-pod button svg{width:14px;height:14px}
+</style>
+<style>/* Žiadosť sme prijali: animácia ako v predlohe (kruh, fajka, text zdola) */
+.zk-ok .ok-svg{width:64px;height:64px;color:var(--acc);margin:0 auto 18px;display:block}
+.zk-ok .kruh{stroke-dasharray:58.2;stroke-dashoffset:58.2;transform:rotate(-90deg);transform-origin:50% 50%}
+.zk-ok .fajka{stroke-dasharray:11.6;stroke-dashoffset:11.6}
+.pane.on .zk-ok{animation:ktDych .7s cubic-bezier(.2,.9,.3,1) both}
+.pane.on .zk-ok .ok-svg{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .05s both}
+.pane.on .zk-ok .kruh{animation:ktKruh .5s cubic-bezier(.65,0,.35,1) .1s forwards}
+.pane.on .zk-ok .fajka{animation:ktFajka .3s cubic-bezier(.65,0,.35,1) .5s forwards}
+.pane.on .zk-ok h3{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .58s both}
+.pane.on .zk-ok p{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .68s both}
+.pane.on .zk-ok .btn{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .78s both}
+@keyframes ktNabeh{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes ktKruh{to{stroke-dashoffset:0}}
+@keyframes ktFajka{to{stroke-dashoffset:0}}
+@keyframes ktDych{from{transform:scale(.975)}to{transform:none}}
+@media(prefers-reduced-motion:reduce){.pane.on .zk-ok,.pane.on .zk-ok .ok-svg,.pane.on .zk-ok h3,.pane.on .zk-ok p,.pane.on .zk-ok .btn{animation:none}.zk-ok .kruh,.zk-ok .fajka{stroke-dashoffset:0}}
+</style>
+<style>/* Prvky dôvery pod formulárom a nepovinný súhlas */
+.zk-dovera{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(29,29,31,.08);font-size:.82rem;color:var(--text-muted)}
+.zk-dovera span{display:inline-flex;align-items:center;gap:6px}
+.zk-dovera svg{width:15px;height:15px;color:var(--text)}
+.zk-ok .btn-secondary{background:#f2f3f7;-webkit-backdrop-filter:none;backdrop-filter:none}
+.zk-ok .btn-secondary:hover{background:#e6e8ef}
+.zk .fld-t .nepov{font-style:normal;font-weight:500;font-size:.8rem;color:var(--text-faint);margin-left:6px}
+</style>
+<style>/* Reprezentatívny príklad: celý text je v pätičke */
+.ft-rep{max-width:980px;margin:0 auto 24px;padding-bottom:24px;border-bottom:1px solid rgba(29,29,31,.1);font-size:.74rem;line-height:1.65;color:rgba(29,29,31,.55);text-align:justify;scroll-margin-top:90px}
+.ft-rep a{color:#1d1d1f;text-decoration:underline;text-underline-offset:3px}
+</style>
+<style>/* Kalkulačka: pozadie ako v hero (bez čierneho pásu), biela karta so stredným tieňom */
+#ziadost{background:transparent;padding-top:20px}
+.zk-card{box-shadow:0 14px 40px rgba(24,33,66,.10),0 2px 6px rgba(24,33,66,.05)}
+.zk-rep{color:var(--text-faint)}.zk-rep a{color:var(--text)}
+/* Mobil: rozbaľovací zoznam nesmie vyčnievať z karty */
+@media(max-width:480px){
+#ziadost{padding-left:16px;padding-right:16px}
+.zk-card{padding:22px 14px 20px}
+.zk-kalk{padding:18px 16px 14px}
+.zk-kalk .qf-row{flex-wrap:wrap;row-gap:8px}
+.zk-kalk .qf-row b{flex:none}
+.zk .zk-sel{max-width:100%;font-size:.92rem;padding:8px 30px 8px 10px;background-position:right 10px center}
+}
+/* Tretí banner na mobile: najprv telefón, potom výhody */
+@media(max-width:900px){.ucet-grid .ucet-wrap{order:-1}}
+</style>
+<style>/* Veta pod kalkulačkou: zdarma a šifrované */
+.zk-dov{margin:24px 0 0;font-size:.82rem;font-weight:500;line-height:1.4;color:rgba(29,29,31,.38);text-align:center}
+.zk-dov svg{display:inline-block;vertical-align:-3.5px;margin-right:6px;width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:480px){.zk-dov{font-size:.74rem;letter-spacing:-.005em}.zk-dov svg{width:15px;height:15px;margin-right:5px;vertical-align:-3px}}
+</style>
+<style>/* ═══ EFEKTY TLAČIDIEL: jemná zmena odtieňa. Čierne → svetlejšie čierne, biele → sivšie, s okrajom → jemne sivé. Rovnaké na celom webe. ═══ */
+.nav-cta,.btn-primary,#zkZnova,.pk-btn,.fq-btn,.nav-sec,.f10-tip button,.f10-x,#zkSigClear{transition:background-color .25s,color .25s,border-color .25s,box-shadow .25s}
+@media(hover:hover){
+.btn-primary:hover,.pk-btn-p:hover,.fq-btn:hover{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):hover{background:#ebedf2}
+#zkZnova:hover,.f10-x:hover,#zkSigClear:hover{background:#e4e6ec}
+.nav-sec:hover{background:rgba(29,29,31,.06)}
+}
+/* mobil: efekt pri ťuknutí */
+.btn-primary:active,.pk-btn-p:active,.fq-btn:active{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):active{background:#ebedf2}
+#zkZnova:active,.f10-x:active,#zkSigClear:active{background:#e4e6ec}
+.nav-sec:active{background:rgba(29,29,31,.06)}
+</style>
+<style>/* ═══ HLAVIČKA: Prihlásiť sa je čierne tlačidlo, Podať žiadosť je odkaz ako ostatné položky ═══ */
+#mainNav .nav-right>.nav-cta{margin-left:4px;margin-right:4px;background:transparent!important;color:var(--text)!important;border-radius:0;padding:6px 0;font-size:.92rem;font-weight:500;opacity:.7;position:relative;box-shadow:none}
+#mainNav .nav-right>.nav-cta::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+#mainNav .nav-right>.nav-cta:hover::after{transform:scaleX(1)}
+#mainNav .nav-sec{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+#mainNav .nav-sec .inic{background:#fff;color:#1d1d1f}
+@media(hover:hover){#mainNav .nav-sec:hover{background:#3a3a3c;border-color:#3a3a3c}}
+#mainNav .nav-sec:active{background:#3a3a3c;border-color:#3a3a3c}
+/* mobilné menu */
+.nav-drawer .nav-cta{background:transparent!important;color:var(--text)!important;justify-content:flex-start!important}
+.nav-drawer .dr-btn{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+@media(hover:hover){.nav-drawer .dr-btn:hover{background:#3a3a3c;border-color:#3a3a3c}}
+.nav-drawer .dr-btn:active{background:#3a3a3c;border-color:#3a3a3c}
+</style>
+<style>/* Žiadosť sme prijali: čierny krúžok a efekt ako na stránke Kontakt (všetko naraz jemne vyjde zdola) */
+.zk-ok .ok-ic-c{width:64px;height:64px;border-radius:50%;background:#1d1d1f;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.zk-ok .ok-ic-c svg{width:30px;height:30px}
+.pane.on .zk-ok{animation:zkIn .5s cubic-bezier(.22,1,.36,1) both!important}
+.pane.on .zk-ok h3,.pane.on .zk-ok p{animation:none!important}
+@keyframes zkIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+<style>/* Odoslanie: rovnaký efekt ako v Kontakte */
+.pane.on .zk-ok{animation:ktDych .7s cubic-bezier(.2,.9,.3,1) both!important}
+.pane.on .zk-ok .ok-ic-c{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .05s both}
+.pane.on .zk-ok h3{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .2s both!important}
+.pane.on .zk-ok p{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .32s both!important}
+.pane.on .zk-ok .btn{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .44s both}
+</style>
+<link rel="stylesheet" href="menu.css?v=6">
+<link rel="stylesheet" href="paticka.css?v=1">
+</head><body><div class="bg"></div><div class="grain"></div><!-- ═══ NAVIGÁCIA ═══ -->
+<nav id="mainNav"><div class="nav-inner"><a href="index.html" class="nav-logo"><span class="nav-logo-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="26" fill="#ffffff"/><path d="M24 40 H72 L61 29 M76 60 H28 L39 71" stroke="#1d1d1f" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><span>Kvelto</span></a><div class="nav-right"><ul class="nav-links"></ul><div class="jz"><button class="jz-btn" type="button" aria-label="Krajina"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-k jz-cur-k">SK</span></button><div class="jz-panel jz-hlw"><div class="jz-list"></div></div></div><a href="prihlasenie.html" class="nav-sec" data-von>Prihlásiť sa</a><a href="ucet.html" class="nav-sec je" data-dnu><span class="inic" id="navInic"></span><span id="navMeno"></span></a><button class="mb" id="pcBtn" type="button" aria-expanded="false" aria-controls="pcMenu"><svg class="mb-o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="mb-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg><span class="mb-t">Menu</span></button><button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div></div></nav>
+
+<div class="nav-drawer dr4 dmv6" id="navDrawer"><a href="index.html#ziadost" class="dm5-ph" data-von><img src="img/menu/tropicky-bazen-3840.jpg" srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-3840.jpg 3840w" sizes="100vw" alt="Bazén medzi palmami"><span class="m5-btn">Podať žiadosť</span></a><div class="dr4-c"><span class="dr-h">Služba</span><a href="index.html" class="is-current" aria-current="page">Úvod</a><a href="index.html#ziadost" data-von>Podať žiadosť</a><a href="investovanie.html">Investovanie</a><a href="ako-to-funguje.html">Ako to funguje</a></div><div class="dr4-c"><span class="dr-h">O službe</span><a href="podmienky.html">Podmienky</a><a href="recenzie.html">Recenzie</a></div><div class="dr4-c"><span class="dr-h">Pomoc</span><a href="faq.html">FAQ</a><a href="kontakt.html">Kontakt</a><a href="odstupenie-od-zmluvy.html">Odstúpenie od zmluvy</a></div><button class="dr-jz" type="button"><span class="dr-jz-t">Jazyk</span><span class="dr-jz-v"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-cur-nm">Slovensko</span></span></button><div class="del"></div><a href="prihlasenie.html" class="nav-sec dr-btn" data-von>Prihlásiť sa</a><a href="ucet.html" class="dr-ucet" data-dnu><span class="inic" id="drInic"></span>Môj účet<small id="drMeno"></small></a><a href="#" class="dr-odhlasit" data-dnu id="drOdhlasit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17l5-5-5-5M15 12H3M21 3v18"/></svg>Odhlásiť sa</a></div>
+<div class="pm m6f" id="pcMenu"><div class="m6f-in"><div class="m6f-l"><div class="m6f-c"><span class="pm-h pm-i">Služba</span><a href="index.html" class="pm-a pm-i is-current" aria-current="page">Úvod</a><a href="index.html#ziadost" class="pm-a pm-i" data-von>Podať žiadosť</a><a href="investovanie.html" class="pm-a pm-i">Investovanie</a><a href="ako-to-funguje.html" class="pm-a pm-i">Ako to funguje</a><a href="#" class="pm-a pm-i" data-dnu data-odhlasit>Odhlásiť sa</a></div><div class="m6f-c"><span class="pm-h pm-i">O službe</span><a href="podmienky.html" class="pm-a pm-i">Podmienky</a><a href="recenzie.html" class="pm-a pm-i">Recenzie</a></div><div class="m6f-c"><span class="pm-h pm-i">Pomoc</span><a href="faq.html" class="pm-a pm-i">FAQ</a><a href="kontakt.html" class="pm-a pm-i">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pm-a pm-i">Odstúpenie od zmluvy</a></div></div><a href="index.html#ziadost" class="m6f-ph pm-i" data-von><img src="img/menu/tropicky-bazen-3840.jpg" srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-3840.jpg 3840w" sizes="340px" alt="Bazén medzi palmami"><span class="m6f-btn">Podať žiadosť</span></a></div></div>
+<div class="pm-bg"></div>
+
+<div class="jz-okno" id="jzOkno"><div class="jz-okno-in"><div class="jz-okno-h"><b>Vyberte krajinu</b><button class="jz-zavri" type="button" aria-label="Zavrieť"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div><div class="jz-hlw"><div class="jz-list"></div></div></div></div>
+<main><section class="section hero" id="uvod"><div class="section-inner"><div class="section-head" style="margin:0"><h1 class="hero-title"><small>Úver až do výšky</small><span class="hero-grad">300&nbsp;000&nbsp;€</span></h1><p class="lead">Žiadosť vybavíte online za pár minút. Výsledok sa dozviete najneskôr do 24 hodín.</p></div><div class="hero-actions"><a href="#ziadost" class="btn btn-primary">Podať žiadosť</a><a href="#ziadost" class="btn btn-secondary">Vypočítať splátku</a></div></div><div class="fotopas"><video autoplay muted loop playsinline poster="video/hero-poster.jpg" aria-hidden="true"></video><div class="tile3"><div class="v-item"><button class="v-head" type="button" aria-expanded="false"><span class="v-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16.5c.6-1.4 1.7-2 3-2s2.4.6 3 2M14 10h4M14 13.5h4"/></svg></span><span class="v-title">Minimálne dokladovanie</span><svg class="v-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="v-bodywrap"><div><p class="v-text">Na vybavenie Vám postačuje len občiansky preukaz.</p></div></div></div><div class="v-item"><button class="v-head" type="button" aria-expanded="false"><span class="v-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 19c.8-3.4 3.3-5 6.5-5s5.7 1.6 6.5 5"/><circle cx="17" cy="9" r="2.6"/><path d="M15.8 14.2c2.9-.3 5 1.2 5.7 4.3"/></svg></span><span class="v-title">Vhodné pre každého</span><svg class="v-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="v-bodywrap"><div><p class="v-text">Úver je vhodný aj pre nezamestnaných, dlžníkov, osoby v úverovom registri, študentov, dôchodcov, osoby s exekúciami, poberateľov štátnych príspevkov a dávok alebo osoby na materskej dovolenke.</p></div></div></div><div class="v-item"><button class="v-head" type="button" aria-expanded="false"><span class="v-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><span class="v-title">Výsledok do 24 hodín</span><svg class="v-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="v-bodywrap"><div><p class="v-text">Výsledok žiadosti sa dozviete najneskôr do 24 hodín. Podanie žiadosti je zdarma.</p></div></div></div></div></div></section>
+<!-- ═══ ŽIADOSŤ O ÚVER ═══ -->
+<section class="section" id="ziadost">
+  <div class="section-inner zk">
+
+
+    <form class="zk-card" id="zkForm" novalidate autocomplete="on">
+
+      <div class="zk-top" id="zkTop" hidden><div><span>Výška úveru</span><b id="zkTopSuma">20 000 €</b></div><div><span>Doba splácania</span><b id="zkTopDoba">72 mes.</b></div><div><span>Mesačná splátka</span><b id="zkTopSplatka">322,10 €</b></div><div><span>Celkovo zaplatíte</span><b id="zkTopCelkom">23 491,20 €</b></div></div>
+
+      <!-- KROK 1: ÚVER -->
+      <div class="pane on" data-pane="1">
+        <h2 class="pane-h">Parametre úveru</h2>
+        <p class="pane-x">Posuvníkmi si nastavte výšku úveru a dobu splácania. Splátku aj celkové náklady prepočítame okamžite.</p>
+
+        <div class="zk-kalk">
+          <div class="qf-row"><b>Výška úveru</b><select class="zk-sel" id="zkSumaSel" aria-label="Výška úveru (výber zo zoznamu)"></select></div>
+          <input type="range" id="zkSuma" min="1000" max="300000" step="500" value="20000" aria-label="Výška úveru">
+          <div class="rng-ends"><span>1 000 €</span><span>300 000 €</span></div>
+
+          <div class="rng2">
+            <div class="qf-row"><b>Dĺžka splácania</b><select class="zk-sel" id="zkDobaSel" aria-label="Dĺžka splácania (výber zo zoznamu)"></select></div>
+            <input type="range" id="zkDoba" min="12" max="360" step="1" value="72" aria-label="Dĺžka splácania">
+            <div class="rng-ends"><span>12 mes.</span><span>360 mes. (30 rokov)</span></div>
+          </div>
+        </div>
+
+        <div class="zk-vys">
+          <div class="box"><span>Mesačná splátka</span><strong id="zkSplatka">322,10 €</strong><small>úrok 5 % p.a.</small></div>
+          <div class="box"><span>Celkovo zaplatíte</span><strong id="zkCelkom">23 491,20 €</strong><small>vrátane poplatku 300 €</small></div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-primary" type="button" data-dalej>Ďalej</button>
+        </div>
+      </div>
+
+      <!-- KROK 2: O VÁS -->
+      <div class="pane" data-pane="2">
+
+        <div class="fld">
+          <label class="fld-t" for="zkUcelSel">Účel úveru<i>*</i></label>
+          <select id="zkUcelSel" required>
+            <option value="">Zvoľte jednu z možností</option>
+            <option>Kúpa domu alebo bytu</option>
+            <option>Rekonštrukcia</option>
+            <option>Kúpa motorového vozidla</option>
+            <option>Úhrada dlhov a záväzkov</option>
+            <option>Nákup spotrebného tovaru</option>
+            <option>Dovolenka</option>
+            <option>Štúdium</option>
+            <option>Osobné dôvody</option>
+            <option>Iné</option>
+          </select>
+          <input type="text" id="zkUcel" placeholder="Napíšte, na čo úver použijete" hidden>
+          <p class="err-msg" id="zkUcelErr">Napíšte účel aspoň tromi písmenami.</p>
+        </div>
+
+        <div class="fld two">
+          <div><label class="fld-t" for="zkMeno">Meno<i>*</i></label><input type="text" id="zkMeno" autocomplete="given-name" required><p class="err-msg" id="zkMenoErr">Zadajte aspoň 2 písmená.</p></div>
+          <div><label class="fld-t" for="zkPriezvisko">Priezvisko<i>*</i></label><input type="text" id="zkPriezvisko" autocomplete="family-name" required><p class="err-msg" id="zkPriezviskoErr">Zadajte aspoň 2 písmená.</p></div>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkObcianstvo">Občianstvo<i>*</i></label>
+          <select id="zkObcianstvo" required><option value="">Zvoľte jednu z možností</option></select>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-secondary" type="button" data-spat>Naspäť</button>
+          <button class="btn btn-primary" type="button" data-dalej>Ďalej</button>
+        </div>
+      </div>
+
+      <!-- KROK 3: DOKLADY -->
+      <div class="pane" data-pane="3">
+
+        <div class="fld">
+          <label class="fld-t" for="zkNarodenie">Dátum narodenia<i>*</i></label>
+          <input type="date" id="zkNarodenie" min="1900-01-01" required>
+          <p class="err-msg" id="zkNarodenieErr">Žiadateľ musí mať 18 rokov a viac.</p>
+        </div>
+
+        <div class="fld two">
+          <div>
+            <label class="fld-t" for="zkRodne" id="zkRodneLbl">Rodné číslo<i>*</i></label>
+            <input type="text" id="zkRodne" placeholder="" inputmode="numeric" required>
+            <p class="err-msg" id="zkRodneErr"></p>
+          </div>
+          <div>
+            <label class="fld-t" for="zkOp" id="zkOpLbl">Číslo občianskeho preukazu<i>*</i></label>
+            <input type="text" id="zkOp" placeholder="" autocapitalize="characters" required>
+            <p class="err-msg" id="zkOpErr"></p>
+          </div>
+        </div>
+
+        <div class="fld">
+          <span class="fld-t">Adresa trvalého pobytu<i>*</i></span>
+          <div class="three">
+            <input type="text" id="zkUlica" placeholder="Ulica a číslo" autocomplete="street-address" required>
+            <input type="text" id="zkMesto" placeholder="Mesto" autocomplete="address-level2" required>
+            <input type="text" id="zkPsc" placeholder="PSČ" autocomplete="postal-code" required>
+          </div>
+          <select id="zkKrajina" required aria-label="Krajina trvalého pobytu"><option value="">Krajina trvalého pobytu</option></select>
+          <p class="err-msg" id="zkAdresaErr"></p>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-secondary" type="button" data-spat>Naspäť</button>
+          <button class="btn btn-primary" type="button" data-dalej>Ďalej</button>
+        </div>
+      </div>
+
+      <!-- KROK 4: PRÍJMY -->
+      <div class="pane" data-pane="4">
+
+        <div class="fld">
+          <label class="fld-t" for="zkZamestnanie">Zamestnanie<i>*</i></label>
+          <select id="zkZamestnanie" required>
+            <option value="">Zvoľte jednu z možností</option>
+            <option>Zamestnaný</option>
+            <option>Zamestnaný v zahraničí</option>
+            <option>Dohoda alebo brigáda</option>
+            <option>Podnikateľ</option>
+            <option>Nezamestnaný</option>
+            <option>Študent</option>
+            <option>Dôchodca (všetky typy dôchodku)</option>
+            <option>Materská dovolenka</option>
+            <option>Rodičovská dovolenka</option>
+            <option>Príspevok od štátu (príspevky, dávky a iné)</option>
+            <option>Iné</option>
+          </select>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkPrijem">Mesačné príjmy<i>*</i></label>
+          <div class="eur"><input type="number" id="zkPrijem" placeholder="0" min="0" step="1" inputmode="numeric" required></div>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkVydavky">Mesačné výdavky<i>*</i></label>
+          <div class="eur"><input type="number" id="zkVydavky" placeholder="0" min="0" step="1" inputmode="numeric" required></div>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkExekucie">Exekúcie<i>*</i></label>
+          <select id="zkExekucie" required>
+            <option value="">Zvoľte jednu z možností</option>
+            <option>Je voči mne vedené exekučné konanie</option>
+            <option>Nie je voči mne vedené exekučné konanie</option>
+          </select>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkIban">Číslo bankového účtu<i>*</i></label>
+          <input type="text" id="zkIban" placeholder="SK00 0000 0000 0000 0000 0000" autocapitalize="characters" autocomplete="off" required>
+          <p class="err-msg" id="zkIbanErr">IBAN nie je správny.</p>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-secondary" type="button" data-spat>Naspäť</button>
+          <button class="btn btn-primary" type="button" data-dalej>Ďalej</button>
+        </div>
+      </div>
+
+      <!-- KROK 5: PODPIS -->
+      <!-- KROK 5: KONTAKT -->
+      <div class="pane" data-pane="5">
+
+        <div class="fld">
+          <label class="fld-t" for="zkEmail">E-mail<i>*</i></label>
+          <input type="email" id="zkEmail" placeholder="jan.novak@email.sk" autocomplete="email" required>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkEmail2">E-mail pre kontrolu<i>*</i></label>
+          <input type="email" id="zkEmail2" placeholder="jan.novak@email.sk" autocomplete="off" required>
+          <p class="err-msg" id="zkEmail2Err">E-mailové adresy sa nezhodujú.</p>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkHeslo">Heslo<i>*</i></label>
+          <p class="fld-h">Týmto heslom sa neskôr prihlásite do svojho účtu, kde uvidíte stav žiadosti. Zadajte aspoň 8 znakov.</p>
+          <div class="heslo-wrap">
+            <input type="password" id="zkHeslo" autocomplete="new-password" minlength="8" required>
+            <button type="button" class="heslo-oko" id="zkHesloOko">Zobraziť</button>
+          </div>
+          <p class="err-msg" id="zkHesloErr">Heslo musí mať aspoň 8 znakov.</p>
+        </div>
+
+        <div class="fld">
+          <label class="fld-t" for="zkTel">Telefónne číslo<i>*</i></label>
+          <div class="zk-tel">
+            <select id="zkTelKod" aria-label="Predvoľba krajiny"></select>
+            <input type="tel" id="zkTel" placeholder="905 155 155" autocomplete="tel-national" inputmode="numeric" required>
+          </div>
+          <p class="err-msg" id="zkTelErr">Telefónne číslo nie je správne.</p>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-secondary" type="button" data-spat>Naspäť</button>
+          <button class="btn btn-primary" type="button" data-dalej>Ďalej</button>
+        </div>
+      </div>
+
+      <!-- KROK 6: KONTROLA ÚDAJOV -->
+      <div class="pane" data-pane="6">
+        <div class="zk-suhrn" id="zkSuhrn">
+          <div class="zs-blok"><div class="zs-h"><b>Úver</b><button type="button" data-uprav="1">Upraviť</button></div>
+            <div class="zs-r"><span>Výška úveru</span><b id="zsSuma"></b></div>
+            <div class="zs-r"><span>Doba splácania</span><b id="zsDoba"></b></div>
+            <div class="zs-r"><span>Mesačná splátka</span><b id="zsSplatka"></b></div>
+            <div class="zs-r"><span>Celkovo zaplatíte</span><b id="zsCelkom"></b></div>
+          </div>
+          <div class="zs-blok"><div class="zs-h"><b>Údaje o Vás</b><button type="button" data-uprav="2">Upraviť</button></div>
+            <div class="zs-r"><span>Účel úveru</span><b id="zsUcel"></b></div>
+            <div class="zs-r"><span>Meno a priezvisko</span><b id="zsMeno"></b></div>
+            <div class="zs-r"><span>Občianstvo</span><b id="zsObcianstvo"></b></div>
+          </div>
+          <div class="zs-blok"><div class="zs-h"><b>Doklady a adresa</b><button type="button" data-uprav="3">Upraviť</button></div>
+            <div class="zs-r"><span>Dátum narodenia</span><b id="zsNarodenie"></b></div>
+            <div class="zs-r"><span>Rodné číslo</span><b id="zsRodne"></b></div>
+            <div class="zs-r"><span>Číslo občianskeho preukazu</span><b id="zsOp"></b></div>
+            <div class="zs-r"><span>Adresa trvalého pobytu</span><b id="zsAdresa"></b></div>
+          </div>
+          <div class="zs-blok"><div class="zs-h"><b>Príjmy a účet</b><button type="button" data-uprav="4">Upraviť</button></div>
+            <div class="zs-r"><span>Zamestnanie</span><b id="zsZamestnanie"></b></div>
+            <div class="zs-r"><span>Mesačné príjmy</span><b id="zsPrijem"></b></div>
+            <div class="zs-r"><span>Mesačné výdavky</span><b id="zsVydavky"></b></div>
+            <div class="zs-r"><span>Exekúcie</span><b id="zsExekucie"></b></div>
+            <div class="zs-r"><span>Číslo bankového účtu</span><b id="zsIban"></b></div>
+          </div>
+          <div class="zs-blok"><div class="zs-h"><b>Kontakt</b><button type="button" data-uprav="5">Upraviť</button></div>
+            <div class="zs-r"><span>E-mail</span><b id="zsEmail"></b></div>
+            <div class="zs-r"><span>Telefónne číslo</span><b id="zsTel"></b></div>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-secondary" type="button" data-spat>Naspäť</button>
+          <button class="btn btn-primary" type="button" data-dalej>Ďalej</button>
+        </div>
+      </div>
+
+      <!-- KROK 7: SÚHLASY A PODPIS -->
+      <div class="pane" data-pane="7">
+        <div class="fld">
+          <span class="fld-t">Obchodné podmienky<i>*</i></span>
+          <label class="suhlas"><input type="checkbox" id="zkS1" required><span>Prehlasujem že som sa úplne oboznámil s celým obsahom obchodných podmienok a s obsahom všetkých ich jednotlivých súčastí a výslovne súhlasím s celým ich obsahom a plne ho akceptujem.</span></label>
+        </div>
+
+        <div class="fld">
+          <span class="fld-t">Zmluva o poskytovaní služieb<i>*</i></span>
+          <label class="suhlas"><input type="checkbox" id="zkS2" required><span>Súhlasím so vznikom zmluvy o poskytovaní služieb v zmysle obchodných podmienok, ktorej podmienky sú stanovené v obchodných podmienkach a tieto podmienky som si celé prečítal, akceptujem ich obsah a súhlasím s nimi a zároveň výslovne súhlasím s bodom obchodných podmienok ktorý pojednáva o možnosti odstúpenia od zmluvy.</span></label>
+        </div>
+
+        <div class="fld">
+          <span class="fld-t">Osobné údaje<i>*</i></span>
+          <label class="suhlas"><input type="checkbox" id="zkS3" required><span>Súhlasím so spracovaním osobných údajov v zmysle obchodných podmienok, ochrany osobných údajov a GDPR.</span></label>
+        </div>
+
+        <div class="fld">
+          <span class="fld-t">Novinky a ponuky <em class="nepov">nepovinné</em></span>
+          <label class="suhlas"><input type="checkbox" id="zkS4"><span>Súhlasím so zasielaním noviniek a ponúk e-mailom. Súhlas môžem kedykoľvek odvolať.</span></label>
+        </div>
+
+        <div class="fld">
+          <span class="fld-t">Elektronický podpis<i>*</i></span>
+          <p class="fld-h">Svojím elektronickým podpisom potvrdzujem vyššie uvedené. Podpíšte sa prstom na mobile alebo myšou na počítači.</p>
+          <div class="zk-sig" id="zkSig">
+            <canvas id="zkSigCanvas" aria-label="Miesto na podpis"></canvas>
+            <div class="sig-line"></div>
+            <div class="sig-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c2-6 3-9 4.5-9S9 16 10.5 16 12 8 13.5 8s1.5 8 3 8 2-3 4.5-4"/></svg><span>Tu sa podpíšte</span></div>
+          </div>
+          <p class="err-msg" id="zkSigErr"></p>
+          <div class="zk-sig-pod"><span>Podpis je platný elektronický podpis podľa obchodných podmienok.</span><button type="button" id="zkSigClear"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>Vymazať podpis</button></div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-secondary" type="button" data-spat>Naspäť</button>
+          <button class="btn btn-primary" type="submit" id="zkOdoslat">Odoslať žiadosť</button><p id="zkChyba" style="display:none;margin:12px 0 0;color:#b4232c;font-size:.95rem;line-height:1.5"></p>
+        </div>
+      </div>
+
+      <!-- HOTOVO -->
+      <div class="pane" data-pane="8">
+        <div class="zk-ok">
+          <div class="ok-ic-c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h3>Žiadosť sme prijali</h3>
+          <p>Rozhodnutie o Vašej žiadosti Vám odošleme na zadaný e-mail najneskôr do 24 hodín. Skontrolujte prosím aj zložku Spam alebo Hromadné e-maily.</p>
+          <button type="button" class="btn btn-secondary" id="zkZnova">Späť na hlavnú stránku</button>
+        </div>
+      </div>
+
+    </form>
+    <p class="zk-dov"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l7 2.6v5.4c0 4.4-2.9 8-7 9.6-4.1-1.6-7-5.2-7-9.6V5.8z"/><path d="M8.8 12.1l2.2 2.2 4.2-4.4"/></svg><span>Podanie žiadosti je zdarma a vaše údaje sú šifrované.</span></p>
+
+  </div>
+</section>
+<!-- ═══ Telefón s upozorneniami (pod formulárom) ═══ -->
+<style>/* Telefón s upozorneniami */
+.dk{position:relative;width:300px;margin:0 auto}
+.dk-frame{position:relative;border-radius:58px;padding:12px;background:linear-gradient(160deg,#3a3c40 0%,#1c1d20 35%,#2b2d31 60%,#0f1012 100%);box-shadow:0 34px 70px rgba(24,33,66,.34),0 8px 18px rgba(24,33,66,.16),inset 0 0 0 1.5px rgba(255,255,255,.14),inset 0 0 0 4px #0a0a0b}
+.dk-screen{position:relative;border-radius:46px;overflow:hidden;clip-path:inset(0 round 46px);-webkit-mask-image:-webkit-radial-gradient(white,black);isolation:isolate;aspect-ratio:9/19.5;padding:0 16px;background:#2a1c8a;display:flex;flex-direction:column}
+.dk-screen::before{content:"";position:absolute;inset:-20%;background:radial-gradient(38% 30% at 22% 18%,#6a8bff 0%,rgba(106,139,255,0) 70%),radial-gradient(40% 32% at 78% 30%,#b04be0 0%,rgba(176,75,224,0) 70%),radial-gradient(45% 36% at 30% 62%,#7a3cff 0%,rgba(122,60,255,0) 70%),radial-gradient(42% 34% at 80% 78%,#d94c9a 0%,rgba(217,76,154,0) 70%),linear-gradient(170deg,#3b2aa8 0%,#5a1f8f 50%,#8a2a6c 100%);filter:blur(6px)}
+.dk-screen>*{position:relative;z-index:1}
+.dk-island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:96px;height:30px;border-radius:20px;background:#000;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;z-index:3}
+.dk-cam{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#26335f,#05060c 70%);box-shadow:inset 0 0 2px rgba(255,255,255,.35)}
+.dk-lock{display:block;width:24px;height:26px;margin:74px auto 0}
+.dk-time{text-align:center;color:#fff;font-size:5rem;font-weight:200;letter-spacing:-.01em;line-height:1;margin-top:14px;font-variant-numeric:tabular-nums}
+.dk-date{text-align:center;color:#fff;font-size:1rem;font-weight:400;margin-top:12px}
+.dk-notif{display:flex;gap:9px;align-items:center;margin:20px -7px 0;padding:8px 12px 8px 8px;border-radius:17px;background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);color:#1d1d1f;box-shadow:0 8px 24px rgba(20,10,60,.16);animation:dkIn .7s cubic-bezier(.2,.9,.3,1.1) 1.1s both}
+.dk-nico{flex:none;width:34px;height:34px;border-radius:9px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.08);display:inline-flex;align-items:center;justify-content:center}
+.dk-nico svg{width:17px;height:17px}
+.dk-nbody{flex:1;min-width:0}
+.dk-nt{display:flex;align-items:baseline;gap:8px}
+.dk-nt b{font-size:.74rem;font-weight:600;flex:1;white-space:nowrap;color:#1d1d1f;letter-spacing:-.01em}
+.dk-nt small{font-size:.62rem;color:rgba(29,29,31,.45)}
+.dk-nbody p{font-size:.72rem;line-height:1.25;margin-top:1px;color:#1d1d1f;white-space:nowrap}
+.dk-plus{color:var(--green);font-weight:700}
+.dk-quick{margin-top:auto;display:flex;justify-content:space-between;padding:0 16px 4px}
+.dk-quick span{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:inline-flex;align-items:center;justify-content:center}
+.dk-quick svg{width:21px;height:21px}
+.dk-home{width:120px;height:5px;border-radius:3px;background:rgba(255,255,255,.9);margin:14px auto 10px}
+.dk-btn{position:absolute;width:4px;border-radius:2px;background:linear-gradient(90deg,#3d3f44,#1a1b1e);right:-4px}
+.dk-pw{top:190px;height:84px}
+.dk-mute{right:auto;left:-4px;top:125px;height:28px}
+.dk-vu{right:auto;left:-4px;top:168px;height:54px}
+.dk-vd{right:auto;left:-4px;top:234px;height:54px}
+@keyframes dkIn{from{opacity:0;transform:translateY(-40px) scale(.96)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.dk-notif{animation:none!important}}
+.dk{width:310px}
+.dk-frame{border-radius:60px;padding:4px;background:linear-gradient(160deg,#c9cacf 0%,#9a9ba1 25%,#d2d3d8 48%,#8f9096 72%,#bcbdc3 100%);box-shadow:0 34px 70px rgba(24,33,66,.3),0 8px 18px rgba(24,33,66,.14);position:relative}
+.dk-frame::before{content:"";position:absolute;inset:4px;border-radius:56px;background:#0a0a0b;z-index:0}
+.dk-screen{position:relative;z-index:1;margin:8px;border-radius:48px;clip-path:inset(0 round 48px)}
+.dk-btn{background:linear-gradient(90deg,#b4b5bb,#85868c);width:3.5px}
+.dk-island{top:12px;width:88px;height:30px}
+.st{position:absolute;top:19px;right:18px;display:flex;align-items:center;gap:6.5px;z-index:3}
+.st-sig{width:19px;height:12px}.st-wifi{width:19px;height:14px}.st-bat{width:29px;height:13px}
+.st-line{position:absolute;left:16px;right:0;top:20px;height:2.5px;border-radius:2px;background:rgba(255,255,255,.72)}
+.dk-date{margin-top:74px;font-size:1rem;font-weight:600;color:#fff}
+.dk-time{font-size:6.4rem;font-weight:700;letter-spacing:-.05em;line-height:.95;margin-top:0;background:linear-gradient(180deg,#ffffff 0%,#e9e6ff 55%,#cfc8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dk-notif{margin-top:26px;background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(30px) saturate(190%);backdrop-filter:blur(30px) saturate(190%);box-shadow:inset 0 0 0 .5px rgba(255,255,255,.55),0 10px 30px rgba(20,10,60,.14)}
+.dk-nico{background:rgba(255,255,255,.92)}
+.dk-nt b,.dk-nbody p{color:#111}
+.dk-nt small{color:rgba(17,17,17,.55)}
+.dk-quick{padding:0 18px 4px}
+.dk-quick span{width:50px;height:50px;background:rgba(0,0,0,.34);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.dk-quick svg{width:22px;height:22px}
+.dk-home{width:130px;height:5px;background:#fff;margin:14px auto 8px}
+.dk-mute{top:120px;height:28px}.dk-vu{top:162px;height:56px}.dk-vd{top:230px;height:56px}.dk-pw{top:186px;height:88px}
+@media(max-width:900px){.dk{width:280px}.dk-time{font-size:5.7rem}.dk-mute{top:108px}.dk-vu{top:146px;height:50px}.dk-vd{top:208px;height:50px}.dk-pw{top:168px;height:80px}}
+.nt-stack{display:flex;flex-direction:column;margin:24px -6px 0}
+.nt-w{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.22,1,.36,1)}
+.nt-w.on{grid-template-rows:1fr}
+.nt-w>div{overflow:hidden;min-height:0}
+.nt{display:flex;gap:11px;align-items:center;margin-bottom:8px;padding:11px 13px 11px 11px;border-radius:22px;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(26px) saturate(160%);backdrop-filter:blur(26px) saturate(160%);box-shadow:0 8px 24px rgba(10,5,40,.14);color:#fff;opacity:0;transform:translateY(-26px) scale(.96);transition:opacity .6s cubic-bezier(.2,.9,.3,1.1),transform .6s cubic-bezier(.2,.9,.3,1.1)}
+.nt-w.on .nt{opacity:1;transform:none}
+.nt-ico{flex:none;width:40px;height:40px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;background:#fff}
+.nt-ico svg{width:21px;height:21px}
+.nt-b{flex:1;min-width:0}
+.nt-t{display:flex;align-items:baseline;gap:8px}
+.nt-t b{flex:1;font-size:.8rem;font-weight:600;letter-spacing:-.01em;color:#fff}
+.nt-t small{font-size:.7rem;color:rgba(255,255,255,.7);white-space:nowrap}
+.nt p{margin-top:1px;font-size:.78rem;line-height:1.3;color:rgba(255,255,255,.95)}
+.nt .dk-plus{color:#7ff0a0;font-weight:700}
+@media(prefers-reduced-motion:reduce){.nt-w,.nt{transition:none!important}}
+@media(max-width:900px){.nt-t b{font-size:.76rem}.nt p{font-size:.74rem}}
+.ucet-sekcia{padding-top:70px}
+.ucet-wrap{display:flex;justify-content:center}
+.ucet-wrap .dk{width:310px}
+@media(max-width:900px){.ucet-wrap .dk{width:280px}}
+
+.dk-date{margin-top:70px;font-size:.92rem;font-weight:600;color:rgba(255,255,255,.95)}
+.dk-time{font-size:5.1rem;font-weight:600;letter-spacing:-.035em;line-height:1;margin-top:0;background:linear-gradient(180deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.62) 55%,rgba(255,255,255,.42) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(255,255,255,.18))}
+.nt-stack{margin:auto -4px 0}
+.dk-quick{margin-top:22px}
+.nt{gap:10px;align-items:center;margin-bottom:7px;padding:9px 12px 9px 10px;border-radius:18px;background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(24px) saturate(150%);backdrop-filter:blur(24px) saturate(150%);box-shadow:none}
+.nt-ico{width:34px;height:34px;border-radius:9px}
+.nt-ico svg{width:18px;height:18px}
+.nt-t{gap:6px}
+.nt-t b{font-size:.68rem;font-weight:600;letter-spacing:0;color:#fff;white-space:normal;line-height:1.25}
+.nt-t small{font-size:.6rem;color:rgba(255,255,255,.65)}
+.nt p{margin-top:0;font-size:.68rem;line-height:1.3;color:rgba(255,255,255,.92)}
+.nt .dk-plus{color:#8df0a8;font-weight:600}
+@media(max-width:900px){.dk-time{font-size:4.7rem}.nt-t b{font-size:.66rem}.nt p{font-size:.66rem}}
+
+.st{display:none}
+.dk-island{top:11px;width:80px;height:24px;border-radius:14px;padding:0;justify-content:center}
+.dk-cam{display:none}
+@media(max-width:900px){.dk-island{width:74px;height:22px}}
+
+.ucet-sekcia .section-head{margin-bottom:34px}
+
+.vy-list{max-width:760px;margin:48px auto 0;display:grid;gap:12px}
+.vy-item{border-radius:22px;background:rgba(255,255,255,.72);border:.5px solid rgba(255,255,255,.85);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 6px 20px rgba(24,33,66,.08)}
+.vy-head{width:100%;display:flex;align-items:center;gap:18px;padding:20px 24px;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left;color:var(--text)}
+.vy-num{font-size:1.9rem;font-weight:800;letter-spacing:-.04em;line-height:1;min-width:52px;color:var(--text)}
+.vy-title{flex:1;font-size:1.08rem;font-weight:700;letter-spacing:-.015em;transition:color .25s}
+.vy-chev{width:20px;height:20px;color:var(--text-faint);transition:transform .35s,color .25s;flex:none}
+.vy-item.open .vy-title,.vy-item.open .vy-num{color:var(--acc)}
+.vy-item.open .vy-chev{transform:rotate(180deg);color:var(--acc)}
+.vy-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .36s cubic-bezier(.22,1,.36,1)}
+.vy-item.open .vy-body{grid-template-rows:1fr}
+.vy-body>div{overflow:hidden}
+.vy-text{padding:0 24px 22px 94px;font-size:.97rem;line-height:1.7;color:var(--text-muted)}
+.vy-cta{text-align:center;margin-top:40px}
+@media(max-width:900px){.vy-list{margin-top:36px;gap:10px}.vy-head{padding:17px 18px;gap:12px}.vy-num{min-width:44px;font-size:1.6rem}.vy-text{padding:0 18px 20px 18px}}
+
+
+.nt-w,.nt{transition:none!important}
+.nt-w{grid-template-rows:1fr}
+.nt{opacity:1;transform:none}
+.ucet-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center}
+.ucet-grid .vy-list{margin:0;max-width:none}
+.ucet-grid .ucet-wrap{justify-content:center}
+@media(max-width:900px){.ucet-grid{grid-template-columns:1fr;gap:36px}}
+
+.section-title .nas-chip{font-size:inherit;font-weight:inherit;line-height:1;display:inline-block;padding:.02em .32em .06em;border-radius:.28em;background:var(--acc);color:#fff;transform:rotate(-2deg);margin-left:.08em}
+.vy-text{padding-left:24px}
+@media(max-width:900px){.vy-text{padding-left:18px}}
+</style>
+<section class="section ucet-sekcia" id="ucet"><div class="section-inner"><div class="section-head"><h2 class="section-title">Prečo si vybrať práve <span class="nas-chip">nás?</span></h2></div>
+<div class="ucet-grid">
+<div class="vy-list">
+<div class="vy-item open"><button class="vy-head" type="button" aria-expanded="true"><span class="vy-title">Len občiansky preukaz</span><svg class="vy-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="vy-body"><div><p class="vy-text">Na vybavenie žiadosti Vám stačí len občiansky preukaz, mať 18 rokov a spôsobilosť na právne úkony v plnom rozsahu.</p></div></div></div>
+<div class="vy-item"><button class="vy-head" type="button" aria-expanded="false"><span class="vy-title">Peniaze do 3 dní</span><svg class="vy-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="vy-body"><div><p class="vy-text">Peniaze budete mať už do troch pracovných dní.</p></div></div></div>
+<div class="vy-item"><button class="vy-head" type="button" aria-expanded="false"><span class="vy-title">Fixný úrok 5 %</span><svg class="vy-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="vy-body"><div><p class="vy-text">Celkový fixný úrok vo výške 5 % je garantovaný počas celej doby splácania bez ďalších poplatkov. Je zmluvne garantované, že počas splácania sa úrok nebude meniť.</p></div></div></div>
+<div class="vy-item"><button class="vy-head" type="button" aria-expanded="false"><span class="vy-title">Exekúcie, register, bankrot</span><svg class="vy-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="vy-body"><div><p class="vy-text">Dlhy, exekúcie, úverový register alebo bankrot neberieme do úvahy.</p></div></div></div>
+<div class="vy-item"><button class="vy-head" type="button" aria-expanded="false"><span class="vy-title">Bez potvrdenia o zamestnaní</span><svg class="vy-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="vy-body"><div><p class="vy-text">Nevyžadujeme potvrdenie o zamestnaní, daňové priznanie, výpis z bankového účtu a ani ďalšie obdobné doklady. Na všetko Vám bude stačiť občiansky preukaz.</p></div></div></div>
+</div>
+<div class="ucet-wrap">
+<div class="dk" aria-hidden="true">
+ <span class="dk-btn dk-mute"></span><span class="dk-btn dk-vu"></span><span class="dk-btn dk-vd"></span><span class="dk-btn dk-pw"></span>
+ <div class="dk-frame"><div class="dk-screen">
+  <div class="dk-island"><span class="dk-cam"></span></div>
+  <div class="st"><svg class="st-sig" viewBox="0 0 19 12"><rect x="0" y="9" width="3" height="3" rx="1.5" fill="#fff"/><rect x="5.3" y="6" width="3" height="6" rx="1.5" fill="#fff"/><rect x="10.6" y="3" width="3" height="9" rx="1.5" fill="#fff"/><rect x="15.9" y="0" width="3" height="12" rx="1.5" fill="#fff"/></svg><svg class="st-wifi" viewBox="0 0 24 18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M2.5 6.6a13.5 13.5 0 0 1 19 0"/><path d="M6 10.2a8.5 8.5 0 0 1 12 0"/><path d="M9.4 13.6a3.7 3.7 0 0 1 5.2 0"/><circle cx="12" cy="16.3" r="1.2" fill="#fff" stroke="none"/></svg><svg class="st-bat" viewBox="0 0 29 13"><rect x="0" y="0" width="25.5" height="13" rx="4.2" fill="#fff"/><path d="M26.8 4.2v4.6a2.4 2.4 0 0 0 0-4.6z" fill="#fff" fill-opacity=".45"/></svg><span class="st-line"></span></div>
+  <div class="dk-date">pon 28. sep</div>
+  <div class="dk-time">9:41</div>
+  <div class="nt-stack"><div class="nt-w on" data-delay="2700"><div><div class="nt"><span class="nt-ico nt-green"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span><div class="nt-b"><div class="nt-t"><b>Prijatá platba</b><small>teraz</small></div><p><span class="dk-plus">+25 000 €</span> na Váš účet.</p></div></div></div></div><div class="nt-w on" data-delay="1600"><div><div class="nt"><span class="nt-ico nt-green"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div class="nt-b"><div class="nt-t"><b>Vaša žiadosť bola schválená</b><small>pred 1 d</small></div><p>Schválená suma 25 000 €.</p></div></div></div></div><div class="nt-w on" data-delay="500"><div><div class="nt"><span class="nt-ico nt-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 13h5M10 17h5"/></svg></span><div class="nt-b"><div class="nt-t"><b>Ďakujeme za podanie žiadosti</b><small>pred 2 d</small></div><p>Výsledok sa dozviete do 24 hodín.</p></div></div></div></div></div>
+  <div class="dk-quick">
+   <span><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 2h8a1 1 0 0 1 1 1v3.2a1 1 0 0 1-.2.6L15 9.6V21a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V9.6L7.2 6.8a1 1 0 0 1-.2-.6V3a1 1 0 0 1 1-1zm1 2v1.6h6V4zm3 8.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg></span>
+   <span><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 4.5a1.5 1.5 0 0 1 1.3-.75h3.4A1.5 1.5 0 0 1 15 4.5l.9 1.5H19a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h3.1zM12 9.2a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6zm0 2a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6z"/></svg></span>
+  </div>
+  <div class="dk-home"></div>
+ </div></div>
+</div>
+</div>
+</div>
+</div></section>
+<script>
+document.querySelectorAll('.vy-head').forEach(function(b){b.addEventListener('click',function(){var it=b.parentElement,list=it.parentElement,open=it.classList.contains('open');list.querySelectorAll('.vy-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.vy-head').setAttribute('aria-expanded','false')});if(!open){it.classList.add('open');b.setAttribute('aria-expanded','true')}})});
+</script>
+<!-- ═══ koniec: Telefón s upozorneniami ═══ -->
+
+<!-- ═══ BANNER: Váš nový domov ═══ -->
+<style>/* Domov: fotka v boxe vľavo, text vpravo. Na mobile fotka prvá. */
+.dx-sec{padding-top:60px;padding-bottom:40px}
+.dx .d2-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.dx-foto{position:relative;overflow:hidden;height:520px;border-radius:32px;background:#0b0b14;box-shadow:var(--tien-1);isolation:isolate;transform:translateZ(0)}
+.dx-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.dx .d2-txt{border-left:4px solid var(--acc);padding-left:28px}
+.dx h2{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.04;margin:0;text-wrap:balance}
+.dx p{font-size:1.05rem;line-height:1.7;margin:18px 0 0;color:var(--text-muted);text-wrap:pretty}
+.dx .btn{margin-top:28px}
+@media(max-width:820px){.dx-sec{padding-top:40px}.dx .d2-grid{grid-template-columns:1fr;gap:28px}.dx-foto{height:320px;border-radius:22px}.dx .d2-txt{border-left:none;padding-left:0;text-align:center;display:flex;flex-direction:column;align-items:center}.dx h2{font-size:2.5rem}}
+.dx-foto .dx-sl img{opacity:0;transition:opacity 1.4s ease}
+.dx-foto .dx-sl.on img{opacity:1}
+</style>
+<section class="section dx-sec dx" id="domov"><div class="section-inner"><div class="d2-grid"><div class="dx-foto"><picture class="dx-sl on"><source media="(max-width:820px)" srcset="img/domov/dom-24-960.jpg"><img src="img/domov/dom-24-1600.jpg" srcset="img/domov/dom-24-1600.jpg 1600w, img/domov/dom-24-3840.jpg 3840w" sizes="(max-width:820px) 100vw, 560px" alt="" loading="lazy"></picture><picture class="dx-sl"><source media="(max-width:820px)" srcset="img/domov/dom-38-960.jpg"><img src="img/domov/dom-38-1600.jpg" srcset="img/domov/dom-38-1600.jpg 1600w, img/domov/dom-38-3840.jpg 3840w" sizes="(max-width:820px) 100vw, 560px" alt="" loading="lazy"></picture><picture class="dx-sl"><source media="(max-width:820px)" srcset="img/domov/dom-46-960.jpg"><img src="img/domov/dom-46-1600.jpg" srcset="img/domov/dom-46-1600.jpg 1600w, img/domov/dom-46-3840.jpg 3840w" sizes="(max-width:820px) 100vw, 560px" alt="" loading="lazy"></picture></div><div class="d2-txt"><h2>Váš nový domov</h2><p>Vlastniť nehnuteľnosť znamená slobodu a investičnú príležitosť. Kúpiť si dom alebo byt je s nami naozaj jednoduché.</p><a href="#ziadost" class="btn btn-primary btn-lg">Chcem vlastniť nehnuteľnosť</a></div></div></div></section>
+<script>/* Domov: fotky sa samé striedajú každých 5 sekúnd */
+(function(){var f=document.querySelectorAll('#domov .dx-sl');if(f.length<2)return;var i=0;
+setInterval(function(){if(document.hidden)return;f[i].classList.remove('on');i=(i+1)%f.length;f[i].classList.add('on');},5000);})();
+</script>
+
+<!-- ═══ koniec: Banner Váš nový domov ═══ -->
+
+
+
+
+<!-- ═══ Férové podmienky ═══ -->
+<style>
+.fp-sec{position:relative;isolation:isolate;margin-top:60px;padding:110px 24px;overflow:hidden;height:1100px;display:flex;align-items:flex-start}
+.fp-sec>picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:-1;display:block}
+.fp-in{width:100%;max-width:1120px;margin:0 auto}
+.fp-karta{--fp-sep:rgba(29,29,31,.12);max-width:600px;background:rgba(255,255,255,.80);-webkit-backdrop-filter:blur(24px) saturate(170%);backdrop-filter:blur(24px) saturate(170%);border:.5px solid rgba(255,255,255,.9);border-radius:32px;padding:46px 44px 18px;box-shadow:var(--tien-2)}
+.fp-karta h2{font-size:3.3rem;font-weight:800;letter-spacing:-.045em;line-height:1.02;margin:0 0 28px;color:var(--text)}
+.fp-i{border-bottom:1px solid var(--fp-sep)}.fp-i:last-child{border-bottom:0}
+.fp-h{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 6px;background:none;border:0;cursor:pointer;text-align:left;font:inherit;color:var(--text);-webkit-tap-highlight-color:transparent}
+.fp-t{font-size:1.22rem;font-weight:700;letter-spacing:-.02em}
+.fp-k{flex:none;width:20px;height:20px;color:var(--text-faint);transition:transform .35s,color .25s}
+
+.fp-i.open .fp-k{transform:rotate(180deg);color:var(--acc)}
+.fp-t{transition:color .25s}.fp-i.open .fp-t{color:var(--acc)}
+.fp-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s cubic-bezier(.22,1,.36,1)}
+.fp-i.open .fp-b{grid-template-rows:1fr}
+.fp-b>div{overflow:hidden}
+.fp-b p{margin:0;padding:0 64px 26px 6px;font-size:1.02rem;line-height:1.72;color:var(--text-muted);text-wrap:pretty}
+@media(max-width:820px){.fp-sec{display:block;padding:0;height:auto;margin-top:24px}
+.fp-sec>picture img{position:relative;height:340px;z-index:0}
+.fp-in{padding:0 12px 48px;margin-top:-70px;position:relative;z-index:1}
+.fp-karta{padding:30px 22px 8px;border-radius:26px;background:rgba(255,255,255,.92)}
+.fp-karta h2{font-size:2.4rem;margin-bottom:16px}
+.fp-h{padding:19px 2px}.fp-t{font-size:1.05rem}.fp-b p{padding:0 2px 22px 2px;font-size:.97rem}}
+</style>
+<section class="fp-sec" id="ferove-podmienky"><picture><source media="(max-width:820px)" srcset="img/ferove/jachta-1600.jpg"><img src="img/ferove/jachta-1600.jpg" srcset="img/ferove/jachta-1600.jpg 1600w, img/ferove/jachta-3840.jpg 3840w" sizes="100vw" alt="" loading="lazy"></picture><div class="fp-in"><div class="fp-karta"><h2>Férové podmienky</h2><div class="fp-list"><div class="fp-i open"><button class="fp-h" type="button" aria-expanded="true"><span class="fp-t">Predčasné splatenie</span><svg class="fp-k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="fp-b"><div><p>Predčasné splatenie úveru je možné kedykoľvek a to bez poplatku či sankcií. Splácajte tak, ako to vyhovuje Vám.</p></div></div></div><div class="fp-i"><button class="fp-h" type="button" aria-expanded="false"><span class="fp-t">Odklad splátok</span><svg class="fp-k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="fp-b"><div><p>Odklad splátok je možný až na 6 mesiacov a je zdarma.</p></div></div></div><div class="fp-i"><button class="fp-h" type="button" aria-expanded="false"><span class="fp-t">Splátkový kalendár</span><svg class="fp-k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="fp-b"><div><p>V prípade úspešnej žiadosti Vám bude odoslaný splátkový kalendár, ktorý bude obsahovať podrobný rozpis splátok spolu s informáciami ako postupovať v prípade odkladu splátok, predčasného splatenia a ďalšie dôležité informácie.</p></div></div></div><div class="fp-i"><button class="fp-h" type="button" aria-expanded="false"><span class="fp-t">Garantovaný úrok 5&nbsp;%</span><svg class="fp-k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="fp-b"><div><p>Celkový fixný úrok vo výške 5 % je garantovaný počas celej doby splácania bez ďalších poplatkov. Je zmluvne garantované, že počas splácania sa úrok nebude meniť.</p></div></div></div><div class="fp-i"><button class="fp-h" type="button" aria-expanded="false"><span class="fp-t">Obchodné podmienky</span><svg class="fp-k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="fp-b"><div><p>Zakladáme si na prehľadných a transparentných podmienkach. Obchodné podmienky sú dostupné na našom webe a jasne stanovujú práva a povinnosti jednotlivých strán zmluvného vzťahu.</p></div></div></div><div class="fp-i"><button class="fp-h" type="button" aria-expanded="false"><span class="fp-t">Žiadne poplatky navyše</span><svg class="fp-k" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="fp-b"><div><p>Zmluvne garantujeme, že počas splácania Vám nebudú účtované žiadne poplatky navyše.</p></div></div></div></div></div></div></section>
+<script>/* Férové podmienky: otvorí sa vždy len jedna položka */
+document.querySelectorAll('.fp-h').forEach(function(b){b.addEventListener('click',function(){var it=b.parentElement,was=it.classList.contains('open');
+document.querySelectorAll('.fp-i.open').forEach(function(o){o.classList.remove('open');o.querySelector('.fp-h').setAttribute('aria-expanded','false')});
+if(!was){it.classList.add('open');b.setAttribute('aria-expanded','true')}});});
+</script>
+<!-- ═══ koniec: Férové podmienky ═══ -->
+
+<!-- ═══ PRE KAŽDÉHO (prepínač, návrh 3) ═══ -->
+<style>
+.pk3-sec{padding-top:90px;padding-bottom:100px}
+.pk3-sec .section-head{text-align:center;margin-bottom:46px}
+.pk3{max-width:880px;margin:0 auto;background:#fff;border-radius:28px;box-shadow:var(--tien-2);padding:12px 12px 28px}
+.pk3-seg{position:relative;display:grid;grid-template-columns:repeat(3,1fr);background:rgba(29,29,31,.05);border-radius:20px;padding:5px}
+.pk3-pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc((100% - 10px)/3);border-radius:16px;background:#1d1d1f;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.pk3-seg button{position:relative;z-index:1;border:0;background:none;font:inherit;color:var(--text);padding:15px 8px;font-size:.98rem;font-weight:700;letter-spacing:-.01em;cursor:pointer;border-radius:16px;transition:color .3s;display:flex;align-items:center;justify-content:center;gap:10px;-webkit-tap-highlight-color:transparent}
+.pk3-seg button.on{color:#fff}
+.pk3 svg{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.pk3-seg button svg{width:20px;height:20px;stroke-width:2.3}
+.pk3-seg button.on svg{stroke:#ec4899}
+.pk3-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:22px 16px 0}
+.pk3-it{border:0;font:inherit;color:var(--text);background:rgba(29,29,31,.05);border-radius:18px;padding:16px 14px;min-height:92px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:10px;text-align:left;font-size:.9rem;font-weight:650;line-height:1.3;transition:background .2s,color .2s;opacity:0;transform:translateY(6px);animation:pk3in .45s cubic-bezier(.22,1,.36,1) forwards;-webkit-tap-highlight-color:transparent}
+@keyframes pk3in{to{opacity:1;transform:none}}
+.pk3-it>svg{width:24px;height:24px}
+.pk3-ck{width:24px;height:24px;border-radius:50%;background:none;display:flex;align-items:center;justify-content:center}
+.pk3-ck svg{width:13px;height:13px;stroke:#ec4899;stroke-width:3}
+.pk3-it:hover{background:rgba(29,29,31,.09)}
+.pk3-it.on{background:#1d1d1f;color:#fff}.pk3-it.on>svg{stroke:#ec4899}
+.pk3-it.on .pk3-ck{background:none}
+.pk3-ds{margin:20px 16px 0;border-radius:18px;border:1.5px dashed rgba(29,29,31,.14);font-size:.97rem;line-height:1.6;color:var(--text-muted);overflow:hidden;transition:height .35s cubic-bezier(.22,1,.36,1),border-color .25s}
+.pk3-dt{display:block;padding:18px 20px;min-height:4.7em;transition:opacity .22s ease,transform .22s ease}
+.pk3-ds.fade .pk3-dt{opacity:0;transform:translateY(4px)}
+.pk3-ds.shut{border-color:transparent}
+.pk3-ds b{color:var(--text)}
+.pk3-grid>.pk3-ds{grid-column:1/-1;margin:0;border-style:solid;border-color:rgba(236,72,153,.35);background:#fff}
+.pk3-grid>.pk3-ds.shut{border-color:transparent}
+.pk3-grid>.pk3-ds .pk3-dt{min-height:0;padding:14px 16px}
+@media(max-width:760px){.pk3-grid{grid-template-columns:repeat(2,1fr);padding:18px 6px 0}.pk3-ds{margin:16px 6px 0}.pk3-seg button{flex-direction:column;gap:5px;font-size:.8rem;padding:12px 4px}.pk3{border-radius:24px;padding:8px 8px 20px}}
+@media(max-width:640px){.pk3-sec{padding-top:56px;padding-bottom:64px}.pk3-sec .section-head{margin-bottom:30px}}
+/* ružové bodky v nadpise, pri príchode sa objavia s malým odskokom */
+.pk3-sl{white-space:nowrap}
+.pk3-bod{color:var(--acc);display:inline-block;transform:scale(0);transition:transform .5s cubic-bezier(.34,1.8,.5,1);transition-delay:calc(.4s + var(--d,0s))}
+.pk3-sec.bodky .pk3-bod{transform:none}
+@media(prefers-reduced-motion:reduce){.pk3-it{animation:none;opacity:1;transform:none}.pk3-bod{transform:none;transition:none}}
+</style>
+<section class="section pk3-sec" id="pre-kazdeho"><div class="section-inner">
+<div class="section-head"><h2 class="section-title">Pre <span class="pk3-sl">každého<span class="pk3-bod">.</span></span> Na <span class="pk3-sl">čokoľvek<span class="pk3-bod" style="--d:.25s">.</span></span></h2></div>
+<div class="pk3"><div class="pk3-seg"><span class="pk3-pill"></span></div><div class="pk3-grid"></div><p class="pk3-ds"></p></div>
+</div></section>
+<script>
+(function(){
+var A=[["Dlžníci","Náš produkt je vhodný aj pre osoby ktoré majú dlhy a exekúcie.","dlh"],["Nezamestnaní","Náš produkt je vhodný aj pre nezamestnané osoby.","kufrik"],["Osoby v registri","Náš produkt je vhodný aj pre osoby so záznamom v úverových registroch.","reg"],["Bankrot","Náš produkt je vhodný aj pre osoby ktoré si prešli alebo prechádzajú osobným bankrotom.","novy"],["Materská dovolenka","Náš produkt je vhodný aj pre osoby na materskej dovolenke.","kocik"],["Príspevky a dávky","Náš produkt je vhodný aj pre osoby ktoré poberajú rodičovský príspevok, opatrovateľský príspevok, dávku v hmotnej núdzi, dávku v nezamestnanosti alebo iný štátny príspevok alebo dávku.","minca"],["Študenti","Náš produkt je vhodný aj pre študentov.","cap"],["Dôchodcovia","Náš produkt môžete využiť ak ste poberateľom akéhokoľvek typu dôchodku, pričom nie je dôležité či sa jedná o starobný, invalidný, výsluhový, vdovský alebo iný typ dôchodku.","kreslo"]];
+var BN=["na byt","na dom","na auto","na dovolenku","na úhradu doterajších dlhov, záväzkov a exekúcií","na rekonštrukciu bytu alebo domu","na akýkoľvek spotrebný tovar","na investovanie do svojho podnikania alebo do investičných produktov"];
+var B=[["Byt","byt"],["Dom","dom"],["Auto","auto"],["Dovolenka","dov"],["Úhrada dlhov","dlh"],["Rekonštrukcia","rek"],["Spotrebný tovar","tov"],["Investovanie","inv"]].map(function(x,i){return [x[0],"S bezúčelovým úverom môžete peniaze minúť na čokoľvek, napríklad "+BN[i]+".",x[1]]});
+var C=[["Bez potvrdenia o príjme","Nevyžadujeme potvrdenie o príjme.","peciatka"],["Bez výpisu z účtu","Nevyžadujeme výpis z bankového účtu.","banka"],["Bez výpisu z registra","Nevyžadujeme výpis z úverových registrov.","reg"],["Bez daňového priznania","Nevyžadujeme predloženie daňového priznania.","dan"],["Bez ručiteľa","Nevyžadujeme ručiteľa.","osoba"],["Bez záložného práva","Nevyžadujeme záložné právo k nehnuteľnosti ani k inému majetku.","zamok"],["Bez udania účelu","Nemusíte dokladovať, na čo úver použijete. Peniaze môžete minúť na čokoľvek.","ucel"],["Len občiansky preukaz","Jediný doklad ktorý potrebujete je platný občiansky preukaz.","op"]];
+var OP="Jediný doklad ktorý potrebujete je platný občiansky preukaz.";
+var I={users:'<circle cx="9" cy="8" r="3"/><path d="M3 19a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.2"/><path d="M17 14a4 4 0 0 1 4 4"/>',
+wallet:'<rect x="3" y="6.5" width="18" height="13.5" rx="3"/><path d="M6 6.5l9.5-3.2 1.3 3.2"/><path d="M15 13.2h3"/>',
+doc:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>',
+peciatka:'<rect x="9.5" y="3" width="5" height="7" rx="1.5"/><rect x="4.5" y="10" width="15" height="5" rx="1.5"/><path d="M5 19.5h14"/>',
+euro:'<path d="M2.5 4h3l2.2 11h10.8L20.5 7.5H6.4"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/>',
+ucel:'<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 9.5"/>',
+check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+kufrik:'<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/>',
+reg:'<rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+novy:'<path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4.5h-4.5"/>',
+kocik:'<path d="M4 5h2l1.2 3H20a6 6 0 0 1-6 6H9.5A2.5 2.5 0 0 1 7 11.5V8"/><path d="M13 3.5A5.5 5.5 0 0 1 20 8h-7z"/><circle cx="9" cy="19" r="1.8"/><circle cx="16" cy="19" r="1.8"/>',
+minca:'<ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/><path d="M5 11.5v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/>',
+cap:'<path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/>',
+kreslo:'<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+banka:'<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h3"/>',
+dan:'<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7M9 12h1M14 12h1M9 16h1M14 16h1"/>',
+osoba:'<circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1-4 3.9-6 7.5-6s6.5 2 7.5 6"/>',
+zamok:'<rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><path d="M12 14.5v2.5"/>',
+op:'<rect x="2.5" y="5" width="19" height="14" rx="2.5"/><circle cx="8.5" cy="12" r="2.5"/><path d="M14 10h4M14 14h3"/>',
+byt:'<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M11 21v-3h2v3"/>',
+dom:'<path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/>',
+auto:'<path d="M5 11l1.8-4.6A2 2 0 0 1 8.7 5h6.6a2 2 0 0 1 1.9 1.4L19 11"/><rect x="3.5" y="11" width="17" height="6.5" rx="2"/><path d="M6 17.5V20M18 17.5V20M7 14.2h1.5M15.5 14.2H17"/>',
+dov:'<circle cx="12" cy="9" r="3.6"/><path d="M12 2.5V4M5.5 9H4M20 9h-1.5M7.3 4.3l1 1M16.7 4.3l-1 1"/><path d="M3 18c1.5 0 1.5-1.4 3-1.4s1.5 1.4 3 1.4 1.5-1.4 3-1.4 1.5 1.4 3 1.4 1.5-1.4 3-1.4 1.5 1.4 3 1.4"/>',
+dlh:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+rek:'<path d="M12.5 6.5l3.5-3.5 5 5-3.5 3.5z"/><path d="M14.5 9.5L4.5 19.5"/>',
+tov:'<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
+inv:'<path d="M4 20V4M4 20h16"/><path d="M7 15l4-4 3 3 5-6"/>'};
+function svg(n){return '<svg viewBox="0 0 24 24">'+I[n]+'</svg>'}
+var S=[["Pre každého","users",A,"Kliknite na položku a zobrazí sa popis."],["Bezúčelový úver","euro",B,"S bezúčelovým úverom môžete peniaze minúť na čokoľvek."],["Bez dokladovania","doc",C,OP]];
+var root=document.getElementById('pre-kazdeho'),seg=root.querySelector('.pk3-seg'),pill=root.querySelector('.pk3-pill'),g=root.querySelector('.pk3-grid'),ds=root.querySelector('.pk3-ds'),cur=-1;
+ds.innerHTML='<span class="pk3-dt"></span>';var dt=ds.firstChild,panel=ds.parentNode,tmr=null,prev=null,its=[];
+var mq=window.matchMedia?matchMedia('(max-width:760px)'):{matches:false};
+/* kam patrí popis: na mobile hneď pod riadok ťuknutej dlaždice, inak dole */
+function ciel(k){if(!mq.matches||k<0)return 'out';return Math.min(k-k%2+1,its.length-1)}
+function umiestni(pos){if(pos==='out')panel.appendChild(ds);else its[pos].insertAdjacentElement('afterend',ds);ds.dataset.pos=pos}
+function txt(t,k){var pos=ciel(k);if(t===prev&&String(pos)===ds.dataset.pos)return;prev=t;clearTimeout(tmr);
+ if(!dt.innerHTML){dt.innerHTML=t;umiestni(pos);return}
+ var mv=String(pos)!==ds.dataset.pos;
+ ds.classList.add('fade');
+ if(mv){ds.style.height=ds.offsetHeight+'px';ds.offsetHeight;ds.style.height='0px';ds.classList.add('shut')}
+ tmr=setTimeout(function(){var h0=mv?0:ds.offsetHeight;if(mv)umiestni(pos);ds.style.height='auto';ds.classList.remove('shut');dt.innerHTML=t;var h1=ds.offsetHeight;ds.style.height=h0+'px';ds.offsetHeight;ds.style.height=h1+'px';
+  requestAnimationFrame(function(){ds.classList.remove('fade')});
+  tmr=setTimeout(function(){ds.style.height=''},380)},mv?340:230)}
+S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.innerHTML='<span>'+s[0]+'</span>';seg.appendChild(b);b.onclick=function(){show(i)}});
+function show(i){if(i===cur)return;cur=i;seg.querySelectorAll('button').forEach(function(b,j){b.classList.toggle('on',j==i)});pill.style.transform='translateX('+(i*100)+'%)';
+ clearTimeout(tmr);ds.style.height='';ds.classList.remove('shut','fade');umiestni('out');prev=null;
+ g.innerHTML='';its=[];S[i][2].forEach(function(x,k){var b=document.createElement('button');b.type='button';b.className='pk3-it';b.style.animationDelay=(k*35)+'ms';
+  b.innerHTML=(x[2]&&I[x[2]]?svg(x[2]):'<span class="pk3-ck">'+svg('check')+'</span>')+'<span>'+x[0]+'</span>';g.appendChild(b);its.push(b);
+  b.onclick=function(){if(b.classList.contains('on'))return;its.forEach(function(o){o.classList.remove('on')});b.classList.add('on');txt('<b>'+x[0]+'.</b> '+x[1],k)}});
+ var x0=S[i][2][0];its[0].classList.add('on');dt.innerHTML='<b>'+x0[0]+'.</b> '+x0[1];prev=dt.innerHTML;umiestni(ciel(0));}
+if(mq.addEventListener)mq.addEventListener('change',function(){clearTimeout(tmr);ds.style.height='';ds.classList.remove('shut','fade');var k=-1;its.forEach(function(o,j){if(o.classList.contains('on'))k=j});umiestni(ciel(k))});
+show(0);
+/* ružové bodky: odskok, keď sekciu doscrolujete */
+if('IntersectionObserver' in window){var bio=new IntersectionObserver(function(e){if(e[0].isIntersecting){root.classList.add('bodky');bio.disconnect()}},{threshold:.25});bio.observe(root)}else root.classList.add('bodky');
+})();
+</script>
+<!-- ═══ koniec: Pre každého ═══ -->
+
+
+<style>/* Stmavenie fotiek: rovnaká tmavá vrstva ako na videu v úvode */
+.dx-foto::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.4) 40%,rgba(0,0,0,.28) 100%)}
+.fp-sec::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.4) 40%,rgba(0,0,0,.28) 100%)}
+@media(max-width:820px){.fp-sec::after{bottom:auto;height:340px;z-index:0}}
+</style>
+
+
+</main><!-- ═══ PÄTIČKA ═══ -->
+<footer class="pt">
+  <div class="pt-bg"><img src="img/paticka/mesto-veze-1200.jpg" srcset="img/paticka/mesto-veze-1200.jpg 1200w, img/paticka/mesto-veze-3840.jpg 3840w" sizes="100vw" alt="" loading="lazy"></div>
+  <div class="pt-w">
+    <div class="pt-hero pt-zjav"><div><h2 class="pt-h">Máte otázku?</h2><p class="pt-cp">Odpovieme do 3 pracovných dní.</p></div><a href="kontakt.html" class="pt-pill">Kontakt</a></div>
+    <div class="pt-g3 pt-zjav"><div class="pt-sk"><span class="pt-mh">Služba</span><a href="index.html" class="pt-ml je">Úvod</a><a href="index.html#ziadost" class="pt-ml" data-von>Podať žiadosť</a><a href="investovanie.html" class="pt-ml">Investovanie</a><a href="ako-to-funguje.html" class="pt-ml">Ako to funguje</a></div><div class="pt-sk"><span class="pt-mh">O službe</span><a href="podmienky.html" class="pt-ml">Podmienky</a><a href="recenzie.html" class="pt-ml">Recenzie</a></div><div class="pt-sk"><span class="pt-mh">Pomoc</span><a href="faq.html" class="pt-ml">FAQ</a><a href="kontakt.html" class="pt-ml">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pt-ml">Odstúpenie od zmluvy</a></div></div>
+    <div class="pt-sk pt-krb pt-zjav"><div class="pt-krh"><span class="pt-mh">Krajina</span><span class="pt-cur"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-cur-nm">Slovensko</span></span></div><div class="ft-krajiny"></div></div>
+    <div class="pt-sk pt-rpb"><p class="pt-rep" id="rep-priklad">Reprezentatívny príklad konkrétnej ponuky úveru: Úver vo výške 3000 € so splatnosťou 12 mesiacov: RPMN 28,27 % (RPMN = ročná percentuálna miera nákladov, percentuálny údaj ktorý v sebe zahŕňa úplne všetky možné poplatky). Úroková sadzba 5 % p.a. (p.a. = per annum, znamená za rok), mesačná splátka 256,82 €, celkovo zaplatíte 3381,84 € vrátane poplatku za poskytnutie služby vo výške 300 €. Nejedná sa o návrh na uzatvorenie zmluvy. Minimálna dĺžka splatnosti je stanovená na 6 mesiacov. Maximálna dĺžka splatnosti je stanovená na 30 rokov. Upozorňujeme, že sa nejedná o propagáciu osobných pôžičiek s povinnosťou splatiť celú sumu najneskôr do 60 dní od dátumu poskytnutia pôžičky. Pôžička je určená výhradne pre fyzické osoby vo veku od 18 rokov bez obmedzenia spôsobilosti na právne úkony. Podrobné vysvetlenie služby môžete nájsť <a href="#">tu</a>. Služba funguje na princípe kolektívneho požičiavania v oblasti kryptomien. Stanovisko Národnej banky Slovenska k tejto problematike nájdete <a href="#">tu</a>. Splátky a celková čiastka, ktorú zaplatíte, sú matematicky zaokrúhlené na celé centy. Výslovne upozorňujeme všetkých záujemcov, aby si dôkladne preštudovali obchodné podmienky pre úplné pochopenie zmyslu poskytovanej služby. V prípade ak plne nechápete zmysel tejto služby, túto službu prosím nevyužívajte. Konkrétna ponuka sa môže od prezentovanej líšiť. Ponuka nie je verejný prísľub.</p></div>
+    <div class="pt-bot"><span>Copyright © 2026 Kvelto. Všetky práva vyhradené.</span><span class="pt-bl"><a href="obchodne-podmienky.html">Obchodné podmienky</a><a href="vyhlasenie-o-povahe-sluzby.html">Vyhlásenie o povahe služby</a><a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a></span></div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script src="jazyk.js?v=15"></script>
+<script src="ucet.js?v=2"></script>
+<script>
+/* Video sa začne sťahovať až po načítaní celej stránky. */
+window.addEventListener('load',function(){var v=document.querySelector('.fotopas video');if(!v)return;v.src=window.innerWidth<=820?'video/hero-960.mp4':'video/hero-1920.mp4';v.play&&v.play().catch(function(){});});
+</script>
+
+<script>
+/* ══════════ ŽIADOSŤ O ÚVER: kalkulačka, kroky, kontrola, podpis ══════════ */
+(function () {
+  var form = document.getElementById('zkForm');
+  if (!form) return;
+
+  var UROK = 0.05;      /* ročný úrok, fixný */
+  var POPLATOK = 300;   /* poplatok za poskytnutie služby */
+  var fmt = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); };
+  var fmt2 = function (n) { var p = (Math.round(n * 100) / 100).toFixed(2).split('.'); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ',' + p[1]; };
+  /* RPMN podľa zákona: hľadá ročnú sadzbu X, pri ktorej sa suma úveru (po odpočítaní poplatku) rovná splátkam prepočítaným na dnešnú hodnotu */
+  function rpmn(s, m, p) {
+    var lo = 0, hi = 50, X, i, pv, k;
+    for (var n = 0; n < 100; n++) {
+      X = (lo + hi) / 2; i = Math.pow(1 + X, 1 / 12) - 1; pv = 0;
+      for (k = 1; k <= m; k++) pv += p / Math.pow(1 + i, k);
+      if (pv > s - POPLATOK) lo = X; else hi = X;
+    }
+    return X * 100;
+  }
+  var paint = function (el) { el.style.setProperty('--pct', ((el.value - el.min) / (el.max - el.min) * 100) + '%'); };
+
+  /* ── Kalkulačka ── */
+  var suma = document.getElementById('zkSuma'), doba = document.getElementById('zkDoba');
+  function splatka(s, m) {
+    var r = UROK / 12;
+    return s * r / (1 - Math.pow(1 + r, -m));
+  }
+  /* Posuvník smie stáť len na hodnote zo zoznamu: prichytí sa k najbližšej. */
+  function prichyt(list, val) {
+    var best = list[0];
+    list.forEach(function (x) { if (Math.abs(x - val) < Math.abs(best - val)) best = x; });
+    return best;
+  }
+  function prepocitaj() {
+    suma.value = prichyt(SUMY, +suma.value);
+    doba.value = prichyt(DOBY, +doba.value);
+    var s = +suma.value, m = +doba.value;
+    var sp = Math.round(splatka(s, m) * 100) / 100;
+    var celkom = sp * m + POPLATOK;
+    var rp = rpmn(s, m, sp);
+    nastavSel(sumaSel, s, function (v) { return fmt(v) + ' €'; });
+    nastavSel(dobaSel, m, popisDoby);
+    document.getElementById('zkSplatka').textContent = fmt2(sp) + ' €';
+    document.getElementById('zkCelkom').textContent = fmt2(celkom) + ' €';
+    document.getElementById('zkTopSuma').textContent = fmt(s) + ' €';
+    document.getElementById('zkTopDoba').textContent = popisDoby(m);
+    document.getElementById('zkTopSplatka').textContent = fmt2(sp) + ' €';
+    document.getElementById('zkTopCelkom').textContent = fmt2(celkom) + ' €';
+    paint(suma); paint(doba);
+  }
+  /* ── Výber zo zoznamu (náhrada posuvníka) ── */
+  var sumaSel = document.getElementById('zkSumaSel'), dobaSel = document.getElementById('zkDobaSel');
+  function popisDoby(m) {
+    if (m % 12 === 0) { var r = m / 12; return m + ' mes. (' + r + (r === 1 ? ' rok' : r < 5 ? ' roky' : ' rokov') + ')'; }
+    return m + ' mes.';
+  }
+  var SUMY = [], DOBY = [], v;
+  for (v = 1000; v < 10000; v += 500) SUMY.push(v);
+  for (v = 10000; v < 50000; v += 1000) SUMY.push(v);
+  for (v = 50000; v <= 300000; v += 5000) SUMY.push(v);
+  DOBY.push(12); DOBY.push(24);
+  for (v = 36; v <= 120; v += 12) DOBY.push(v);
+  for (v = 144; v <= 360; v += 24) DOBY.push(v);
+  function naplnSel(sel, list, popis) {
+    list.forEach(function (x) { var o = document.createElement('option'); o.value = x; o.textContent = popis(x); sel.appendChild(o); });
+  }
+  naplnSel(sumaSel, SUMY, function (x) { return fmt(x) + ' €'; });
+  naplnSel(dobaSel, DOBY, popisDoby);
+  /* Ak posuvník stojí na hodnote, ktorá v zozname nie je, dočasne ju do zoznamu vloží. */
+  function nastavSel(sel, val, popis) {
+    var stary = sel.querySelector('option[data-docasna]');
+    if (stary && +stary.value !== val) stary.remove();
+    if (!sel.querySelector('option[value="' + val + '"]')) {
+      var o = document.createElement('option'); o.value = val; o.textContent = popis(val); o.setAttribute('data-docasna', '1');
+      var pred = null;
+      Array.prototype.some.call(sel.options, function (op) { if (+op.value > val) { pred = op; return true; } });
+      sel.insertBefore(o, pred);
+    }
+    sel.value = val;
+  }
+  sumaSel.addEventListener('change', function () { suma.value = sumaSel.value; prepocitaj(); });
+  dobaSel.addEventListener('change', function () { doba.value = dobaSel.value; prepocitaj(); });
+
+  suma.addEventListener('input', prepocitaj);
+  doba.addEventListener('input', prepocitaj);
+  prepocitaj();
+
+  /* ── Krajiny (občianstvo): abecedne, predvybrané Slovensko ── */
+  var KRAJINY = ['Slovensko','Česko','Afganistan','Albánsko','Alžírsko','Andorra','Angola','Antigua a Barbuda','Argentína','Arménsko','Austrália','Azerbajdžan','Bahamy','Bahrajn','Bangladéš','Barbados','Belgicko','Belize','Benin','Bhután','Bielorusko','Bolívia','Bosna a Hercegovina','Botswana','Brazília','Brunej','Bulharsko','Burkina Faso','Burundi','Cyprus','Čad','Čierna Hora','Čile','Čína','Dánsko','Dominika','Dominikánska republika','Džibutsko','Egypt','Ekvádor','Eritrea','Estónsko','Eswatini','Etiópia','Fidži','Filipíny','Fínsko','Francúzsko','Gabon','Gambia','Ghana','Grécko','Grenada','Gruzínsko','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Holandsko','Honduras','Chorvátsko','India','Indonézia','Irak','Irán','Írsko','Island','Izrael','Jamajka','Japonsko','Jemen','Jordánsko','Južná Afrika','Južná Kórea','Južný Sudán','Kambodža','Kamerun','Kanada','Kapverdy','Katar','Kazachstan','Keňa','Kirgizsko','Kiribati','Kolumbia','Komory','Kongo','Konžská demokratická republika','Kostarika','Kuba','Kuvajt','Laos','Lesotho','Libanon','Libéria','Líbya','Lichtenštajnsko','Litva','Lotyšsko','Luxembursko','Madagaskar','Maďarsko','Malajzia','Malawi','Maldivy','Mali','Malta','Maroko','Marshallove ostrovy','Maurícius','Mauritánia','Mexiko','Mikronézia','Mjanmarsko','Moldavsko','Monako','Mongolsko','Mozambik','Namíbia','Nauru','Nemecko','Nepál','Niger','Nigéria','Nikaragua','Nórsko','Nový Zéland','Omán','Pakistan','Palau','Panama','Papua-Nová Guinea','Paraguaj','Peru','Pobrežie Slonoviny','Poľsko','Portugalsko','Rakúsko','Rovníková Guinea','Rumunsko','Rusko','Rwanda','Salvádor','Samoa','San Maríno','Saudská Arábia','Senegal','Severná Kórea','Severné Macedónsko','Seychely','Sierra Leone','Singapur','Slovinsko','Somálsko','Spojené arabské emiráty','Spojené kráľovstvo','Spojené štáty americké','Srbsko','Srí Lanka','Stredoafrická republika','Sudán','Surinam','Svätá Lucia','Svätý Krištof a Nevis','Svätý Tomáš a Princov ostrov','Svätý Vincent a Grenadíny','Sýria','Šalamúnove ostrovy','Španielsko','Švajčiarsko','Švédsko','Tadžikistan','Taliansko','Tanzánia','Thajsko','Togo','Tonga','Trinidad a Tobago','Tunisko','Turecko','Turkménsko','Tuvalu','Uganda','Ukrajina','Uruguaj','Uzbekistan','Vanuatu','Vatikán','Venezuela','Vietnam','Východný Timor','Zambia','Zimbabwe'];
+  var selO = document.getElementById('zkObcianstvo');
+  var selK = document.getElementById('zkKrajina');
+  KRAJINY.slice().sort(function (a, b) { return a.localeCompare(b, 'sk'); }).forEach(function (k) { var o = document.createElement('option'); o.textContent = k; selO.appendChild(o); if (selK) selK.appendChild(o.cloneNode(true)); });
+  selO.value = 'Slovensko';
+  if (selK) { selK.value = 'Slovensko'; selO.addEventListener('change', function () { if (selO.value) selK.value = selO.value; }); }
+
+  /* ── Kroky ── */
+  var krok = 1;
+  var panes = form.querySelectorAll('.pane');
+  var dots = document.querySelectorAll('#zkStepper .sp-dot'); /* ukazovateľ krokov je vypnutý, dots je prázdne */
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+  function ukaz(n) {
+    krok = n;
+    panes.forEach(function (p) { p.classList.toggle('on', +p.dataset.pane === n); });
+    dots.forEach(function (d) {
+      var k = +d.dataset.krok;
+      d.classList.toggle('on', k === n);
+      d.classList.toggle('done', k < n);
+      d.querySelector('.sp-n').innerHTML = k < n ? CHECK : k;
+    });
+    var top = document.getElementById('ziadost').getBoundingClientRect().top + window.scrollY - 20;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+    if (n === 6 && window.zkNaplnSuhrn) window.zkNaplnSuhrn();
+  }
+  window.zkUkaz = ukaz;
+  dots.forEach(function (d) {
+    d.addEventListener('click', function () { var k = +d.dataset.krok; if (k < krok && krok <= 7) ukaz(k); });
+  });
+
+  /* ── Kontrola polí v aktuálnom kroku ── */
+  function chyba(el, ano) {
+    el.classList.toggle('err', !!ano);
+    if (el.type === 'checkbox') el.closest('.suhlas').classList.toggle('err', !!ano);
+  }
+  function skontroluj(n) {
+    var pane = form.querySelector('.pane[data-pane="' + n + '"]');
+    var ok = true, prvy = null;
+    if (n === 2) {
+      var ui = document.getElementById('zkUcel'), ue = document.getElementById('zkUcelErr');
+      var uz = !ui.hidden && ui.value.trim() && !(ui.value.trim().length >= 3 && /[A-Za-zÀ-ž]{3,}/.test(ui.value.trim()));
+      ue.classList.toggle('on', !!uz);
+      if (uz) { chyba(ui, true); ok = false; prvy = prvy || ui; }
+      ['zkMeno', 'zkPriezvisko'].forEach(function (id) {
+        var el = document.getElementById(id), er = document.getElementById(id + 'Err');
+        var zle = el.value.trim() && !/^[A-Za-zÀ-ž][A-Za-zÀ-ž' \-]*[A-Za-zÀ-ž]$/.test(el.value.trim());
+        er.classList.toggle('on', !!zle);
+        if (zle) { chyba(el, true); ok = false; prvy = prvy || el; }
+      });
+    }
+    pane.querySelectorAll('[required]').forEach(function (el) {
+      var zle = el.type === 'checkbox' ? !el.checked : !String(el.value).trim();
+      if (el.type === 'email' && !zle) zle = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());
+      chyba(el, zle);
+      if (zle) { ok = false; prvy = prvy || el; }
+    });
+    if (n === 3) {
+      var d = document.getElementById('zkNarodenie'), e = document.getElementById('zkNarodenieErr');
+      var mlady = false, nezmysel = false;
+      if (d.value) {
+        var dn = new Date(d.value), dnes = new Date();
+        var rokN = +d.value.slice(0, 4);
+        nezmysel = isNaN(dn.getTime()) || rokN < 1900 || dn > dnes;
+        var vek = dnes.getFullYear() - dn.getFullYear();
+        var m = dnes.getMonth() - dn.getMonth();
+        if (m < 0 || (m === 0 && dnes.getDate() < dn.getDate())) vek--;
+        mlady = !nezmysel && vek < 18;
+      }
+      e.textContent = nezmysel ? 'Dátum narodenia nie je správny.' : 'Žiadateľ musí mať 18 rokov a viac.';
+      e.classList.toggle('on', mlady || nezmysel);
+      if (mlady || nezmysel) { chyba(d, true); ok = false; prvy = prvy || d; }
+      if (window.zkRodneKontrola) { var rch = window.zkRodneKontrola(); if (rch) { ok = false; prvy = prvy || document.getElementById('zkRodne'); } }
+      if (window.zkOpKontrola) { var och = window.zkOpKontrola(); if (och) { ok = false; prvy = prvy || document.getElementById('zkOp'); } }
+      if (window.zkAdresaKontrola) { var ach = window.zkAdresaKontrola(); if (ach) { ok = false; prvy = prvy || ach; } }
+    }
+    if (n === 4 && window.zkIbanKontrola) { if (window.zkIbanKontrola()) { ok = false; prvy = prvy || document.getElementById('zkIban'); } }
+    if (n === 5 && window.zkTelKontrola) { if (window.zkTelKontrola()) { ok = false; prvy = prvy || document.getElementById('zkTel'); } }
+    if (n === 5) {
+      var e1 = document.getElementById('zkEmail'), e2 = document.getElementById('zkEmail2'), ee = document.getElementById('zkEmail2Err');
+      var rozne = e1.value.trim() && e2.value.trim() && e1.value.trim().toLowerCase() !== e2.value.trim().toLowerCase();
+      ee.classList.toggle('on', !!rozne);
+      if (rozne) { chyba(e2, true); ok = false; prvy = prvy || e2; }
+      var hs = document.getElementById('zkHeslo'), he = document.getElementById('zkHesloErr');
+      var kratke = hs.value.trim() && hs.value.length < 8;
+      he.classList.toggle('on', !!kratke);
+      if (kratke) { chyba(hs, true); ok = false; prvy = prvy || hs; }
+    }
+    if (n === 7) {
+      var sig = document.getElementById('zkSig'), se = document.getElementById('zkSigErr');
+      var sirka = cv.getBoundingClientRect().width || 300;
+      var maly = podpisany && (sigDlzka < 150 || (sigMaxX - sigMinX) < sirka * 0.2 || (sigMaxY - sigMinY) < 12);
+      sig.classList.toggle('err', !podpisany || maly);
+      se.textContent = maly ? 'Podpíšte sa prosím celým podpisom.' : 'Podpíšte sa prosím.';
+      se.classList.toggle('on', !podpisany || maly);
+      if (!podpisany || maly) { ok = false; prvy = prvy || sig; }
+    }
+    if (prvy) prvy.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return ok;
+  }
+  form.addEventListener('input', function (e) {
+    if (e.target.classList.contains('err')) chyba(e.target, false);
+    if (e.target.id === 'zkEmail2' || e.target.id === 'zkEmail') document.getElementById('zkEmail2Err').classList.remove('on');
+    if (e.target.id === 'zkHeslo') document.getElementById('zkHesloErr').classList.remove('on');
+    if (e.target.id === 'zkNarodenie') document.getElementById('zkNarodenieErr').classList.remove('on');
+    if (e.target.id === 'zkRodne' || e.target.id === 'zkNarodenie') document.getElementById('zkRodneErr').classList.remove('on');
+    if (e.target.id === 'zkUcel') document.getElementById('zkUcelErr').classList.remove('on');
+    if (e.target.id === 'zkOp') document.getElementById('zkOpErr').classList.remove('on');
+    if (e.target.id === 'zkIban') document.getElementById('zkIbanErr').classList.remove('on');
+    if (e.target.id === 'zkTel') document.getElementById('zkTelErr').classList.remove('on');
+    if (e.target.id === 'zkUlica' || e.target.id === 'zkMesto' || e.target.id === 'zkPsc') document.getElementById('zkAdresaErr').classList.remove('on');
+    if (e.target.id === 'zkMeno' || e.target.id === 'zkPriezvisko') document.getElementById(e.target.id + 'Err').classList.remove('on');
+  });
+  form.addEventListener('change', function (e) { if (e.target.type === 'checkbox') chyba(e.target, false); });
+
+  form.querySelectorAll('[data-dalej]').forEach(function (b) {
+    b.addEventListener('click', function () { if (skontroluj(krok)) { if (window.zkUprava && krok < 6) { window.zkUprava = false; ukaz(6); } else ukaz(krok + 1); } });
+  });
+  form.querySelectorAll('[data-spat]').forEach(function (b) {
+    b.addEventListener('click', function () { ukaz(krok - 1); });
+  });
+
+  /* Heslo: zobraziť / skryť. */
+  var hOko = document.getElementById('zkHesloOko'), hInp = document.getElementById('zkHeslo');
+  if (hOko && hInp) hOko.addEventListener('click', function () {
+    var vid = hInp.type === 'password';
+    hInp.type = vid ? 'text' : 'password';
+    hOko.textContent = vid ? 'Skryť' : 'Zobraziť';
+  });
+
+  /* Email pre kontrolu sa nedá vložiť zo schránky. */
+  var em2 = document.getElementById('zkEmail2');
+  ['paste', 'drop'].forEach(function (ev) { em2.addEventListener(ev, function (e) { e.preventDefault(); }); });
+
+  /* ── Podpis ── */
+  var box = document.getElementById('zkSig'), cv = document.getElementById('zkSigCanvas'), ctx = cv.getContext('2d');
+  var kresli = false, podpisany = false, last = null;
+  var sigDlzka = 0, sigMinX = 1e9, sigMaxX = -1e9, sigMinY = 1e9, sigMaxY = -1e9; /* dĺžka ťahov a rozmer podpisu */
+  function velkost() {
+    var r = box.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+    if (!r.width) return;
+    var img = podpisany ? cv.toDataURL() : null;
+    cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.lineWidth = 2.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#1d1d1f';
+    if (img) { var i = new Image(); i.onload = function () { ctx.drawImage(i, 0, 0, r.width, r.height); }; i.src = img; }
+  }
+  function bod(e) {
+    var r = cv.getBoundingClientRect();
+    var p = e.touches ? e.touches[0] : e;
+    return { x: p.clientX - r.left, y: p.clientY - r.top };
+  }
+  function start(e) { e.preventDefault(); kresli = true; last = bod(e); }
+  function tah(e) {
+    if (!kresli) return; e.preventDefault();
+    var p = bod(e);
+    ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+    sigDlzka += Math.hypot(p.x - last.x, p.y - last.y);
+    sigMinX = Math.min(sigMinX, p.x, last.x); sigMaxX = Math.max(sigMaxX, p.x, last.x); sigMinY = Math.min(sigMinY, p.y, last.y); sigMaxY = Math.max(sigMaxY, p.y, last.y);
+    last = p; podpisany = true; box.classList.add('ma'); box.classList.remove('err'); document.getElementById('zkSigErr').classList.remove('on');
+  }
+  function koniec() { kresli = false; }
+  cv.addEventListener('pointerdown', start); cv.addEventListener('pointermove', tah);
+  window.addEventListener('pointerup', koniec); cv.addEventListener('pointerleave', koniec);
+  document.getElementById('zkSigClear').addEventListener('click', function () {
+    sigDlzka = 0; sigMinX = 1e9; sigMaxX = -1e9; sigMinY = 1e9; sigMaxY = -1e9; document.getElementById('zkSigErr').classList.remove('on');
+    ctx.clearRect(0, 0, cv.width, cv.height); podpisany = false; box.classList.remove('ma');
+  });
+  window.addEventListener('resize', velkost);
+  /* Plátno dostane rozmer, keď sa krok 5 zobrazí (dovtedy je skryté a má nulovú šírku). */
+  var ro = new MutationObserver(function () { if (form.querySelector('.pane[data-pane="7"]').classList.contains('on')) velkost(); });
+  ro.observe(form.querySelector('.pane[data-pane="7"]'), { attributes: true, attributeFilter: ['class'] });
+
+  /* ── Odoslanie: zatiaľ len obrazovka Žiadosť sme prijali ── */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!skontroluj(7)) return;
+    if (form.dataset.odosielam === '1') return;
+    /* Zber údajov a odoslanie na server (functions/api/ziadost.js). Až po úspechu sa ukáže Žiadosť sme prijali. */
+    var udaje = {};
+    form.querySelectorAll('input[id^="zk"],select[id^="zk"],textarea[id^="zk"]').forEach(function (el) {
+      if (el.type === 'password' || el.type === 'checkbox' || el.type === 'button' || el.type === 'submit') return;
+      udaje[el.id] = el.value;
+      if (el.tagName === 'SELECT' && el.selectedIndex >= 0) udaje[el.id + 'Text'] = el.options[el.selectedIndex].text;
+    });
+    var kod = document.getElementById('zkTelKod');
+    if (kod && kod.selectedIndex >= 0) udaje.zkTelKod = (kod.options[kod.selectedIndex].text.match(/\+\d+/) || [kod.value])[0];
+    var podpis = null; try { var cv = document.getElementById('zkSigCanvas'); if (cv) podpis = cv.toDataURL('image/png'); } catch (x) {}
+    var odBtn = document.getElementById('zkOdoslat'), chybaEl = document.getElementById('zkChyba');
+    form.dataset.odosielam = '1'; odBtn.disabled = true; odBtn.textContent = 'Odosielam…'; if (chybaEl) chybaEl.style.display = 'none';
+    fetch('/api/ziadost', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ udaje: udaje, heslo: document.getElementById('zkHeslo').value, podpis: podpis,
+        suhlas: !!(document.getElementById('zkS1').checked && document.getElementById('zkS2').checked && document.getElementById('zkS3').checked), novinky: !!document.getElementById('zkS4').checked }) })
+    .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+    .then(function (x) {
+      form.dataset.odosielam = '0'; odBtn.disabled = false; odBtn.textContent = 'Odoslať žiadosť';
+      if (!x.ok) {
+        if (chybaEl) { chybaEl.innerHTML = x.d && x.d.kod === 'existuje' ? 'Na tento e-mail už máte účet. <a href="prihlasenie.html">Prihláste sa</a>.' : 'Žiadosť sa nepodarilo odoslať. ' + ((x.d && x.d.chyba) ? x.d.chyba : 'Skúste to prosím o chvíľu znova.'); chybaEl.style.display = 'block'; }
+        return;
+      }
+      if (window.KV_PRIHLAS) window.KV_PRIHLAS({ meno: udaje.zkMeno, priezvisko: udaje.zkPriezvisko });
+      poOdoslani();
+    })
+    .catch(function (er) { form.dataset.odosielam = '0'; odBtn.disabled = false; odBtn.textContent = 'Odoslať žiadosť'; if (chybaEl) { chybaEl.textContent = 'Žiadosť sa nepodarilo odoslať (spojenie: ' + String(er && er.message || er) + '). Skúste to prosím o chvíľu znova.'; chybaEl.style.display = 'block'; } });
+  });
+  function poOdoslani() {
+    if (window.zkZmazRozpracovanu) window.zkZmazRozpracovanu();
+    /* Najprv hneď vyskočí na začiatok formulára, až potom sa ukáže obrazovka Žiadosť sme prijali. Inak by animácia prebehla mimo obrazovky. */
+    var hore = document.getElementById('ziadost').getBoundingClientRect().top + window.scrollY - 20;
+    var de = document.documentElement;
+    de.style.scrollBehavior = 'auto';
+    window.scrollTo(0, hore);
+    requestAnimationFrame(function () {
+      de.style.scrollBehavior = '';
+      ukaz(8);
+      /* Poistka: po prepnutí obrazovky ešte raz dorovná polohu, keby ju prehliadač posunul. */
+      requestAnimationFrame(function () {
+        var t = document.getElementById('ziadost').getBoundingClientRect().top + window.scrollY - 20;
+        de.style.scrollBehavior = 'auto'; window.scrollTo(0, t); de.style.scrollBehavior = '';
+      });
+    });
+  }
+})();
+</script>
+
+<script>
+(function(){var n=document.getElementById('mainNav');if(!n)return;var last=window.scrollY,tick=false;
+function upd(){var y=window.scrollY;if(n.classList.contains('menu-open')){last=y;tick=false;return;}
+if(y<40){n.classList.remove('skryta');}else if(y>last+6){n.classList.add('skryta');}else if(y<last-6){n.classList.remove('skryta');}
+last=y;tick=false;}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('zkForm');if(!f)return;
+  var prog=document.createElement('div');prog.className='zk-prog';
+  for(var i=0;i<5;i++)prog.insertAdjacentHTML('beforeend','<i></i>');
+  f.insertBefore(prog,f.firstChild);
+  function upd(){
+    var on=f.querySelector('.pane.on');var n=on?+on.getAttribute('data-pane'):1;
+    prog.style.display=n>7?'none':'';
+    prog.querySelectorAll('i').forEach(function(el,i){el.classList.toggle('on',i<n)});
+    document.querySelectorAll('.zk .kn').forEach(function(k){k.textContent='0'+n+' / 05'});
+  }
+  new MutationObserver(upd).observe(f,{attributes:true,subtree:true,attributeFilter:['class']});
+  upd();
+})();
+</script>
+<script>
+(function(){var f=document.getElementById('zkForm'),t=document.getElementById('zkTop');if(!f||!t)return;
+function upd(){var on=f.querySelector('.pane.on');var n=on?+on.getAttribute('data-pane'):1;t.hidden=!(n>=2&&n<=7&&n!==6);}
+new MutationObserver(upd).observe(f,{attributes:true,subtree:true,attributeFilter:['class']});upd();})();
+</script>
+<script>
+/* Súhrn žiadosti na poslednom kroku */
+(function(){
+  var f=document.getElementById('zkForm');if(!f)return;
+  function v(id){var e=document.getElementById(id);return e?String(e.value||'').trim():'';}
+  function sel(id){var e=document.getElementById(id);return e&&e.selectedIndex>0?e.options[e.selectedIndex].textContent:'';}
+  function set(id,val){var e=document.getElementById(id);if(e)e.textContent=val||'';}
+  function datum(s){if(!s)return '';var p=s.split('-');return p.length===3?p[2]+'. '+p[1]+'. '+p[0]:s;}
+  window.zkNaplnSuhrn=function(){
+    set('zsSuma',document.getElementById('zkTopSuma').textContent);
+    set('zsDoba',document.getElementById('zkTopDoba').textContent);
+    set('zsSplatka',document.getElementById('zkTopSplatka').textContent);
+    set('zsCelkom',document.getElementById('zkTopCelkom').textContent);
+    set('zsUcel',sel('zkUcelSel')==='Iné'?v('zkUcel'):sel('zkUcelSel'));set('zsMeno',(v('zkMeno')+' '+v('zkPriezvisko')).trim());set('zsObcianstvo',sel('zkObcianstvo'));
+    set('zsNarodenie',datum(v('zkNarodenie')));set('zsRodne',v('zkRodne'));set('zsOp',v('zkOp'));
+    set('zsAdresa',[v('zkUlica'),v('zkMesto'),v('zkPsc'),sel('zkKrajina')].filter(Boolean).join(', '));
+    set('zsEmail',v('zkEmail'));set('zsTel',window.zkTelCele?window.zkTelCele():v('zkTel'));
+    set('zsZamestnanie',sel('zkZamestnanie'));set('zsPrijem',v('zkPrijem')?v('zkPrijem')+' €':'');set('zsVydavky',v('zkVydavky')?v('zkVydavky')+' €':'');set('zsExekucie',sel('zkExekucie'));set('zsIban',v('zkIban'));
+  };
+  f.querySelectorAll('[data-uprav]').forEach(function(b){b.addEventListener('click',function(){window.zkUprava=true;if(window.zkUkaz)window.zkUkaz(+b.getAttribute('data-uprav'));});});
+})();
+</script>
+<script>
+(function(){
+  var sel=document.getElementById('zkUcelSel'),inp=document.getElementById('zkUcel');if(!sel||!inp)return;
+  sel.addEventListener('change',function(){
+    var ine=sel.value==='Iné';
+    inp.hidden=!ine; if(ine){inp.setAttribute('required','');inp.focus();} else {inp.removeAttribute('required');inp.value='';inp.classList.remove('err');}
+  });
+})();
+</script>
+<script>
+/* Rodné číslo: plná kontrola pre Slovensko a Česko, voľná pre ostatné občianstva */
+(function(){
+  var inp=document.getElementById('zkRodne'),err=document.getElementById('zkRodneErr'),lbl=document.getElementById('zkRodneLbl'),obc=document.getElementById('zkObcianstvo'),nar=document.getElementById('zkNarodenie');
+  if(!inp||!err||!lbl||!obc)return;
+  function skcz(){return obc.value==='Slovensko'||obc.value==='Česko';}
+  function popis(){
+    if(skcz()){lbl.innerHTML='Rodné číslo<i>*</i>';inp.placeholder='';inp.setAttribute('inputmode','numeric');}
+    else{lbl.innerHTML='Rodné číslo alebo identifikačné číslo<i>*</i>';inp.placeholder='';inp.removeAttribute('inputmode');}
+  }
+  obc.addEventListener('change',popis);popis();
+  /* SK/CZ: len číslice, bez lomky */
+  inp.addEventListener('input',function(){
+    if(!skcz())return;
+    var d=inp.value.replace(/\D/g,'').slice(0,10);
+    inp.value=d;
+  });
+  function dniVMesiaci(r,m){return new Date(r,m,0).getDate();}
+  /* vráti text chyby, alebo prázdny reťazec keď je všetko v poriadku */
+  function overSkCz(s){
+    var c=s.replace(/\D/g,'');
+    if(!/^\d{9,10}$/.test(c))return 'Rodné číslo nie je správne.';
+    var rr=+c.slice(0,2),mm=+c.slice(2,4),dd=+c.slice(4,6);
+    var rok;
+    if(c.length===9){ if(rr>53)return 'Rodné číslo nie je správne.'; rok=1900+rr; }
+    else{
+      rok=rr<54?2000+rr:1900+rr;
+      var n=parseInt(c,10);
+      var ok11=(n%11===0)||(parseInt(c.slice(0,9),10)%11===10&&c.slice(9)==='0');
+      if(!ok11)return 'Rodné číslo nie je správne.';
+    }
+    var m=mm;
+    if(m>70)m-=70;else if(m>50)m-=50;else if(m>20)m-=20;
+    if(m<1||m>12)return 'Rodné číslo nie je správne.';
+    if(dd<1||dd>dniVMesiaci(rok,m))return 'Rodné číslo nie je správne.';
+    return '';
+  }
+  function overIne(s){
+    var t=s.replace(/[\s\/\-\.]/g,'');
+    if(t.length<5||!/^[A-Za-z0-9]+$/.test(t))return 'Identifikačné číslo nie je správne.';
+    return '';
+  }
+  window.zkRodneKontrola=function(){
+    var s=inp.value.trim(); if(!s)return false; /* prázdne rieši bežná kontrola povinných polí */
+    var ch=skcz()?overSkCz(s):overIne(s);
+    err.textContent=ch; err.classList.toggle('on',!!ch); inp.classList.toggle('err',!!ch);
+    return !!ch;
+  };
+})();
+</script>
+<script>
+/* Číslo občianskeho preukazu: tvar podľa občianstva */
+(function(){
+  var inp=document.getElementById('zkOp'),err=document.getElementById('zkOpErr'),lbl=document.getElementById('zkOpLbl'),obc=document.getElementById('zkObcianstvo');
+  if(!inp||!err||!lbl||!obc)return;
+  function popis(){
+    var o=obc.value;
+    if(o==='Slovensko'){lbl.innerHTML='Číslo občianskeho preukazu<i>*</i>';inp.placeholder='';}
+    else if(o==='Česko'){lbl.innerHTML='Číslo občianskeho preukazu<i>*</i>';inp.placeholder='';}
+    else{lbl.innerHTML='Číslo občianskeho preukazu alebo pasu<i>*</i>';inp.placeholder='';}
+  }
+  obc.addEventListener('change',popis);popis();
+  inp.addEventListener('input',function(){var v=inp.value.toUpperCase().replace(/\s+/g,'');if(v!==inp.value)inp.value=v;});
+  window.zkOpKontrola=function(){
+    var s=inp.value.trim(); if(!s)return false;
+    var o=obc.value,ch='';
+    if(o==='Slovensko'){ if(!/^[A-Z]{2}\d{6}$/.test(s))ch='Číslo občianskeho preukazu nie je správne.'; }
+    else if(o==='Česko'){ if(!/^(\d{9}|[A-Z]{2}\d{6})$/.test(s))ch='Číslo občianskeho preukazu nie je správne.'; }
+    else { if(s.replace(/[\-\/\.]/g,'').length<5||!/^[A-Z0-9\-\/\.]+$/.test(s))ch='Číslo dokladu nie je správne.'; }
+    err.textContent=ch; err.classList.toggle('on',!!ch); inp.classList.toggle('err',!!ch);
+    return !!ch;
+  };
+})();
+</script>
+<script>
+/* Adresa: ulica s číslom, mesto z písmen, PSČ podľa krajiny pobytu */
+(function(){
+  var ul=document.getElementById('zkUlica'),me=document.getElementById('zkMesto'),ps=document.getElementById('zkPsc'),kr=document.getElementById('zkKrajina'),err=document.getElementById('zkAdresaErr');
+  if(!ul||!me||!ps||!kr||!err)return;
+  window.zkAdresaKontrola=function(){
+    var skcz=kr.value==='Slovensko'||kr.value==='Česko';
+    var u=ul.value.trim(),m=me.value.trim(),p=ps.value.replace(/\s+/g,'');
+    var chyby=[],prvy=null;
+    function zle(el,txt){el.classList.add('err');chyby.push(txt);prvy=prvy||el;}
+    if(u){ var pism=(u.match(/[A-Za-zÀ-ž]/g)||[]).length; if(pism<3)zle(ul,'Ulica nie je správna.'); else if(skcz&&!/\d/.test(u))zle(ul,'Chýba číslo ulice.'); }
+    if(m){ if(!/^[A-Za-zÀ-ž][A-Za-zÀ-ž' \-\.]*$/.test(m)||(m.match(/[A-Za-zÀ-ž]/g)||[]).length<2)zle(me,'Mesto nie je správne.'); }
+    if(p){ if(skcz){ if(!/^\d{5}$/.test(p))zle(ps,'PSČ nie je správne.'); else if(ps.value!==p)ps.value=p; } else if(!/^[A-Za-z0-9\- ]{3,10}$/.test(ps.value.trim()))zle(ps,'PSČ nie je správne.'); }
+    err.textContent=chyby.join(' '); err.classList.toggle('on',chyby.length>0);
+    return prvy;
+  };
+})();
+</script>
+<script>
+/* IBAN: dĺžka podľa krajiny a kontrolný súčet (modulo 97), ako v banke */
+(function(){
+  var inp=document.getElementById('zkIban'),err=document.getElementById('zkIbanErr');if(!inp||!err)return;
+  var DLZKA={AD:24,AE:23,AL:28,AT:20,AZ:28,BA:20,BE:16,BG:22,BH:22,BR:29,BY:28,CH:21,CR:22,CY:28,CZ:24,DE:22,DK:18,DO:28,EE:20,EG:29,ES:24,FI:18,FO:18,FR:27,GB:22,GE:22,GI:23,GL:18,GR:27,GT:28,HR:21,HU:28,IE:22,IL:23,IS:26,IT:27,JO:30,KW:30,KZ:20,LB:28,LI:21,LT:20,LU:20,LV:21,MC:27,MD:24,ME:22,MK:19,MR:27,MT:31,MU:30,NL:18,NO:15,PK:24,PL:28,PS:29,PT:25,QA:29,RO:24,RS:22,SA:24,SE:24,SI:19,SK:24,SM:27,TN:24,TR:26,UA:29,VA:22,VG:24,XK:20};
+  inp.addEventListener('input',function(){
+    var v=inp.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,34);
+    var s=v.replace(/(.{4})/g,'$1 ').trim();
+    if(s!==inp.value)inp.value=s;
+  });
+  function platny(s){
+    var c=s.replace(/\s+/g,'');
+    if(!/^[A-Z]{2}\d{2}[A-Z0-9]+$/.test(c))return false;
+    var d=DLZKA[c.slice(0,2)];
+    if(!d||c.length!==d)return false;
+    var p=c.slice(4)+c.slice(0,4),num='';
+    for(var i=0;i<p.length;i++){var ch=p.charCodeAt(i);num+=ch>=65?String(ch-55):p[i];}
+    var z=0;for(var j=0;j<num.length;j++)z=(z*10+ (+num[j]))%97;
+    return z===1;
+  }
+  window.zkIbanKontrola=function(){
+    var s=inp.value.trim(); if(!s)return false;
+    var zle=!platny(s);
+    err.classList.toggle('on',zle); inp.classList.toggle('err',zle);
+    return zle;
+  };
+})();
+</script>
+<script>
+/* Email pre kontrolu: nedá sa vložiť skopírovaný text, klient ho musí napísať */
+(function(){
+  var e2=document.getElementById('zkEmail2');if(!e2)return;
+  ['paste','drop'].forEach(function(t){e2.addEventListener(t,function(ev){ev.preventDefault();});});
+})();
+</script>
+<script>
+/* Telefón: predvoľba krajiny s vlajkou, číslo sa kontroluje podľa krajiny */
+(function(){
+  var kod=document.getElementById('zkTelKod'),inp=document.getElementById('zkTel'),err=document.getElementById('zkTelErr');if(!kod||!inp||!err)return;
+  /* [ISO, predvoľba, názov, počet číslic od-do] */
+  var K=[['SK','421','Slovensko',9,9],['CZ','420','Česko',9,9],['AT','43','Rakúsko',6,13],['HU','36','Maďarsko',8,9],['PL','48','Poľsko',9,9],['UA','380','Ukrajina',9,9],['DE','49','Nemecko',6,13],['GB','44','Spojené kráľovstvo',10,10],['IE','353','Írsko',7,9],['NL','31','Holandsko',9,9],['BE','32','Belgicko',8,9],['FR','33','Francúzsko',9,9],['CH','41','Švajčiarsko',9,9],['IT','40','Taliansko',6,11],['ES','34','Španielsko',9,9],['PT','351','Portugalsko',9,9],['DK','45','Dánsko',8,8],['SE','46','Švédsko',7,10],['NO','47','Nórsko',8,8],['FI','358','Fínsko',5,12],['HR','385','Chorvátsko',8,9],['SI','386','Slovinsko',8,8],['RS','381','Srbsko',8,9],['BA','387','Bosna a Hercegovina',8,8],['RO','40','Rumunsko',9,9],['BG','359','Bulharsko',8,9],['GR','30','Grécko',10,10],['LT','370','Litva',8,8],['LV','371','Lotyšsko',8,8],['EE','372','Estónsko',7,8],['LU','352','Luxembursko',6,11],['CY','357','Cyprus',8,8],['MT','356','Malta',8,8],['IS','354','Island',7,7],['AL','355','Albánsko',8,9],['MK','389','Severné Macedónsko',8,8],['ME','382','Čierna Hora',8,8],['LI','423','Lichtenštajnsko',7,9],['MC','377','Monako',8,9],['AD','376','Andorra',6,9],['SM','378','San Maríno',6,10],['AZ','994','Azerbajdžan',9,9],['FO','298','Faerské ostrovy',6,6],['GI','350','Gibraltár',8,8],['TR','90','Turecko',10,10],['AE','971','Spojené arabské emiráty',8,9],['IL','972','Izrael',8,9],['US','1','USA',10,10],['CA','1','Kanada',10,10],['AU','61','Austrália',9,9],['RU','7','Rusko',10,10],['BY','375','Bielorusko',9,9],['MD','373','Moldavsko',8,8],['GE','995','Gruzínsko',9,9],['AM','374','Arménsko',8,8],['KZ','7','Kazachstan',10,10],['VN','84','Vietnam',9,10],['TH','66','Thajsko',8,9],['IN','91','India',10,10],['CN','86','Čína',11,11],['JP','81','Japonsko',9,10],['KR','82','Južná Kórea',9,10],['BR','55','Brazília',10,11],['MX','52','Mexiko',10,10],['ZA','27','Južná Afrika',9,9],['EG','20','Egypt',10,10],['MA','212','Maroko',9,9],['NG','234','Nigéria',10,10]];
+  K[13][1]='39'; /* Taliansko má +39 */
+  function vlajka(iso){return String.fromCodePoint(iso.charCodeAt(0)+127397,iso.charCodeAt(1)+127397);}
+  K.forEach(function(k){var o=document.createElement('option');o.value=k[0];o.textContent=vlajka(k[0])+' +'+k[1];o.title=k[2];kod.appendChild(o);});
+  kod.value='SK';
+  /* Úprava čísla: odstráni predvoľbu (+421, 00421, 421) a nulu na začiatku podľa krajiny. Pri inej predvoľbe prepne krajinu. */
+  var TR={HU:['06'],LT:['8','0'],RU:['8'],KZ:['8'],BY:['8']},BEZ=['PL','ES','PT','DK','NO','GR','LV','EE','LU','CY','MT','IS','US','CA','IT','MX','LI','MC','AD','SM','FO','GI'];
+  function trunk(iso){return TR[iso]||(BEZ.indexOf(iso)>-1?[]:['0'])}
+  function kInfo(iso){for(var i=0;i<K.length;i++)if(K[i][0]===iso)return K[i];return K[0]}
+  function dlz(d,k){return d.length>=k[3]&&d.length<=k[4]}
+  function telNorm(v,iso){var raw=String(v||'').trim(),d=raw.replace(/\D/g,''),k=kInfo(iso),intl=false;
+    if(raw.charAt(0)==='+')intl=true;else if(d.slice(0,2)==='00'){intl=true;d=d.slice(2)}
+    if(intl){if(d.indexOf(k[1])===0)d=d.slice(k[1].length);else{var b=null;K.forEach(function(x){if(d.indexOf(x[1])===0&&(!b||x[1].length>b[1].length))b=x});if(b){k=b;d=d.slice(b[1].length)}}}
+    else if(d.indexOf(k[1])===0&&!dlz(d,k)&&dlz(d.slice(k[1].length),k))d=d.slice(k[1].length);
+    trunk(k[0]).some(function(t){if(d.indexOf(t)===0&&d.length-t.length>=k[3]){d=d.slice(t.length);return true}return false});
+    return {iso:k[0],n:d,ok:dlz(d,k)&&!(k[0]==='SK'&&!/^[2-9]/.test(d)),intl:intl};}
+  function telFiltr(el){el.addEventListener('input',function(){var v=el.value.replace(/[^\d\s+]/g,'').replace(/(?!^)\+/g,'');if(v!==el.value)el.value=v})}
+  telFiltr(inp);
+  function uprav(){var r=telNorm(inp.value,kod.value);if(r.iso!==kod.value){kod.value=r.iso;kod.dispatchEvent(new Event('change',{bubbles:true}))}if(r.intl||r.iso!==kod.value)inp.value=r.n;return r}
+  inp.addEventListener('blur',function(){if(inp.value.replace(/\D/g,''))uprav()});
+  window.zkTelKontrola=function(){
+    if(!inp.value.replace(/\D/g,''))return false;
+    var r=uprav(),zle=!r.ok;
+    err.classList.toggle('on',zle); inp.classList.toggle('err',zle); return zle;
+  };
+  window.zkTelCele=function(){var r=telNorm(inp.value,kod.value);return '+'+kInfo(r.iso)[1]+' '+r.n;};
+})();
+</script>
+<script>
+/* Rozpracovaná žiadosť sa ukladá v prehliadači (bez hesla a podpisu) a po návrate sa doplní */
+(function(){
+  var f=document.getElementById('zkForm');if(!f)return;
+  var KEY='zephorisZiadost';
+  var polia=function(){return Array.prototype.filter.call(f.querySelectorAll('input,select'),function(el){return el.id&&el.type!=='password'&&el.type!=='range'&&el.id!=='zkSumaSel'&&el.id!=='zkDobaSel';});};
+  function uloz(){
+    try{
+      var d={};polia().forEach(function(el){d[el.id]=el.type==='checkbox'?el.checked:el.value;});
+      d.zkSuma=document.getElementById('zkSuma').value;d.zkDoba=document.getElementById('zkDoba').value;
+      var on=f.querySelector('.pane.on');d._krok=on?+on.getAttribute('data-pane'):1;if(d._krok>7)return; /* po odoslaní sa už nič neukladá */
+      localStorage.setItem(KEY,JSON.stringify(d));
+    }catch(e){}
+  }
+  function obnov(){
+    try{
+      var d=JSON.parse(localStorage.getItem(KEY)||'null');if(!d)return;
+      polia().forEach(function(el){if(!(el.id in d))return;if(el.type==='checkbox')el.checked=!!d[el.id];else el.value=d[el.id];});
+      if(d.zkSuma){document.getElementById('zkSuma').value=d.zkSuma;}
+      if(d.zkDoba){document.getElementById('zkDoba').value=d.zkDoba;}
+      document.getElementById('zkSuma').dispatchEvent(new Event('input',{bubbles:true}));
+      ['zkObcianstvo','zkUcelSel','zkTelKod'].forEach(function(id){var el=document.getElementById(id);if(el)el.dispatchEvent(new Event('change',{bubbles:true}));});
+      if(d._krok&&d._krok>1&&d._krok<=7&&window.zkUkaz){window.zkUkaz(d._krok);}
+    }catch(e){}
+  }
+  window.zkZmazRozpracovanu=function(){try{localStorage.removeItem(KEY);}catch(e){}};
+  f.addEventListener('input',uloz);f.addEventListener('change',uloz);
+  new MutationObserver(uloz).observe(f,{attributes:true,subtree:true,attributeFilter:['class']});
+  window.addEventListener('load',function(){setTimeout(obnov,50);});
+  /* Po odoslaní: tlačidlo vráti formulár na začiatok a stránku hore */
+  var zn=document.getElementById('zkZnova');
+  if(zn)zn.addEventListener('click',function(){
+    window.zkZmazRozpracovanu();
+    f.reset();
+    var cl=document.getElementById('zkSigClear');if(cl)cl.click();
+    ['zkObcianstvo','zkKrajina'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='Slovensko';});
+    document.getElementById('zkSuma').dispatchEvent(new Event('input',{bubbles:true}));
+    window.zkUprava=false;
+    if(window.zkUkaz)window.zkUkaz(1);
+    setTimeout(function(){window.scrollTo({top:0,behavior:'smooth'});},50);
+  });
+})();
+</script>
+<style>/* Tiene: jednotný systém. Všetky majú rovnaký tvar (rovnomerne okolo, jemne silnejšie dole), líšia sa len silou.
+   1 = hlavný prvok (karta s videom), 2 = veľké karty (formulár, telefón), 3 = malé prvky (výhody, guľôčka posuvníka). Tlačidlá a políčka bez tieňa. */
+:root{
+--tien-1:0 4px 12px rgba(24,33,66,.10),0 20px 60px rgba(24,33,66,.28);
+--tien-2:0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11);
+--tien-3:0 1px 3px rgba(24,33,66,.05),0 3px 12px rgba(24,33,66,.06);
+--tien-gulka:0 1px 2px rgba(24,33,66,.20),0 2px 8px rgba(24,33,66,.12);
+}
+@media(max-width:820px){:root{
+--tien-1:0 3px 10px rgba(24,33,66,.10),0 14px 36px rgba(24,33,66,.26);
+--tien-2:0 1px 4px rgba(24,33,66,.05),0 6px 22px rgba(24,33,66,.10);
+}}
+.fotopas{box-shadow:var(--tien-1)}
+.zk-card{box-shadow:var(--tien-2)}
+.dk-frame{box-shadow:var(--tien-2)}
+.vy-item{box-shadow:var(--tien-3)}
+input[type=range]::-webkit-slider-thumb{box-shadow:var(--tien-gulka)}
+input[type=range]::-moz-range-thumb{box-shadow:var(--tien-gulka)}
+</style>
+<script src="menu.js?v=1"></script>
+<script src="paticka.js?v=1"></script>
+</body>
+</html>

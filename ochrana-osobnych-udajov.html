@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="color-scheme" content="light" />
+
+<title>Ochrana osobných údajov · Kvelto</title>
+<meta name="description" content="Ako webový portál spracúva osobné údaje a aké práva máte." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+<link rel="icon" href="logo/kvelto-favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="logo/kvelto-favicon.svg" sizes="any" />
+<link rel="apple-touch-icon" href="logo/kvelto-app-ikona-512.png" />
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="jazyk.css?v=13">
+<style>:root { color-scheme: light; --black: #1d1d1f; --blue: #0a84ff; --white: #ffffff; --acc-soft: #f9a0d0; --acc: #ec4899; --acc-deep: #db2777; --acc-dark: #be185d; --acc-rail: #f76eb8; --acc-rgb: 236,72,153; --acc-soft-rgb: 249,160,208; --grad-1: var(--acc-soft); --grad-2: var(--acc); --grad-3: var(--acc-deep); --grad-4: var(--acc-dark); --text: #1d1d1f; --text-muted: rgba(29, 29, 31, 0.6); --text-faint: rgba(29, 29, 31, 0.55); --sep: rgba(29, 29, 31, 0.22); --green: #0a7d3f; --green-bg: rgba(16, 160, 80, 0.12); --amber: #b8681a; --glass-bg: rgba(255, 255, 255, 0.55); --glass-bg-soft: rgba(255, 255, 255, 0.42); --glass-shadow: 0 10px 34px rgba(24, 33, 66, 0.12), 0 2px 8px rgba(24, 33, 66, 0.06); --page-bg: #f5f7fc; --grad-full: linear-gradient(95deg, var(--grad-1) 0%, var(--grad-2) 45%, var(--grad-3) 80%, var(--grad-4) 100%); --tb: 0px; }
+<style>
+.bg-blobs{display:none}.bg{background:linear-gradient(180deg,#f7f9fe 0%,#fff 100%)}
+.hero>.section-inner{margin:auto;width:100%}
+</style>
+<style>
+/* Hero: výrazná typografia (návrh 2) */
+.hero-title{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.05em;line-height:.98}
+.hero-title small{display:block;font-size:.4em;font-weight:600;letter-spacing:-.02em;color:var(--text-muted);margin-bottom:12px}
+.hero-grad{color:var(--text)}
+.hero-grad::after{content:"";display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--acc);margin-left:.1em}
+.lead{font-size:1.2rem;max-width:560px;line-height:1.6;margin-top:26px}
+.nav-links a{font-size:.92rem}
+@media(max-width:480px){.nav-cta{display:none}}
+/* Hlavička: návrh 1 (čistá biela na celú šírku, ružová linka pod aktívnou položkou) */
+.nav-logo-icon{width:36px;height:36px;border-radius:26%;box-shadow:none}
+.ft-zn-badge{box-shadow:none}
+#mainNav,#mainNav.scrolled{top:0;left:0;transform:none;width:100%;max-width:none;border-radius:0;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(29,29,31,.08);box-shadow:none}
+/* Hlavička: jemne sivá na celú šírku, bez tieňa a bez linky */
+#mainNav,#mainNav.scrolled{background:rgba(236,238,244,.94);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:none;border:none;border-bottom:none}
+.nav-inner{max-width:1080px;margin:0 auto;height:64px;padding:0 24px}
+.nav-links a{position:relative;padding:6px 0;opacity:.7}
+.nav-links a.is-current{opacity:1;font-weight:500}
+.nav-drawer a.is-current{font-weight:500}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a.is-current::after,.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:#1d1d1f;color:#fff;border-radius:12px}.nav-cta:hover{background:#000}
+.nav-burger{border-radius:10px}
+.nav-drawer{top:64px;left:0;transform:translateY(-8px);width:100%;max-width:none;border-radius:0 0 18px 18px;background:rgba(255,255,255,.97);border-top:1px solid rgba(29,29,31,.06)}
+.nav-drawer.open{transform:translateY(0)}
+.nav-drawer a.is-current{background:rgba(236,72,153,.08);color:var(--acc-dark)}
+
+/* Hlavička: prihlásenie a účet (návrh 10) */
+.nav-sec{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:12px;border:1.5px solid rgba(29,29,31,.22);color:var(--text);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;background:transparent}
+.nav-sec.je{border-color:var(--text)}
+.inic{width:24px;height:24px;border-radius:50%;background:#1d1d1f;color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.nav-sec .inic{margin-left:-8px}
+.nav-drawer .del{height:1px;background:rgba(29,29,31,.08);margin:6px 8px}
+.nav-drawer .dr-btn{justify-content:center;padding:13px;opacity:1;display:flex;align-items:center}
+.nav-drawer .dr-ucet{opacity:1;font-weight:600;display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-ucet small{margin-left:auto;font-weight:400;font-size:.86rem;color:var(--text-faint)}
+.nav-drawer .dr-odhlasit{display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-odhlasit svg{width:18px;height:18px;flex:none}
+.nav-drawer .nav-cta{color:#fff;background:#1d1d1f;display:flex}
+.nav-drawer .dr-btn{margin-top:6px}
+/* Kým nie je napojené prihlásenie, ukazuje sa stav „neprihlásený“. Po prihlásení dostane <body> triedu „prihlaseny“. */
+body.prihlaseny [data-von]{display:none!important}
+body:not(.prihlaseny) [data-dnu]{display:none!important}
+@media(max-width:1040px){#mainNav .nav-inner{padding:0 14px 0 20px}#mainNav .nav-right{gap:8px}#mainNav .nav-sec{padding:8px 14px;font-size:.84rem}}
+@media(max-width:480px){#mainNav .nav-inner>.nav-right>.nav-cta{display:none}}
+
+/* Hlavička: pri scrolovaní dole zmizne, pri scrolovaní hore sa objaví */
+#mainNav{transition:transform .38s cubic-bezier(.22,1,.36,1),box-shadow .35s ease,background-color .35s ease}
+#mainNav.skryta{transform:translateY(-110%)}
+#mainNav.menu-open{transform:none}
+
+</style>
+<style>/* ═══ PODMIENKY: spoločné odseky stránky (nadpis, tiene) ═══ */
+
+:root{
+--tien-1:0 4px 12px rgba(24,33,66,.10),0 20px 60px rgba(24,33,66,.28);
+--tien-2:0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11);
+--tien-3:0 1px 3px rgba(24,33,66,.05),0 3px 12px rgba(24,33,66,.06);
+}
+@media(max-width:820px){:root{
+--tien-1:0 3px 10px rgba(24,33,66,.10),0 14px 36px rgba(24,33,66,.26);
+--tien-2:0 1px 4px rgba(24,33,66,.05),0 6px 22px rgba(24,33,66,.10);
+}}
+.rc-sec{padding:150px 24px 110px}
+.rc-in{max-width:1080px;margin:0 auto}
+.rc-head{text-align:center;margin:0 auto 46px}
+.rc-head .section-title{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.025em;line-height:.98}
+.rc-bod{color:var(--acc)}
+.rc-lead{max-width:640px;margin:22px auto 0;font-size:1.03rem;line-height:1.75;color:var(--text-muted);text-wrap:pretty}
+.hv{display:inline-flex;gap:2px;line-height:0}
+.hv svg{width:15px;height:15px;fill:#e2e4ea}
+.hv svg.on{fill:#1d1d1f}
+.av{width:38px;height:38px;border-radius:50%;background:#f3f4f8;color:#1d1d1f;font-size:.78rem;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.ov{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--green);background:var(--green-bg);padding:4px 9px;border-radius:100px;white-space:nowrap}
+.ov svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.suma{display:inline-flex;align-items:center;font-size:.78rem;font-weight:700;color:#fff;background:var(--acc);padding:6px 11px;border-radius:100px;white-space:nowrap}
+.kat{display:inline-flex;font-size:.74rem;font-weight:600;color:var(--text-muted);background:#f3f4f8;padding:5px 10px;border-radius:100px;white-space:nowrap}
+.rc-note{margin-top:46px;text-align:center;font-size:.8rem;color:var(--text-faint)}
+@media(max-width:700px){.bn1{width:100%;flex-direction:column;gap:12px;padding:30px 24px;text-align:center}.bn1 p{max-width:none}}
+.rc-cta{text-align:center;margin-top:40px}
+.rc-cta .btn{background:#1d1d1f;color:#fff}
+.rc-cta .btn:hover{background:#000}
+@media(max-width:820px){.rc-sec{padding:112px 16px 72px}.rc-head{margin-bottom:30px;text-align:left}.rc-lead{margin-left:0;font-size:.98rem;line-height:1.65;margin-top:14px}.rc-cta .btn{width:100%}}
+
+
+@keyframes m1grow{from{transform:scaleX(0)}}
+
+
+</style>
+<style>/* Reprezentatívny príklad: celý text je v pätičke */
+.ft-rep{max-width:980px;margin:0 auto 24px;padding-bottom:24px;border-bottom:1px solid rgba(29,29,31,.1);font-size:.74rem;line-height:1.65;color:rgba(29,29,31,.55);text-align:justify;scroll-margin-top:90px}
+.ft-rep a{color:#1d1d1f;text-decoration:underline;text-underline-offset:3px}
+</style>
+<style>/* ═══ EFEKTY TLAČIDIEL: jemná zmena odtieňa. Čierne → svetlejšie čierne, biele → sivšie, s okrajom → jemne sivé. Rovnaké na celom webe. ═══ */
+.nav-cta,.btn-primary,#zkZnova,.pk-btn,.fq-btn,.nav-sec,.f10-tip button,.f10-x,#zkSigClear{transition:background-color .25s,color .25s,border-color .25s,box-shadow .25s}
+@media(hover:hover){
+.btn-primary:hover,.pk-btn-p:hover,.fq-btn:hover{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):hover{background:#ebedf2}
+#zkZnova:hover,.f10-x:hover,#zkSigClear:hover{background:#e4e6ec}
+.nav-sec:hover{background:rgba(29,29,31,.06)}
+}
+/* mobil: efekt pri ťuknutí */
+.btn-primary:active,.pk-btn-p:active,.fq-btn:active{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):active{background:#ebedf2}
+#zkZnova:active,.f10-x:active,#zkSigClear:active{background:#e4e6ec}
+.nav-sec:active{background:rgba(29,29,31,.06)}
+</style>
+<style>/* ═══ HLAVIČKA: Prihlásiť sa je čierne tlačidlo, Podať žiadosť je odkaz ako ostatné položky ═══ */
+#mainNav .nav-right>.nav-cta{margin-left:4px;margin-right:4px;background:transparent!important;color:var(--text)!important;border-radius:0;padding:6px 0;font-size:.92rem;font-weight:500;opacity:.7;position:relative;box-shadow:none}
+#mainNav .nav-right>.nav-cta::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+#mainNav .nav-right>.nav-cta:hover::after{transform:scaleX(1)}
+#mainNav .nav-sec{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+#mainNav .nav-sec .inic{background:#fff;color:#1d1d1f}
+@media(hover:hover){#mainNav .nav-sec:hover{background:#3a3a3c;border-color:#3a3a3c}}
+#mainNav .nav-sec:active{background:#3a3a3c;border-color:#3a3a3c}
+/* mobilné menu */
+.nav-drawer .nav-cta{background:transparent!important;color:var(--text)!important;justify-content:flex-start!important}
+.nav-drawer .dr-btn{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+@media(hover:hover){.nav-drawer .dr-btn:hover{background:#3a3a3c;border-color:#3a3a3c}}
+.nav-drawer .dr-btn:active{background:#3a3a3c;border-color:#3a3a3c}
+</style>
+<link rel="stylesheet" href="menu.css?v=6">
+<link rel="stylesheet" href="paticka.css?v=1">
+</head><body><div class="bg"></div><div class="grain"></div>
+<nav id="mainNav"><div class="nav-inner"><a href="index.html" class="nav-logo"><span class="nav-logo-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="26" fill="#ffffff"/><path d="M24 40 H72 L61 29 M76 60 H28 L39 71" stroke="#1d1d1f" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><span>Kvelto</span></a><div class="nav-right"><ul class="nav-links"></ul><div class="jz"><button class="jz-btn" type="button" aria-label="Krajina"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-k jz-cur-k">SK</span></button><div class="jz-panel jz-hlw"><div class="jz-list"></div></div></div><a href="prihlasenie.html" class="nav-sec" data-von>Prihlásiť sa</a><a href="ucet.html" class="nav-sec je" data-dnu><span class="inic" id="navInic"></span><span id="navMeno"></span></a><button class="mb" id="pcBtn" type="button" aria-expanded="false" aria-controls="pcMenu"><svg class="mb-o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="mb-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg><span class="mb-t">Menu</span></button><button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div></div></nav>
+
+<div class="nav-drawer dr4 dmv6" id="navDrawer"><a href="index.html#ziadost" class="dm5-ph" data-von><img src="img/menu/tropicky-bazen-3840.jpg" srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-3840.jpg 3840w" sizes="100vw" alt="Bazén medzi palmami"><span class="m5-btn">Podať žiadosť</span></a><div class="dr4-c"><span class="dr-h">Služba</span><a href="index.html">Úvod</a><a href="index.html#ziadost" data-von>Podať žiadosť</a><a href="investovanie.html">Investovanie</a><a href="ako-to-funguje.html">Ako to funguje</a></div><div class="dr4-c"><span class="dr-h">O službe</span><a href="podmienky.html">Podmienky</a><a href="recenzie.html">Recenzie</a></div><div class="dr4-c"><span class="dr-h">Pomoc</span><a href="faq.html">FAQ</a><a href="kontakt.html">Kontakt</a><a href="odstupenie-od-zmluvy.html">Odstúpenie od zmluvy</a></div><button class="dr-jz" type="button"><span class="dr-jz-t">Jazyk</span><span class="dr-jz-v"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-cur-nm">Slovensko</span></span></button><div class="del"></div><a href="prihlasenie.html" class="nav-sec dr-btn" data-von>Prihlásiť sa</a><a href="ucet.html" class="dr-ucet" data-dnu><span class="inic" id="drInic"></span>Môj účet<small id="drMeno"></small></a><a href="#" class="dr-odhlasit" data-dnu id="drOdhlasit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17l5-5-5-5M15 12H3M21 3v18"/></svg>Odhlásiť sa</a></div>
+<div class="pm m6f" id="pcMenu"><div class="m6f-in"><div class="m6f-l"><div class="m6f-c"><span class="pm-h pm-i">Služba</span><a href="index.html" class="pm-a pm-i">Úvod</a><a href="index.html#ziadost" class="pm-a pm-i" data-von>Podať žiadosť</a><a href="investovanie.html" class="pm-a pm-i">Investovanie</a><a href="ako-to-funguje.html" class="pm-a pm-i">Ako to funguje</a><a href="#" class="pm-a pm-i" data-dnu data-odhlasit>Odhlásiť sa</a></div><div class="m6f-c"><span class="pm-h pm-i">O službe</span><a href="podmienky.html" class="pm-a pm-i">Podmienky</a><a href="recenzie.html" class="pm-a pm-i">Recenzie</a></div><div class="m6f-c"><span class="pm-h pm-i">Pomoc</span><a href="faq.html" class="pm-a pm-i">FAQ</a><a href="kontakt.html" class="pm-a pm-i">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pm-a pm-i">Odstúpenie od zmluvy</a></div></div><a href="index.html#ziadost" class="m6f-ph pm-i" data-von><img src="img/menu/tropicky-bazen-3840.jpg" srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-3840.jpg 3840w" sizes="340px" alt="Bazén medzi palmami"><span class="m6f-btn">Podať žiadosť</span></a></div></div>
+<div class="pm-bg"></div>
+
+<div class="jz-okno" id="jzOkno"><div class="jz-okno-in"><div class="jz-okno-h"><b>Vyberte krajinu</b><button class="jz-zavri" type="button" aria-label="Zavrieť"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div><div class="jz-hlw"><div class="jz-list"></div></div></div></div>
+<main>
+<style>/* ═══ OBCHODNÉ PODMIENKY: samostatná stránka ═══ */
+.op-sec{padding:150px 24px 110px}
+.op-card{max-width:860px;margin:0 auto;background:#fff;border-radius:28px;box-shadow:var(--tien-2);padding:52px 60px 56px}
+.op-obsah{margin:0 0 40px;padding:0 0 34px;border-bottom:1px solid rgba(29,29,31,.08)}
+.op-obsah b{display:block;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+.op-obsah ol{list-style:none;margin:0;padding:0;columns:2;column-gap:36px}
+.op-obsah li{break-inside:avoid;margin:0 0 9px;font-size:.92rem;line-height:1.45}
+.op-obsah a{color:var(--text);text-decoration:none;display:inline-flex;gap:8px}
+.op-obsah a i{font-style:normal;color:var(--acc);font-weight:700;min-width:34px}
+.op-obsah a:hover span{text-decoration:underline;text-underline-offset:3px}
+.op-cl{scroll-margin-top:100px}
+.op-cl+.op-cl{margin-top:38px}
+.op-cl h2{font-size:1.18rem;font-weight:800;letter-spacing:-.015em;line-height:1.35;margin:0 0 14px;color:var(--text)}
+.op-cl h2 small{display:block;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+.op-cl p{font-size:.97rem;line-height:1.72;color:rgba(29,29,31,.82);margin:0 0 12px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.op-cl p.op-pis{padding-left:26px}
+.op-cl p b{color:var(--text)}
+.op-cl a{color:var(--text);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:3px;text-decoration-thickness:1.5px}
+.op-pril{margin-top:44px;padding:30px 32px;border-radius:20px;background:#f5f6f9}
+.op-pril h2{margin-top:0}
+.op-pril p{text-align:left}
+@media(max-width:820px){
+.op-sec{padding:112px 16px 72px}
+.op-card{padding:30px 22px 34px;border-radius:24px}
+.op-obsah ol{columns:1}
+.op-obsah{margin-bottom:30px;padding-bottom:26px}
+.op-cl+.op-cl{margin-top:30px}
+.op-cl h2{font-size:1.08rem}
+.op-cl p{font-size:.95rem;line-height:1.68;text-align:left}
+.op-cl p.op-pis{padding-left:16px}
+.op-pril{padding:22px 18px;margin-top:34px}
+}
+</style>
+<section class="rc-sec op-sec" id="ochrana-osobnych-udajov"><div class="rc-in">
+<div class="section-head rc-head"><h1 class="section-title">Ochrana osobných údajov<span class="rc-bod">.</span></h1><p class="rc-lead">Informácie o tom, ako tento webový portál spracúva osobné údaje a aké práva vám patria. Účinné od 1. 12. 2026.</p></div>
+<article class="op-card">
+<nav class="op-obsah" aria-label="Obsah"><b>Obsah</b><ol>
+<li><a href="#o-1"><i>I.</i><span>Prevádzkovateľ a právny rámec</span></a></li>
+<li><a href="#o-2"><i>II.</i><span>Zásada minimalizácie údajov</span></a></li>
+<li><a href="#o-3"><i>III.</i><span>Osobné údaje zadávateľov</span></a></li>
+<li><a href="#o-4"><i>IV.</i><span>Osobné údaje záujemcov</span></a></li>
+<li><a href="#o-5"><i>V.</i><span>Technické údaje, úložisko prehliadača a súbory cookie</span></a></li>
+<li><a href="#o-6"><i>VI.</i><span>Príjemcovia osobných údajov</span></a></li>
+<li><a href="#o-7"><i>VII.</i><span>Doba uchovávania osobných údajov</span></a></li>
+<li><a href="#o-8"><i>VIII.</i><span>Práva dotknutej osoby</span></a></li>
+<li><a href="#o-9"><i>IX.</i><span>Vylúčenie profilovania a automatizovaného rozhodovania</span></a></li>
+<li><a href="#o-10"><i>X.</i><span>Zmeny a účinnosť</span></a></li>
+</ol></nav>
+
+<section class="op-cl" id="o-1"><h2><small>Článok I.</small>Prevádzkovateľ a právny rámec</h2>
+<p>(1) Prevádzkovateľom osobných údajov spracúvaných prostredníctvom tohto webového portálu (ďalej len „portál“) je [NÁZOV FIRMY], so sídlom [ADRESA], IČO: [IČO], zapísaná v [REGISTER, ODDIEL A VLOŽKA] (ďalej len „prevádzkovateľ“).</p><p>(2) Prevádzkovateľ pri spracúvaní postupuje podľa zákona č. 18/2018 Z. z. o ochrane osobných údajov a podľa nariadenia Európskeho parlamentu a Rady (EÚ) 2016/679, ktoré sa označuje ako všeobecné nariadenie o ochrane údajov (ďalej len „GDPR“).</p><p>(3) Tento dokument poskytuje dotknutým osobám informácie o tom, ktoré osobné údaje prevádzkovateľ spracúva, na aký účel a na akom právnom základe, ako dlho ich uchováva a aké práva dotknutým osobám patria.</p><p>(4) Otázky a žiadosti týkajúce sa osobných údajov môžu dotknuté osoby adresovať prevádzkovateľovi cez kontaktný formulár na stránke <a href="kontakt.html">Kontakt</a> alebo listom na adresu jeho sídla. Povinnosť určiť zodpovednú osobu sa na prevádzkovateľa nevzťahuje, a preto ju neurčil.</p>
+</section>
+
+<section class="op-cl" id="o-2"><h2><small>Článok II.</small>Zásada minimalizácie údajov</h2>
+<p>(1) Portál je inzertným médiom. Jeho technické riešenie je navrhnuté tak, aby sa spracúvali výlučne údaje potrebné na uverejnenie inzerátu, na fakturáciu a na komunikáciu s používateľmi.</p><p>(2) Prevádzkovateľ nevyžaduje rodné číslo, údaje z dokladu totožnosti, informácie o príjmoch, bankové výpisy ani údaje o záväzkoch a bonitu nikoho neposudzuje.</p><p>(3) Inzerát neobsahuje meno ani priezvisko zadávateľa. Kontakt na zadávateľa nie je na portáli viditeľný v nijakej forme, dokonca ani po kliknutí alebo inej akcii návštevníka, čím sa predchádza jeho hromadnému zberu.</p>
+</section>
+
+<section class="op-cl" id="o-3"><h2><small>Článok III.</small>Osobné údaje zadávateľov</h2>
+<p>(1) V súvislosti s objednávkou a uverejnením inzerátu prevádzkovateľ o zadávateľovi spracúva:</p><p class="op-pis">a) identifikačné a kontaktné údaje, teda meno, priezvisko, adresu elektronickej pošty a telefónne číslo,</p><p class="op-pis">b) prihlasovacie údaje k účtu zadávateľa, teda adresu elektronickej pošty a heslo, ktoré sa uchováva výlučne v podobe, z ktorej ho nemožno spätne zistiť,</p><p class="op-pis">c) obsah inzerátu, teda účel, požadovanú sumu, predpokladanú dobu, krajinu, mesačný rozpočtový údaj a opis,</p><p class="op-pis">d) údaje o úhrade, teda sumu a dátum úhrady a adresu, ktorú zadávateľ oznámi na účely prípadného vrátenia platby v kryptomene.</p><p>(2) Osobné údaje zadávateľa sa spracúvajú na tieto účely a na týchto právnych základoch:</p><p class="op-pis">a) uverejnenie inzerátu, vedenie účtu zadávateľa, odovzdávanie odpovedí záujemcov a vybavovanie žiadostí a reklamácií, a to na základe plnenia zmluvy podľa čl. 6 ods. 1 písm. b) GDPR,</p><p class="op-pis">b) vyhotovovanie a archivácia daňových a účtovných dokladov, a to na základe plnenia zákonnej povinnosti podľa čl. 6 ods. 1 písm. c) GDPR,</p><p class="op-pis">c) zaslanie ponuky na predĺženie doby zverejnenia pred jej uplynutím a uplatňovanie alebo obhajoba právnych nárokov, a to na základe oprávneného záujmu prevádzkovateľa podľa čl. 6 ods. 1 písm. f) GDPR.</p><p>(3) Proti zasielaniu ponúk podľa ods. 2 písm. c) môže zadávateľ kedykoľvek namietať. Po vznesení námietky mu prevádzkovateľ ďalšie ponuky nepošle.</p>
+</section>
+
+<section class="op-cl" id="o-4"><h2><small>Článok IV.</small>Osobné údaje záujemcov</h2>
+<p>(1) Od záujemcu, ktorý odpovie na inzerát, prevádzkovateľ spracúva meno alebo obchodné meno, adresu elektronickej pošty a text správy. Jediným účelom tohto spracúvania je odovzdanie správy zadávateľovi príslušného inzerátu.</p><p>(2) Spracúvanie sa opiera o súhlas záujemcu (čl. 6 ods. 1 písm. a) GDPR). Záujemca ho vyjadrí tak, že pred odoslaním správy označí príslušné políčko vo formulári. Súhlas môže kedykoľvek odvolať. Odvolanie sa nedotýka zákonnosti spracúvania, ku ktorému došlo pred ním, ani správy, ktorá už bola zadávateľovi doručená.</p><p>(3) Záujemcovi prevádzkovateľ nezriaďuje používateľský účet, jeho údaje nevyužíva na marketingové účely a nesprístupňuje ich iným zadávateľom. Do ďalšej korešpondencie medzi záujemcom a zadávateľom, ktorá už neprebieha cez portál, prevádzkovateľ nevidí a nijako ju neuchováva.</p><p>(4) Aby mohol preukázať riadne poskytnutie služby, ponecháva si prevádzkovateľ v nevyhnutnom rozsahu evidenciu o tom, že odpoveď na inzerát bola doručená. Oporou tohto spracúvania je čl. 6 ods. 1 písm. f) GDPR, teda oprávnený záujem prevádzkovateľa.</p>
+</section>
+
+<section class="op-cl" id="o-5"><h2><small>Článok V.</small>Technické údaje, úložisko prehliadača a súbory cookie</h2>
+<p>(1) Každá návšteva portálu je spojená so spracúvaním technických údajov, ako je IP adresa, použitý prehliadač či čas prístupu. Tieto údaje sa spracúvajú len v rozsahu, ktorý si vyžaduje zabezpečenie stability portálu a jeho ochrana pred útokmi. Spracúvanie je založené na oprávnenom záujme prevádzkovateľa na bezpečnej prevádzke portálu (čl. 6 ods. 1 písm. f) GDPR). Rovnaké údaje spracúva aj subjekt, ktorý pre portál zabezpečuje serverovú infraštruktúru.</p><p>(2) Úložisko prehliadača portál využíva len na technické účely, napríklad na dočasné uloženie rozpracovaného formulára alebo na zapamätanie prvkov, ktoré návštevník už videl. Tieto údaje neopúšťajú prehliadač návštevníka a prevádzkovateľ ich nevidí.</p><p>(3) Súbor cookie je malý súbor, ktorý sa ukladá v prehliadači návštevníka. Portál používa výlučne nevyhnutné súbory cookie, bez ktorých nemôže fungovať, najmä súbor cookie, ktorý udržiava prihlásenie zadávateľa do jeho účtu. Keďže sú pre fungovanie portálu nevyhnutné, ukladajú sa bez ohľadu na súhlas, a to na základe oprávneného záujmu prevádzkovateľa (čl. 6 ods. 1 písm. f) GDPR).</p><p>(4) Funkčné, analytické, výkonnostné ani reklamné súbory cookie portál v súčasnosti nepoužíva. Ak by ich prevádzkovateľ v budúcnosti zaviedol, ukladali by sa až na základe súhlasu návštevníka podľa čl. 6 ods. 1 písm. a) GDPR, ktorý by bolo možné kedykoľvek odvolať, a tento dokument by bol vopred doplnený.</p><p>(5) Ukladanie súborov cookie si návštevník môže obmedziť alebo ich vymazať aj prostredníctvom nastavení prehliadača.</p>
+</section>
+
+<section class="op-cl" id="o-6"><h2><small>Článok VI.</small>Príjemcovia osobných údajov</h2>
+<p>(1) Osobné údaje môžu byť sprístupnené:</p><p class="op-pis">a) zadávateľovi inzerátu, ktorému sa na základe súhlasu záujemcu odovzdáva jeho správa a adresa elektronickej pošty,</p><p class="op-pis">b) poskytovateľom technickej infraštruktúry, najmä hostingu a služby na odosielanie elektronickej pošty, ktorí údaje spracúvajú ako sprostredkovatelia na základe zmluvy s prevádzkovateľom,</p><p class="op-pis">c) účtovným a daňovým poradcom prevádzkovateľa v rozsahu fakturačných údajov,</p><p class="op-pis">d) orgánom verejnej moci, ak to vyplýva z právneho predpisu alebo z ich rozhodnutia.</p><p>(2) Nie je vylúčené, že niektorý z dodávateľov bude osobné údaje spracúvať v štáte mimo Európskeho hospodárskeho priestoru. V takom prípade prevádzkovateľ zabezpečí primerané záruky podľa kapitoly V GDPR (čl. 44 a nasl.), spravidla vo forme rozhodnutia Európskej komisie o primeranosti ochrany alebo štandardných zmluvných doložiek.</p>
+</section>
+
+<section class="op-cl" id="o-7"><h2><small>Článok VII.</small>Doba uchovávania osobných údajov</h2>
+<p>(1) Prevádzkovateľ uchováva:</p><p class="op-pis">a) údaje zadávateľa a obsah inzerátu počas doby zverejnenia a následne počas plynutia premlčacích lehôt na uplatnenie právnych nárokov, spravidla tri roky,</p><p class="op-pis">b) daňové doklady a fakturačné údaje desať rokov podľa predpisov o účtovníctve,</p><p class="op-pis">c) správu záujemcu po jej odovzdaní zadávateľovi iba v rozsahu a po dobu nevyhnutnú na preukázanie poskytnutia služby, najneskôr do uplynutia premlčacích lehôt,</p><p class="op-pis">d) technické prevádzkové záznamy krátkodobo, spravidla nie dlhšie ako niekoľko mesiacov,</p><p class="op-pis">e) prihlasovací súbor cookie najviac jeden rok od poslednej návštevy prihláseného zadávateľa.</p><p>(2) Po uplynutí uvedených dôb prevádzkovateľ osobné údaje vymaže alebo anonymizuje.</p>
+</section>
+
+<section class="op-cl" id="o-8"><h2><small>Článok VIII.</small>Práva dotknutej osoby</h2>
+<p>(1) Každá dotknutá osoba môže:</p><p class="op-pis">a) súhlas so spracúvaním kedykoľvek odvolať, ak sa spracúvanie na súhlase zakladá,</p><p class="op-pis">b) požadovať, aby jej prevádzkovateľ potvrdil, či jej údaje spracúva, a sprístupnil jej ich spolu s informáciami o spracúvaní,</p><p class="op-pis">c) žiadať opravu údajov, ktoré sú nesprávne, a doplnenie tých, ktoré sú neúplné,</p><p class="op-pis">d) namietať spracúvanie, ktoré sa opiera o oprávnený záujem, a to aj pokiaľ ide o ponuky na predĺženie doby zverejnenia,</p><p class="op-pis">e) žiadať výmaz údajov, ak už nie sú potrebné na pôvodný účel alebo ak po odvolaní súhlasu chýba iný právny základ,</p><p class="op-pis">f) požadovať obmedzenie spracúvania, ak sú splnené podmienky podľa čl. 18 GDPR,</p><p class="op-pis">g) získať údaje, ktoré poskytla na základe zmluvy alebo súhlasu, v prenosnej podobe.</p><p>(2) Žiadosť o výkon práv sa podáva kontaktným formulárom na stránke Kontakt alebo listom adresovaným na sídlo prevádzkovateľa. Na žiadosť reaguje prevádzkovateľ bez zbytočného odkladu, v lehote najviac jedného mesiaca od jej doručenia. Ak je žiadosť zložitá, lehotu možno o ďalšie dva mesiace predĺžiť. O predĺžení prevádzkovateľ dotknutú osobu vyrozumie.</p><p>(3) Dotknutá osoba, ktorá má za to, že prevádzkovateľ spracúva jej osobné údaje nezákonne, môže podať Úradu na ochranu osobných údajov Slovenskej republiky, Hraničná 12, 820 07 Bratislava, návrh na začatie konania.</p>
+</section>
+
+<section class="op-cl" id="o-9"><h2><small>Článok IX.</small>Vylúčenie profilovania a automatizovaného rozhodovania</h2>
+<p>(1) Pri spracúvaní osobných údajov nedochádza k automatizovanému individuálnemu rozhodovaniu ani k profilovaniu. Používatelia nie sú hodnotení ani posudzovaní z hľadiska bonity, inzeráty sa neusporadúvajú podľa vlastností zadávateľov a záujemcom sa neposielajú inzeráty vybrané na základe ich záujmov alebo správania.</p>
+</section>
+
+<section class="op-cl" id="o-10"><h2><small>Článok X.</small>Zmeny a účinnosť</h2>
+<p>(1) Tento dokument môže prevádzkovateľ aktualizovať, predovšetkým vtedy, keď sa zmení rozsah spracúvania alebo príslušná legislatíva. Platné znenie je trvalo zverejnené na tejto stránke.</p><p>(2) Dokument je účinný od 1. 12. 2026.</p>
+</section>
+</article>
+</div></section>
+
+</main>
+<!-- ═══ PÄTIČKA ═══ -->
+<footer class="pt">
+  <div class="pt-bg"><img src="img/paticka/mesto-veze-1200.jpg" srcset="img/paticka/mesto-veze-1200.jpg 1200w, img/paticka/mesto-veze-3840.jpg 3840w" sizes="100vw" alt="" loading="lazy"></div>
+  <div class="pt-w">
+    <div class="pt-hero pt-zjav"><div><h2 class="pt-h">Máte otázku?</h2><p class="pt-cp">Odpovieme do 3 pracovných dní.</p></div><a href="kontakt.html" class="pt-pill">Kontakt</a></div>
+    <div class="pt-g3 pt-zjav"><div class="pt-sk"><span class="pt-mh">Služba</span><a href="index.html" class="pt-ml">Úvod</a><a href="index.html#ziadost" class="pt-ml" data-von>Podať žiadosť</a><a href="investovanie.html" class="pt-ml">Investovanie</a><a href="ako-to-funguje.html" class="pt-ml">Ako to funguje</a></div><div class="pt-sk"><span class="pt-mh">O službe</span><a href="podmienky.html" class="pt-ml">Podmienky</a><a href="recenzie.html" class="pt-ml">Recenzie</a></div><div class="pt-sk"><span class="pt-mh">Pomoc</span><a href="faq.html" class="pt-ml">FAQ</a><a href="kontakt.html" class="pt-ml">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pt-ml">Odstúpenie od zmluvy</a></div></div>
+    <div class="pt-sk pt-krb pt-zjav"><div class="pt-krh"><span class="pt-mh">Krajina</span><span class="pt-cur"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-cur-nm">Slovensko</span></span></div><div class="ft-krajiny"></div></div>
+    <div class="pt-sk pt-rpb"><p class="pt-rep" id="rep-priklad">Reprezentatívny príklad konkrétnej ponuky úveru: Úver vo výške 3000 € so splatnosťou 12 mesiacov: RPMN 28,27 % (RPMN = ročná percentuálna miera nákladov, percentuálny údaj ktorý v sebe zahŕňa úplne všetky možné poplatky). Úroková sadzba 5 % p.a. (p.a. = per annum, znamená za rok), mesačná splátka 256,82 €, celkovo zaplatíte 3381,84 € vrátane poplatku za poskytnutie služby vo výške 300 €. Nejedná sa o návrh na uzatvorenie zmluvy. Minimálna dĺžka splatnosti je stanovená na 6 mesiacov. Maximálna dĺžka splatnosti je stanovená na 30 rokov. Upozorňujeme, že sa nejedná o propagáciu osobných pôžičiek s povinnosťou splatiť celú sumu najneskôr do 60 dní od dátumu poskytnutia pôžičky. Pôžička je určená výhradne pre fyzické osoby vo veku od 18 rokov bez obmedzenia spôsobilosti na právne úkony. Podrobné vysvetlenie služby môžete nájsť <a href="#">tu</a>. Služba funguje na princípe kolektívneho požičiavania v oblasti kryptomien. Stanovisko Národnej banky Slovenska k tejto problematike nájdete <a href="#">tu</a>. Splátky a celková čiastka, ktorú zaplatíte, sú matematicky zaokrúhlené na celé centy. Výslovne upozorňujeme všetkých záujemcov, aby si dôkladne preštudovali obchodné podmienky pre úplné pochopenie zmyslu poskytovanej služby. V prípade ak plne nechápete zmysel tejto služby, túto službu prosím nevyužívajte. Konkrétna ponuka sa môže od prezentovanej líšiť. Ponuka nie je verejný prísľub.</p></div>
+    <div class="pt-bot"><span>Copyright © 2026 Kvelto. Všetky práva vyhradené.</span><span class="pt-bl"><a href="obchodne-podmienky.html">Obchodné podmienky</a><a href="vyhlasenie-o-povahe-sluzby.html">Vyhlásenie o povahe služby</a><a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a></span></div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="jazyk.js?v=15"></script>
+<script src="ucet.js?v=2"></script>
+
+<script>
+(function(){var n=document.getElementById('mainNav');if(!n)return;var last=window.scrollY,tick=false;
+function upd(){var y=window.scrollY;if(n.classList.contains('menu-open')){last=y;tick=false;return;}
+if(y<40){n.classList.remove('skryta');}else if(y>last+6){n.classList.add('skryta');}else if(y<last-6){n.classList.remove('skryta');}
+last=y;tick=false;}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});})();
+</script>
+<script src="menu.js?v=1"></script>
+<script src="paticka.js?v=1"></script>
+</body></html>

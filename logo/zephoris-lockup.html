@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zephoris — značka so sloganom (statická)</title>
+<!--
+  ══════════════════════════════════════════════════════════════
+  ZEPHORIS — ZNAČKA SO SLOGANOM, STATICKÁ VARIANTA
+  ══════════════════════════════════════════════════════════════
+  Toto je predloha zostavy: značka, názov a pod nimi slogan
+  medzi dvoma ružovými čiarkami.
+
+  Rozmery sú totožné s načítacou obrazovkou pri Aktívnych
+  inzerátoch: značka 72 px, názov 30 px, slogan 11,5 px,
+  čiarky 38 px. Pod 560 px sa zmenšuje na 56 / 23 / 9,5 / 26.
+
+  Celý kód je nižšie v tomto súbore. Na vloženie inam stačí
+  skopírovať blok <style> a blok <div class="zl">.
+  Trieda má vlastnú predponu zl-, takže sa nebije s ničím
+  na stránke.
+
+  Animovaná verzia: zephoris-lockup-animovany.html
+  ══════════════════════════════════════════════════════════════
+-->
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 45%,#ffffff 0%,#fbfcfe 55%,#f5f7fc 100%)}
+
+/* ── zostava ────────────────────────────────────────────── */
+.zl{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;gap:22px}
+.zl-row{display:flex;align-items:center;gap:16px}
+.zl-badge{width:72px;height:72px;flex:none;border-radius:19px;overflow:hidden}
+.zl-badge svg{width:100%;height:100%;display:block}
+.zl-word{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#1d1d1f}
+.zl-slogan{display:flex;align-items:center;justify-content:center;gap:13px}
+.zl-slogan i{display:block;height:1.5px;width:38px;flex:none;border-radius:99px;background:linear-gradient(90deg,#ec4899,#db2777)}
+.zl-slogan b{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.32em;text-indent:.32em;color:#1d1d1f;white-space:nowrap}
+
+/* ── na tmavom podklade stačí pridať triedu zl-inv ───────── */
+.zl-inv .zl-word,.zl-inv .zl-slogan b{color:#ffffff}
+.zl-inv .zl-badge rect{fill:#ffffff}
+.zl-inv .zl-badge path{stroke:#1d1d1f}
+
+/* ── mobil ──────────────────────────────────────────────── */
+@media (max-width:560px){
+  .zl{gap:18px}
+  .zl-row{gap:12px}
+  .zl-badge{width:56px;height:56px;border-radius:15px}
+  .zl-word{font-size:23px}
+  .zl-slogan{gap:10px}
+  .zl-slogan i{width:26px}
+  .zl-slogan b{font-size:9.5px}
+}
+</style>
+</head>
+<body>
+
+<div class="zl">
+  <div class="zl-row">
+    <span class="zl-badge"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="26" fill="#1d1d1f"/><path d="M 30.4 31.5 H 69.6 L 30.4 68.5 H 69.6" stroke="#ffffff" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+    <span class="zl-word">Zephoris</span>
+  </div>
+  <div class="zl-slogan"><i></i><b>váš inzertný portál</b><i></i></div>
+</div>
+
+</body>
+</html>

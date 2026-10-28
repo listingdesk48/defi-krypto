@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="color-scheme" content="light" />
+
+<title>Recenzie · Kvelto</title>
+<meta name="description" content="Recenzie ľudí, ktorí cez Kvelto získali úver. Hodnotenia, skúsenosti a fotky toho, čo si za peniaze splnili." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+<link rel="icon" href="logo/kvelto-favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="logo/kvelto-favicon.svg" sizes="any" />
+<link rel="apple-touch-icon" href="logo/kvelto-app-ikona-512.png" />
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="jazyk.css?v=13">
+<style>:root { color-scheme: light; --black: #1d1d1f; --blue: #0a84ff; --white: #ffffff; --acc-soft: #f9a0d0; --acc: #ec4899; --acc-deep: #db2777; --acc-dark: #be185d; --acc-rail: #f76eb8; --acc-rgb: 236,72,153; --acc-soft-rgb: 249,160,208; --grad-1: var(--acc-soft); --grad-2: var(--acc); --grad-3: var(--acc-deep); --grad-4: var(--acc-dark); --text: #1d1d1f; --text-muted: rgba(29, 29, 31, 0.6); --text-faint: rgba(29, 29, 31, 0.55); --sep: rgba(29, 29, 31, 0.22); --green: #0a7d3f; --green-bg: rgba(16, 160, 80, 0.12); --amber: #b8681a; --glass-bg: rgba(255, 255, 255, 0.55); --glass-bg-soft: rgba(255, 255, 255, 0.42); --glass-shadow: 0 10px 34px rgba(24, 33, 66, 0.12), 0 2px 8px rgba(24, 33, 66, 0.06); --page-bg: #f5f7fc; --grad-full: linear-gradient(95deg, var(--grad-1) 0%, var(--grad-2) 45%, var(--grad-3) 80%, var(--grad-4) 100%); --tb: 0px; }
+<style>
+.bg-blobs{display:none}.bg{background:linear-gradient(180deg,#f7f9fe 0%,#fff 100%)}
+.hero>.section-inner{margin:auto;width:100%}
+</style>
+<style>
+/* Hero: výrazná typografia (návrh 2) */
+.hero-title{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.05em;line-height:.98}
+.hero-title small{display:block;font-size:.4em;font-weight:600;letter-spacing:-.02em;color:var(--text-muted);margin-bottom:12px}
+.hero-grad{color:var(--text)}
+.hero-grad::after{content:"";display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--acc);margin-left:.1em}
+.lead{font-size:1.2rem;max-width:560px;line-height:1.6;margin-top:26px}
+.nav-links a{font-size:.92rem}
+@media(max-width:480px){.nav-cta{display:none}}
+/* Hlavička: návrh 1 (čistá biela na celú šírku, ružová linka pod aktívnou položkou) */
+.nav-logo-icon{width:36px;height:36px;border-radius:26%;box-shadow:none}
+.ft-zn-badge{box-shadow:none}
+#mainNav,#mainNav.scrolled{top:0;left:0;transform:none;width:100%;max-width:none;border-radius:0;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(29,29,31,.08);box-shadow:none}
+/* Hlavička: jemne sivá na celú šírku, bez tieňa a bez linky */
+#mainNav,#mainNav.scrolled{background:rgba(236,238,244,.94);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:none;border:none;border-bottom:none}
+.nav-inner{max-width:1080px;margin:0 auto;height:64px;padding:0 24px}
+.nav-links a{position:relative;padding:6px 0;opacity:.7}
+.nav-links a.is-current{opacity:1;font-weight:500}
+.nav-drawer a.is-current{font-weight:500}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a.is-current::after,.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:#1d1d1f;color:#fff;border-radius:12px}.nav-cta:hover{background:#000}
+.nav-burger{border-radius:10px}
+.nav-drawer{top:64px;left:0;transform:translateY(-8px);width:100%;max-width:none;border-radius:0 0 18px 18px;background:rgba(255,255,255,.97);border-top:1px solid rgba(29,29,31,.06)}
+.nav-drawer.open{transform:translateY(0)}
+.nav-drawer a.is-current{background:rgba(236,72,153,.08);color:var(--acc-dark)}
+
+/* Hlavička: prihlásenie a účet (návrh 10) */
+.nav-sec{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:12px;border:1.5px solid rgba(29,29,31,.22);color:var(--text);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;background:transparent}
+.nav-sec.je{border-color:var(--text)}
+.inic{width:24px;height:24px;border-radius:50%;background:#1d1d1f;color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.nav-sec .inic{margin-left:-8px}
+.nav-drawer .del{height:1px;background:rgba(29,29,31,.08);margin:6px 8px}
+.nav-drawer .dr-btn{justify-content:center;padding:13px;opacity:1;display:flex;align-items:center}
+.nav-drawer .dr-ucet{opacity:1;font-weight:600;display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-ucet small{margin-left:auto;font-weight:400;font-size:.86rem;color:var(--text-faint)}
+.nav-drawer .dr-odhlasit{display:flex;align-items:center;gap:10px}
+.nav-drawer .dr-odhlasit svg{width:18px;height:18px;flex:none}
+.nav-drawer .nav-cta{color:#fff;background:#1d1d1f;display:flex}
+.nav-drawer .dr-btn{margin-top:6px}
+/* Kým nie je napojené prihlásenie, ukazuje sa stav „neprihlásený“. Po prihlásení dostane <body> triedu „prihlaseny“. */
+body.prihlaseny [data-von]{display:none!important}
+body:not(.prihlaseny) [data-dnu]{display:none!important}
+@media(max-width:1040px){#mainNav .nav-inner{padding:0 14px 0 20px}#mainNav .nav-right{gap:8px}#mainNav .nav-sec{padding:8px 14px;font-size:.84rem}}
+@media(max-width:480px){#mainNav .nav-inner>.nav-right>.nav-cta{display:none}}
+
+/* Hlavička: pri scrolovaní dole zmizne, pri scrolovaní hore sa objaví */
+#mainNav{transition:transform .38s cubic-bezier(.22,1,.36,1),box-shadow .35s ease,background-color .35s ease}
+#mainNav.skryta{transform:translateY(-110%)}
+#mainNav.menu-open{transform:none}
+
+</style>
+<style>/* ═══ RECENZIE (návrh 1: Mozaika) ═══ */
+
+:root{
+--tien-1:0 4px 12px rgba(24,33,66,.10),0 20px 60px rgba(24,33,66,.28);
+--tien-2:0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11);
+--tien-3:0 1px 3px rgba(24,33,66,.05),0 3px 12px rgba(24,33,66,.06);
+}
+@media(max-width:820px){:root{
+--tien-1:0 3px 10px rgba(24,33,66,.10),0 14px 36px rgba(24,33,66,.26);
+--tien-2:0 1px 4px rgba(24,33,66,.05),0 6px 22px rgba(24,33,66,.10);
+}}
+.rc-sec{padding:150px 24px 110px}
+.rc-in{max-width:1080px;margin:0 auto}
+.rc-head{text-align:center;margin:0 auto 46px}
+.rc-head .section-title{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.025em;line-height:.98}
+.rc-bod{color:var(--acc)}
+.rc-lead{max-width:640px;margin:22px auto 0;font-size:1.03rem;line-height:1.75;color:var(--text-muted);text-wrap:pretty}
+.hv{display:inline-flex;gap:2px;line-height:0}
+.hv svg{width:15px;height:15px;fill:#e2e4ea}
+.hv svg.on{fill:#1d1d1f}
+.av{width:38px;height:38px;border-radius:50%;background:#f3f4f8;color:#1d1d1f;font-size:.78rem;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.ov{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--green);background:var(--green-bg);padding:4px 9px;border-radius:100px;white-space:nowrap}
+.ov svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.suma{display:inline-flex;align-items:center;font-size:.78rem;font-weight:700;color:#fff;background:var(--acc);padding:6px 11px;border-radius:100px;white-space:nowrap}
+.kat{display:inline-flex;font-size:.74rem;font-weight:600;color:var(--text-muted);background:#f3f4f8;padding:5px 10px;border-radius:100px;white-space:nowrap}
+.rc-note{margin-top:46px;text-align:center;font-size:.8rem;color:var(--text-faint)}
+.rc-pocet{text-align:center;margin-top:34px;font-size:.92rem;color:var(--text-muted)}
+.rc-pocet b{color:var(--text);font-weight:700}
+/* Banner na konci: počet recenzií */
+.bn1{margin:44px auto 0;width:fit-content;max-width:100%;background:#fff;border-radius:26px;padding:34px 48px;box-shadow:var(--tien-2);display:flex;align-items:center;gap:30px;scroll-margin-top:110px}
+.bn1 b{font-size:clamp(3.6rem,8vw,5.6rem);font-weight:900;letter-spacing:-.06em;line-height:.9}
+.bn1 b i{font-style:normal;color:var(--acc)}
+.bn1 p{font-size:1.1rem;line-height:1.45;color:var(--text);max-width:300px}
+@media(max-width:700px){.bn1{width:100%;flex-direction:column;gap:12px;padding:30px 24px;text-align:center}.bn1 p{max-width:none}}
+.rc-cta{text-align:center;margin-top:40px}
+.rc-cta .btn{background:#1d1d1f;color:#fff}
+.rc-cta .btn:hover{background:#000}
+@media(max-width:820px){.rc-sec{padding:112px 16px 72px}.rc-head{margin-bottom:30px;text-align:left}.rc-lead{margin-left:0;font-size:.98rem;line-height:1.65;margin-top:14px}.rc-cta .btn{width:100%}}
+
+
+.m1-top{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:#fff;border-radius:24px;padding:26px 30px;box-shadow:var(--tien-2);margin-bottom:26px}
+.m1-big{display:flex;align-items:baseline;gap:6px}
+.m1-big b{font-size:3.6rem;font-weight:900;letter-spacing:-.05em;line-height:1}
+.m1-big span{font-size:1rem;color:var(--text-muted);font-weight:600}
+.m1-sub{font-size:.84rem;color:var(--text-muted);margin-top:6px}
+.m1-bars{display:grid;gap:7px;min-width:260px}
+.m1-bar{display:grid;grid-template-columns:14px 1fr 34px;gap:10px;align-items:center;font-size:.78rem;color:var(--text-muted);font-weight:600}
+.m1-bar i{height:7px;border-radius:7px;background:#eef0f5;overflow:hidden;display:block}
+.m1-bar i::after{content:"";display:block;height:100%;width:var(--w);background:var(--acc);border-radius:7px;transform-origin:left;animation:m1grow .9s cubic-bezier(.22,1,.36,1) both}
+@keyframes m1grow{from{transform:scaleX(0)}}
+.m1-cnt{text-align:right}
+.m1-cnt b{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.03em}
+.m1-cnt span{font-size:.8rem;color:var(--text-muted)}
+.m1-f{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.m1-f .chip.on{background:#1d1d1f;color:#fff;border-color:#1d1d1f}
+.m1-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.m1-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.m1-c{background:#fff;border-radius:22px;padding:22px;box-shadow:var(--tien-2);opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+.m1-c.in{opacity:1;transform:none}
+/* Tmavé karty: textové recenzie s vysokou sumou (od 18 000 €) */
+.m1-c.dark{background:#1d1d1f}
+.m1-c.dark .m1-t,.m1-c.dark .m1-m b{color:#fff}
+.m1-c.dark .hv svg{fill:rgba(255,255,255,.2)}.m1-c.dark .hv svg.on{fill:#fff}
+
+.m1-c.hid{display:none}
+.m1-c.foto{padding:0;overflow:hidden}
+.m1-c.foto .m1-b{padding:18px 22px 22px}
+.m1-img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.m1-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.m1-img .suma{position:absolute;left:14px;bottom:14px}
+.m1-t{font-size:.95rem;line-height:1.62;color:var(--text);margin:12px 0 16px}
+.m1-m{display:flex;align-items:center;gap:11px}
+.m1-m b{display:block;font-size:.95rem;font-weight:700}
+.m1-m span{font-size:.78rem;color:var(--text-muted)}
+.m1-r{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.m1-tags{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+@media(max-width:980px){.m1-g{grid-template-columns:repeat(2,1fr)}.m1-top{grid-template-columns:1fr 1fr}.m1-cnt{text-align:left}}
+@media(max-width:640px){.m1-g{grid-template-columns:1fr}.m1-top{grid-template-columns:1fr;gap:18px;padding:22px}.m1-bars{min-width:0}.m1-f{overflow-x:auto;flex-wrap:nowrap;margin:0 -16px 18px;padding:0 16px 6px;scrollbar-width:none}.m1-f::-webkit-scrollbar{display:none}.m1-f .chip{flex:none}}
+
+</style>
+<style>/* Reprezentatívny príklad: celý text je v pätičke */
+.ft-rep{max-width:980px;margin:0 auto 24px;padding-bottom:24px;border-bottom:1px solid rgba(29,29,31,.1);font-size:.74rem;line-height:1.65;color:rgba(29,29,31,.55);text-align:justify;scroll-margin-top:90px}
+.ft-rep a{color:#1d1d1f;text-decoration:underline;text-underline-offset:3px}
+</style>
+<style>/* ═══ EFEKTY TLAČIDIEL: jemná zmena odtieňa. Čierne → svetlejšie čierne, biele → sivšie, s okrajom → jemne sivé. Rovnaké na celom webe. ═══ */
+.nav-cta,.btn-primary,#zkZnova,.pk-btn,.fq-btn,.nav-sec,.f10-tip button,.f10-x,#zkSigClear{transition:background-color .25s,color .25s,border-color .25s,box-shadow .25s}
+@media(hover:hover){
+.btn-primary:hover,.pk-btn-p:hover,.fq-btn:hover{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):hover{background:#ebedf2}
+#zkZnova:hover,.f10-x:hover,#zkSigClear:hover{background:#e4e6ec}
+.nav-sec:hover{background:rgba(29,29,31,.06)}
+}
+/* mobil: efekt pri ťuknutí */
+.btn-primary:active,.pk-btn-p:active,.fq-btn:active{background:#3a3a3c;color:#fff}
+.pk-btn:not(.pk-btn-p):active{background:#ebedf2}
+#zkZnova:active,.f10-x:active,#zkSigClear:active{background:#e4e6ec}
+.nav-sec:active{background:rgba(29,29,31,.06)}
+</style>
+<style>/* ═══ HLAVIČKA: Prihlásiť sa je čierne tlačidlo, Podať žiadosť je odkaz ako ostatné položky ═══ */
+#mainNav .nav-right>.nav-cta{margin-left:4px;margin-right:4px;background:transparent!important;color:var(--text)!important;border-radius:0;padding:6px 0;font-size:.92rem;font-weight:500;opacity:.7;position:relative;box-shadow:none}
+#mainNav .nav-right>.nav-cta::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+#mainNav .nav-right>.nav-cta:hover::after{transform:scaleX(1)}
+#mainNav .nav-sec{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+#mainNav .nav-sec .inic{background:#fff;color:#1d1d1f}
+@media(hover:hover){#mainNav .nav-sec:hover{background:#3a3a3c;border-color:#3a3a3c}}
+#mainNav .nav-sec:active{background:#3a3a3c;border-color:#3a3a3c}
+/* mobilné menu */
+.nav-drawer .nav-cta{background:transparent!important;color:var(--text)!important;justify-content:flex-start!important}
+.nav-drawer .dr-btn{background:#1d1d1f;color:#fff;border-color:#1d1d1f;border-radius:100px}
+@media(hover:hover){.nav-drawer .dr-btn:hover{background:#3a3a3c;border-color:#3a3a3c}}
+.nav-drawer .dr-btn:active{background:#3a3a3c;border-color:#3a3a3c}
+</style>
+<link rel="stylesheet" href="menu.css?v=6">
+<link rel="stylesheet" href="paticka.css?v=1">
+</head><body><div class="bg"></div><div class="grain"></div>
+<nav id="mainNav"><div class="nav-inner"><a href="index.html" class="nav-logo"><span class="nav-logo-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="26" fill="#ffffff"/><path d="M24 40 H72 L61 29 M76 60 H28 L39 71" stroke="#1d1d1f" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><span>Kvelto</span></a><div class="nav-right"><ul class="nav-links"></ul><div class="jz"><button class="jz-btn" type="button" aria-label="Krajina"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-k jz-cur-k">SK</span></button><div class="jz-panel jz-hlw"><div class="jz-list"></div></div></div><a href="prihlasenie.html" class="nav-sec" data-von>Prihlásiť sa</a><a href="ucet.html" class="nav-sec je" data-dnu><span class="inic" id="navInic"></span><span id="navMeno"></span></a><button class="mb" id="pcBtn" type="button" aria-expanded="false" aria-controls="pcMenu"><svg class="mb-o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="mb-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg><span class="mb-t">Menu</span></button><button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg><svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div></div></nav>
+
+<div class="nav-drawer dr4 dmv6" id="navDrawer"><a href="index.html#ziadost" class="dm5-ph" data-von><img src="img/menu/tropicky-bazen-3840.jpg" srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-3840.jpg 3840w" sizes="100vw" alt="Bazén medzi palmami"><span class="m5-btn">Podať žiadosť</span></a><div class="dr4-c"><span class="dr-h">Služba</span><a href="index.html">Úvod</a><a href="index.html#ziadost" data-von>Podať žiadosť</a><a href="investovanie.html">Investovanie</a><a href="ako-to-funguje.html">Ako to funguje</a></div><div class="dr4-c"><span class="dr-h">O službe</span><a href="podmienky.html">Podmienky</a><a href="recenzie.html" class="is-current" aria-current="page">Recenzie</a></div><div class="dr4-c"><span class="dr-h">Pomoc</span><a href="faq.html">FAQ</a><a href="kontakt.html">Kontakt</a><a href="odstupenie-od-zmluvy.html">Odstúpenie od zmluvy</a></div><button class="dr-jz" type="button"><span class="dr-jz-t">Jazyk</span><span class="dr-jz-v"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-cur-nm">Slovensko</span></span></button><div class="del"></div><a href="prihlasenie.html" class="nav-sec dr-btn" data-von>Prihlásiť sa</a><a href="ucet.html" class="dr-ucet" data-dnu><span class="inic" id="drInic"></span>Môj účet<small id="drMeno"></small></a><a href="#" class="dr-odhlasit" data-dnu id="drOdhlasit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17l5-5-5-5M15 12H3M21 3v18"/></svg>Odhlásiť sa</a></div>
+<div class="pm m6f" id="pcMenu"><div class="m6f-in"><div class="m6f-l"><div class="m6f-c"><span class="pm-h pm-i">Služba</span><a href="index.html" class="pm-a pm-i">Úvod</a><a href="index.html#ziadost" class="pm-a pm-i" data-von>Podať žiadosť</a><a href="investovanie.html" class="pm-a pm-i">Investovanie</a><a href="ako-to-funguje.html" class="pm-a pm-i">Ako to funguje</a><a href="#" class="pm-a pm-i" data-dnu data-odhlasit>Odhlásiť sa</a></div><div class="m6f-c"><span class="pm-h pm-i">O službe</span><a href="podmienky.html" class="pm-a pm-i">Podmienky</a><a href="recenzie.html" class="pm-a pm-i is-current" aria-current="page">Recenzie</a></div><div class="m6f-c"><span class="pm-h pm-i">Pomoc</span><a href="faq.html" class="pm-a pm-i">FAQ</a><a href="kontakt.html" class="pm-a pm-i">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pm-a pm-i">Odstúpenie od zmluvy</a></div></div><a href="index.html#ziadost" class="m6f-ph pm-i" data-von><img src="img/menu/tropicky-bazen-3840.jpg" srcset="img/menu/tropicky-bazen-1200.jpg 1200w, img/menu/tropicky-bazen-3840.jpg 3840w" sizes="340px" alt="Bazén medzi palmami"><span class="m6f-btn">Podať žiadosť</span></a></div></div>
+<div class="pm-bg"></div>
+
+<div class="jz-okno" id="jzOkno"><div class="jz-okno-in"><div class="jz-okno-h"><b>Vyberte krajinu</b><button class="jz-zavri" type="button" aria-label="Zavrieť"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div><div class="jz-hlw"><div class="jz-list"></div></div></div></div>
+<main>
+<section class="rc-sec" id="recenzie"><div class="rc-in">
+<div class="section-head rc-head"><h1 class="section-title">Recenzie<span class="rc-bod">.</span></h1><p class="rc-lead">Prečítajte si skúsenosti našich klientov. Každý, kto službu využil, bude vyzvaný na pridanie recenzie.</p></div>
+<div class="m1-g" id="m1g"></div>
+<div class="bn1" id="koniec"><b>140<i>.</i></b><p>Toľko recenzií nám zatiaľ klienti napísali.</p></div>
+
+</div></section>
+</main>
+<!-- ═══ PÄTIČKA ═══ -->
+<footer class="pt">
+  <div class="pt-bg"><img src="img/paticka/mesto-veze-1200.jpg" srcset="img/paticka/mesto-veze-1200.jpg 1200w, img/paticka/mesto-veze-3840.jpg 3840w" sizes="100vw" alt="" loading="lazy"></div>
+  <div class="pt-w">
+    <div class="pt-hero pt-zjav"><div><h2 class="pt-h">Máte otázku?</h2><p class="pt-cp">Odpovieme do 3 pracovných dní.</p></div><a href="kontakt.html" class="pt-pill">Kontakt</a></div>
+    <div class="pt-g3 pt-zjav"><div class="pt-sk"><span class="pt-mh">Služba</span><a href="index.html" class="pt-ml">Úvod</a><a href="index.html#ziadost" class="pt-ml" data-von>Podať žiadosť</a><a href="investovanie.html" class="pt-ml">Investovanie</a><a href="ako-to-funguje.html" class="pt-ml">Ako to funguje</a></div><div class="pt-sk"><span class="pt-mh">O službe</span><a href="podmienky.html" class="pt-ml">Podmienky</a><a href="recenzie.html" class="pt-ml je">Recenzie</a></div><div class="pt-sk"><span class="pt-mh">Pomoc</span><a href="faq.html" class="pt-ml">FAQ</a><a href="kontakt.html" class="pt-ml">Kontakt</a><a href="odstupenie-od-zmluvy.html" class="pt-ml">Odstúpenie od zmluvy</a></div></div>
+    <div class="pt-sk pt-krb pt-zjav"><div class="pt-krh"><span class="pt-mh">Krajina</span><span class="pt-cur"><img class="fl jz-cur-fl" src="img/vlajky/sk.png" alt=""><span class="jz-cur-nm">Slovensko</span></span></div><div class="ft-krajiny"></div></div>
+    <div class="pt-sk pt-rpb"><p class="pt-rep" id="rep-priklad">Reprezentatívny príklad konkrétnej ponuky úveru: Úver vo výške 3000 € so splatnosťou 12 mesiacov: RPMN 28,27 % (RPMN = ročná percentuálna miera nákladov, percentuálny údaj ktorý v sebe zahŕňa úplne všetky možné poplatky). Úroková sadzba 5 % p.a. (p.a. = per annum, znamená za rok), mesačná splátka 256,82 €, celkovo zaplatíte 3381,84 € vrátane poplatku za poskytnutie služby vo výške 300 €. Nejedná sa o návrh na uzatvorenie zmluvy. Minimálna dĺžka splatnosti je stanovená na 6 mesiacov. Maximálna dĺžka splatnosti je stanovená na 30 rokov. Upozorňujeme, že sa nejedná o propagáciu osobných pôžičiek s povinnosťou splatiť celú sumu najneskôr do 60 dní od dátumu poskytnutia pôžičky. Pôžička je určená výhradne pre fyzické osoby vo veku od 18 rokov bez obmedzenia spôsobilosti na právne úkony. Podrobné vysvetlenie služby môžete nájsť <a href="#">tu</a>. Služba funguje na princípe kolektívneho požičiavania v oblasti kryptomien. Stanovisko Národnej banky Slovenska k tejto problematike nájdete <a href="#">tu</a>. Splátky a celková čiastka, ktorú zaplatíte, sú matematicky zaokrúhlené na celé centy. Výslovne upozorňujeme všetkých záujemcov, aby si dôkladne preštudovali obchodné podmienky pre úplné pochopenie zmyslu poskytovanej služby. V prípade ak plne nechápete zmysel tejto služby, túto službu prosím nevyužívajte. Konkrétna ponuka sa môže od prezentovanej líšiť. Ponuka nie je verejný prísľub.</p></div>
+    <div class="pt-bot"><span>Copyright © 2026 Kvelto. Všetky práva vyhradené.</span><span class="pt-bl"><a href="obchodne-podmienky.html">Obchodné podmienky</a><a href="vyhlasenie-o-povahe-sluzby.html">Vyhlásenie o povahe služby</a><a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a></span></div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="jazyk.js?v=15"></script>
+<script src="ucet.js?v=2"></script>
+<script>
+var DATA=[{"id": 0, "meno": "Martin K.", "mesto": "Bratislava", "h": 5, "suma": 15000, "sumaT": "15 000 €", "kat": "byt", "katT": "Byt a dom", "text": "Dostal som úver 15 000 eur a kúpil som si byt. Chýbalo mi presne toľko na doplatenie. Peniaze prišli do troch dní. Konečne bývam vo vlastnom.", "foto": "img/recenzie/byt.jpg", "mes": "september 2026", "ini": "MK"}, {"id": 1, "meno": "Zuzana H.", "mesto": "Košice", "h": 5, "suma": 3000, "sumaT": "3 000 €", "kat": "dovolenka", "katT": "Dovolenka", "text": "Dostala som úver 3 000 eur a išli sme s manželom na dovolenku do Grécka. Prvá dovolenka po piatich rokoch. Splátka 150 eur mesačne nás nebolí.", "foto": "img/recenzie/dovolenka.jpg", "mes": "august 2026", "ini": "ZH"}, {"id": 2, "meno": "Peter M.", "mesto": "Žilina", "h": 5, "suma": 40000, "sumaT": "40 000 €", "kat": "auto", "katT": "Auto", "text": "Dostal som úver 40 000 eur a splnil som si sen. Porsche 911 som chcel od detstva. Žiadne potvrdenie o príjme, žiaden ručiteľ. Všetko online za jeden večer.", "foto": "img/recenzie/porsche.jpg", "mes": "september 2026", "ini": "PM"}, {"id": 3, "meno": "Lucia B.", "mesto": "Nitra", "h": 4, "suma": 8000, "sumaT": "8 000 €", "kat": "rekonstrukcia", "katT": "Rekonštrukcia", "text": "Dostala som 8 000 eur na novú kuchyňu. Rekonštrukcia trvala dva týždne. Jediné, čo by som zlepšila, je viac informácií o tom, kedy presne prídu peniaze.", "foto": "img/recenzie/kuchyna.jpg", "mes": "júl 2026", "ini": "LB"}, {"id": 4, "meno": "Tomáš V.", "mesto": "Trnava", "h": 5, "suma": 6500, "sumaT": "6 500 €", "kat": "auto", "katT": "Auto", "text": "Úver 6 500 eur na motorku. Som v registri a inde ma odmietli. Tu som dostal schválenie hneď.", "foto": "img/recenzie/motorka.jpg", "mes": "jún 2026", "ini": "TV"}, {"id": 5, "meno": "Jana P.", "mesto": "Prešov", "h": 5, "suma": 22000, "sumaT": "22 000 €", "kat": "byt", "katT": "Byt a dom", "text": "Dostali sme 22 000 eur a dokončili sme dom. Chýbali nám peniaze na okná a strechu. Teraz už máme kľúče a bývame.", "foto": "img/recenzie/kluce.jpg", "mes": "august 2026", "ini": "JP"}, {"id": 6, "meno": "Michal S.", "mesto": "Banská Bystrica", "h": 5, "suma": 12000, "sumaT": "12 000 €", "kat": "auto", "katT": "Auto", "text": "Dostal som úver 12 000 eur a kúpil som si auto do práce. Bez výpisu z účtu, bez daňového priznania. Stačil občiansky.", "foto": "img/recenzie/auto-kluc.jpg", "mes": "september 2026", "ini": "MS"}, {"id": 7, "meno": "Katarína D.", "mesto": "Martin", "h": 5, "suma": 9000, "sumaT": "9 000 €", "kat": "byt", "katT": "Byt a dom", "text": "9 000 eur na zariadenie nového bytu. Nábytok, spotrebiče, všetko naraz. Fixný úrok 5 % je férový.", "foto": "img/recenzie/byt-2.jpg", "mes": "máj 2026", "ini": "KD"}, {"id": 8, "meno": "Roman G.", "mesto": "Trenčín", "h": 5, "suma": 35000, "sumaT": "35 000 €", "kat": "auto", "katT": "Auto", "text": "35 000 eur na auto, ktoré som chcel roky. Celý proces trval 10 minút. Investor sa našiel do týždňa.", "foto": "img/recenzie/porsche-2.jpg", "mes": "júl 2026", "ini": "RG"}, {"id": 9, "meno": "Simona F.", "mesto": "Poprad", "h": 5, "suma": 2500, "sumaT": "2 500 €", "kat": "dovolenka", "katT": "Dovolenka", "text": "Dostala som 2 500 eur na dovolenku pri mori. Som na materskej a nikto iný mi nechcel požičať.", "foto": "img/recenzie/dovolenka-2.jpg", "mes": "august 2026", "ini": "SF"}, {"id": 10, "meno": "Andrej L.", "mesto": "Zvolen", "h": 5, "suma": 5000, "sumaT": "5 000 €", "kat": "ine", "katT": "Iné", "text": "Úver 5 000 eur na splatenie starých dlhov. Namiesto troch splátok mám teraz jednu. Konečne mám prehľad.", "foto": null, "mes": "september 2026", "ini": "AL"}, {"id": 11, "meno": "Veronika T.", "mesto": "Piešťany", "h": 4, "suma": 4000, "sumaT": "4 000 €", "kat": "podnikanie", "katT": "Podnikanie", "text": "Dostala som 4 000 eur na notebook a vybavenie do živnosti. Všetko prebehlo hladko. Jednu hviezdu dávam dole za dlhšie čakanie na odpoveď z podpory.", "foto": null, "mes": "jún 2026", "ini": "VT"}, {"id": 12, "meno": "Marek O.", "mesto": "Komárno", "h": 5, "suma": 18000, "sumaT": "18 000 €", "kat": "podnikanie", "katT": "Podnikanie", "text": "18 000 eur na rozbeh vlastného podnikania. Banka ma odmietla, lebo som nemal históriu. Tu to nikto neriešil.", "foto": null, "mes": "júl 2026", "ini": "MO"}, {"id": 13, "meno": "Dominika R.", "mesto": "Levice", "h": 5, "suma": 7000, "sumaT": "7 000 €", "kat": "rekonstrukcia", "katT": "Rekonštrukcia", "text": "Dostala som 7 000 eur na rekonštrukciu kúpeľne. Celé vybavenie z mobilu. Podpis prstom na displeji.", "foto": null, "mes": "september 2026", "ini": "DR"}, {"id": 14, "meno": "Ján H.", "mesto": "Michalovce", "h": 5, "suma": 3500, "sumaT": "3 500 €", "kat": "auto", "katT": "Auto", "text": "Úver 3 500 eur na opravu auta po nehode. Peniaze som potreboval rýchlo a dostal som ich rýchlo.", "foto": null, "mes": "máj 2026", "ini": "JH"}, {"id": 15, "meno": "Eva M.", "mesto": "Senec", "h": 5, "suma": 25000, "sumaT": "25 000 €", "kat": "byt", "katT": "Byt a dom", "text": "Dostali sme 25 000 eur na doplatenie hypotéky pri predaji bytu. Bez tohto by sme predaj nestihli.", "foto": null, "mes": "august 2026", "ini": "EM"}, {"id": 16, "meno": "Patrik Z.", "mesto": "Ružomberok", "h": 4, "suma": 2000, "sumaT": "2 000 €", "kat": "ine", "katT": "Iné", "text": "2 000 eur na nový telefón a práčku. Malá suma, rýchle vybavenie. Uvítal by som viac možností splatnosti pri malých sumách.", "foto": null, "mes": "apríl 2026", "ini": "PZ"}, {"id": 17, "meno": "Monika K.", "mesto": "Dunajská Streda", "h": 5, "suma": 10000, "sumaT": "10 000 €", "kat": "ine", "katT": "Iné", "text": "Dostala som 10 000 eur po osobnom bankrote. Nikde inde som nemala šancu. Splácam poctivo a všetko funguje.", "foto": null, "mes": "jún 2026", "ini": "MK"}, {"id": 18, "meno": "Ľuboš N.", "mesto": "Humenné", "h": 5, "suma": 14000, "sumaT": "14 000 €", "kat": "byt", "katT": "Byt a dom", "text": "14 000 eur na kúpu pozemku. Som nezamestnaný, ale mám úspory v krypte. Práve preto mi tento spôsob sedí.", "foto": null, "mes": "júl 2026", "ini": "ĽN"}, {"id": 19, "meno": "Barbora S.", "mesto": "Pezinok", "h": 5, "suma": 6000, "sumaT": "6 000 €", "kat": "ine", "katT": "Iné", "text": "Dostala som 6 000 eur na svadbu. Všetko online, bez papierov. Odporúčam každému, kto chce mať pokoj.", "foto": null, "mes": "september 2026", "ini": "BS"}, {"id": 20, "meno": "Igor P.", "mesto": "Lučenec", "h": 5, "suma": 30000, "sumaT": "30 000 €", "kat": "byt", "katT": "Byt a dom", "text": "Úver 30 000 eur na kúpu chaty. Investora som mal do piatich dní. Fixný úrok 5 % mi vyhovuje.", "foto": null, "mes": "august 2026", "ini": "IP"}, {"id": 21, "meno": "Nikola V.", "mesto": "Šaľa", "h": 4, "suma": 1500, "sumaT": "1 500 €", "kat": "ine", "katT": "Iné", "text": "1 500 eur na školné pre dcéru. Rýchle a jednoduché. Stránka by mohla mať aj českú verziu.", "foto": null, "mes": "máj 2026", "ini": "NV"}, {"id": 22, "meno": "Radoslav B.", "mesto": "Bardejov", "h": 5, "suma": 11000, "sumaT": "11 000 €", "kat": "podnikanie", "katT": "Podnikanie", "text": "Dostal som 11 000 eur na kúpu dodávky do firmy. Som živnostník bez daňového priznania za minulý rok. Nikto to neriešil.", "foto": null, "mes": "jún 2026", "ini": "RB"}, {"id": 23, "meno": "Alena J.", "mesto": "Považská Bystrica", "h": 5, "suma": 4500, "sumaT": "4 500 €", "kat": "rekonstrukcia", "katT": "Rekonštrukcia", "text": "4 500 eur na solárne panely. Všetko vybavené za jeden víkend. Elektrinu mám teraz skoro zadarmo.", "foto": null, "mes": "júl 2026", "ini": "AJ"}, {"id": 24, "meno": "Dávid Š.", "mesto": "Skalica", "h": 5, "suma": 20000, "sumaT": "20 000 €", "kat": "podnikanie", "katT": "Podnikanie", "text": "Dostal som 20 000 eur na rozšírenie dielne. Som v exekúcii, no tu ma brali ako človeka. Splácam a dielňa funguje.", "foto": null, "mes": "september 2026", "ini": "DŠ"}];
+
+var STAR='<svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>';
+function hv(n){var s='';for(var i=1;i<=5;i++)s+=STAR.replace('<svg','<svg class="'+(i<=n?'on':'')+'"');return '<span class="hv" aria-label="'+n+' z 5">'+s+'</span>'}
+var OK='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+function ov(){return '<span class="ov">'+OK+'Overený klient</span>'}
+function av(r){return '<span class="av">'+r.ini+'</span>'}
+function reveal(sel){if(!('IntersectionObserver' in window))return;var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll(sel).forEach(function(el){o.observe(el)})}
+
+
+var g=document.getElementById('m1g'),CARDS=[],cur='all';
+DATA.forEach(function(r){var meta='<div class="m1-m"><b>'+r.meno+'</b></div>';var el=document.createElement('div');
+ if(r.foto)el.innerHTML='<article class="m1-c foto" data-k="'+r.kat+'" data-f="1"><div class="m1-img"><img src="'+r.foto+'" alt="" loading="lazy"></div><div class="m1-b"><div class="m1-r">'+hv(r.h)+'</div><p class="m1-t">'+r.text+'</p>'+meta+'</div></article>';
+ else el.innerHTML='<article class="m1-c'+(r.suma>=18000?' dark':'')+'" data-k="'+r.kat+'"><div class="m1-r">'+hv(r.h)+'</div><p class="m1-t">'+r.text+'</p>'+meta+'</article>';
+ CARDS.push(el.firstChild)});
+/* Premiešanie: recenzie s fotkou rovnomerne medzi textové, nie všetky na začiatku */
+(function(){var F=CARDS.filter(function(c){return c.classList.contains('foto')}),T=CARDS.filter(function(c){return !c.classList.contains('foto')});
+ var out=[],ti=0,fi=0,krok=(T.length+F.length)/F.length,next=1.2;
+ for(var i=0;i<T.length+F.length;i++){if(fi<F.length&&(i>=next||ti>=T.length)){out.push(F[fi++]);next+=krok}else out.push(T[ti++])}
+ CARDS=out})();
+function pocetStlpcov(){var w=window.innerWidth;return w<=640?1:(w<=980?2:3)}
+function layout(){var n=pocetStlpcov();g.innerHTML='';var cols=[];for(var i=0;i<n;i++){var c=document.createElement('div');c.className='m1-col';g.appendChild(c);cols.push(c)}
+ CARDS.forEach(function(c){var ok=cur==='all'||(cur==='foto'?c.dataset.f:c.dataset.k===cur);if(!ok)return;var t=cols[0];cols.forEach(function(x){if(x.offsetHeight<t.offsetHeight)t=x});t.appendChild(c);c.classList.add('in')})}
+function filt(k){cur=k;layout()}
+var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){var n=pocetStlpcov();if(g.children.length!==n)layout()},150)});
+layout();
+
+</script>
+<script>
+(function(){var n=document.getElementById('mainNav');if(!n)return;var last=window.scrollY,tick=false;
+function upd(){var y=window.scrollY;if(n.classList.contains('menu-open')){last=y;tick=false;return;}
+if(y<40){n.classList.remove('skryta');}else if(y>last+6){n.classList.add('skryta');}else if(y<last-6){n.classList.remove('skryta');}
+last=y;tick=false;}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});})();
+</script>
+<script src="menu.js?v=1"></script>
+<script src="paticka.js?v=1"></script>
+</body></html>
