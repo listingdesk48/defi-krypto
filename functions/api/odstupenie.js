@@ -73,7 +73,7 @@ function txtDen(utc) { var d = new Date(utc); return d.getUTCDate() + '. ' + (d.
 function lehota(uhradeneMs) { var den = denSk(uhradeneMs), posledny = den + 14 * 86400000; return { uplynula: denSk(Date.now()) > posledny, uhradene: txtDen(den), do: txtDen(posledny) }; }
 
 /* ===== Prepočet vrátenia platby (VOP čl. IV ods. 5: vracia sa pomerný podiel z prijatého množstva BTC, kurz eura sa neberie do úvahy) ===== */
-function btcF(sat) { return (sat / 1e8).toFixed(8).replace('.', ',') + ' BTC (' + String(Math.round(sat)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' sat)'; }
+function btcF(sat) { return (sat / 1e8).toFixed(8).replace('.', ',') + ' BTC'; }
 async function kurzTeraz() {
   try { var r = await fetch('https://mempool.space/api/v1/prices'); if (r.ok) { var c = await r.json(); if (c && c.EUR) return c.EUR; } } catch (e) {}
   try { var g = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur'); if (g.ok) { var j = await g.json(); return j.bitcoin.eur; } } catch (e) {}
