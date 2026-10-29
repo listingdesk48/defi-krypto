@@ -99,3 +99,5 @@ body.pm-open #mainNav .nav-sec .inic,#mainNav.menu-open .nav-sec .inic{backgroun
 .dmv6 .dr-ucet .inic{background:#fff!important;color:#1d1d1f!important}
 /* Hodnotenie v menu vedie na Recenzie */
 .mh{cursor:pointer}
+/* Hodnotenie na fotke v menu: klik prejde na fotku, teda na Podať žiadosť */
+.mh.mh-ph{pointer-events:none;cursor:pointer}
