@@ -129,13 +129,12 @@ function emailKlient(d) {
       '<div style="font-family:' + F + ';font-size:17px;font-weight:600;color:#1d1d1f;' + (mono ? 'word-break:break-all' : '') + '">' + esc(v) + '</div></td></tr>';
   }
   var celeMeno = d.meno + ' ' + d.priez;
-  var riadky = riadok('Číslo žiadosti', d.cislo) + riadok('Meno a priezvisko', celeMeno) + riadok('E-mail', d.email) + riadok('Telefónne číslo', d.tel, !d.btc) +
-    (d.btc ? riadok('Bitcoinová adresa na vrátenie platby', d.btc, true, true) : '');
+  var riadky = riadok('Číslo žiadosti', d.cislo) + riadok('Meno a priezvisko', celeMeno) + riadok('E-mail', d.email) + riadok('Telefónne číslo', d.tel, true); /* bez adresy na vrátenie: e-mail klientovi bez zmienok o kryptomenách (spam filter) */
   var html = '<!DOCTYPE html><html lang="sk"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"></head>' +
     '<body style="margin:0;padding:0;background:#ffffff">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff"><tr><td align="center" style="padding:32px 20px 40px">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px">' +
-    '<tr><td style="padding-bottom:30px"><img src="https://defi-krypto.pages.dev/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
+    '<tr><td style="padding-bottom:30px"><img src="https://kvelto.com/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
     '<tr><td style="font-family:' + F + ';font-size:34px;line-height:1.12;font-weight:800;letter-spacing:-1.2px;color:#1d1d1f;padding-bottom:26px">Vaše odstúpenie od zmluvy sme prijali</td></tr>' +
     '<tr><td><p style="' + p + '">Dobrý deň, ' + esc(celeMeno) + ',</p><p style="' + p + ';margin-top:14px">potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.</p></td></tr>' +
     '<tr><td style="padding:24px 0 0"><div style="font-family:' + F + ';font-size:14px;color:#86868b;margin-bottom:4px">Znenie odstúpenia</div>' +
@@ -146,7 +145,7 @@ function emailKlient(d) {
       '<div style="height:14px;border-bottom:1px solid #e9eaee"></div>' +
       '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">' + riadky + '</table></td></tr></table></td></tr>' +
     '<tr><td style="padding:0 0 6px"><div style="font-family:' + F + ';font-size:14px;color:#86868b;margin-bottom:4px">Čo bude ďalej</div>' +
-      '<div style="font-family:' + F + ';font-size:15px;line-height:1.6;color:#1d1d1f">Pomernú časť platby Vám vrátime v bitcoinoch na uvedenú adresu najneskôr do 14 dní odo dňa doručenia odstúpenia.</div></td></tr>' +
+      '<div style="font-family:' + F + ';font-size:15px;line-height:1.6;color:#1d1d1f">Pomernú časť platby Vám vrátime najneskôr do 14 dní odo dňa doručenia odstúpenia.</div></td></tr>' +
     '<tr><td style="padding-top:26px;font-family:' + F + ';font-size:15px;line-height:1.6;color:#6e6e73">Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.</td></tr>' +
     '<tr><td style="padding-top:26px"><p style="' + p + '">Klientske centrum</p></td></tr>' +
     '<tr><td style="padding-top:34px;border-bottom:1px solid #e9eaee"></td></tr>' +
@@ -154,8 +153,8 @@ function emailKlient(d) {
     '</table></td></tr></table></body></html>';
   var T = ['Vaše odstúpenie od zmluvy sme prijali', '', 'Dobrý deň, ' + celeMeno + ',', 'potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.', '',
     'ZNENIE ODSTÚPENIA', 'Týmto odstupujem od zmluvy o poskytnutí služby uzavretej na základe žiadosti uvedenej nižšie.', '',
-    'Odoslané ' + d.kedy, 'Číslo žiadosti ' + d.cislo, 'Meno a priezvisko ' + celeMeno, 'E-mail ' + d.email, 'Telefónne číslo ' + d.tel].concat(d.btc ? ['Bitcoinová adresa na vrátenie platby ' + d.btc] : []).concat(['',
-    'ČO BUDE ĎALEJ', 'Pomernú časť platby Vám vrátime v bitcoinoch na uvedenú adresu najneskôr do 14 dní odo dňa doručenia odstúpenia.', '',
+    'Odoslané ' + d.kedy, 'Číslo žiadosti ' + d.cislo, 'Meno a priezvisko ' + celeMeno, 'E-mail ' + d.email, 'Telefónne číslo ' + d.tel].concat(['',
+    'ČO BUDE ĎALEJ', 'Pomernú časť platby Vám vrátime najneskôr do 14 dní odo dňa doručenia odstúpenia.', '',
     'Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.', '', 'Klientske centrum']);
   return { html: html, text: T.join('\n') };
 }
