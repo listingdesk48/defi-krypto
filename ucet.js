@@ -5,14 +5,14 @@
   var H=document.documentElement;
   window.KV_PRIHLAS=function(ja){
     H.classList.add('prihlaseny');document.body.classList.add('prihlaseny');
-    try{localStorage.setItem('kv-ja',JSON.stringify({meno:ja.meno,priezvisko:ja.priezvisko,stav:ja.stav,schvalena_suma:ja.schvalena_suma}))}catch(e){}
+    try{localStorage.setItem('kv-ja',JSON.stringify({meno:ja.meno,priezvisko:ja.priezvisko,stav:ja.stav,schvalena_suma:ja.schvalena_suma,poplatok_uhradeny:ja.poplatok_uhradeny}))}catch(e){}
     var a=document.getElementById('navInic'),b=document.getElementById('drInic'),c=document.getElementById('navMeno'),d=document.getElementById('drMeno');
     if(a)a.textContent=inic(ja.meno,ja.priezvisko);if(b)b.textContent=inic(ja.meno,ja.priezvisko);
     /* Po schválení ukáže čierne tlačidlo v hlavičke schválenú sumu namiesto mena. V menu ostáva meno. */
     var fmt=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')};
     var ok=ja.stav==='schvalene'&&ja.schvalena_suma;
     /* Pred schválením a po zrušení ukáže tlačidlo stav žiadosti, rovnako ako v účte. */
-    window.KV_SUMA_TXT=ok?fmt(ja.schvalena_suma)+' €':ja.stav==='posudzuje'?'Posudzuje sa':ja.stav==='zrusene'?'Zrušené':null;H.setAttribute('data-stav',ja.stav||'');window.KV_MENO=ja.meno||'';window.KV_HLAVA();if(d)d.textContent=(ja.meno||'')+' '+(ja.priezvisko||'');
+    var zv=!!ja.poplatok_uhradeny;window.KV_SUMA_TXT=zv?'Zverejnené':ok?fmt(ja.schvalena_suma)+' €':ja.stav==='posudzuje'?'Posudzuje sa':ja.stav==='zrusene'?'Zrušené':null;H.setAttribute('data-stav',zv?'zverejnene':(ja.stav||''));window.KV_MENO=ja.meno||'';window.KV_HLAVA();if(d)d.textContent=(ja.meno||'')+' '+(ja.priezvisko||'');
   };
   /* Skrytie sumy (očko v účte). Pamätá sa v tomto prehliadači. */
   window.KV_HLAVA=function(){var c=document.getElementById('navMeno');if(!c)return;c.textContent=window.KV_SUMA_TXT||window.KV_MENO||''};
