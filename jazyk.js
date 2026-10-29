@@ -35,7 +35,8 @@ function zavri(){document.querySelectorAll('.jz.open').forEach(function(j){j.cla
 function otvorOkno(){var o=document.getElementById('jzOkno');if(!o)return;o.classList.add('open');document.documentElement.style.overflow='hidden'}
 document.addEventListener('click',function(e){
  var it=e.target.closest('.jz-item,.ft-kr-item');
- if(it){e.preventDefault();e.stopPropagation();cur=it.dataset.c;vykresli();zavri();return}
+ if(it){e.preventDefault();e.stopPropagation();var c=it.dataset.c;zavri();if(c==='sk'){cur='sk';vykresli()}else{nedostupna(c)}return}
+ if(e.target.closest('.kn-zavri,.kn-ok')||e.target.classList.contains('kn-okno')){e.preventDefault();zavriKn();return}
  var b=e.target.closest('.jz-btn');
  if(b){e.stopPropagation();var j=b.closest('.jz'),bol=j.classList.contains('open');zavri();if(!bol){j.classList.add('open');var i=j.querySelector('input');if(i&&window.matchMedia('(hover:hover)').matches)setTimeout(function(){i.focus()},50)}return}
  if(e.target.closest('.dr-jz')){e.stopPropagation();otvorOkno();return}
@@ -43,9 +44,13 @@ document.addEventListener('click',function(e){
  if(e.target.closest('.jz-panel,.jz-okno-in'))return;
  zavri();
 });
-document.addEventListener('keydown',function(e){if(e.key==='Escape')zavri()});
+function nedostupna(c){var o=document.getElementById('knOkno');if(!o)return;o.querySelector('.kn-fl').src='img/vlajky/'+c+'.png';o.querySelector('.kn-nm').textContent=nat[c];o.classList.add('open');document.documentElement.style.overflow='hidden'}
+function zavriKn(){var o=document.getElementById('knOkno');if(o)o.classList.remove('open');document.documentElement.style.overflow=''}
+window.knUkaz=nedostupna;
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){zavri();zavriKn()}});
 document.addEventListener('input',function(e){var w=e.target.closest('.jz-hlw');if(!w)return;var q=norm(e.target.value.trim()),c=0;
  w.querySelectorAll('.jz-item').forEach(function(a){var ok=!q||a.dataset.s.indexOf(q)>-1;a.classList.toggle('skry',!ok);if(ok)c++});
  var nic=w.querySelector('.jz-nic');if(nic)nic.style.display=c?'none':'block'});
+(function(){if(document.getElementById('knOkno'))return;var d=document.createElement('div');d.innerHTML='<div class="kn-okno" id="knOkno"><div class="kn-in" role="dialog" aria-modal="true"><button class="kn-zavri" type="button" aria-label="Zavrieť"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button><img class="kn-fl" src="" alt=""><b class="kn-nm"></b><p class="kn-t">Táto verzia nie je dostupná vo vašom regióne.</p><button class="btn btn-primary kn-ok" type="button">Pokračovať na slovenskej verzii</button></div></div>';document.body.appendChild(d.firstChild)})();
 vykresli();
 })();
