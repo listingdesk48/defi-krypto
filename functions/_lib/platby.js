@@ -3,7 +3,7 @@
    Ak hodnota v eurách (kurz v momente kontroly) dosiahne PLATBA_MIN_EUR (nastavenie v Cloudflare, zatiaľ 5, neskôr 200):
    poplatok sa označí ako uhradený, inzerát sa zverejní na 1 mesiac a klient dostane e-mail.
    Nepoužité adresy zrušených žiadostí sa po 30 dňoch uvoľnia pre ďalších klientov (recyklácia). */
-import { posli, skontrolujLimit, upozorni, esc } from './mail.js';
+import { posli, skontrolujLimit, upozorni, esc, majitelHtml } from './mail.js';
 import { datumSk } from './cas.js';
 
 /* Overenie platieb: hlavne mempool.space, ako záloha Blockstream (rovnaký formát odpovede). Kurz: mempool.space, záloha CoinGecko. */
@@ -85,7 +85,10 @@ export async function skontrolujZiadost(context, z, stav) {
     if (z.platba_sat !== sat) {
       await env.DB.prepare('UPDATE ziadosti SET platba_sat = ?, platba_eur = ? WHERE id = ?').bind(sat, eur, z.id).run();
       upozorni(context, 'Prišla nižšia platba · ' + z.meno + ' ' + z.priezvisko,
-        'Na adresu ' + z.adresa + ' prišlo ' + (sat / 1e8).toFixed(8) + ' BTC (asi ' + fmt2(eur) + ' €). To je menej ako ' + fmt(min) + ' €, poplatok preto nie je uhradený.\nE-mail klienta: ' + z.email);
+        'Na adresu ' + z.adresa + ' prišlo ' + (sat / 1e8).toFixed(8) + ' BTC (asi ' + fmt2(eur) + ' €). To je menej ako ' + fmt(min) + ' €, poplatok preto nie je uhradený.\nE-mail klienta: ' + z.email,
+        majitelHtml({ problem: true, stitok: 'Nižšia platba', nadpis: 'Prišla nižšia platba',
+          hlavne: { label: 'Prišlo', value: (sat / 1e8).toFixed(8) + ' BTC', pod: [esc('asi ' + fmt2(eur) + ' €. To je menej ako ' + fmt(min) + ' €, poplatok preto nie je uhradený.')] },
+          sekcie: [{ nadpis: 'Podrobnosti', riadky: [['Meno', z.meno + ' ' + z.priezvisko], ['E-mail klienta', z.email], ['Adresa', z.adresa]] }] }));
     }
     return false;
   }
@@ -103,7 +106,12 @@ export async function skontrolujZiadost(context, z, stav) {
   else skontrolujLimit(context, v, 'e-mail o zverejnení inzerátu', z.email);
   upozorni(context, 'Prijatá platba · ' + z.meno + ' ' + z.priezvisko,
     'Prijatá platba poplatku.\nKlient: ' + z.meno + ' ' + z.priezvisko + ' (' + z.email + ')\nPrijaté: ' + (sat / 1e8).toFixed(8) + ' BTC, asi ' + fmt2(eur) + ' €\nAdresa: ' + z.adresa + '\nTransakcia: ' + (txid || '') +
-    '\nInzerát č. ' + cisloZ(z.id) + ' je zverejnený do ' + datumSk(doKedy) + '.');
+    '\nInzerát č. ' + cisloZ(z.id) + ' je zverejnený do ' + datumSk(doKedy) + '.',
+    majitelHtml({ stitok: 'Prijatá platba', nadpis: 'Prijatá platba poplatku',
+      hlavne: { label: 'Prijaté', value: (sat / 1e8).toFixed(8) + ' BTC', pod: [esc('asi ' + fmt2(eur) + ' €')] },
+      sekcie: [{ nadpis: 'Klient', riadky: [['Meno', z.meno + ' ' + z.priezvisko], ['E-mail', z.email]] },
+        { nadpis: 'Inzerát', riadky: [['Číslo inzerátu', cisloZ(z.id), true], ['Zverejnený do', datumSk(doKedy)]] },
+        { nadpis: 'Platba', riadky: [['Adresa', z.adresa], ['Transakcia', txid || 'neznáma']] }] }));
   return true;
 }
 

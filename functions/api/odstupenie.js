@@ -1,5 +1,5 @@
 /* Odstúpenie od zmluvy (odstupenie-od-zmluvy.html): pošle údaje majiteľovi cez Cloudflare a potvrdenie klientovi cez Resend. */
-import { esc, txt, json, jeMail, posli, posliMajitelovi, upozorni, skontrolujLimit } from '../_lib/mail.js';
+import { esc, txt, json, jeMail, posli, posliMajitelovi, upozorni, skontrolujLimit, majitelHtml } from '../_lib/mail.js';
 
 function datumSk(d) {
   var p = new Intl.DateTimeFormat('sk-SK', { timeZone: 'Europe/Bratislava', day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }).formatToParts(d);
@@ -87,74 +87,75 @@ async function vypocet(z) {
   return { sat: sat, satV: satV, satP: sat - satV, eur: eur, kurzU: eur ? eur / (sat / 1e8) : null, kurzT: kurzT, spolu: spolu, dni: dni, zost: zost,
     uhradene: datumSk(new Date(z.poplatok_uhradeny_o || od)), txid: z.platba_txid || 'neznáma' };
 }
-/* E-mail majiteľovi o odstúpení. Na vrátenie je rozhodujúca iba suma v BTC. */
+/* E-mail majiteľovi o odstúpení (vzhľad pre majiteľa z mail.js). Na vrátenie je rozhodujúca iba suma v BTC. */
 function emailMajitel(d) {
-  var v = d.vr, T = [], H = '';
-  var F = 'font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;';
-  function riad(a, b, silne) { return '<tr><td style="padding:9px 0;color:#6b6b70;border-bottom:1px solid #eee;vertical-align:top;width:48%">' + esc(a) + '</td><td style="padding:9px 0 9px 16px;border-bottom:1px solid #eee;text-align:right;overflow-wrap:anywhere;' + (silne ? 'font-weight:700;color:#1d1d1f' : 'color:#1d1d1f') + '">' + esc(b) + '</td></tr>'; }
-  function nad(t) { return '<p style="margin:28px 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#a89373;font-weight:700">' + esc(t) + '</p>'; }
-  H += '<div style="' + F + 'max-width:560px;color:#1d1d1f;font-size:15px;line-height:1.5">';
-  H += '<p style="margin:0;font-size:22px;font-weight:800">Odstúpenie od zmluvy</p><p style="margin:4px 0 0;color:#6b6b70">Podané ' + esc(d.kedy) + '</p>';
+  var v = d.vr, T = [];
+  var o = { stitok: 'Odstúpenie od zmluvy', nadpis: 'Odstúpenie od zmluvy', kedy: 'Podané ' + d.kedy, sekcie: [] };
   T.push('ODSTÚPENIE OD ZMLUVY', 'Podané ' + d.kedy, '');
   if (v) {
-    H += '<div style="margin:22px 0 0;padding:22px 24px;border-radius:14px;background:#f6f1e7">' +
-      '<p style="margin:0;font-size:13px;color:#7a6a52;font-weight:700;letter-spacing:.04em;text-transform:uppercase">Vrátiť klientovi</p>' +
-      '<p style="margin:6px 0 0;font-size:30px;font-weight:800;letter-spacing:-.02em">' + esc(btcF(v.satV)) + '</p>' +
-      '<p style="margin:12px 0 0;color:#6b6b70;font-size:13px">na bitcoinovú adresu</p><p style="margin:2px 0 0;font-family:Menlo,Consolas,monospace;font-size:13px;word-break:break-all">' + esc(d.btc || 'neuvedená') + '</p>' +
-      '<p style="margin:12px 0 0;color:#6b6b70;font-size:13px">najneskôr do ' + esc(d.lehotaDo) + ' (14 dní od doručenia odstúpenia)</p></div>';
+    o.hlavne = { label: 'Vrátiť klientovi', value: btcF(v.satV), pod: ['na bitcoinovú adresu<br><span style="font-family:Menlo,Consolas,monospace;word-break:break-all">' + esc(d.btc || 'neuvedená') + '</span>',
+      esc('najneskôr do ' + d.lehotaDo + ' (14 dní od doručenia odstúpenia)')] };
     T.push('VRÁTIŤ KLIENTOVI: ' + btcF(v.satV), 'Na bitcoinovú adresu: ' + (d.btc || 'neuvedená'), 'Najneskôr do ' + d.lehotaDo + ' (14 dní od doručenia odstúpenia)', '');
-    H += nad('Výpočet') + '<table style="width:100%;border-collapse:collapse;font-size:14px">' +
-      riad('Klient zaplatil', btcF(v.sat), true) + riad('Dátum úhrady', v.uhradene) + riad('Transakcia', v.txid) +
-      riad('Inzerát bol zverejnený', v.dni + ' z ' + v.spolu + ' dní') + riad('Za ' + dn(v.dni) + ' zverejnenia ostáva nám', btcF(v.satP)) +
-      riad('Za ' + zv(v.zost) + ' ' + dn(v.zost) + ' sa vracia', btcF(v.satV), true) + '</table>' +
-      '<p style="margin:8px 0 0;color:#6b6b70;font-size:12px">Vracia sa pomerný podiel z prijatého množstva BTC podľa VOP čl. IV ods. 5 a čl. VIII ods. 5.</p>';
+    o.sekcie.push({ nadpis: 'Výpočet', riadky: [['Klient zaplatil', btcF(v.sat), true], ['Dátum úhrady', v.uhradene], ['Transakcia', v.txid],
+      ['Inzerát bol zverejnený', v.dni + ' z ' + v.spolu + ' dní'], ['Za ' + dn(v.dni) + ' zverejnenia ostáva nám', btcF(v.satP)], ['Za ' + zv(v.zost) + ' ' + dn(v.zost) + ' sa vracia', btcF(v.satV), true]] });
     T.push('VÝPOČET', 'Klient zaplatil: ' + btcF(v.sat), 'Dátum úhrady: ' + v.uhradene, 'Transakcia: ' + v.txid, 'Inzerát bol zverejnený: ' + v.dni + ' z ' + v.spolu + ' dní',
       'Za ' + dn(v.dni) + ' zverejnenia ostáva nám: ' + btcF(v.satP), 'Za ' + zv(v.zost) + ' ' + dn(v.zost) + ' sa vracia: ' + btcF(v.satV), '');
   } else {
-    H += '<div style="margin:22px 0 0;padding:18px 22px;border-radius:14px;background:#fbeaea;color:#8a1f1f">Údaje o platbe sa nepodarilo načítať. Sumu na vrátenie treba prepočítať ručne.</div>';
+    o.problem = true;
+    o.text = 'Údaje o platbe sa nepodarilo načítať. Sumu na vrátenie treba prepočítať ručne.';
     T.push('Údaje o platbe sa nepodarilo načítať. Sumu na vrátenie treba prepočítať ručne.', '');
   }
-  H += nad('Klient') + '<table style="width:100%;border-collapse:collapse;font-size:14px">' + riad('Číslo žiadosti', d.cislo, true) + riad('Kontrola v databáze', d.zhoda) +
-    riad('Meno', d.meno + ' ' + d.priez) + riad('E-mail', d.email) + riad('Telefón', d.tel) + '</table>';
+  o.sekcie.push({ nadpis: 'Klient', riadky: [['Číslo žiadosti', d.cislo, true], ['Kontrola v databáze', d.zhoda], ['Meno', d.meno + ' ' + d.priez], ['E-mail', d.email], ['Telefón', d.tel]] });
   T.push('KLIENT', 'Číslo žiadosti: ' + d.cislo + ' (' + d.zhoda + ')', 'Meno: ' + d.meno + ' ' + d.priez, 'E-mail: ' + d.email, 'Telefón: ' + d.tel, '');
   if (v) {
-    H += nad('Len pre orientáciu') + '<div style="padding:14px 18px;border-radius:12px;background:#f6f7fa;font-size:13px;color:#6b6b70">' +
-      '<p style="margin:0">V eurách sa nič nevracia. Klientovi sa pošle presne suma v BTC uvedená hore.</p>' +
-      '<p style="margin:10px 0 0">Zaplatených ' + esc(btcF(v.sat)) + ' malo pri úhrade hodnotu približne ' + (v.eur ? esc(eurF(v.eur)) + ' (kurz ' + esc(eurF(v.kurzU)) + ' za 1 BTC)' : 'neznámu') + '.</p>' +
-      (v.kurzT ? '<div style="margin:12px 0 0;padding:12px 14px;border-radius:10px;background:#fff;border:1px solid #e6dcc8">' +
-        '<p style="margin:0 0 6px;font-size:12px;color:#7a6a52;font-weight:700">V dnešnom kurze ' + esc(eurF(v.kurzT)) + ' za 1 BTC</p>' +
-        '<table style="width:100%;border-collapse:collapse;font-size:14px;color:#1d1d1f">' +
-        '<tr><td style="padding:5px 0">Nám zostáva</td><td style="padding:5px 0;text-align:right;font-weight:800">' + esc(eurF(v.satP / 1e8 * v.kurzT)) + '</td></tr>' +
-        '<tr><td style="padding:5px 0">Vraciame</td><td style="padding:5px 0;text-align:right;font-weight:800">' + esc(eurF(v.satV / 1e8 * v.kurzT)) + '</td></tr></table></div>'
-        : '<p style="margin:6px 0 0">Dnešný kurz sa nepodarilo načítať.</p>') + '</div>';
+    var orient = 'V eurách sa nič nevracia. Klientovi sa pošle presne suma v BTC uvedená hore.\nZaplatených ' + btcF(v.sat) + ' malo pri úhrade hodnotu približne ' + (v.eur ? eurF(v.eur) + ' (kurz ' + eurF(v.kurzU) + ' za 1 BTC)' : 'neznámu') + '.';
+    o.sekcie.push({ nadpis: 'Len pre orientáciu', text: orient + (v.kurzT ? '' : '\nDnešný kurz sa nepodarilo načítať.'),
+      riadky: v.kurzT ? [['V dnešnom kurze ' + eurF(v.kurzT) + ' za 1 BTC nám zostáva', eurF(v.satP / 1e8 * v.kurzT), true], ['V dnešnom kurze vraciame', eurF(v.satV / 1e8 * v.kurzT), true]] : null });
+    o.poznamka = 'Vracia sa pomerný podiel z prijatého množstva BTC podľa VOP čl. IV ods. 5 a čl. VIII ods. 5.';
     T.push('LEN PRE ORIENTÁCIU', 'V eurách sa nič nevracia. Klientovi sa pošle presne suma v BTC uvedená hore.',
       'Zaplatených ' + btcF(v.sat) + ' malo pri úhrade hodnotu približne ' + (v.eur ? eurF(v.eur) + ' (kurz ' + eurF(v.kurzU) + ' za 1 BTC)' : 'neznámu') + '.',
       (v.kurzT ? 'V dnešnom kurze ' + eurF(v.kurzT) + ' za 1 BTC: Nám zostáva ' + eurF(v.satP / 1e8 * v.kurzT) + '. Vraciame ' + eurF(v.satV / 1e8 * v.kurzT) + '.' : 'Dnešný kurz sa nepodarilo načítať.'));
   }
-  H += '</div>';
-  return { text: T.join('\n'), html: H };
+  return { text: T.join('\n'), html: majitelHtml(o) };
 }
 
-/* E-mail klientovi: potvrdenie o doručení odstúpenia od zmluvy. */
+/* E-mail klientovi: potvrdenie o doručení odstúpenia od zmluvy, v rovnakom dizajne ako ostatné e-maily klientom. */
 function emailKlient(d) {
-  var F = 'font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;';
-  function riad(a, b, mono, silne) { return '<tr><td style="padding:10px 0;color:#6b6b70;border-bottom:1px solid #eee;vertical-align:top;width:44%">' + esc(a) + '</td><td style="padding:10px 0 10px 14px;border-bottom:1px solid #eee;text-align:right;color:#1d1d1f;overflow-wrap:anywhere;' + (silne ? 'font-weight:700;' : '') + (mono ? 'font-family:Menlo,Consolas,monospace;font-size:13px' : '') + '">' + esc(b) + '</td></tr>'; }
-  function nad(t) { return '<p style="margin:28px 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#a89373;font-weight:700">' + esc(t) + '</p>'; }
+  var F = "-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',Arial,sans-serif";
+  var p = 'font-family:' + F + ';font-size:16px;line-height:1.6;color:#1d1d1f;margin:0';
+  function riadok(k, v, posledny, mono) {
+    return '<tr><td style="padding:14px 0;' + (posledny ? '' : 'border-bottom:1px solid #e9eaee;') + '">' +
+      '<div style="font-family:' + F + ';font-size:14px;color:#86868b;margin-bottom:3px">' + esc(k) + '</div>' +
+      '<div style="font-family:' + F + ';font-size:17px;font-weight:600;color:#1d1d1f;' + (mono ? 'word-break:break-all' : '') + '">' + esc(v) + '</div></td></tr>';
+  }
   var celeMeno = d.meno + ' ' + d.priez;
-  var H = '<div style="' + F + 'max-width:560px;color:#1d1d1f;font-size:15px;line-height:1.6">' +
-    '<p style="margin:0;font-size:22px;font-weight:800">Vaše odstúpenie od zmluvy sme prijali</p>' +
-    '<p style="margin:10px 0 0;color:#6b6b70">Dobrý deň, ' + esc(celeMeno) + '. Potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.</p>' +
-    '<div style="margin:22px 0 0;padding:18px 22px;border-radius:14px;background:#f6f1e7"><p style="margin:0;font-size:13px;color:#7a6a52;font-weight:700;letter-spacing:.04em;text-transform:uppercase">Odoslané</p>' +
-    '<p style="margin:4px 0 0;font-size:20px;font-weight:800">' + esc(d.kedy) + '</p></div>' +
-    nad('Znenie odstúpenia') + '<p style="margin:0 0 6px">Týmto odstupujem od zmluvy o poskytnutí služby uzavretej na základe žiadosti uvedenej nižšie.</p>' +
-    '<table style="width:100%;border-collapse:collapse;font-size:14px">' + riad('Číslo žiadosti', d.cislo, false, true) + riad('Meno a priezvisko', celeMeno) + riad('E-mail', d.email) + riad('Telefónne číslo', d.tel) +
-    (d.btc ? riad('Bitcoinová adresa na vrátenie platby', d.btc, true) : '') + '</table>' +
-    nad('Čo bude ďalej') + '<p style="margin:0">Pomernú časť platby Vám vrátime v bitcoinoch na uvedenú adresu najneskôr do 14 dní odo dňa doručenia odstúpenia.</p>' +
-    '<p style="margin:26px 0 0;color:#6b6b70;font-size:13px">Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.</p></div>';
-  var T = ['Vaše odstúpenie od zmluvy sme prijali', '', 'Dobrý deň, ' + celeMeno + '. Potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.', '',
-    'Odoslané ' + d.kedy, '', 'ZNENIE ODSTÚPENIA', 'Týmto odstupujem od zmluvy o poskytnutí služby uzavretej na základe žiadosti uvedenej nižšie.',
-    'Číslo žiadosti ' + d.cislo, 'Meno a priezvisko ' + celeMeno, 'E-mail ' + d.email, 'Telefónne číslo ' + d.tel].concat(d.btc ? ['Bitcoinová adresa na vrátenie platby ' + d.btc] : []).concat(['',
+  var riadky = riadok('Číslo žiadosti', d.cislo) + riadok('Meno a priezvisko', celeMeno) + riadok('E-mail', d.email) + riadok('Telefónne číslo', d.tel, !d.btc) +
+    (d.btc ? riadok('Bitcoinová adresa na vrátenie platby', d.btc, true, true) : '');
+  var html = '<!DOCTYPE html><html lang="sk"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"></head>' +
+    '<body style="margin:0;padding:0;background:#ffffff">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff"><tr><td align="center" style="padding:32px 20px 40px">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px">' +
+    '<tr><td style="padding-bottom:30px"><img src="https://defi-krypto.pages.dev/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
+    '<tr><td style="font-family:' + F + ';font-size:34px;line-height:1.12;font-weight:800;letter-spacing:-1.2px;color:#1d1d1f;padding-bottom:26px">Vaše odstúpenie od zmluvy sme prijali</td></tr>' +
+    '<tr><td><p style="' + p + '">Dobrý deň, ' + esc(celeMeno) + ',</p><p style="' + p + ';margin-top:14px">potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.</p></td></tr>' +
+    '<tr><td style="padding:24px 0 0"><div style="font-family:' + F + ';font-size:14px;color:#86868b;margin-bottom:4px">Znenie odstúpenia</div>' +
+      '<div style="font-family:' + F + ';font-size:15px;line-height:1.6;color:#1d1d1f">Týmto odstupujem od zmluvy o poskytnutí služby uzavretej na základe žiadosti uvedenej nižšie.</div></td></tr>' +
+    '<tr><td style="padding:16px 0 24px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f5f7fc;border-radius:18px"><tr><td style="padding:22px 22px 6px">' +
+      '<div style="font-family:' + F + ';font-size:14px;color:#86868b;margin-bottom:4px">Odoslané</div>' +
+      '<div style="font-family:' + F + ';font-size:30px;line-height:1.1;font-weight:800;letter-spacing:-1px;color:#1d1d1f">' + esc(d.kedy) + '</div>' +
+      '<div style="height:14px;border-bottom:1px solid #e9eaee"></div>' +
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">' + riadky + '</table></td></tr></table></td></tr>' +
+    '<tr><td style="padding:0 0 6px"><div style="font-family:' + F + ';font-size:14px;color:#86868b;margin-bottom:4px">Čo bude ďalej</div>' +
+      '<div style="font-family:' + F + ';font-size:15px;line-height:1.6;color:#1d1d1f">Pomernú časť platby Vám vrátime v bitcoinoch na uvedenú adresu najneskôr do 14 dní odo dňa doručenia odstúpenia.</div></td></tr>' +
+    '<tr><td style="padding-top:26px;font-family:' + F + ';font-size:15px;line-height:1.6;color:#6e6e73">Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.</td></tr>' +
+    '<tr><td style="padding-top:26px"><p style="' + p + '">Klientske centrum</p></td></tr>' +
+    '<tr><td style="padding-top:34px;border-bottom:1px solid #e9eaee"></td></tr>' +
+    '<tr><td style="padding-top:24px;font-family:' + F + ';font-size:12px;line-height:1.5;color:#86868b">Podmienky služby nájdete v obchodných podmienkach.</td></tr>' +
+    '</table></td></tr></table></body></html>';
+  var T = ['Vaše odstúpenie od zmluvy sme prijali', '', 'Dobrý deň, ' + celeMeno + ',', 'potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.', '',
+    'ZNENIE ODSTÚPENIA', 'Týmto odstupujem od zmluvy o poskytnutí služby uzavretej na základe žiadosti uvedenej nižšie.', '',
+    'Odoslané ' + d.kedy, 'Číslo žiadosti ' + d.cislo, 'Meno a priezvisko ' + celeMeno, 'E-mail ' + d.email, 'Telefónne číslo ' + d.tel].concat(d.btc ? ['Bitcoinová adresa na vrátenie platby ' + d.btc] : []).concat(['',
     'ČO BUDE ĎALEJ', 'Pomernú časť platby Vám vrátime v bitcoinoch na uvedenú adresu najneskôr do 14 dní odo dňa doručenia odstúpenia.', '',
-    'Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.']);
-  return { html: H, text: T.join('\n') };
+    'Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.', '', 'Klientske centrum']);
+  return { html: html, text: T.join('\n') };
 }
