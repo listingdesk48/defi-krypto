@@ -456,13 +456,15 @@ document.querySelectorAll('.d3 .s1-step').forEach(function(s){s.classList.remove
 $('oKrS').textContent=(z===1?'deň':(z>=2&&z<=4?'dni':'dní'))+' zostáva';
 $('oKrT').textContent=z*2>sp?'Váš inzerát má pred sebou ešte väčšinu zverejnenia':'Váš inzerát je ešte stále zverejnený';
 $('oKrX').textContent='Z '+sp+' dní zverejnenia '+(z>=2&&z<=4?'zostávajú':'zostáva')+' ešte '+z+'. ';var kb=document.createElement('strong');kb.style.cssText='color:#1d1d1f;font-weight:600';kb.textContent='Ak odstúpite, inzerát sa ihneď odstráni zo zoznamu a záujemcovia naň už nebudú môcť reagovať.';$('oKrX').appendChild(kb);
-p.style.transition='none';p.style.strokeDashoffset=C;n.textContent='0';$('oKruh').classList.add('on');
+p.style.transition='none';p.style.strokeDashoffset=C;n.textContent='0';$('oKruh').classList.add('on');recZobraz();
 var ciel=C*(1-z/sp),s0=null;requestAnimationFrame(function(){requestAnimationFrame(function(){p.style.transition='stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1)';p.style.strokeDashoffset=ciel})});
 function k(ts){if(!s0)s0=ts;var x=Math.min(1,(ts-s0)/1200),y=x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;n.textContent=Math.round(y*z);if(x<1)requestAnimationFrame(k)}requestAnimationFrame(k)}
-$('oKrPokr').onclick=function(){$('oKruh').classList.remove('on');$('d3Ft').style.display='';st=8;ukaz()};
+$('oKrPokr').onclick=function(){$('oRecF').style.display='none';$('oKruh').classList.remove('on');$('d3Ft').style.display='';st=8;ukaz()};
 /* Slovenské tvary: 1 deň, 2 až 4 dni, 5 a viac dní */
 function dniT(n){return n+' '+(n===1?'deň':(n>=2&&n<=4?'dni':'dní'))}
 var INFO=null;
+/* Recenzie pod bannermi odstúpenia (info, kruh, odpočet). Pri ďalšom kroku sa skryjú. */
+function recZobraz(){var f=$('oRecF');if(f.src.indexOf('recenzie.html')<0)f.src='recenzie.html?vlozene';f.style.display='block'}
 function info(v){INFO=v;document.querySelectorAll('.d3 .s1-step').forEach(function(s){s.classList.remove('on')});$('d3Ft').style.display='none';$('d3Spat').style.visibility='hidden';$('oInfoT').textContent='Váš inzerát je zverejnený '+dniT(v.dni);var spolu=v.zostava===null||v.zostava===undefined?30:v.dni+v.zostava,w=Math.max(3,Math.min(100,v.dni/spolu*100))+'%';$('oInfo').style.setProperty('--w',w);$('oDni').textContent=dniT(v.dni);$('oZost').textContent=v.zostava===null||v.zostava===undefined?'':dniT(v.zostava);$('oZostW').style.display=v.zostava===null||v.zostava===undefined?'none':'';var z=v.zostava;$('oInfoP').textContent=(z===null||z===undefined?'':'Do konca zverejnenia '+(z===1?'zostáva ešte ':(z>=2&&z<=4?'zostávajú ešte ':'zostáva ešte '))+dniT(z)+'. ')+'Záujemcovia môžu na Váš inzerát reagovať počas celej doby zverejnenia. ';var sb=document.createElement('strong');sb.style.cssText='color:#1d1d1f;font-weight:600';sb.textContent='Odporúčame dať mu viac času.';$('oInfoP').appendChild(sb);$('oInfo').classList.add('on');var f=$('oRecF');if(f.src.indexOf('recenzie.html')<0)f.src='recenzie.html?vlozene';f.style.display='block'}
 $('oPokr').onclick=function(){$('oRecF').style.display='none';$('oInfo').classList.remove('on');$('d3Ft').style.display='';st=2;ukaz()};
 /* Overenie čísla žiadosti a úhrady poplatku v databáze (functions/api/odstupenie-kontrola.js) */
@@ -487,9 +489,9 @@ function odpocet(){document.querySelectorAll('.d3 .s1-step').forEach(function(s)
  var ma=INFO&&INFO.koniec&&+INFO.koniec>Date.now();$('oOdD').style.display=ma?'':'none';document.querySelector('.o-od-n').style.display=ma?'':'none';
  $('oOdT').textContent=ma?'Váš inzerát bude v zozname ešte takto dlho':'Váš inzerát je ešte stále zverejnený';
  $('oOdX').textContent=ma?'Celý tento čas Vás môžu záujemcovia kontaktovať. Po potvrdení odstúpenia odpočet skončí a inzerát sa odstráni.':'Záujemcovia Vás cez neho môžu kontaktovať. Po potvrdení odstúpenia sa inzerát odstráni.';
- clearInterval(ODT);if(ma){tikOd();ODT=setInterval(tikOd,1000)}$('oOdp').classList.add('on');var c=$('oOdp').closest('.s1-card');if(c&&c.getBoundingClientRect().top<70)window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'})}
+ clearInterval(ODT);if(ma){tikOd();ODT=setInterval(tikOd,1000)}$('oOdp').classList.add('on');recZobraz();var c=$('oOdp').closest('.s1-card');if(c&&c.getBoundingClientRect().top<70)window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'})}
 /* Krok Ste si istý. Odstúpenie odošle až tlačidlo Áno, potvrdiť odstúpenie od zmluvy (§ 20a ods. 4). */
-$('oOdPotv').onclick=function(){clearInterval(ODT);$('oOdp').classList.remove('on');$('oe-ist').classList.remove('show');$('oIst').classList.add('on');var c=$('oIst').closest('.s1-card');if(c&&c.getBoundingClientRect().top<70)window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'})};
+$('oOdPotv').onclick=function(){clearInterval(ODT);$('oRecF').style.display='none';$('oOdp').classList.remove('on');$('oe-ist').classList.remove('show');$('oIst').classList.add('on');var c=$('oIst').closest('.s1-card');if(c&&c.getBoundingClientRect().top<70)window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'})};
 $('oIstAno').onclick=posli;
 /* Odoslanie na server (functions/api/odstupenie.js): e-mail majiteľovi a potvrdenie klientovi. */
 function posli(){var b=$('oIstAno');if(b.disabled)return;b.disabled=true;b.textContent='Odosielam…';var pp=document.querySelector('#oPopl .k-chip.on');
