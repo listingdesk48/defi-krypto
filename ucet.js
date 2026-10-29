@@ -11,7 +11,8 @@
     /* Po schválení ukáže čierne tlačidlo v hlavičke schválenú sumu namiesto mena. V menu ostáva meno. */
     var fmt=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')};
     var ok=ja.stav==='schvalene'&&ja.schvalena_suma;
-    window.KV_SUMA_TXT=ok?fmt(ja.schvalena_suma)+' €':null;window.KV_MENO=ja.meno||'';window.KV_HLAVA();if(d)d.textContent=(ja.meno||'')+' '+(ja.priezvisko||'');
+    /* Pred schválením a po zrušení ukáže tlačidlo stav žiadosti, rovnako ako v účte. */
+    window.KV_SUMA_TXT=ok?fmt(ja.schvalena_suma)+' €':ja.stav==='posudzuje'?'Posudzuje sa':ja.stav==='zrusene'?'Zrušené':null;H.setAttribute('data-stav',ja.stav||'');window.KV_MENO=ja.meno||'';window.KV_HLAVA();if(d)d.textContent=(ja.meno||'')+' '+(ja.priezvisko||'');
   };
   /* Skrytie sumy (očko v účte). Pamätá sa v tomto prehliadači. */
   window.KV_HLAVA=function(){var c=document.getElementById('navMeno');if(!c)return;c.textContent=window.KV_SUMA_TXT||window.KV_MENO||''};
