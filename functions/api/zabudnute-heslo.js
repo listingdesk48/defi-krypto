@@ -8,7 +8,7 @@ export function emailHesloHtml(meno, odkaz) {
     '<body style="margin:0;padding:0;background:#ffffff">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff"><tr><td align="center" style="padding:32px 20px 40px">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px">' +
-    '<tr><td style="padding-bottom:30px"><img src="https://defi-krypto.pages.dev/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
+    '<tr><td style="padding-bottom:30px"><img src="https://kvelto.com/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
     '<tr><td style="font-family:' + F + ';font-size:34px;line-height:1.12;font-weight:800;letter-spacing:-1.2px;color:#1d1d1f;padding-bottom:26px">Nastavenie nového hesla</td></tr>' +
     '<tr><td><p style="' + p + '">Dobrý deň, ' + esc(meno) + ',</p><p style="' + p + ';margin-top:14px">nové heslo si nastavíte kliknutím na tlačidlo nižšie. Odkaz platí 1 hodinu.</p></td></tr>' +
     '<tr><td align="center" style="padding:28px 0 8px"><table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" style="background:#1d1d1f;border-radius:100px"><a href="' + odkaz + '" style="display:inline-block;padding:15px 34px;font-family:' + F + ';font-size:16px;font-weight:600;color:#ffffff;text-decoration:none">Nastaviť nové heslo</a></td></tr></table></td></tr>' +

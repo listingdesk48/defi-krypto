@@ -52,7 +52,7 @@ export function emailHtml(z, kedy, doKedy, sat, eur, txid) {
     '<body style="margin:0;padding:0;background:#ffffff">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff"><tr><td align="center" style="padding:32px 20px 40px">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px">' +
-    '<tr><td style="padding-bottom:30px"><img src="https://defi-krypto.pages.dev/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
+    '<tr><td style="padding-bottom:30px"><img src="https://kvelto.com/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
     '<tr><td style="font-family:' + F + ';font-size:34px;line-height:1.12;font-weight:800;letter-spacing:-1.2px;color:#1d1d1f;padding-bottom:26px">Ďakujeme za platbu, váš inzerát bol zverejnený</td></tr>' +
     '<tr><td><p style="' + p + '">Dobrý deň, ' + esc(z.meno) + ' ' + esc(z.priezvisko) + ',</p><p style="' + p + ';margin-top:14px">prijali sme Vašu platbu poplatku a Váš inzerát sme zverejnili na portáli.</p></td></tr>' +
     '<tr><td style="padding-top:24px"></td></tr>' +
@@ -159,7 +159,7 @@ export function spravaHtml(cislo, meno, email, sprava) {
     '<body style="margin:0;padding:0;background:#ffffff">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff"><tr><td align="center" style="padding:32px 20px 40px">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px">' +
-    '<tr><td style="padding-bottom:30px"><img src="https://defi-krypto.pages.dev/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
+    '<tr><td style="padding-bottom:30px"><img src="https://kvelto.com/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
     '<tr><td style="font-family:' + F + ';font-size:34px;line-height:1.12;font-weight:800;letter-spacing:-1.2px;color:#1d1d1f;padding-bottom:26px">Nová správa k Vášmu inzerátu</td></tr>' +
     '<tr><td><p style="' + p + '">Dobrý deň,</p><p style="' + p + ';margin-top:14px">na Váš inzerát odpovedal záujemca. Jeho správu nájdete nižšie. Ak mu chcete odpovedať, stačí odpísať na tento e-mail.</p></td></tr>' +
     '<tr><td style="padding-top:24px"></td></tr>' +
@@ -181,7 +181,7 @@ function blocek(kedy, c, sat) {
     '<tr><td colspan="2" align="center" style="' + t + 'font-size:13px;font-weight:700;letter-spacing:1.5px;color:#1d1d1f;text-transform:uppercase;padding-bottom:10px;text-align:center">Potvrdenie o úhrade</td></tr>' + ciara +
     r('Dátum a čas', esc(datumSk(kedy))) + r('Číslo inzerátu', esc(c)) + ciara +
     '<tr><td style="' + t + 'font-size:14px;color:#1d1d1f;padding:5px 0;font-weight:600">Uverejnenie inzerátu<div style="font-weight:400;color:#86868b;font-size:13px;margin-top:2px">doba zverejnenia jeden mesiac</div></td><td align="right" style="' + t + 'font-size:14px;color:#1d1d1f;padding:5px 0 5px 12px;text-align:right;vertical-align:top;font-weight:600;white-space:nowrap">1 ks</td></tr>' + ciara +
-    '<tr><td style="' + t + 'font-size:17px;color:#1d1d1f;padding:8px 0 4px;font-weight:800">Uhradené</td><td align="right" style="' + t + 'font-size:17px;color:#1d1d1f;padding:8px 0 4px;text-align:right;font-weight:800;white-space:nowrap">' + (sat / 1e8).toFixed(8) + ' BTC</td></tr>' +
+    '<tr><td style="' + t + 'font-size:17px;color:#1d1d1f;padding:8px 0 4px;font-weight:800">Platba</td><td align="right" style="' + t + 'font-size:17px;color:#1d1d1f;padding:8px 0 4px;text-align:right;font-weight:800;white-space:nowrap">Uhradená</td></tr>' +
     ciara + '<tr><td colspan="2" align="center" style="' + t + 'font-size:12px;color:#86868b;padding-top:6px;text-align:center">Ďakujeme za platbu</td></tr>' +
     '</table></td></tr></table></td></tr>';
 }

@@ -27,7 +27,7 @@ function emailHtml(z) {
     '<body style="margin:0;padding:0;background:#ffffff">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff"><tr><td align="center" style="padding:32px 20px 40px">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px">' +
-    '<tr><td style="padding-bottom:30px"><img src="https://defi-krypto.pages.dev/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
+    '<tr><td style="padding-bottom:30px"><img src="https://kvelto.com/img/email/kvelto-ikona-email.png" width="30" height="30" alt="" style="display:block;border:0"></td></tr>' +
     '<tr><td style="font-family:' + F + ';font-size:34px;line-height:1.12;font-weight:800;letter-spacing:-1.2px;color:#1d1d1f;padding-bottom:26px">Vaša žiadosť bola vybavená</td></tr>' +
     '<tr><td><p style="' + p + '">Dobrý deň, ' + esc(z.meno) + ' ' + esc(z.priezvisko) + ',</p><p style="' + p + ';margin-top:14px">Radi by sme Vám oznámili, že sme Vašu žiadosť prijali a schválili. Všetky podrobnosti vrátane Vašich osobných údajov nájdete vo svojom účte.</p></td></tr>' +
     '<tr><td style="padding:24px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f5f7fc;border-radius:18px"><tr><td style="padding:22px 22px 6px">' +
