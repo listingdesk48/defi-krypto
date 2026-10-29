@@ -1,5 +1,5 @@
-/* Odstúpenie od zmluvy (odstupenie-od-zmluvy.html): pošle údaje majiteľovi cez Cloudflare. */
-import { esc, txt, json, jeMail, posliMajitelovi } from '../_lib/mail.js';
+/* Odstúpenie od zmluvy (odstupenie-od-zmluvy.html): pošle údaje majiteľovi cez Cloudflare a potvrdenie klientovi cez Resend. */
+import { esc, txt, json, jeMail, posli, posliMajitelovi, upozorni, skontrolujLimit } from '../_lib/mail.js';
 
 function datumSk(d) {
   var p = new Intl.DateTimeFormat('sk-SK', { timeZone: 'Europe/Bratislava', day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }).formatToParts(d);
@@ -51,7 +51,12 @@ export async function onRequestPost(context) {
   var v1 = await posliMajitelovi(context, 'Odstúpenie od zmluvy · ' + meno + ' ' + priez, m.text, m.html, email);
   if (!v1.ok) return json({ ok: false, chyba: 'Odoslanie zlyhalo.' }, 502);
 
-  /* Potvrdenie klientovi sa neposiela (rozhodnutie 13.10.2026, šetrenie limitu Resend). */
+  /* 2. Potvrdenie o doručení odstúpenia klientovi (§ 20a ods. 5 zákona č. 108/2024 Z. z.): obsah odstúpenia, dátum a čas odoslania. */
+  var k = emailKlient({ kedy: kedy, cislo: cislo, meno: meno, priez: priez, email: email, tel: tel, btc: btc });
+  try {
+    var v2 = await posli(env, { to: [email], reply_to: env.KONTAKT_PRIJEMCA, subject: 'Potvrdenie o doručení odstúpenia od zmluvy', html: k.html, text: k.text });
+    if (!v2.ok) { skontrolujLimit(context, v2, 'potvrdenie o odstúpení', email); upozorni(context, 'Klientovi sa nepodarilo poslať potvrdenie o odstúpení', 'Odstúpenie ' + cislo + ' (' + meno + ' ' + priez + ', ' + email + ') prišlo, ale potvrdenie klientovi sa neodoslalo. Pošli mu ho ručne.\nOdpoveď Resend: ' + (v2.text || v2.status)); }
+  } catch (e) { console.log('odstupenie potvrdenie', String(e)); }
   return json({ ok: true });
 }
 
@@ -128,4 +133,28 @@ function emailMajitel(d) {
   }
   H += '</div>';
   return { text: T.join('\n'), html: H };
+}
+
+/* E-mail klientovi: potvrdenie o doručení odstúpenia od zmluvy. */
+function emailKlient(d) {
+  var F = 'font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;';
+  function riad(a, b, mono, silne) { return '<tr><td style="padding:10px 0;color:#6b6b70;border-bottom:1px solid #eee;vertical-align:top;width:44%">' + esc(a) + '</td><td style="padding:10px 0 10px 14px;border-bottom:1px solid #eee;text-align:right;color:#1d1d1f;overflow-wrap:anywhere;' + (silne ? 'font-weight:700;' : '') + (mono ? 'font-family:Menlo,Consolas,monospace;font-size:13px' : '') + '">' + esc(b) + '</td></tr>'; }
+  function nad(t) { return '<p style="margin:28px 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#a89373;font-weight:700">' + esc(t) + '</p>'; }
+  var celeMeno = d.meno + ' ' + d.priez;
+  var H = '<div style="' + F + 'max-width:560px;color:#1d1d1f;font-size:15px;line-height:1.6">' +
+    '<p style="margin:0;font-size:22px;font-weight:800">Vaše odstúpenie od zmluvy sme prijali</p>' +
+    '<p style="margin:10px 0 0;color:#6b6b70">Dobrý deň, ' + esc(celeMeno) + '. Potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.</p>' +
+    '<div style="margin:22px 0 0;padding:18px 22px;border-radius:14px;background:#f6f1e7"><p style="margin:0;font-size:13px;color:#7a6a52;font-weight:700;letter-spacing:.04em;text-transform:uppercase">Odoslané</p>' +
+    '<p style="margin:4px 0 0;font-size:20px;font-weight:800">' + esc(d.kedy) + '</p></div>' +
+    nad('Znenie odstúpenia') + '<p style="margin:0 0 6px">Týmto odstupujem od zmluvy o poskytnutí služby uzavretej na základe žiadosti uvedenej nižšie.</p>' +
+    '<table style="width:100%;border-collapse:collapse;font-size:14px">' + riad('Číslo žiadosti', d.cislo, false, true) + riad('Meno a priezvisko', celeMeno) + riad('E-mail', d.email) + riad('Telefónne číslo', d.tel) +
+    (d.btc ? riad('Bitcoinová adresa na vrátenie platby', d.btc, true) : '') + '</table>' +
+    nad('Čo bude ďalej') + '<p style="margin:0">Pomernú časť platby Vám vrátime v bitcoinoch na uvedenú adresu najneskôr do 14 dní odo dňa doručenia odstúpenia.</p>' +
+    '<p style="margin:26px 0 0;color:#6b6b70;font-size:13px">Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.</p></div>';
+  var T = ['Vaše odstúpenie od zmluvy sme prijali', '', 'Dobrý deň, ' + celeMeno + '. Potvrdzujeme, že sme Vaše odstúpenie od zmluvy prijali. Nižšie nájdete jeho úplné znenie.', '',
+    'Odoslané ' + d.kedy, '', 'ZNENIE ODSTÚPENIA', 'Týmto odstupujem od zmluvy o poskytnutí služby uzavretej na základe žiadosti uvedenej nižšie.',
+    'Číslo žiadosti ' + d.cislo, 'Meno a priezvisko ' + celeMeno, 'E-mail ' + d.email, 'Telefónne číslo ' + d.tel].concat(d.btc ? ['Bitcoinová adresa na vrátenie platby ' + d.btc] : []).concat(['',
+    'ČO BUDE ĎALEJ', 'Pomernú časť platby Vám vrátime v bitcoinoch na uvedenú adresu najneskôr do 14 dní odo dňa doručenia odstúpenia.', '',
+    'Tento e-mail je potvrdením o doručení odstúpenia od zmluvy. Odporúčame Vám ho uschovať.']);
+  return { html: H, text: T.join('\n') };
 }
