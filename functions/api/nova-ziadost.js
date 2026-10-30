@@ -37,7 +37,7 @@ async function spracuj(context) {
   if (!(suma >= 1000 && suma <= 250000)) return json({ ok: false, chyba: 'Suma musí byť od 1 000 € do 250 000 €.' }, 400);
   if (!(doba >= 12 && doba <= 300)) return json({ ok: false, chyba: 'Doba musí byť od 1 do 25 rokov.' }, 400);
 
-  var sp = Math.round(splatka(suma, doba) * 100) / 100, celkom = Math.round(sp * doba * 100) / 100; /* bez poplatku za inzerát, podľa OP čl. VI ods. 3 */
+  var sp = Math.round(splatka(suma, doba) * 100) / 100, celkom = Math.round(sp * doba * 100) / 100; /* bez poplatku za inzerát, podľa OP čl. IV ods. 3 */
   var podane = new Date(), schvalitO = naplanujSchvalenie(podane);
   var udaje = {}; try { udaje = JSON.parse(z.udaje || '{}') || {}; } catch (e) { udaje = {}; }
   udaje.zkSuma = String(suma); udaje.zkDoba = String(doba);

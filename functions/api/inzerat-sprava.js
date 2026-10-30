@@ -1,4 +1,4 @@
-/* Formulár Ozvať sa pri inzeráte: správu záujemcu pošle e-mailom zadávateľovi inzerátu (OP čl. X ods. 3).
+/* Formulár Ozvať sa pri inzeráte: správu záujemcu pošle e-mailom zadávateľovi inzerátu (OP čl. VIII ods. 3).
    Odpoveď zadávateľa ide priamo záujemcovi (reply_to). Testovacie inzeráty TEST1 až TEST5 idú na testovaciu adresu. */
 import { txt, json, jeMail, posli, skontrolujLimit } from '../_lib/mail.js';
 import { spravaHtml } from '../_lib/platby.js';

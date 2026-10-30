@@ -1,4 +1,4 @@
-/* Zverejnené inzeráty pre stránku Inzeráty. Iba údaje podľa čl. VI obchodných podmienok: účel, suma, obdobie, krajina, číslo.
+/* Zverejnené inzeráty pre stránku Inzeráty. Iba údaje podľa čl. IV ods. 1 až 5 obchodných podmienok: účel, suma, obdobie, krajina, číslo.
    Bez mena a kontaktu. Inzerát, ktorému uplynul mesiac zverejnenia, sa už nevráti (zmizne zo stránky sám). */
 export async function onRequestGet(context) {
   var env = context.env, hl = { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=60' };

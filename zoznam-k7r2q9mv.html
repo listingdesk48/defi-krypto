@@ -319,7 +319,7 @@ function sk(n,a,b,c){return n===1?a:n>=2&&n<=4?b:c}
 function doba(m){var r=Math.max(1,Math.round(m/12));return r+' '+sk(r,'rok','roky','rokov')}
 window.IZF={f:f,doba:doba};
 var L=document.getElementById('izList'),fil='',cur=null;
-window.IZ_UK=false;function cipy(){}/* Inzeráty sa zoraďujú výlučne chronologicky, bez filtrov (OP čl. III ods. 2). */
+window.IZ_UK=false;function cipy(){}/* Inzeráty sa zoraďujú výlučne chronologicky, bez filtrov (OP čl. II ods. 2). */
 function kresli(){var a=INZ.slice().sort(function(p,q){return q.n-p.n});
 L.innerHTML=a.map(window.IZ_KARTA).join('');if(window.IZ_PO)window.IZ_PO(L)}
 kresli();

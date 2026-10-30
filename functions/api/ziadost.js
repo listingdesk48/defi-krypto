@@ -45,7 +45,7 @@ async function spracuj(context) {
   var existuje = await env.DB.prepare('SELECT id FROM ziadosti WHERE email = ?').bind(email).first();
   if (existuje) return json({ ok: false, chyba: 'Na tento e-mail už máte účet. Prihláste sa prosím.', kod: 'existuje' }, 409);
 
-  var sp = Math.round(splatka(suma, doba) * 100) / 100, celkom = Math.round(sp * doba * 100) / 100; /* bez poplatku za inzerát, podľa OP čl. VI ods. 3 */
+  var sp = Math.round(splatka(suma, doba) * 100) / 100, celkom = Math.round(sp * doba * 100) / 100; /* bez poplatku za inzerát, podľa OP čl. IV ods. 3 */
   var id = nahodny(12), sol = nahodny(16), hash = await hashHesla(heslo, sol);
   var podane = new Date(), schvalitO = naplanujSchvalenie(podane);
   var udaje = Object.assign({}, u); delete udaje.zkHeslo;

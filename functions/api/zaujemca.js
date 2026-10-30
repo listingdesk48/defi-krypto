@@ -1,5 +1,5 @@
 /* Formulár na stránke Inzercia (inzercia.html): záujemca zadá meno, priezvisko a e-mail
-   a server mu e-mailom pošle odkaz na neverejný zoznam inzerátov (OP čl. X ods. 1).
+   a server mu e-mailom pošle odkaz na neverejný zoznam inzerátov (OP čl. VIII ods. 1).
    Údaje sa po odoslaní odkazu neukladajú (Ochrana osobných údajov čl. IV ods. 5 a čl. VII písm. f).
    Tabuľka zaujemcovia, kde sa údaje predtým ukladali, sa zmaže. */
 import { esc, txt, json, jeMail, posli, skontrolujLimit } from '../_lib/mail.js';

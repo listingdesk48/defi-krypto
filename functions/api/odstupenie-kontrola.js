@@ -22,7 +22,7 @@ export async function onRequestPost(context) {
   return json({ ok: true, stav: 'uhradeny', dni: dni, zostava: zostava, koniec: isNaN(dok) ? null : dok });
 }
 
-/* Lehota na odstúpenie: 14 kalendárnych dní od uzavretia zmluvy. Zmluva vzniká úhradou poplatku (VOP čl. V ods. 4, čl. VIII ods. 1).
+/* Lehota na odstúpenie: 14 kalendárnych dní od uzavretia zmluvy. Zmluva vzniká úhradou poplatku (VOP čl. III ods. 11, čl. VI ods. 1).
    Posledný deň lehoty = deň úhrady + 14 dní (slovenský čas). */
 function denSk(ms) { var p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Bratislava', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date(ms)), m = {}; p.forEach(function (x) { m[x.type] = x.value; }); return Date.UTC(+m.year, +m.month - 1, +m.day); }
 function txtDen(utc) { var d = new Date(utc); return d.getUTCDate() + '. ' + (d.getUTCMonth() + 1) + '. ' + d.getUTCFullYear(); }
