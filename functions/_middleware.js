@@ -9,7 +9,7 @@ export async function onRequest(context) {
   if (CHRANENE.indexOf(p) >= 0) {
     var z = null;
     try { z = await prihlaseny(context.env, context.request); } catch (e) { z = null; }
-    if (!z) return new Response(null, { status: 302, headers: { 'Location': '/prihlasenie.html', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
+    if (!z) return new Response(null, { status: 302, headers: { 'Location': '/prihlasenie', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
   }
   var res = await context.next();
   if (NOINDEX.indexOf(p) >= 0) {

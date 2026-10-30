@@ -26,7 +26,7 @@ export async function onRequestPost(context) {
   if (z) {
     var t = nahodny(32), plati = new Date(Date.now() + 3600000).toISOString();
     await env.DB.prepare('INSERT INTO resety (token, ziadost_id, plati_do) VALUES (?, ?, ?)').bind(t, z.id, plati).run();
-    var odkaz = 'https://kvelto.com/nove-heslo.html?t=' + t;
+    var odkaz = 'https://kvelto.com/nove-heslo?t=' + t;
     var v = await posli(env, { to: [email], reply_to: env.KONTAKT_PRIJEMCA, subject: 'Nové heslo', html: emailHesloHtml(z.meno, odkaz) });
     if (!v.ok) skontrolujLimit(context, v, 'zabudnuté heslo', email);
   }

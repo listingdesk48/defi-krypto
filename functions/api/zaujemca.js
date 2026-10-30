@@ -4,7 +4,7 @@
    Tabuľka zaujemcovia, kde sa údaje predtým ukladali, sa zmaže. */
 import { esc, txt, json, jeMail, posli, skontrolujLimit } from '../_lib/mail.js';
 
-var ODKAZ = 'https://kvelto.com/zoznam-k7r2q9mv.html';
+var ODKAZ = 'https://kvelto.com/zoznam-k7r2q9mv';
 var F = "-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',Arial,sans-serif";
 
 function emailHtml(meno) {

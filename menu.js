@@ -22,6 +22,6 @@ prejdi(document);new MutationObserver(function(z){z.forEach(function(m){m.addedN
 /* Hodnotenie 4,9 v menu: po kliknutí otvorí stránku Recenzie */
 (function(){
   document.querySelectorAll('.mh:not(.mh-ph)').forEach(function(m){m.setAttribute('role','link');m.setAttribute('tabindex','0');});
-  function chod(e){var m=e.target.closest&&e.target.closest('.mh');if(!m||m.classList.contains('mh-ph'))return;if(e.type==='keydown'&&e.key!=='Enter')return;e.preventDefault();e.stopPropagation();window.location.href='recenzie.html';}
+  function chod(e){var m=e.target.closest&&e.target.closest('.mh');if(!m||m.classList.contains('mh-ph'))return;if(e.type==='keydown'&&e.key!=='Enter')return;e.preventDefault();e.stopPropagation();window.location.href='/recenzie';}
   document.addEventListener('click',chod,true);document.addEventListener('keydown',chod,true);
 })();

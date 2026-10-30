@@ -36,7 +36,7 @@ function emailHtml(z) {
       '<div style="height:14px;border-bottom:1px solid #e9eaee"></div>' +
       '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">' + riadky + '</table>' +
     '</td></tr></table></td></tr>' +
-    '<tr><td align="center"><table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" style="background:#1d1d1f;border-radius:100px"><a href="https://kvelto.com/ucet.html" style="display:inline-block;padding:15px 34px;font-family:' + F + ';font-size:16px;font-weight:600;color:#ffffff;text-decoration:none">Otvoriť môj účet</a></td></tr></table></td></tr>' +
+    '<tr><td align="center"><table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td align="center" style="background:#1d1d1f;border-radius:100px"><a href="https://kvelto.com/ucet" style="display:inline-block;padding:15px 34px;font-family:' + F + ';font-size:16px;font-weight:600;color:#ffffff;text-decoration:none">Otvoriť môj účet</a></td></tr></table></td></tr>' +
     '<tr><td style="padding-top:26px;font-family:' + F + ';font-size:15px;line-height:1.6;color:#6e6e73">Obsah tohto e-mailu je dôverný a je určený len pre adresáta. Ak Vám tento e-mail nepatrí, vymažte ho.</td></tr>' +
     '<tr><td style="padding-top:26px"><p style="' + p + '">Klientske centrum</p></td></tr>' +
     '<tr><td style="padding-top:34px;border-bottom:1px solid #e9eaee"></td></tr>' +

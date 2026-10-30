@@ -18,7 +18,7 @@
   window.KV_HLAVA=function(){var c=document.getElementById('navMeno');if(!c)return;c.textContent=window.KV_SUMA_TXT||window.KV_MENO||''};
   window.KV_ODHLAS=function(){
     try{localStorage.removeItem('kv-ja')}catch(e){}
-    fetch('/api/odhlasenie',{method:'POST'}).catch(function(){}).then(function(){window.location.href='index.html'});
+    fetch('/api/odhlasenie',{method:'POST'}).catch(function(){}).then(function(){window.location.href='/'});
   };
   /* Zapamätaný stav z minula sa ukáže hneď, aby hlavička nepreblikla. Server ho vzápätí potvrdí alebo zruší. */
   try{var z=JSON.parse(localStorage.getItem('kv-ja')||'null');if(z)window.KV_PRIHLAS(z)}catch(e){}
@@ -26,8 +26,8 @@
   window.KV_JA.then(function(ja){
     if(ja.prihlaseny)window.KV_PRIHLAS(ja);else{H.classList.remove('prihlaseny');document.body.classList.remove('prihlaseny');try{localStorage.removeItem('kv-ja')}catch(e){}}
     var stranka=location.pathname.split('/').pop().replace(/\.html$/,'');
-    if(stranka==='ucet'&&!ja.prihlaseny)window.location.replace('prihlasenie.html');
-    if(stranka==='prihlasenie'&&ja.prihlaseny)window.location.replace('ucet.html');
+    if(stranka==='ucet'&&!ja.prihlaseny)window.location.replace('/prihlasenie');
+    if(stranka==='prihlasenie'&&ja.prihlaseny)window.location.replace('/ucet');
   });
   document.addEventListener('click',function(e){var o=e.target.closest('#drOdhlasit,[data-odhlasit]');if(o){e.preventDefault();window.KV_ODHLAS()}});
 })();

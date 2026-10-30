@@ -55,7 +55,7 @@ async function spracuj(context) {
       '<p>Vašu žiadosť sme prijali.<br><b>Dátum a čas podania:</b> ' + esc(datumSk(podane)) + '</p>' +
       '<p>Rozhodnutie o Vašej žiadosti Vám odošleme na tento e-mail do niekoľkých hodín. Skontrolujte prosím aj zložku Spam alebo Hromadné e-maily.</p>' +
       '<p><b>Vaša žiadosť</b><br>Suma: ' + fmt(suma) + ' €<br>Doba: ' + rokyText(doba) + '<br>Mesačne: ' + fmt2(sp) + ' €<br>Celkovo zaplatíte: ' + fmt2(celkom) + ' €</p>' +
-      '<p>Stav žiadosti vidíte po prihlásení vo svojom účte: <a href="https://kvelto.com/ucet.html">kvelto.com/ucet.html</a><br>Prihlasovací e-mail: ' + esc(z.email) + '</p>'  });
+      '<p>Stav žiadosti vidíte po prihlásení vo svojom účte: <a href="https://kvelto.com/ucet">kvelto.com/ucet</a><br>Prihlasovací e-mail: ' + esc(z.email) + '</p>'  });
   if (!v.ok) skontrolujLimit(context, v, 'potvrdenie novej žiadosti', z.email);
 
   /* Upozornenie majiteľovi o novej žiadosti je vypnuté (nechce ho). */
