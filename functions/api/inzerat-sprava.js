@@ -11,7 +11,7 @@ export async function onRequestPost(context) {
   try { d = await context.request.json(); } catch (e) { return json({ ok: false, chyba: 'Neplatné dáta.' }, 400); }
   var inz = txt(d.inzerat, 20).toUpperCase(), meno = txt(d.meno, 80), email = txt(d.email, 160), sprava = txt(d.sprava, 5000);
   if (!inz || meno.length < 2 || sprava.length < 20 || !jeMail(email)) return json({ ok: false, chyba: 'Chýbajú údaje.' }, 400);
-  /* Súhlas záujemcu s odovzdaním správy zadávateľovi (Ochrana osobných údajov čl. IV ods. 2). */
+  /* Súhlas záujemcu s odovzdaním správy zadávateľovi (Ochrana osobných údajov čl. II ods. 5). */
   if (d.suhlas !== true) return json({ ok: false, chyba: 'Chýba súhlas.' }, 400);
 
   var komu = null;
