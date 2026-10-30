@@ -469,7 +469,7 @@ mark.az-m{background:none;color:var(--acc);font-weight:700}
  .m1-pt img{width:68px;height:68px}
 }
 </style>
-<link rel="stylesheet" href="paticka.css?v=12">
+<link rel="stylesheet" href="paticka.css?v=13">
 <style>/* ═══ QR kód na úhradu (zobrazí sa iba prihlásenému klientovi) ═══ */
 .qr-w{display:none;margin:26px 0 34px}.qr-w.on{display:block}
 .qr-c{background:#fff;border-radius:24px;padding:26px;box-shadow:var(--tien-2,0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11))}
@@ -739,7 +739,7 @@ fetch('/api/platba',{credentials:'same-origin',cache:'no-store'}).then(function(
 document.addEventListener('click',function(e){var k=e.target.closest('[data-qr-kop]');if(k&&A){(navigator.clipboard?navigator.clipboard.writeText(A):Promise.reject()).catch(function(){}).then(function(){var s=k.querySelector('span');s.textContent='Skopírované';setTimeout(function(){s.textContent='Skopírovať adresu'},1800)})}
  if(e.target.closest('[data-qr-zvacsi]'))document.getElementById('qrFull').classList.add('on');if(e.target.closest('[data-qr-zavri]'))document.getElementById('qrFull').classList.remove('on')});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('qrFull').classList.remove('on')});})();</script>
-<script src="paticka.js?v=1"></script>
+<script src="paticka.js?v=2"></script>
 <style id="ok-dizajn">
 /* Obrazovka po odoslaní formulára: jednotný vzhľad na celom webe (bez krúžku, na stred, zlatá čiara pod nadpisom) */
 .k-ok{text-align:center!important;max-width:620px;margin:0 auto;padding:40px 10px}

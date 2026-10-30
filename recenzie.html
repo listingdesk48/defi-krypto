@@ -160,7 +160,7 @@ html:not(.prihlaseny) [data-dnu]{display:none!important}
 .nav-drawer .dr-btn:active{background:#3a3a3c;border-color:#3a3a3c}
 </style>
 <link rel="stylesheet" href="menu.css?v=14">
-<link rel="stylesheet" href="paticka.css?v=12">
+<link rel="stylesheet" href="paticka.css?v=13">
 <style>/* Recenzie: karty, zoradenie, galéria fotiek */
 .rv-tb{display:flex;align-items:center;gap:10px;margin-bottom:22px;flex-wrap:wrap}
 .rv-cnt{font-size:.9rem;color:var(--text-muted)}.rv-cnt b{color:var(--text);font-weight:700}
@@ -412,7 +412,7 @@ last=y;tick=false;}
 window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});})();
 </script>
 <script src="menu.js?v=5"></script>
-<script src="paticka.js?v=1"></script>
+<script src="paticka.js?v=2"></script>
 <script>(function(){var el=document.querySelectorAll('[data-cnt]');function f(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')}
 function go(e){var c=+e.getAttribute('data-cnt'),t0=null;function st(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),v=1-Math.pow(1-p,3);e.textContent=f(Math.round(c*v));if(p<1)requestAnimationFrame(st)}requestAnimationFrame(st)}
 if(!('IntersectionObserver' in window))return;

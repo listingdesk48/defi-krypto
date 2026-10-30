@@ -1,7 +1,7 @@
 /* ══════════ PÄTIČKA (bez fotky, návrh 2: čierna s tmavými kartami) ══════════
    Rovnaká na všetkých stránkach. Zmena tu sa prejaví na celom webe naraz. */
 .pt{position:relative;z-index:1;background:#000;color:#fff;padding:80px 22px 24px;overflow:hidden;border-radius:0;-webkit-user-select:none;user-select:none}
-.pt *{-webkit-user-select:none;user-select:none}
+.pt *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .pt-w{position:relative;z-index:1;max-width:1120px;margin:0 auto}
 .pt-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px}
 .pt-h{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:800;letter-spacing:-.045em;line-height:1;color:#fff;margin:0}

@@ -204,7 +204,7 @@ html:not(.prihlaseny) [data-dnu]{display:none!important}
 @media(max-width:820px){.rc-sec{padding-top:32px!important}.fh{padding:104px 16px 0}.fh-lead{font-size:.98rem;line-height:1.65;margin-top:14px}.h1c{min-height:640px;border-radius:24px}.h1c img{object-position:86% 50%}.fh-t{padding:0 18px 22px}.fh-s{margin-top:22px!important}}
 </style>
 <link rel="stylesheet" href="menu.css?v=14">
-<link rel="stylesheet" href="paticka.css?v=12">
+<link rel="stylesheet" href="paticka.css?v=13">
 <style>/* ═══ INZERÁTY (návrh 2: zoznam ako v internetbankingu) ═══ */
 :root{--tien-1:0 4px 12px rgba(24,33,66,.10),0 20px 60px rgba(24,33,66,.28);--tien-2:0 2px 6px rgba(24,33,66,.05),0 8px 36px rgba(24,33,66,.11);--tien-3:0 1px 3px rgba(24,33,66,.05),0 3px 12px rgba(24,33,66,.06)}
 .iz-sec{padding:132px 24px 100px}.iz-in{max-width:1080px;margin:0 auto}
@@ -352,7 +352,7 @@ last=y;tick=false;}
 window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});})();
 </script>
 <script src="menu.js?v=5"></script>
-<script src="paticka.js?v=1"></script>
+<script src="paticka.js?v=2"></script>
 <script>(function(){var el=document.querySelectorAll('[data-cnt]');function f(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')}
 function go(e){var c=+e.getAttribute('data-cnt'),t0=null;function st(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),v=1-Math.pow(1-p,3);e.textContent=f(Math.round(c*v));if(p<1)requestAnimationFrame(st)}requestAnimationFrame(st)}
 if(!('IntersectionObserver' in window)){el.forEach(function(e){e.textContent=f(e.getAttribute('data-cnt'))});return}
