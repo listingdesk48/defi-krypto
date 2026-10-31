@@ -623,6 +623,7 @@ function hladanie(id,cb){var l=document.getElementById(id),inp=l.querySelector('
 /* ═══ MAPA AUTOMATOV (MapLibre + OpenFreeMap) ═══ */
 var KV_LOGO='<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="26" fill="#ffffff"/><path d="M24 40 H72 L61 29 M76 60 H28 L39 71" stroke="#1d1d1f" stroke-width="9.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
 var MOB=matchMedia('(max-width:820px)');
+var KV_MESTA=[["Bratislava",17.1083,48.1435],["Košice",21.2497,48.7172],["Prešov",21.2392,49.0],["Žilina",18.7393,49.2235],["Banská Bystrica",19.1457,48.7354],["Nitra",18.0895,48.313],["Trnava",17.5858,48.3768],["Trenčín",18.0387,48.8923],["Poprad",20.2976,49.0542],["Martin",18.9292,49.0725],["Zvolen",19.1247,48.5783],["Michalovce",21.9212,48.7514],["Spišská Nová Ves",20.563,48.9435],["Prievidza",18.6235,48.7718],["Liptovský Mikuláš",19.6128,49.0836],["Komárno",18.1298,47.7574],["Levice",18.6001,48.2163],["Lučenec",19.6634,48.3304],["Piešťany",17.8214,48.5895],["Ružomberok",19.3034,49.0816],["Rožňava",20.5329,48.6621],["Námestovo",19.4804,49.4095]];
 function kvMapa(id,o){o=o||{};
  var map=new maplibregl.Map({container:id,style:'https://tiles.openfreemap.org/styles/positron',center:[19.5,48.7],zoom:6.3,minZoom:5,maxZoom:18,attributionControl:false,dragRotate:false,pitchWithRotate:false,touchPitch:false,fadeDuration:0});
  map.touchZoomRotate.disableRotation();
@@ -644,6 +645,12 @@ function kvMapa(id,o){o=o||{};
   });
   map.addSource('atm',{type:'geojson',data:data()});
   var vrstvy=(o.znacka||kvZnackaZaklad)(map,api);
+  /* názvy miest s automatmi (súradnice z OpenStreetMap): pri oddialenej mape len 8 krajských miest, po priblížení všetky */
+  /* jednotné pravidlo: z podkladovej mapy žiadne názvy, na mape sú len mestá, kde je automat */
+  map.getStyle().layers.forEach(function(l){if(l.type==='symbol')map.setLayoutProperty(l.id,'visibility','none');});
+  map.addSource('mesta',{type:'geojson',data:{type:'FeatureCollection',features:KV_MESTA.map(function(c,i){return {type:'Feature',properties:{n:c[0],p:i},geometry:{type:'Point',coordinates:[c[1],c[2]]}};})}});
+  map.addLayer({id:'mesta-kraj',type:'symbol',source:'mesta',filter:['<',['get','p'],8],layout:{'text-field':['get','n'],'text-font':['Noto Sans Bold'],'text-size':['interpolate',['linear'],['zoom'],5,10,8,13],'text-anchor':'bottom','text-offset':[0,-0.85],'symbol-sort-key':['get','p'],'text-padding':3,'text-allow-overlap':true},paint:{'text-color':'#3a3a3c','text-halo-color':'rgba(255,255,255,.95)','text-halo-width':1.6}});
+  map.addLayer({id:'mesta',type:'symbol',source:'mesta',minzoom:6.5,filter:['>=',['get','p'],8],layout:{'text-field':['get','n'],'text-font':['Noto Sans Bold'],'text-size':['interpolate',['linear'],['zoom'],5,10,8,13],'text-variable-anchor':['bottom','top'],'text-radial-offset':0.85,'symbol-sort-key':['get','p'],'text-padding':3},paint:{'text-color':'#3a3a3c','text-halo-color':'rgba(255,255,255,.95)','text-halo-width':1.6}});
   /* klik aj vedľa bodky: hľadá najbližší automat v okruhu (na mobile väčšom), aby sa dalo ľahko trafiť prstom */
   function najblizsi(pt,r){var fs=map.queryRenderedFeatures([[pt.x-r,pt.y-r],[pt.x+r,pt.y+r]],{layers:vrstvy}),best=null,bd=1e9;
    fs.forEach(function(f){var c=map.project(f.geometry.coordinates),d=(c.x-pt.x)*(c.x-pt.x)+(c.y-pt.y)*(c.y-pt.y);if(d<bd){bd=d;best=f;}});return best;}
