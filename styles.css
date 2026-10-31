@@ -929,7 +929,7 @@ main > .section:first-child { padding-top: 138px; }
 .vb-posledna .up-btn:hover { background: #f2f2f4; }
 
 /* iPhone: politka s pismom pod 16px sposobovali automaticke priblizenie. Na mobile davame presne 16px. */
-@media (max-width: 820px) {
+@media (max-width: 820px), (pointer: coarse) {
   select, textarea,
   input[type=text], input[type=email], input[type=tel],
   input[type=password], input[type=search], input[type=number],

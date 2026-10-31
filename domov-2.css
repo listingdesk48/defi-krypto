@@ -316,3 +316,6 @@ button.kt-btn{border:none;font-family:inherit;cursor:pointer}
 .r9 small{font-size:.74rem;color:var(--text-muted);letter-spacing:.02em}
 @media(max-width:820px){.hr{margin-top:20px}}
 
+/* Kalkulačka: suma v políčku sa nikdy nezalomí, na úzkych mobiloch sa písmo zmenší */
+.zq-vys strong{white-space:nowrap}
+@media(max-width:400px){.zq-vys strong{font-size:min(1.25rem,5.1vw)}}

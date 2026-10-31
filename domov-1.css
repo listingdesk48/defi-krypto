@@ -396,3 +396,5 @@ html:not(.prihlaseny) [data-dnu]{display:none!important}
 .pane.on .zk-ok p{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .32s both!important}
 .pane.on .zk-ok .btn{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .44s both}
 
+/* iPhone a tablet na šírku: tri položky v hlavnej fotke ostanú každá na jednom riadku */
+@media(min-width:821px) and (max-width:1000px){.tile3{gap:0 16px}.tile3 .v-title{font-size:min(.95rem,1.6vw)}}

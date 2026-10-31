@@ -26,7 +26,7 @@
 <link rel="icon" href="logo/kvelto-favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="logo/kvelto-favicon.svg" sizes="any" />
 <link rel="apple-touch-icon" href="logo/kvelto-app-ikona-512.png" />
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
 <link rel="stylesheet" href="jazyk.css?v=14">
 <style>:root { color-scheme: light; --black: #1d1d1f; --blue: #0a84ff; --white: #ffffff; --acc-soft: #efe5d4; --acc: #c2ad8c; --acc-deep: #a89373; --acc-dark: #7a6a52; --acc-rail: #d9c8aa; --acc-rgb: 194,173,140; --acc-soft-rgb: 239,229,212; --grad-1: var(--acc-soft); --grad-2: var(--acc); --grad-3: var(--acc-deep); --grad-4: var(--acc-dark); --text: #1d1d1f; --text-muted: rgba(29, 29, 31, 0.6); --text-faint: rgba(29, 29, 31, 0.55); --sep: rgba(29, 29, 31, 0.22); --green: #0a7d3f; --green-bg: rgba(16, 160, 80, 0.12); --amber: #b8681a; --glass-bg: rgba(255, 255, 255, 0.55); --glass-bg-soft: rgba(255, 255, 255, 0.42); --glass-shadow: 0 10px 34px rgba(24, 33, 66, 0.12), 0 2px 8px rgba(24, 33, 66, 0.06); --page-bg: #f5f7fc; --grad-full: linear-gradient(95deg, var(--grad-1) 0%, var(--grad-2) 45%, var(--grad-3) 80%, var(--grad-4) 100%); --tb: 0px; }
 <style>
@@ -159,8 +159,8 @@ html:not(.prihlaseny) [data-dnu]{display:none!important}
 @media(hover:hover){.nav-drawer .dr-btn:hover{background:#3a3a3c;border-color:#3a3a3c}}
 .nav-drawer .dr-btn:active{background:#3a3a3c;border-color:#3a3a3c}
 </style>
-<link rel="stylesheet" href="menu.css?v=14">
-<link rel="stylesheet" href="paticka.css?v=13">
+<link rel="stylesheet" href="menu.css?v=15">
+<link rel="stylesheet" href="paticka.css?v=14">
 <style>/* Recenzie: karty, zoradenie, galéria fotiek */
 .rv-tb{display:flex;align-items:center;gap:10px;margin-bottom:22px;flex-wrap:wrap}
 .rv-cnt{font-size:.9rem;color:var(--text-muted)}.rv-cnt b{color:var(--text);font-weight:700}
@@ -195,7 +195,7 @@ html:not(.prihlaseny) [data-dnu]{display:none!important}
 .rk{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
 .rk.in{opacity:1;transform:none}
 .mz{display:grid;gap:16px;align-items:start}
-.mz-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.mz-col{display:flex;flex-direction:column;gap:16px;min-width:0}.rv-viac{display:flex;justify-content:center;margin-top:28px}.rv-viac-b{border:0;background:#fff;color:var(--text);font:inherit;font-size:.95rem;font-weight:600;padding:15px 30px;border-radius:100px;cursor:pointer;transition:background-color .25s;-webkit-tap-highlight-color:transparent}.rv-viac-b[hidden]{display:none}.rv-viac-b:active{background:#ebedf2}@media(hover:hover){.rv-viac-b:hover{background:#ebedf2}}@media(max-width:640px){.rv-viac-b{width:100%}}
 @media(max-width:640px){.rv-tb{gap:10px}.chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none;width:calc(100% + 32px)}.chips::-webkit-scrollbar{display:none}.chip2{flex:none}.dd-m{min-width:220px}}
 
 .n1 .rk{background:#fff;border-radius:22px;box-shadow:var(--tien-2);overflow:hidden}
@@ -342,7 +342,7 @@ body.iz-on .iz-bg{opacity:1;pointer-events:auto}
 <main>
 <section class="rc-sec" id="recenzie"><div class="rc-in">
 <div class="section-head rc-head"><h1 class="section-title">Recenzie<span class="rc-bod">.</span></h1><p class="rc-lead">Skúsenosti klientov, ktorí využili našu službu. Podeľte sa aj Vy o tú svoju.</p></div>
-<div class="pr-row"><div class="s2"><b>4,9</b><span class="sh"><span class="sh-z"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="sh-p" style="width:98.0%"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span></span><em>845 hodnotení</em></div><button class="k-btn pr-btn" type="button" data-pr-otvor>Pridať recenziu</button></div><div class="n1"><div class="rv-tb"><div id="fch"></div><div id="hod"></div><div id="srt"></div></div><div class="mz" id="mz"></div></div>
+<div class="pr-row"><div class="s2"><b>4,9</b><span class="sh"><span class="sh-z"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="sh-p" style="width:98.0%"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span></span><em>845 hodnotení</em></div><button class="k-btn pr-btn" type="button" data-pr-otvor>Pridať recenziu</button></div><div class="n1"><div class="rv-tb"><div id="fch"></div><div id="hod"></div><div id="srt"></div></div><div class="mz" id="mz"></div><div class="rv-viac"><button type="button" class="rv-viac-b" id="rvViac" hidden>Zobraziť ďalšie</button></div></div>
 <div class="n2-ban" id="koniec"><div class="n2-lbl">Doteraz udelené hodnotenia</div><div class="n2-cis"><span class="x" data-cnt="845">845</span><span>.</span></div><div class="n2-ciar"></div></div>
 
 </div></section>
@@ -392,7 +392,12 @@ function priemer(a){return (a.reduce(function(s,r){return s+r.h},0)/a.length).to
 
 var cur='nove',fk='all',hk='all',box=document.getElementById('mz');
 function karta(r){return el('<article class="rk">'+gal(r.fotky)+'<div class="rk-b"><div class="rk-h">'+av(r)+'<div><b>'+r.meno+vf()+'</b><div class="rk-s">Overený zákazník · '+r.datum+'</div></div></div><div class="rk-r">'+hv(r.h)+'</div><p class="rk-t">'+r.text+'</p></div></article>')}
-function kresli(){var a=DATA.filter(filtr(fk)).filter(function(r){return hk==='all'||r.h===+hk}).sort(RAD[cur]);mozaika(box,a.map(karta),stlpce(3,2));if(!a.length)box.innerHTML='<p class="rv-nic">S týmto hodnotením zatiaľ nie je žiadna recenzia.</p>'}
+/* Zobraziť ďalšie: najprv 9 recenzií, každé ťuknutie pridá ďalších 9 */
+var POC=9,n=POC,lastSt=0,viac=document.getElementById('rvViac');
+function vyber(){return DATA.filter(filtr(fk)).filter(function(r){return hk==='all'||r.h===+hk}).sort(RAD[cur])}
+function vykresli(){var a=vyber();lastSt=stlpce(3,2);mozaika(box,a.slice(0,n).map(karta),lastSt);if(!a.length)box.innerHTML='<p class="rv-nic">S týmto hodnotením zatiaľ nie je žiadna recenzia.</p>';viac.hidden=a.length<=n}
+function kresli(){n=POC;vykresli()}
+viac.addEventListener('click',function(){var a=vyber(),cols=[].slice.call(box.querySelectorAll('.mz-col'));a.slice(n,n+POC).map(karta).forEach(function(e){var t=cols[0];cols.forEach(function(x){if(x.offsetHeight<t.offsetHeight)t=x});t.appendChild(e)});n+=POC;initGal(box);zjav(box);viac.hidden=a.length<=n});
 (function(){var el=document.getElementById('hod'),O=[['all','Všetky hodnotenia'],['5','5 hviezdičiek'],['4','4 hviezdičky'],['3','3 hviezdičky'],['2','2 hviezdičky'],['1','1 hviezdička']],T={};O.forEach(function(o){T[o[0]]=o[1]});
  var IST='<svg class="ic" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.7-4.4 4.1 1.2 5.9L12 16.7l-5.3 2.9 1.2-5.9L3.5 9.6l5.9-.7z" stroke-linejoin="round"/></svg>';
  el.className='dd hd';el.innerHTML='<button class="dd-b" type="button">'+IST+'<span>Hodnotenie</span>'+CHEV+'</button><div class="dd-m">'+O.map(function(o){return '<button type="button" data-k="'+o[0]+'"'+(o[0]==='all'?' class="on"':'')+'>'+o[1]+'</button>'}).join('')+'</div>';
@@ -400,7 +405,7 @@ function kresli(){var a=DATA.filter(filtr(fk)).filter(function(r){return hk==='a
  el.querySelectorAll('.dd-m button').forEach(function(x){x.addEventListener('click',function(){el.querySelectorAll('.dd-m button').forEach(function(y){y.classList.toggle('on',y===x)});hk=x.dataset.k;b.querySelector('span').textContent=hk==='all'?'Hodnotenie':T[hk];el.classList.toggle('akt',hk!=='all');el.classList.remove('open');kresli()})})})();
 chips(document.getElementById('fch'),[['all','Všetky'],['foto','S fotkou']],'all',function(k){fk=k;kresli()});
 dd(document.getElementById('srt'),cur,function(k){cur=k;kresli()});
-kresli();var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(kresli,200)});
+kresli();var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){if(stlpce(3,2)!==lastSt)vykresli()},200)});
 
 
 </script>

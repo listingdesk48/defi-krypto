@@ -66,3 +66,7 @@
 .pt-g4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.pt-g4 .pt-mh{margin-bottom:10px}@media(max-width:700px){.pt-g4{grid-template-columns:1fr}}
 /* pätička: Stav žiadosti zvýraznený zlatou farbou */
 .pt a.vp-stav,.pt a.vp-stav:visited{color:var(--acc);font-weight:600}@media(hover:hover){.pt a.vp-stav:hover{color:#d9c8aa}}
+/* Názvy krajín sa nikdy neorežú, dlhší názov prejde na druhý riadok */
+.pt .ft-kr-item span{white-space:normal;overflow:visible;text-overflow:clip}
+/* Väčšie miesto na ťuknutie v pätičke na mobile a tablete */
+@media(pointer:coarse){.v1-fql li a{padding:11px 0;margin:-11px 0}.pt .vp-sl,.pt .vp-sl:visited{padding:10px 0}.pt .ft-kr-item{padding-top:10px;padding-bottom:10px}.pt-bl a{padding:5px 0;margin:-5px 0}}

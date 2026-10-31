@@ -72,9 +72,8 @@ body.pm-open #mainNav .nav-sec{background:#fff;color:#1d1d1f;border-color:#fff}
 .m6f .m6f-c a.pm-a:hover::after,.m6f .m6f-c a.pm-a.is-current::after{transform:scaleX(1)}
 @media(max-width:1040px){
  .dmv6 .dr4-c a{position:relative;align-self:flex-start}
- .dmv6 .dr4-c a::after,.dmv6 .dr4-c a.is-current::after{content:"";position:absolute;display:block;left:14px;right:14px;bottom:6px;width:auto;height:2px;margin:0;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
- .dmv6 .dr4-c a.is-current::after{transform:scaleX(1)}
- .dmv6 .dr4-c a:active::after{transform:scaleX(1)}
+ /* Na mobile a tablete sa odkazy v menu nepodčiarkujú (ani aktuálna stránka), efekt je len na PC */
+ .dmv6 .dr4-c a::after,.dmv6 .dr4-c a.is-current::after{content:none}
 }
 /* PC menu: Odhlásiť sa dole pod čiarou, nenápadne, s ikonou dverí */
 .m6f .m6f-out{grid-column:1/-1;align-self:end;justify-self:start;display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);width:100%;color:rgba(255,255,255,.55);font-size:.95rem;font-weight:500;transition:color .2s}
@@ -105,3 +104,9 @@ body.pm-open #mainNav .nav-sec .inic,#mainNav.menu-open .nav-sec .inic{backgroun
 /* Hlavička: farebná bodka podľa stavu žiadosti (ako v účte) */
 html[data-stav] #mainNav .nav-sec[data-dnu] #navMeno::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}html[data-stav=posudzuje] #mainNav .nav-sec[data-dnu] #navMeno::before{background:#e0a050}html[data-stav=schvalene] #mainNav .nav-sec[data-dnu] #navMeno::before{background:#3fbf7a}html[data-stav=zrusene] #mainNav .nav-sec[data-dnu] #navMeno::before{background:#ff453a}
 html[data-stav=zverejnene] #mainNav .nav-sec[data-dnu] #navMeno::before{background:var(--acc)}
+/* Väčšie miesto na ťuknutie na mobile a tablete, vzhľad sa nemení */
+@media(pointer:coarse){
+ html body .nav-sec,html body .chip2,html body .f10-tip button,html body .u-link{position:relative}
+ html body .nav-sec::before,html body .chip2::before,html body .f10-tip button::before,html body .u-link::before{content:"";position:absolute;left:-4px;right:-4px;top:-5px;bottom:-5px}
+ html body .u-oko{padding:10px;top:2px;right:-4px}
+}
