@@ -488,7 +488,7 @@ textarea.s1-big{min-height:130px;resize:none;line-height:1.5;font-size:clamp(1.1
  <div class="u-chk">
   <div class="u-ck ok"><i></i><div><b>Žiadosť podaná</b><span id="uCkPodana"></span></div></div>
   <div class="u-ck ok"><i></i><div><b>Údaje prijaté</b><span>Žiadosť je kompletná</span></div></div>
-  <div class="u-ck" id="uCkSchv"><i></i><div><b id="uCkSchvT">Schválenie žiadosti</b><span id="uCkSchvS"></span></div></div>
+  <div class="u-ck" id="uCkSchv"><i></i><div><b id="uCkSchvT">Posudzovanie žiadosti</b><span id="uCkSchvS"></span></div></div>
   <div class="u-ck" id="uCkPopl"><i></i><div><b id="uPoplT">Poplatok uhradený</b><span id="uPoplS"></span>
    <div id="uPoplBox" class="u-skryte"><div class="u-cas lh2 u-skryte" id="uCas"><span class="lh-l">Lehota na úhradu</span><b class="u-cas-c" id="uCasC"></b><div class="u-cas-b"><span id="uCasB"></span></div><div class="u-cas-t" id="uCasS"></div></div><a class="k-btn" id="uPoplBtn" href="/uhradit-poplatok">Uhradiť poplatok</a>
    </div>
@@ -530,7 +530,7 @@ window.KV_JA.then(function(ja){if(!ja.prihlaseny)return;
  document.getElementById('uDobaR').style.display='none';
  document.getElementById('uSplatka').textContent=fmt2(ja.splatka)+' €';document.getElementById('uCelkom').textContent=fmt2(ja.celkom)+' €';
  document.getElementById('uPoplKarta').classList.remove('u-skryte');document.getElementById('uCkPodana').textContent=dat(ja.vytvorene);
- var cs=document.getElementById('uCkSchv');cs.className='u-ck '+(ok||zr?'ok':'caka');document.getElementById('uCkSchvT').textContent=ok||zr?'Žiadosť schválená':'Schválenie žiadosti';var kt=document.querySelector('.u-tab[data-tab="kalendar"]');if(kt)kt.hidden=!ok;document.getElementById('uCkSchvS').textContent=ok||zr?dat(ja.schvalene_o):'Posudzuje sa, o schválení Vás budeme informovať e-mailom do niekoľkých hodín';
+ var cs=document.getElementById('uCkSchv');cs.className='u-ck '+(ok||zr?'ok':'caka');document.getElementById('uCkSchvT').textContent=ok||zr?'Žiadosť schválená':'Posudzovanie žiadosti';var kt=document.querySelector('.u-tab[data-tab="kalendar"]');if(kt)kt.hidden=!ok;document.getElementById('uCkSchvS').textContent=ok||zr?dat(ja.schvalene_o):'Vašu žiadosť práve posudzujeme. Výsledok Vám pošleme e-mailom do niekoľkých hodín.';
  var cp=document.getElementById('uCkPopl'),uh=!!ja.poplatok_uhradeny;cp.className='u-ck '+(uh?'ok':ok||zr?'ne':'caka');cp.classList.toggle('u-skryte',!ok&&!zr&&!uh);
  document.getElementById('uPoplT').textContent=uh?'Poplatok uhradený':'Poplatok neuhradený';
  document.getElementById('uPoplS').textContent=uh?('Uhradené '+dat(ja.poplatok_uhradeny_o)+'.'):zr?'Nebol uhradený do '+(ja.poplatok_lehota_dni||5)+' dní od schválenia, schválenie je zrušené.':ok?('Poplatok za poskytnutie služby: '+fmt(ja.poplatok||300)+' €.'):'Poplatok za poskytnutie služby '+fmt(ja.poplatok||300)+' € sa uhrádza po schválení.';
