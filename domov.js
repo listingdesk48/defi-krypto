@@ -562,7 +562,7 @@ try{
 }catch(e){console.error(e)}
 try{
 /* Žiadosť v krokoch: čiara postupu, číslo kroku, možnosti ako tlačidlá, Enter = Ďalej. Pravidlá kontroly polí sú bez zmeny. */
-(function(){var $=function(i){return document.getElementById(i)},f=$('zkForm'),N=12;
+(function(){var $=function(i){return document.getElementById(i)},f=$('zkForm'),N=11;
 function cur(){var on=f.querySelector('.pane.on');return on?+on.getAttribute('data-pane'):1}
 f.querySelectorAll('.pane .s1-n').forEach(function(e){var n=+e.closest('.pane').getAttribute('data-pane');e.textContent=(n<10?'0':'')+n});
 function upd(){var n=cur();$('zqBar').style.width=(Math.min(n,N)/N*100)+'%';$('zqSpat').style.visibility=(n>1&&n<=N)?'visible':'hidden';$('zkTop').hidden=!(n>=2&&n<=N&&n!==11);$('zqOk').classList.toggle('show',n>N);$('zqDov').style.display=n>N?'none':''}
