@@ -331,7 +331,7 @@ document.querySelectorAll('.vy-head').forEach(function(b){b.addEventListener('cl
 <script>/* Domov: fotky sa samé striedajú každých 5 sekúnd */
 (function(){var f=document.querySelectorAll('#domov .dx-sl');if(f.length<2)return;var i=0;
 /* Ďalšia fotka sa stiahne až pred tým, ako sa má ukázať (nie všetky naraz pri otvorení stránky). */
-function priprav(el){if(!el||el.dataset.ok)return;el.dataset.ok=1;el.querySelectorAll('[data-srcset]').forEach(function(x){x.setAttribute('srcset',x.getAttribute('data-srcset'));x.removeAttribute('data-srcset')});el.querySelectorAll('img[data-src]').forEach(function(x){x.src=x.getAttribute('data-src');x.removeAttribute('data-src')})}
+function priprav(el){if(!el||el.dataset.ok)return;el.dataset.ok=1;el.querySelectorAll('[data-srcset]').forEach(function(x){x.setAttribute('srcset',x.getAttribute('data-srcset'));x.removeAttribute('data-srcset')});el.querySelectorAll('img[data-src]').forEach(function(x){x.removeAttribute('loading');x.src=x.getAttribute('data-src');x.removeAttribute('data-src')})}
 var w=document.querySelector('#domov .dx-foto');if('IntersectionObserver' in window&&w){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){o.disconnect();priprav(f[1])}},{rootMargin:'300px 0px'});o.observe(w)}else priprav(f[1]);
 setInterval(function(){if(document.hidden)return;var d=f[(i+1)%f.length];priprav(d);f[i].classList.remove('on');i=(i+1)%f.length;f[i].classList.add('on');priprav(f[(i+1)%f.length]);},5000);})();
 /* Fotka v telefóne sa stiahne až keď sa k nej príde. */
