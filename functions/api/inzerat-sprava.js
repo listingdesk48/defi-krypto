@@ -1,6 +1,7 @@
 /* Formulár Ozvať sa pri inzeráte: správu záujemcu pošle e-mailom zadávateľovi inzerátu (OP čl. VIII ods. 3).
    Odpoveď zadávateľa ide priamo záujemcovi (reply_to). Testovacie inzeráty TEST1 až TEST5 idú na testovaciu adresu. */
-import { txt, json, jeMail, posli, skontrolujLimit } from '../_lib/mail.js';
+import { txt, json, jeMail, posli, skontrolujLimit, posliMajitelovi, majitelHtml } from '../_lib/mail.js';
+import { skontrolujText, odtlacok, skontrolujPocet } from '../_lib/filter.js';
 import { spravaHtml } from '../_lib/platby.js';
 
 var TEST_EMAIL = 'listingdesk@proton.me';
@@ -22,6 +23,28 @@ export async function onRequestPost(context) {
     if (z && z.email) komu = z.email;
   }
   if (!komu) return json({ ok: false, chyba: 'Inzerát už nie je zverejnený.' }, 404);
+
+  /* Filter: správa so zakázaným slovom alebo údajom, priveľa správ od jedného človeka alebo rovnaká správa na viac inzerátov
+     nejde zadávateľovi, ale majiteľovi na kontrolu (cez Cloudflare, mimo Resend). Záujemca vždy vidí, že správa odišla. */
+  var pocet = await skontrolujPocet(env, email, inz, await odtlacok(sprava));
+  /* Tretia a ďalšia správa od jedného e-mailu za 24 hodín sa nikam neposiela. Záujemca vidí, že odišla. */
+  if (pocet.zahodit) return json({ ok: true });
+  var nalezy = skontrolujText(meno + '\n' + sprava).concat(pocet.nalezy);
+  if (nalezy.length) {
+    var predmet = 'Správa na kontrolu: ' + inz;
+    var text = 'Správa k inzerátu ' + inz + ' nebola odoslaná zadávateľovi. Záujemca vidí, že odišla.\n\nPrečo:\n' + nalezy.join('\n') +
+      '\n\nInzerát: ' + inz + '\nZadávateľ (komu mala ísť): ' + komu + '\nMeno záujemcu: ' + meno + '\nE-mail záujemcu: ' + email +
+      '\n\nSpráva:\n' + sprava + '\n\nAk je správa v poriadku, prepošli ju zadávateľovi.';
+    var html = majitelHtml({ problem: true, stitok: 'Správa na kontrolu', nadpis: 'Správa k inzerátu ' + inz + ' nebola odoslaná',
+      text: 'Záujemca vidí, že správa odišla. Zadávateľovi neprišla.',
+      sekcie: [{ nadpis: 'Prečo', text: nalezy.join('\n') },
+        { nadpis: 'Údaje', riadky: [['Inzerát', inz], ['Zadávateľ (komu mala ísť)', komu], ['Meno záujemcu', meno], ['E-mail záujemcu', email]] },
+        { nadpis: 'Správa', text: sprava }],
+      poznamka: 'Ak je správa v poriadku, prepošli ju zadávateľovi.' });
+    var m = await posliMajitelovi(context, predmet, text, html);
+    if (!m.ok) console.log('Správu na kontrolu sa nepodarilo poslať majiteľovi', inz, email);
+    return json({ ok: true });
+  }
 
   /* Ako odosielateľ sa zobrazí meno záujemcu, adresa je naša (reply@mail.emailyapp.com). */
   var odosielatel = '"' + meno.replace(/["\\<>\r\n]/g, '') + '" <reply@mail.emailyapp.com>';
