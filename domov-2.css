@@ -1,0 +1,318 @@
+/* ═══ ŽIADOSŤ V KROKOCH (návrh 6, bez karty): štýly prevzaté z návrhu, obsah a pravidlá formulára bez zmeny ═══ */
+/* ═══ KONTAKT (návrh 9) ═══ */
+/* ═══ KONTAKT: spoločné prvky ═══ */
+.k-sec{padding:150px 24px 110px}
+.k-in{max-width:1080px;margin:0 auto}
+.k-h1{font-size:clamp(3.3rem,9.5vw,6.4rem);font-weight:900;letter-spacing:-.025em;line-height:.98;margin:0}
+.k-dot{color:var(--acc)}
+.k-lead{max-width:600px;margin:22px 0 0;font-size:1.03rem;line-height:1.75;color:var(--text-muted);text-wrap:pretty}
+.k-f{display:block;width:100%;font-family:inherit;font-size:1rem;color:var(--text);background:#fff;border:none!important;border-radius:14px;padding:16px 18px;box-shadow:inset 0 0 0 1px rgba(29,29,31,.14);outline:none;transition:box-shadow .2s;-webkit-appearance:none;appearance:none}
+.k-f:focus,.k-f:focus-visible{outline:none!important;border:none!important;box-shadow:none!important}
+.k-f::placeholder{color:rgba(29,29,31,.38)}
+textarea.k-f{min-height:150px;resize:vertical;line-height:1.6}
+select.k-f{padding-right:44px;background-position:right 16px center}
+.k-lbl{display:block;font-size:.86rem;font-weight:600;margin:0 0 8px;color:var(--text)}
+.k-row{margin-bottom:18px}
+.k-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.k-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:100px;background:#1d1d1f;color:#fff;font-family:inherit;font-weight:600;font-size:.97rem;text-decoration:none;border:none;cursor:pointer;transition:background .2s,opacity .2s}
+.k-btn:hover{background:#000}
+.k-btn:disabled{opacity:.3;cursor:default}
+.k-btn.k-light{background:#fff;color:var(--text);box-shadow:inset 0 0 0 1px rgba(29,29,31,.16)}
+.k-btn.k-light:hover{background:#f3f4f8}
+.k-link{background:none;border:none;font-family:inherit;font-size:.92rem;font-weight:600;color:var(--text-muted);cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
+.k-link:hover{color:var(--text)}
+.k-chips{display:flex;flex-wrap:wrap;gap:8px}
+.k-chip{font-family:inherit;font-size:.9rem;font-weight:600;color:var(--text);background:#fff;border:none;border-radius:100px;padding:10px 16px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(29,29,31,.14);transition:background .2s,color .2s,box-shadow .2s}
+.k-chip:hover{box-shadow:inset 0 0 0 1px rgba(29,29,31,.4)}
+.k-chip.on{background:#1d1d1f;color:#fff;box-shadow:none}
+.k-chip:focus,.k-chip:focus-visible{outline:none}
+.k-check{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;line-height:1.55;color:var(--text-muted);cursor:pointer}
+.k-check input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:#1d1d1f}
+.k-err{display:none;font-size:.84rem;font-weight:600;color:var(--acc-dark);margin-top:8px}
+.k-err.show{display:block}
+.k-ok{display:none;text-align:center;padding:40px 10px}
+.k-ok.show{display:block;animation:kIn .5s cubic-bezier(.22,1,.36,1)}
+.k-ok-ic{width:64px;height:64px;border-radius:50%;background:#1d1d1f;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.k-ok-ic svg{width:30px;height:30px}
+.k-ok b{display:block;font-size:1.6rem;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.k-ok p{color:var(--text-muted);margin:0}
+@keyframes kIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.k-fade{animation:kIn .45s cubic-bezier(.22,1,.36,1)}
+@media(max-width:820px){.k-sec{padding:112px 16px 72px}.k-lead{font-size:.98rem;line-height:1.65;margin-top:14px}.k-two{grid-template-columns:1fr;gap:0}.k-two>*{margin-bottom:18px}.k-f{font-size:16px}}
+
+.s1-wrap{max-width:820px;margin:0 auto}
+.s1-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:56px 0 26px}
+.s1-bar{flex:1;height:4px;border-radius:4px;background:rgba(29,29,31,.1);overflow:hidden}
+.s1-bar i{display:block;height:100%;width:25%;background:var(--acc);border-radius:4px;transition:width .5s cubic-bezier(.22,1,.36,1)}
+.s1-cnt{font-size:.85rem;font-weight:700;color:var(--text-muted);font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
+.s1-card{background:#fff;border-radius:28px;padding:54px 56px 44px;box-shadow:var(--tien-2);min-height:380px;display:flex;flex-direction:column}
+.s1-step{display:none;flex:1;flex-direction:column}
+.s1-step.on{display:flex;animation:kIn .45s cubic-bezier(.22,1,.36,1)}
+.s1-n{font-size:.95rem;font-weight:700;color:var(--acc);margin-bottom:14px}
+.s1-q{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;letter-spacing:-.035em;line-height:1.12;margin:0 0 30px}
+.s1-big{width:100%;border:none!important;border-bottom:2px solid rgba(29,29,31,.22)!important;border-radius:0!important;background:none!important;box-shadow:none!important;font-family:inherit;font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:600;color:var(--text);padding:8px 0 14px!important;outline:none;transition:border-color .25s}
+.s1-big:focus{border-bottom-color:rgba(29,29,31,.22)!important;box-shadow:none!important}
+.s1-big::placeholder{color:rgba(29,29,31,.25)}
+textarea.s1-big{min-height:130px;resize:none;line-height:1.5;font-size:clamp(1.1rem,2vw,1.4rem)}
+.s1-ft{display:flex;align-items:center;gap:18px;margin-top:auto;padding-top:34px}
+.s1-hint{font-size:.82rem;color:var(--text-faint)}
+.s1-hint kbd{font-family:inherit;font-weight:700;background:#f3f4f8;border-radius:6px;padding:2px 7px;color:var(--text)}
+.s1-ft .k-link{margin-left:auto}
+.s1-chips .k-chip{font-size:1rem;padding:13px 20px}
+@media(max-width:820px){.s1-top{margin:30px 0 18px}.s1-card{padding:32px 22px 26px;border-radius:22px;min-height:400px}.s1-q{margin-bottom:24px}.s1-hint{display:none}.s1-ft{flex-wrap:wrap}.s1-ft .k-btn{width:100%;order:1}.s1-ft .k-link{order:2;margin:0 auto}.s1-big{font-size:1.3rem}}
+.s9-odp{margin:0 0 6px}
+.s9-odp .f10-l .fq-item{box-shadow:none;background:#f6f7fa}
+.s9-cit{background:#f6f7fa;border-radius:14px;padding:12px 16px;font-size:.9rem;color:var(--text-muted);margin:-14px 0 18px}
+.s9-cit b{color:var(--text)}
+.s9-col{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:auto;padding-top:30px}
+.s9-col .k-link{font-size:.84rem;font-weight:500;color:var(--text-faint)}
+.s9-txt{color:var(--text-muted);font-size:1.08rem;line-height:1.7;margin:-12px 0 0;max-width:560px}
+.s9-sum{width:100%}
+.s9-sum textarea{min-height:120px}
+.s9-sum .k-check{margin-top:18px}
+@media(max-width:820px){.s9-col{align-items:stretch;text-align:center}.s9-col .k-btn{width:100%}.s9-txt{font-size:1rem}}
+/* tlačidlá a polia podľa celého webu: bez okraja, efekt svetlejšia čierna */
+.k-btn{transition:background-color .25s,color .25s}
+@media(hover:hover){.k-btn:hover{background:#3a3a3c}}
+.k-btn:active{background:#3a3a3c}
+.s1-card .k-f{background:#f6f7fa;box-shadow:none!important}
+.s1-card .k-f:focus,.s1-card .k-f:focus-visible{box-shadow:none!important;background:#f1f2f6}
+.s1-card{position:relative}.s9-col{align-self:flex-start;align-items:stretch;text-align:center}@media(max-width:820px){.s9-col{align-self:stretch;align-items:stretch}}.s9-spat{position:absolute;top:50px;right:56px;padding:4px 0}@media(max-width:820px){.s9-spat{top:28px;right:22px}}
+.s1-card input.s1-big,.s1-card select.s1-big,.s1-card .s9-kod2{font-size:clamp(1.3rem,2.6vw,1.9rem);letter-spacing:normal}
+.s9-pozn{margin:-14px 0 22px!important;font-size:.95rem!important}
+.s9-tel{display:flex;gap:14px;align-items:flex-end}
+.s9-tel select.s1-big{width:auto;flex:none;padding-right:34px!important;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right 4px center!important;background-size:18px!important;font-variant-emoji:emoji}
+.s9-tel input.s1-big{flex:1;min-width:0}
+.s9-kod2{flex:none;width:auto!important;color:var(--text-muted);white-space:nowrap}
+.s9-skus{display:grid;gap:14px}
+.s9-skus .k-check{font-size:1rem;color:var(--text)}
+@media(max-width:820px){.s9-tel{gap:10px}}
+
+/* Témy vyzerajú ako tlačidlá „Skúste:“ na stránke FAQ: bez okraja, jemný tieň */
+.s1-card .k-chip,.s1-card .k-chip:hover{font-size:1.05rem;font-weight:600;padding:14px 24px;background:#fff;color:var(--text);border:none;box-shadow:var(--tien-3)}
+.s1-card .k-chip:focus,.s1-card .k-chip:focus-visible,.s1-card .k-chip:active{outline:none!important;box-shadow:var(--tien-3)}
+.s1-card .k-chip.on{background:#1d1d1f;color:#fff}
+
+/* bez počítadla krokov (1 / 11), ostáva len ružová čiara */
+#s9Cnt{display:none!important}
+
+/* Odoslanie: rovnaký vzhľad ako po odoslaní žiadosti */
+.k-ok p{max-width:560px;margin:12px auto 0;font-size:1rem;line-height:1.7}
+.kt-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:26px;padding:15px 30px;border-radius:100px;background:#f2f3f7;color:#1d1d1f;font-weight:600;font-size:.99rem;text-decoration:none;transition:background-color .25s}
+@media(hover:hover){.kt-btn:hover{background:#e4e6ec}}
+.kt-btn:active{background:#e4e6ec}
+
+/* Odoslanie: efekt ako pôvodne v žiadosti (karta sa jemne nadýchne, krúžok, nadpis, text a tlačidlo postupne vyjdú zdola) */
+.k-ok.show{animation:ktDych .7s cubic-bezier(.2,.9,.3,1) both}
+.k-ok.show .k-ok-ic{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .05s both}
+.k-ok.show b{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .2s both}
+.k-ok.show p{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .32s both}
+.k-ok.show .kt-btn{animation:ktNabeh .5s cubic-bezier(.2,.8,.3,1) .44s both}
+@keyframes ktNabeh{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes ktDych{from{transform:scale(.975)}to{transform:none}}
+
+/* ═══ ŽIADOSŤ v štýle Kontaktu (návrh) ═══ */
+.s1-top{margin-top:0}
+
+.s1-card [hidden]{display:none!important}
+.zq-val{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:900;letter-spacing:-.04em;line-height:1;margin:0 0 30px;font-variant-numeric:tabular-nums;color:var(--text)}
+.zq-val small{font-size:.3em;font-weight:600;color:var(--text-muted);letter-spacing:-.01em;margin-left:.6em;white-space:nowrap}
+input.zq-rng{-webkit-appearance:none!important;appearance:none!important;display:block;width:100%;height:6px!important;border-radius:6px!important;background:rgba(29,29,31,.12);outline:none!important;margin:0!important;padding:0!important;border:none!important;box-shadow:none!important;cursor:pointer}
+input.zq-rng::-webkit-slider-runnable-track{height:6px;background:transparent;border:none;box-shadow:none}
+input.zq-rng::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:30px;height:30px;border-radius:50%;background:#1d1d1f;border:none;margin-top:-12px;box-shadow:var(--tien-3)}
+input.zq-rng::-moz-range-track{height:6px;background:transparent;border:none}
+input.zq-rng::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:#1d1d1f;border:none;box-shadow:var(--tien-3)}
+.zq-ends{display:flex;justify-content:space-between;font-size:.84rem;color:var(--text-faint);margin-top:16px}
+.zq-vys{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+.zq-vys div{background:#f6f7fa;border-radius:14px;padding:16px 18px}
+.zq-vys span{display:block;font-size:.84rem;color:var(--text-muted)}
+.zq-vys strong{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.zq-vys small{font-size:.78rem;color:var(--text-faint)}
+.s1-card select.s1-big.zq-sel{cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:34px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right 4px center!important;background-size:18px!important}
+.s1-card input[type=date].s1-big{-webkit-appearance:none;appearance:none;min-height:1.2em;display:block;text-align:left}
+.zq-ine{margin-top:26px}
+.zq-eur{display:flex;align-items:flex-end;gap:12px}
+.zq-eur input{flex:1;min-width:0;-moz-appearance:textfield}
+.zq-eur input::-webkit-outer-spin-button,.zq-eur input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.zq-eur span{font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:600;color:var(--text-muted);padding-bottom:14px}
+.zq-hes{position:relative}
+.zq-hes input{padding-right:96px!important}
+.zq-hes .k-link{position:absolute;right:0;bottom:12px;font-size:.88rem}
+.zq-sum{display:grid;gap:12px;width:100%}
+.zq-g{background:#f6f7fa;border-radius:14px;padding:6px 18px 8px}
+.zq-g>b{display:block;font-size:.8rem;font-weight:700;color:var(--text-muted);padding:10px 0 6px}
+.zq-r{display:flex;justify-content:space-between;align-items:baseline;gap:18px;width:100%;background:none;border:none;border-top:1px solid rgba(29,29,31,.07);border-radius:0;font-family:inherit;font-size:.97rem;line-height:1.4;color:var(--text);padding:10px 0;text-align:left;outline:none}
+button.zq-r{cursor:pointer}
+.zq-r span{color:var(--text-muted);flex:none}
+.zq-r b{font-weight:600;text-align:right;overflow-wrap:anywhere}
+@media(hover:hover){button.zq-r:hover b{text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:4px}}
+.zq-su{margin-bottom:20px}
+.zq-suhlasy{margin-top:34px;padding-top:30px;border-top:1px solid rgba(29,29,31,.1)}
+.zq-su>b{display:block;font-size:.97rem;font-weight:700;margin-bottom:8px}
+.k-check a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.zq-oou{margin:4px 0 0;font-size:.88rem;line-height:1.55;color:var(--text-muted)}.zq-oou a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.zq-su>b em{font-style:normal;font-weight:500;font-size:.82rem;color:var(--text-faint);margin-left:6px}
+.zq-sig{position:relative;background:#f6f7fa;border-radius:14px;height:210px;overflow:hidden;touch-action:none}
+.zq-sig canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none}
+.zq-sig i{position:absolute;left:24px;right:24px;bottom:54px;height:1px;background:rgba(29,29,31,.2);pointer-events:none}
+.zq-sig em{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-style:normal;font-size:.86rem;color:var(--text-faint);pointer-events:none}
+.zq-sig.je em{display:none}
+.zq-sigp{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:10px;font-size:.82rem;line-height:1.5;color:var(--text-faint)}
+.zq-sigp .k-link{flex:none;font-size:.86rem}
+.zq-dov{text-align:center;font-size:.86rem;color:var(--text-faint);margin:20px 0 0}
+@media(max-width:820px){.zq-vys strong{font-size:1.2rem}.zq-vys div{padding:14px}.zq-r{font-size:.92rem;gap:12px}.zq-sigp{flex-direction:column;align-items:flex-start}.zq-sig{height:190px}}
+.zq-p{margin-bottom:34px}
+.zq-pl{display:block;font-size:.9rem;font-weight:600;color:var(--text-muted);margin-bottom:8px}
+.zq-p .zq-val{font-size:clamp(2.1rem,5vw,3.2rem);margin-bottom:24px}
+.zq-p+.zq-vys{margin-top:0}
+.zq-vys strong{font-size:1.7rem}
+@media(max-width:820px){.zq-p{margin-bottom:28px}.zq-vys strong{font-size:1.25rem}}
+/* ružové prvky ako v pôvodnom formulári: ružová čiara posuvníka, biela guľka, ružová splátka */
+input.zq-rng{height:8px!important;border-radius:100px!important}
+input.zq-rng::-webkit-slider-runnable-track{height:8px;border-radius:100px;background:transparent!important}
+input.zq-rng::-moz-range-track{height:8px;border-radius:100px;background:transparent!important}
+input.zq-rng::-webkit-slider-thumb{width:26px;height:26px;margin-top:-9px;background:#fff;border:.5px solid rgba(29,29,31,.08);box-shadow:var(--tien-gulka,0 3px 10px rgba(24,33,66,.28));cursor:grab}
+input.zq-rng::-moz-range-thumb{width:26px;height:26px;background:#fff;border:.5px solid rgba(29,29,31,.08);box-shadow:var(--tien-gulka,0 3px 10px rgba(24,33,66,.28));cursor:grab}
+.zq-vys div:first-child strong{color:var(--acc)}
+.zq-r.zq-ruz b{color:var(--acc)}
+:root{--tien-gulka:0 1px 2px rgba(24,33,66,.20),0 2px 8px rgba(24,33,66,.12)}
+/* návrh 2: príbuzné údaje spolu */
+.zq-fs{display:grid;grid-template-columns:1fr 1fr;gap:28px 30px;width:100%}
+.zq-f{min-width:0}.zq-f.zq-w{grid-column:1/-1}
+.zq-chk{position:relative}.zq-chk .s1-big{padding-right:42px!important;transition:color .4s}.zq-chk::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--acc);border-radius:2px}.zq-chk::before{content:'';position:absolute;inset:-6px -8px -2px -8px;border-radius:12px;background:rgba(194,173,140,.14);opacity:0;pointer-events:none}.zq-chk-ok{position:absolute;right:2px;bottom:12px;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#1d1d1f;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.4);pointer-events:none}.zq-chk-ok svg{width:17px;height:17px}.zq-chk-ok svg path{stroke-dasharray:24;stroke-dashoffset:24}.zq-chk.ok .s1-big{color:#1d1d1f}.zq-chk.ok::after{animation:zqCiara .5s ease-out forwards}.zq-chk.ok::before{animation:zqZablesk 1.1s ease-out forwards}.zq-chk.ok .zq-chk-ok{animation:zqPop .5s cubic-bezier(.2,1.4,.4,1) .35s forwards}.zq-chk.ok .zq-chk-ok svg path{animation:zqFajka .35s ease-out .6s forwards}.zq-chk.ok.druhy::after{animation-delay:.2s}.zq-chk.ok.druhy::before{animation-delay:.2s}.zq-chk.ok.druhy .zq-chk-ok{animation-delay:.55s}.zq-chk.ok.druhy .zq-chk-ok svg path{animation-delay:.8s}.zq-zhoda{display:none;margin:10px 0 0;font-size:.95rem;font-weight:600;color:var(--acc)}.zq-zhoda.on{display:block;animation:zqText .5s ease-out 1s both}@keyframes zqCiara{to{width:100%}}@keyframes zqZablesk{0%{opacity:0}30%{opacity:1}100%{opacity:0}}@keyframes zqPop{0%{opacity:0;transform:scale(.4)}60%{opacity:1;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}@keyframes zqFajka{to{stroke-dashoffset:0}}@keyframes zqText{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.zq-fl{display:block;font-size:.9rem;font-weight:600;color:var(--text-muted);margin-bottom:4px}
+.zq-flc{margin-bottom:12px}
+.s1-card .zq-fs input.s1-big,.s1-card .zq-fs select.s1-big{font-size:clamp(1.15rem,2vw,1.45rem)}
+.zq-fs .zq-eur span{font-size:clamp(1.15rem,2vw,1.45rem)}
+.zq-fs .s1-chips .k-chip{min-width:92px}
+.zq-suerr{margin:-6px 0 20px}
+.zq-sub{margin:8px 0 12px}
+.zq-sut{font-size:.88rem;line-height:1.55;color:var(--text-muted);margin:0}
+@media(max-width:820px){.zq-fs{grid-template-columns:1fr;gap:22px}.s1-card .zq-fs input.s1-big,.s1-card .zq-fs select.s1-big{font-size:1.15rem}}
+@media(max-width:820px){.s1-card input#zqIban.s1-big{font-size:1.02rem;letter-spacing:-.01em}}
+
+/* ═══ návrh 5: obsah a pravidlá presne z formulára na webe ═══ */
+:root{--tien-gulka:0 1px 2px rgba(24,33,66,.20),0 2px 8px rgba(24,33,66,.12)}
+#zkForm{display:block}
+#zkForm .pane.on{display:flex}
+#zkForm h2.s1-q{margin-top:0}
+#zkForm .s1-q i,#zkForm .zq-fl i,#zkForm .zq-su>b i{font-style:normal;color:var(--acc);margin-left:0}
+#zkForm .err-msg{display:none;margin-top:8px;font-size:.84rem;font-weight:600;color:var(--acc-deep)}
+#zkForm .err-msg.on{display:block}
+#zkForm .err{border-color:var(--acc)!important;box-shadow:none!important}
+#zkForm .s1-big.err{border-bottom-color:var(--acc)!important}
+#zkForm select.err+.k-chips .k-chip{box-shadow:inset 0 0 0 1.5px var(--acc)}
+#zkForm .suhlas.err input{outline:2px solid var(--acc);outline-offset:2px}
+.zq-hid{display:none!important}
+.zq-vsel{align-self:flex-start;display:block;max-width:100%;border:none;outline:none;background:none;-webkit-appearance:none;appearance:none;font-family:inherit;font-size:clamp(2.1rem,5vw,3.2rem);font-weight:900;letter-spacing:-.04em;line-height:1.1;color:var(--text);padding:0 40px 0 0;margin:0 0 10px;cursor:pointer;border-radius:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center;background-size:24px}
+.zq-vsel option{font-size:1rem;font-weight:400;letter-spacing:0}
+.zq-p{display:flex;flex-direction:column}
+.zq-p input[type=range]{display:block;margin:0}
+.zq-p .zq-ends{margin-top:2px}
+.zq-top{display:grid;grid-template-columns:repeat(4,1fr);margin:0 0 14px;border-radius:18px;background:#fff;box-shadow:var(--tien-3);overflow:hidden}
+.zq-top[hidden]{display:none}
+.zq-top div{padding:14px 18px}
+.zq-top div+div{border-left:1px solid rgba(29,29,31,.08)}
+.zq-top span{display:block;font-size:.76rem;font-weight:600;color:var(--text-muted)}
+.zq-top b{display:block;margin-top:3px;font-size:1.1rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.zq-top div:nth-child(1) b,.zq-top div:nth-child(3) b{color:var(--acc)}
+.zq-gh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0 8px}
+.zq-gh b{font-size:.98rem;font-weight:800;letter-spacing:-.01em}
+.zq-gh button{border:none;background:none;padding:0;font:inherit;font-size:.84rem;font-weight:600;color:var(--text);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+#zkSuhrn .zq-r{align-items:center;gap:10px}
+#zkSuhrn .zq-r::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:var(--green-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a7d3f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/11px no-repeat}
+#zkSuhrn .zq-r b{margin-left:auto}
+#zsSuma,#zsSplatka{color:var(--acc)}
+.zq-exe{flex-direction:column;align-items:flex-start}
+#zkForm .zq-exe .k-chip{text-align:left}
+.zq-sig .sig-line{position:absolute;left:24px;right:24px;bottom:48px;height:1px;background:rgba(29,29,31,.2);pointer-events:none}
+.zq-sig .sig-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-faint);font-size:.95rem;pointer-events:none;transition:opacity .2s}
+.zq-sig .sig-ph svg{width:28px;height:28px}
+.zq-sig.ma .sig-ph{opacity:0}
+.zq-sig.err{box-shadow:inset 0 0 0 1.5px var(--acc)!important}
+.zq-sigp button{flex:none;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:100px;border:none;background:#f2f3f7;color:var(--text-muted);font-family:inherit;font-size:.84rem;font-weight:500;cursor:pointer}
+.zq-sigp button svg{width:14px;height:14px}
+button.kt-btn{border:none;font-family:inherit;cursor:pointer}
+#zkForm .pane[data-pane="12"] .k-ok{width:100%}
+@media(max-width:820px){.zq-top{grid-template-columns:1fr 1fr;border-radius:16px}.zq-top div{padding:11px 14px}.zq-top div+div{border-left:none}.zq-top div:nth-child(even){border-left:1px solid rgba(29,29,31,.08)}.zq-top div:nth-child(n+3){border-top:1px solid rgba(29,29,31,.08)}.zq-top b{font-size:1rem}.zq-vsel{background-size:20px;padding-right:32px}#zkForm .zq-exe .k-chip{font-size:.95rem;padding:13px 18px}}
+#zkForm .zq-vsel{width:auto!important}
+
+/* ═══ návrhy 6 až 10: spoločné ═══ */
+.zq-body{display:contents}
+.s1-n:has(+.zq-body){margin-bottom:22px}
+.s1-seg,.s1-cnt,#ziadost .zq-steps{display:none}
+#ziadost .zq-steps button{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;font-family:inherit;font-size:.92rem;font-weight:600;color:var(--text-faint);padding:9px 10px;border-radius:12px;text-align:left;cursor:default}
+#ziadost .zq-steps button i{font-style:normal;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;background:#fff;box-shadow:var(--tien-3);flex:none;color:var(--text-muted);font-variant-numeric:tabular-nums}
+#ziadost .zq-steps button.on{color:var(--text)}
+#ziadost .zq-steps button.on i{background:var(--acc);color:#fff;box-shadow:none}
+#ziadost .zq-steps button.done{color:var(--text);cursor:pointer}
+#ziadost .zq-steps button.done i{background:var(--green-bg);color:transparent;box-shadow:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a7d3f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:12px}
+@media(hover:hover){#ziadost .zq-steps button.done:hover{background:rgba(29,29,31,.05)}}
+#ziadost .zq-steps button.bez span{display:none}
+.s1-seg{gap:6px;flex:1}
+.s1-seg i{flex:1;height:5px;border-radius:5px;background:rgba(29,29,31,.1);transition:background .3s}
+.s1-seg i.on{background:var(--acc)}
+.s1-cnt{display:none;font-size:.85rem;font-weight:700;color:var(--text-muted);font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
+
+/* ═══ návrh 6: Bez karty ═══ */
+#ziadost .s1-card{background:none;box-shadow:none;padding:34px 0 0;border-radius:0;min-height:360px}
+#ziadost .s9-spat{top:34px;right:0}
+#ziadost .s1-q{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:-.04em}
+#ziadost .zq-vys div,#ziadost .zq-g{background:#fff;box-shadow:var(--tien-3)}
+#ziadost .s1-big{border-bottom-color:rgba(29,29,31,.22)!important}
+#ziadost .zq-dov{margin-top:28px}
+@media(max-width:820px){#ziadost .s1-card{padding:24px 0 0}#ziadost .s9-spat{top:24px;right:0}}
+
+/* Úvodná stránka: formulár je pod hero sekciou, odsadenie ako doteraz */
+#ziadost.k-sec{padding:20px 24px 110px;background:transparent;margin-top:10px}
+@media(max-width:820px){#ziadost.k-sec{padding:20px 16px 72px}}
+
+/* Výber sumy a doby: veľké číslo je zobrazené zvlášť, zoznam má normálne písmo (inak Safari zväčší aj rozbalený zoznam) */
+#zkForm .zq-vwrap{position:relative;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin:0 0 10px;max-width:100%}
+#zkForm .zq-vwrap b{font-size:clamp(2.1rem,5vw,3.2rem);font-weight:900;letter-spacing:-.04em;line-height:1.1;color:var(--text);white-space:nowrap;font-variant-numeric:tabular-nums}
+#zkForm .zq-vwrap svg{width:24px;height:24px;flex:none;color:var(--text)}
+#zkForm .zq-vwrap select.zq-vsel{position:absolute;inset:0;width:100%!important;height:100%;margin:0;padding:0;opacity:0;font-size:16px;font-weight:400;letter-spacing:0;background:none;cursor:pointer}
+@media(max-width:820px){#zkForm .zq-vwrap svg{width:20px;height:20px}}
+#zkForm .zq-vwrap select.zq-vsel:focus,#zkForm .zq-vwrap select.zq-vsel:focus-visible,#zkForm .zq-vwrap select.zq-vsel:active{outline:none!important;box-shadow:none!important;border:none!important;background:none!important}
+#zkForm .zq-vwrap:focus-within{outline:none}
+
+/* Žiadosť: biela karta s tieňom ako v pôvodnom formulári */
+#ziadost .s1-card{background:#fff;border-radius:30px;padding:34px 34px 30px;box-shadow:0 14px 40px rgba(24,33,66,.10),0 2px 6px rgba(24,33,66,.05)}
+@media(max-width:820px){#ziadost .s1-card{padding:22px 14px 20px;border-radius:24px}}
+/* dlaždice (výsledky, zhrnutie) sivé ako v pôvodnom formulári, biele na bielej karte splývali */
+#ziadost .zq-vys div,#ziadost .zq-g{background:#f6f7fa;box-shadow:none}
+/* bez čísel krokov a bez odkazu Naspäť vpravo hore */
+#ziadost .s1-n{display:none}
+#ziadost #zqSpat{display:none!important}
+/* Tlačidlá dole ako v pôvodnom formulári: Naspäť (bez pozadia, ružová čiarka pri prejdení myšou) a Ďalej vpravo */
+#ziadost .s1-ft{justify-content:flex-end;gap:10px}
+#ziadost .s1-ft .zq-spat{position:relative;display:inline-flex;align-items:center;justify-content:center;background:none;border:none;box-shadow:none;padding:15px 8px;border-radius:0;overflow:visible;font-family:inherit;font-weight:600;font-size:.97rem;color:var(--text);cursor:pointer}
+#ziadost .s1-ft .zq-spat::after{content:"";position:absolute;left:8px;right:8px;bottom:9px;height:2px;border-radius:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+@media(hover:hover){#ziadost .s1-ft .zq-spat:hover::after{transform:scaleX(1)}}
+@media(max-width:820px){#ziadost .s1-ft{flex-direction:column;gap:6px}#ziadost .s1-ft .k-btn{order:1}#ziadost .s1-ft .zq-spat{order:2;width:100%}}
+
+/* Heslo: očko namiesto textu Zobraziť (rovnaká ikona ako v účte a pri prihlásení) */
+#ziadost .zq-hes input{padding-right:44px!important}
+#ziadost .zq-oko{position:absolute;right:0;bottom:8px;background:none;border:none;padding:6px;cursor:pointer;color:var(--text-muted);display:inline-flex;border-radius:8px}
+#ziadost .zq-oko svg{width:22px;height:22px}
+#ziadost .zq-oko .o-off{display:none}
+#ziadost .zq-oko.skryta .o-on{display:none}
+#ziadost .zq-oko.skryta .o-off{display:block}
+@media(hover:hover){#ziadost .zq-oko:hover{color:var(--text-muted)}}
+
+/* ═══ Hero: hviezdičky pod tlačidlami (návrh 9, zlaté vetvičky) ═══ */
+.hz{position:relative;display:inline-block;line-height:0;vertical-align:middle}
+.hz-z,.hz-p{display:flex;gap:3px;white-space:nowrap}
+.hz-p{position:absolute;left:0;top:0;overflow:hidden}
+.hz svg{width:18px;height:18px;flex:none}
+.hz-z svg{fill:#e2e4ea}.hz-p svg{fill:#1d1d1f}
+.hz.zl .hz-p svg{fill:#c2ad8c}
+.hr{display:flex;justify-content:center;margin-top:22px}
+.hr a{color:inherit;text-decoration:none}
+.r9{display:inline-flex;align-items:center;gap:6px}
+.r9 .pv{width:36px;height:88px;flex:none}
+.r9 .hz-st{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 4px}
+.r9 b{font-size:1.05rem;font-weight:800;color:var(--text);line-height:1}
+.r9 small{font-size:.74rem;color:var(--text-muted);letter-spacing:.02em}
+@media(max-width:820px){.hr{margin-top:20px}}
+
