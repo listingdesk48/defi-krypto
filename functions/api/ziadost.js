@@ -48,7 +48,7 @@ async function spracuj(context) {
   var sp = Math.round(splatka(suma, doba) * 100) / 100, celkom = Math.round(sp * doba * 100) / 100; /* bez poplatku za inzerát, podľa OP čl. IV ods. 3 */
   var id = nahodny(12), sol = nahodny(16), hash = await hashHesla(heslo, sol);
   var podane = new Date(), schvalitO = naplanujSchvalenie(podane);
-  var udaje = Object.assign({}, u); delete udaje.zkHeslo;
+  var udaje = Object.assign({}, u); delete udaje.zkHeslo; udaje.novinky = d.novinky === true;
   /* Podpis sa už neukladá (15.10.2026): nie je právne potrebný a zaberal väčšinu miesta v databáze. */
   var podpis = null;
 
