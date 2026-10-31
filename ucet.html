@@ -429,7 +429,7 @@ textarea.s1-big{min-height:130px;resize:none;line-height:1.5;font-size:clamp(1.1
 #uPoplBox .k-btn{margin-top:14px}@media(max-width:820px){#uPoplBox .k-btn{width:100%}}.u-cas-c{display:block;font-size:1.6rem;font-weight:800;letter-spacing:-.03em;margin:8px 0 14px;color:var(--text)}.u-cas.konci .u-cas-c{color:#df1b41}@media(max-width:820px){.u-cas-c{font-size:1.4rem}}
 .u-cas-b{height:6px;border-radius:100px;background:rgba(29,29,31,.08);overflow:hidden}.u-cas-b>span{display:block;height:100%;width:100%;margin:0;background:var(--acc);border-radius:100px;transition:width .6s}.u-cas.konci .u-cas-b>span{background:#df1b41}
 .u-cas-t{font-size:.86rem;color:var(--text-muted);margin-top:8px;line-height:1.5}.u-cas-t b{color:var(--text);font-weight:600}.u-cas.konci .u-cas-t b{color:#df1b41}
-.u-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}.u-tab{font-family:inherit;font-size:.9rem;font-weight:600;padding:10px 16px;border-radius:100px;border:none;background:#fff;color:var(--text);cursor:pointer;box-shadow:var(--tien-3);transition:background .2s,color .2s}.u-tab:hover{background:#f0f1f5}.u-tab.je{background:#1d1d1f;color:#fff}
+.u-tab[hidden]{display:none!important}.u-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}.u-tab{font-family:inherit;font-size:.9rem;font-weight:600;padding:10px 16px;border-radius:100px;border:none;background:#fff;color:var(--text);cursor:pointer;box-shadow:var(--tien-3);transition:background .2s,color .2s}.u-tab:hover{background:#f0f1f5}.u-tab.je{background:#1d1d1f;color:#fff}
 .u-pan{display:none}.u-pan.je{display:block}
 .n3-sc-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.u-kc{font-size:.86rem;font-weight:600;color:var(--text-muted)}
 .u-kal-h,.u-kal-r{display:grid;grid-template-columns:54px 1fr 1fr 1.2fr;gap:8px;align-items:center}.u-kal-h{font-size:.78rem;font-weight:700;color:var(--text-muted);padding:0 0 8px;border-bottom:1px solid rgba(29,29,31,.1)}.u-kal-h span:not(:first-child),.u-kal-r span:not(:first-child){text-align:right}
@@ -488,7 +488,7 @@ textarea.s1-big{min-height:130px;resize:none;line-height:1.5;font-size:clamp(1.1
  <div class="u-chk">
   <div class="u-ck ok"><i></i><div><b>Žiadosť podaná</b><span id="uCkPodana"></span></div></div>
   <div class="u-ck ok"><i></i><div><b>Údaje prijaté</b><span>Žiadosť je kompletná</span></div></div>
-  <div class="u-ck" id="uCkSchv"><i></i><div><b>Žiadosť schválená</b><span id="uCkSchvS"></span></div></div>
+  <div class="u-ck" id="uCkSchv"><i></i><div><b id="uCkSchvT">Schválenie žiadosti</b><span id="uCkSchvS"></span></div></div>
   <div class="u-ck" id="uCkPopl"><i></i><div><b id="uPoplT">Poplatok uhradený</b><span id="uPoplS"></span>
    <div id="uPoplBox" class="u-skryte"><div class="u-cas lh2 u-skryte" id="uCas"><span class="lh-l">Lehota na úhradu</span><b class="u-cas-c" id="uCasC"></b><div class="u-cas-b"><span id="uCasB"></span></div><div class="u-cas-t" id="uCasS"></div></div><a class="k-btn" id="uPoplBtn" href="/uhradit-poplatok">Uhradiť poplatok</a>
    </div>
@@ -499,7 +499,7 @@ textarea.s1-big{min-height:130px;resize:none;line-height:1.5;font-size:clamp(1.1
 <div class="u-tabs u-skryte" id="uTabs">
  <button type="button" class="u-tab je" data-tab="uver">Financovanie</button>
  <button type="button" class="u-tab" data-tab="osoba">Osobné údaje</button>
- <button type="button" class="u-tab" data-tab="kalendar">Splátkový kalendár</button>
+ <button type="button" class="u-tab" data-tab="kalendar" hidden>Splátkový kalendár</button>
 </div>
 <div class="u-card u-skryte" id="uDetail">
  <div class="u-pan je" id="uPan-uver"><span class="u-lbl">Financovanie</span><div class="u-rows" id="uRows"></div><div class="u-upr-w u-skryte" id="uZmenaW"><button type="button" class="u-upr" id="uZmenaBtn">Zmeniť sumu alebo dobu</button> <button type="button" class="u-upr" data-uprav="ucel">Upraviť účel</button></div><p class="u-ed-pozn u-skryte u-zamok" style="margin-top:14px">Poplatok je uhradený, údaje už nie je možné meniť.</p></div>
@@ -530,7 +530,7 @@ window.KV_JA.then(function(ja){if(!ja.prihlaseny)return;
  document.getElementById('uDobaR').style.display='none';
  document.getElementById('uSplatka').textContent=fmt2(ja.splatka)+' €';document.getElementById('uCelkom').textContent=fmt2(ja.celkom)+' €';
  document.getElementById('uPoplKarta').classList.remove('u-skryte');document.getElementById('uCkPodana').textContent=dat(ja.vytvorene);
- var cs=document.getElementById('uCkSchv');cs.className='u-ck '+(ok||zr?'ok':'caka');document.getElementById('uCkSchvS').textContent=ok||zr?dat(ja.schvalene_o):'Posudzuje sa, o schválení Vás budeme informovať e-mailom do niekoľkých hodín';
+ var cs=document.getElementById('uCkSchv');cs.className='u-ck '+(ok||zr?'ok':'caka');document.getElementById('uCkSchvT').textContent=ok||zr?'Žiadosť schválená':'Schválenie žiadosti';var kt=document.querySelector('.u-tab[data-tab="kalendar"]');if(kt)kt.hidden=!ok;document.getElementById('uCkSchvS').textContent=ok||zr?dat(ja.schvalene_o):'Posudzuje sa, o schválení Vás budeme informovať e-mailom do niekoľkých hodín';
  var cp=document.getElementById('uCkPopl'),uh=!!ja.poplatok_uhradeny;cp.className='u-ck '+(uh?'ok':ok||zr?'ne':'caka');cp.classList.toggle('u-skryte',!ok&&!zr&&!uh);
  document.getElementById('uPoplT').textContent=uh?'Poplatok uhradený':'Poplatok neuhradený';
  document.getElementById('uPoplS').textContent=uh?('Uhradené '+dat(ja.poplatok_uhradeny_o)+'.'):zr?'Nebol uhradený do '+(ja.poplatok_lehota_dni||5)+' dní od schválenia, schválenie je zrušené.':ok?('Poplatok za poskytnutie služby: '+fmt(ja.poplatok||300)+' €.'):'Poplatok za poskytnutie služby '+fmt(ja.poplatok||300)+' € sa uhrádza po schválení.';
